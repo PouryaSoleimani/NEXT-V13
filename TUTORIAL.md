@@ -18,4 +18,9 @@
 -- To define a route group we should make a folder and put the name in paranthesis like -> (adminpanel)/pages.tsx
 -- the { ROUTE GROUP } folders doesnt count in routing , it means in the example above , we wont have a /adminpanel route
 
- ****
+
+<!--^ SLUGS IN NEXT V-13  -->
+7 - for slug pages we use [] and ... together for folder names  , like : [...search]
+
+<!-- ^ LAYOUT.TSX FILE IN APP ROUTER -->
+8 - LAYOUT.TSX File is like -app.tsx file in {FILE ROUTER} but we use regular html tags in it

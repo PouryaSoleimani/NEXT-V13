@@ -1,3 +1,4 @@
+//^ COURSES MAIN PAGE
 import { NextPage, GetStaticProps } from 'next'
 
 interface Props { params: { id: number } }
