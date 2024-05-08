@@ -28,3 +28,4 @@
 ---- to create a custom layout for a special route , we must create a {layout.tsx} file in the folder , and do just like the main {layout.tsx} page 
 
 
+<!-- ^ SERVER COMPONENTS AND CLIENT COMPONENTS -->
