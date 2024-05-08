@@ -29,3 +29,10 @@
 
 
 <!-- ^ SERVER COMPONENTS AND CLIENT COMPONENTS -->
+
+<!-- ? A - SERVER COMPONENTS -->
+9 - by default , every component is a server component and it is rendered in server side and then delivered to the browser
+-- thats why in every default component our logs will be displayed in the server side , and not in the browser 
+** server components are SSR , and every default component is a server component **
+
+<!-- ! B - CLIENT COMPONENTS -->
