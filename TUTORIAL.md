@@ -4,3 +4,8 @@
 ==> about/page.tsx
 
 2 - EVERY SINGLE PAGE must have its own folder and a file named app.tsx / a folder cant contain more than a page
+
+3 - To create dynamic pages we name the folder with [] and then insert a page.tsx in the folder
+
+4 - to access the params data in a dynamic page in APP ROUTER  , we must get the params in components props and access the keyword of it
+
