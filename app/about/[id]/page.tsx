@@ -4,9 +4,7 @@ interface Props { params: { id: number } }
 
 const Page: NextPage<Props> = ({ params }) => {
 
-  console.log(params.id)
-
-
+  console.log(params.id) // THIS LOGS IN BACKEND CONSOLE , AND NOT IN THE BROWSER
 
   return (
     <div>
