@@ -11,4 +11,4 @@ const Page: NextPage<Props> = ({ params }) => {
   )
 }
 
-export default Page
+export default Page 

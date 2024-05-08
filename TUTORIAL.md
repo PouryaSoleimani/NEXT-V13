@@ -13,3 +13,9 @@
 <!-- ^ NESTED ROUTES -->
 5 - by adding folders (dynamic or static) in other folders , we will have nested routes --> proudcts/[id]/singleproduct/page.tsx
 
+<!-- ^ ROUTE GROUP -->
+6 - With route group we can Divide our routes to different groups and its so easier for bigger projects
+-- To define a route group we should make a folder and put the name in paranthesis like -> (adminpanel)/pages.tsx
+-- the { ROUTE GROUP } folders doesnt count in routing , it means in the example above , we wont have a /adminpanel route
+
+ ****
