@@ -24,7 +24,7 @@ const ClientComponents = async () => {
       </ul>
 
     </div>
-  )
+  ) 
 }
 
-export default ClientComponents 
+export default ClientComponents  
