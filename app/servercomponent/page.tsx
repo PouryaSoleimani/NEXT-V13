@@ -7,12 +7,18 @@ type FormProps = { id: number, name: string, username: string }
 const ServerComponent = async () => {
 
   //FETCHING DATA FROM SERVER
-  const request = await fetch('https://jsonplaceholder.typicode.com/users')
+  const request = await fetch('https://jsonplaceholder.typicode.com/users', {
+    // cache: 'force-cache'
+    // cache: 'no-store' // "force-cache" == SSG &&& // "no-store" == SSR
+    next: { revalidate: 3600 } // ISR -> REVALIDATE : SECONDS
+  })
+
   const response = await request.json()
 
   //RETURN
   return (
     <>
+
       <div>
         <h1 className='bg-lime-700 text-4xl font-bold p-4 text-center'>ServerComponent</h1>
       </div>
@@ -21,8 +27,10 @@ const ServerComponent = async () => {
       <div>
         {response.map((user: FormProps) => (<Form {...user} />))}
       </div>
+
     </>
   )
+
 }
 
 export default ServerComponent

@@ -27,6 +27,8 @@
 -- We can also create custom layouts for different routes . for example if we set a layout for one route , all of the subroutes will receive that layout
 ---- to create a custom layout for a special route , we must create a {layout.tsx} file in the folder , and do just like the main {layout.tsx} page 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <!-- ^ SERVER COMPONENTS AND CLIENT COMPONENTS -->
 
 <!-- ? A - SERVER COMPONENTS -->
@@ -42,14 +44,17 @@
 --- We always use <<CLIENT COMPONENTS >> if only we want to have <<ONCLICK>> or other eventlisteners , or if we have <<REACT HOOKS>> , or if we have <<BROWSER APIs>>
 --- Otherwise , <<WE ALWAYS USE SERVER COMPONENTS>>
 
-<!--^ CACHE IN NEXT V-13  -->
-11 - When we do a <<DATA FETCHING >> in next.js  , next will save our response in <<CACHE>> and will use it again from cache if we do that same fetching again
-<!-- * HINT 1 : EVERY PAGE AND COMPONENT IN NEXT.JS , BY DEFAULT IS : (( SSG AND SERVER COMPONENT )) -->
-<!-- * HINT 2 : EVERY PAGE IS SSG AND WILL FETCH OUR DATA AND USE IT AS STATIC HTML TAGS BY DEFAULT -->
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<!--^ NEW CACHE METHOD IN NEXT V-13  -->
+11 - When we do a <<DATA FETCHING >> in next.js  , next will save our response in <<CACHE>> and will use it again from cache if we do that same fetching again
+<!-- ? HINT 1 : EVERY PAGE AND COMPONENT IN NEXT.JS , BY DEFAULT IS : (( SSG AND SERVER COMPONENT )) -->
+<!-- ? HINT 2 : EVERY PAGE IS SSG AND WILL FETCH OUR DATA AND USE IT AS STATIC HTML TAGS BY DEFAULT -->
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 <!-- ^ SSR & ISR IN NEXT V-13 -->
-12 - To use SSR in data fetching , we must send a second prop to our fetch :
+12 - To use SSR & ISR in data fetching , we must send a second prop to our fetch :
 
 <!-- ! SSG -->
  - <<force-cache>> --> fetch('/api' ,`{ cache : "force-cache" }`) --> <<SSG>> --> here we are having a fetching like <<GETSTATICPROPS>> in file-router , this type is just similar to <<SSG>> and its default in next.js.
@@ -60,6 +65,7 @@
 <!-- ! ISR -->
  - <<next : { revalidate : 10 }>> --> fetch('/api', {next : { revalidate : 10 } } ) <<ISR>> --> use this instead of cache , for the second parameter in fetch , to perform and <<ISR>> rendering
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 <!-- ^ NESTED CLIENT AND SERVER COMPONENTS -->
 13 - We can import and use <<SERVER COMPONENTS>> and <<CLIENT COMPONENTS>> in eachother
