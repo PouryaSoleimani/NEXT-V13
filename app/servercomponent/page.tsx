@@ -6,11 +6,11 @@ type FormProps = { id: number, name: string, username: string }
 
 const ServerComponent = async () => {
 
-  //FETCHING DATA FROM SERVER
+  //FETCHING DATA FROM SERVER - SSG / SSR / ISR
   const request = await fetch('https://jsonplaceholder.typicode.com/users', {
-    // cache: 'force-cache'
-    // cache: 'no-store' // "force-cache" == SSG &&& // "no-store" == SSR
-    next: { revalidate: 3600 } // ISR -> REVALIDATE : SECONDS
+    // cache: 'force-cache' //! SSG
+    // cache: 'no-store' //^ SSR
+    next: { revalidate: 3600 } //* ISR 
   })
 
   const response = await request.json()
