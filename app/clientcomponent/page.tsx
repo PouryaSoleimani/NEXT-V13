@@ -1,14 +1,13 @@
 // ^ CLIENT AND SERVER COMPONENTS
-// * THIS IS A CLIENT COMPONENT
-// "use client"
-// THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
+// * THIS IS A SERVER COMPONENT
+// "use client"  // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
 
 import React from 'react'
 
 const ClientComponents = async () => {
 
-
-  const request = await fetch('https://jsonplaceholder.typicode.com/users', { cache: 'no-store' })
+  // const request = await fetch('https://jsonplaceholder.typicode.com/users', { next: { revalidate: 60 } })  // USE THIS FOR << ISR >>
+  const request = await fetch('https://jsonplaceholder.typicode.com/users', { cache: 'no-store' }) // USE THIS FOR NORMAL SSG AND SSR
   const response = await request.json()
 
   // ? HINTS:
