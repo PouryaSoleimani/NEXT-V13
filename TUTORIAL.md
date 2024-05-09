@@ -72,8 +72,9 @@
 <!-- ? HINT : NEVER USE A CLIENT COMPONENT IN A SERVER COMPONENT , IT WILL CAUSE PERFORMANCE DERCREASING -->
 <!-- ? HINT : NEVER MAKE A LAYOUT PAGE A CLIENT COMPONENT BECAUSE IT MAKES ALL OF THE NEXT PAGES TO CLIENT COMPONENTS -->
 <!-- ? HINT : ALWAYS MAKE (( LEAFS )) CLIENT COMPONENTS AND THEN IMPORT THE LEAF FILES IN ROOT FILES  -->
+<!-- ? HINT : ALWAYS SEND THE WANTED PROPERTIES OF AN OBJECT AS PROPS , NOT THE WHOLE OBJECT , THIS WILL IMPROVE THE PERFORMANCE -->
 
-<!-- & STREAMING IN NEXT.JS  -->
+<!-- & STREAMING SERVER RENDERING IN NEXT.JS  -->
 14 - Streaming is a act of showing custom loading in the page UI , until our fetch function or any other timing functions is completed,
--- this action in next.js is called Streaming , to implement streaming in a page , we must use <Suspense></Suspense> JSX tags.
--- these <Suspense> Tags accept a parameter , called fallback and in the value of fallback we can put the Tag or Loading Component
+-- this action in next.js is called <<Streaming>> , to implement streaming in a page , we must use <Suspense></Suspense> JSX tags.
+-- these <Suspense> Tags accept a parameter , the parameter is called <<fallback>> and in the value of fallback we can put the Tag or Loading Component to use as a <<LOADING VALUE>>
