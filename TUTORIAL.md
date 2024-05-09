@@ -39,3 +39,8 @@
 --HINT : We dont have functions like <<GETSTATICPROPS>> or <<GETSERVERSIDEPROPS>> in app-routing , instead we use <<"USE CLIENT">> for client component and if we dont use anything , our component will be a server component by default
 
 <!-- ^ WHEN TO USE EACH COMPONENT -->
+10 - USE << SERVER COMPONENTS >> vs << CLIENT COMPONENTS >> documentation of the official next.js website
+--- We always use <<CLIENT COMPONENTS >> if only we want to have <<ONCLICK>> or other eventlisteners , or if we have <<REACT HOOKS>> , or if we have <<BROWSER APIs>>
+
+
+<!--^ CACHE IN NEXT V-13  -->

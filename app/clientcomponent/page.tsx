@@ -11,7 +11,6 @@ const Page: NextPage<Props> = ({ }) => {
 
   const [first, setfirst] = useState('HELLO')
 
-
   return (
     <>
       <h1 className='bg-gradient-to-r from-sky-800 via-blue-800 text-4xl font-bold text-center p-6 to-slate-900'>CLIENT COMPONENT</h1>
@@ -20,4 +19,4 @@ const Page: NextPage<Props> = ({ }) => {
   )
 }
 
-export default Page      
+export default Page       
