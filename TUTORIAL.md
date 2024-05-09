@@ -69,10 +69,10 @@
 
 <!-- ^ NESTED CLIENT AND SERVER COMPONENTS -->
 13 - We can import and use <<SERVER COMPONENTS>> and <<CLIENT COMPONENTS>> in eachother
-<!-- ? HINT : NEVER USE A CLIENT COMPONENT IN A SERVER COMPONENT -->
+<!-- ? HINT : NEVER USE A CLIENT COMPONENT IN A SERVER COMPONENT , IT WILL CAUSE PERFORMANCE DERCREASING -->
 <!-- ? HINT : NEVER MAKE A LAYOUT PAGE A CLIENT COMPONENT -->
 
 <!--^ STREAMING IN NEXT.JS  -->
 14 - Streaming is a act of showing custom loading in the page UI , until our fetch function or any other timing functions is completed,
 -- this action in next.js is called Streaming , to implement streaming in a page , we must use <Suspense></Suspense> JSX tags.
--- these <Suspense> Tags accept a parameter , called fallback and in the value of fallback we can put the Tag or Loading **Component**
+-- these <Suspense> Tags accept a parameter , called fallback and in the value of fallback we can put the Tag or Loading Component
