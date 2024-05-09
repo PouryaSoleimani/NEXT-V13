@@ -44,3 +44,10 @@
 
 
 <!--^ CACHE IN NEXT V-13  -->
+11 - When we do a <<DATA FETCHING >> in next.js  , next will save our response in <<CACHE>> and will use it again from cache if we do that same fetching again
+<!-- * HINT 1 : EVERY PAGE AND COMPONENT IN NEXT.JS , BY DEFAULT IS : (( SSG AND SERVER COMPONENT )) -->
+<!-- * HINT 2 : EVERY PAGE IS SSG AND WILL FETCH OUR DATA AND USE IT AS STATIC HTML TAGS BY DEFAULT -->
+
+
+<!-- ^ SSR & ISR IN NEXT V-13 -->
+<!-- ! SSR -->
