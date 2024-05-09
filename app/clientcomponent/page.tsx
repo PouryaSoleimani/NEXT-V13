@@ -1,29 +1,43 @@
-//^ SERVER COMPONENT
-
+//^ CLIENT COMPONENT
+"use client" // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
 
 import React from 'react'
 
-const ClientComponents = async () => {
+type dataType = { id: number, name: string, age: number }
 
-  // const request = await fetch('https://jsonplaceholder.typicode.com/users', { next: { revalidate: 60 } })  // USE THIS FOR << ISR >>
-  const request = await fetch('https://jsonplaceholder.typicode.com/users', { cache: 'no-store' }) // USE THIS FOR NORMAL SSG AND SSR
-  const response = await request.json()
+//COMPONENT
+const ClientComponent = () => {
+  const datas: dataType[] = [
+    { id: 1, name: 'pourya', age: 30 },
+    { id: 2, name: 'alireza', age: 25 },
+    { id: 3, name: 'mohammad', age: 27 },
+    { id: 4, name: 'reza', age: 21 },
+    { id: 5, name: 'ashkan', age: 22 },
+  ]
+  function clickHandler() { console.log('CLICK CLICK') }
 
-  // ? HINTS:
-  //  IN REQUEST and IN FOR CACHE :
-  //  USE 'force-cache' --> SSG RENDERING --> DEFAULT FORM
-  //  USE 'no-store' --> SSR RENDERING
-
+  // RETURN
   return (
-    <div>
-      <h1 className='bg-cyan-500/30 p-8 text-4xl font-bold text-center'>CLIENT COMPONENTS</h1>
+    <>
+      <div>
+        <h1 className='bg-slate-800/70 backdrop-blur-3xl text-slate-100 text-4xl mb-4 text-center font-bold p-7'>CLIENT COMPONENT</h1>
+      </div>
 
-      <ul className='flex flex-col items-start space-y-4 justify-center text-3xl py-4 px-4 '>
-        {response.map((item: { id: number, name: string }) => <li>{item.id} - {item.name}</li>)}
-      </ul>
+      <div className='w-1/2 h-fit bg-zinc-700/40 mx-auto text-2xl p-4 flex space-x-32'>
+        <ul className='flex flex-col space-y-6'>
+          {datas.map((user: dataType) => <li key={user.id}>{user.id} - {user.name.toUpperCase()} : {user.age} Years Old .</li>)}
+        </ul>
+        <button onClick={clickHandler} className='bg-violet-500 h-[5rem] my-auto px-4 rounded-lg text-black font-bold'>CLICK ME</button>
+      </div>
 
-    </div>
+    </>
   )
 }
+export default ClientComponent
 
-export default ClientComponents  
+
+// ^  WE USE CLIENT COMPONENTS WHEN :
+// 1 - WE HAVE EVENTS LIKE (( ONCLICK )) OR (( ONCHANGE ))
+// 2 - WE MUST USE REACT HOOKS LIKE : (( USEEFFECT )) OR (( USESTATE )) AND ...
+// 3 - WE USE BROWSER APIs LIKE (( COOKIES )) AND (( LOCAL STORAGE ))
+// ? ALWAYS USE CLIENT COMPONENTS FOR : EVENTS , HOOKS , BROWSER APIs

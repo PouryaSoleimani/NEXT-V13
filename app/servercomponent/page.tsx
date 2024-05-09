@@ -1,43 +1,37 @@
-//^ CLIENT COMPONENT
-"use client" // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
-
+//^ SERVER COMPONENT
 import React from 'react'
+import Form from './form/page'
 
-type dataType = { id: number, name: string, age: number }
+type FormProps = { id: number, name: string, username: string }
 
-//COMPONENT
-const ServerComponent = () => {
-  const datas: dataType[] = [
-    { id: 1, name: 'pourya', age: 30 },
-    { id: 2, name: 'alireza', age: 25 },
-    { id: 3, name: 'mohammad', age: 27 },
-    { id: 4, name: 'reza', age: 21 },
-    { id: 5, name: 'ashkan', age: 22 },
-  ]
-  function clickHandler() { console.log('CLICK CLICK') }
+const ServerComponent = async () => {
 
-  // RETURN
+  //FETCHING DATA FROM SERVER
+  const request = await fetch('https://jsonplaceholder.typicode.com/users')
+  const response = await request.json()
+
+  //RETURN
   return (
     <>
       <div>
-        <h1 className='bg-pink-400/70 backdrop-blur-3xl text-black text-6xl text-center font-bold p-7'>SERVER COMPONENT</h1>
+        <h1 className='bg-lime-700 text-4xl font-bold p-4 text-center'>ServerComponent</h1>
       </div>
+      <h2 className='w-fit bg-yellow-400 text-black p-2 text-2xl font-bold my-2 ml-2'>USERS :</h2>
 
-      <div className='w-1/2 h-fit bg-zinc-700/40 mx-auto text-2xl p-4 flex space-x-32'>
-        <ul className='flex flex-col space-y-6'>
-          {datas.map((user: dataType) => <li key={user.id}>{user.id} - {user.name.toUpperCase()} : {user.age} Years Old .</li>)}
-        </ul>
-        <button onClick={clickHandler} className='bg-violet-500 h-[5rem] my-auto px-4 rounded-lg text-black font-bold'>CLICK ME</button>
+      <div>
+        {response.map((user: FormProps) => (<Form {...user} />))}
       </div>
-
     </>
   )
 }
+
 export default ServerComponent
 
 
-// ^  WE USE CLIENT COMPONENTS WHEN :
-// 1 - WE HAVE EVENTS LIKE (( ONCLICK )) OR (( ONCHANGE ))
-// 2 - WE MUST USE REACT HOOKS LIKE : (( USEEFFECT )) OR (( USESTATE )) AND ...
-// 3 - WE USE BROWSER APIs LIKE (( COOKIES )) AND (( LOCAL STORAGE ))
 
+//* WE ALWAYS USE SERVERCOMPONENTS WHEN :
+// 1 - WE HAVE DATA FETCHING FROM SERVER , LIKE fetch OR axios
+// 2 - WE WANT TO ACCESS BACKEND RESOURCES DIRECTLY
+// 3 - WE HAVE SENSITIVE INFORMATIONS LIKE TOKENS AND COOKIES
+// 4 - WE HAVE TO IMPORT LARGE DEPENDENCIES IN OUR COMPONENT
+//? AWLAYS USE SERVER COMPONENTS FOR : DATA FETCHING , AND BACKEND INTERACTIVITY , WHENEVER WE WANT TO FETCH DATA FROM BACKEND
