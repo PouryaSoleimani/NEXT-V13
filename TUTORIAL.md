@@ -36,3 +36,4 @@
 ** server components are SSR , and every default component is a server component **
 
 <!-- ! B - CLIENT COMPONENTS -->
+--HINT : We dont have functions like <<GETSTATICPROPS>> or <<GETSERVERSIDEPROPS>> in app-routing , instead we use <<"USE CLIENT">> for client component and if we dont use anything , our component will be a server component by default

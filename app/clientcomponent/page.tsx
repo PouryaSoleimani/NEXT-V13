@@ -1,5 +1,6 @@
 // ^ CLIENT AND SERVER COMPONENTS
 "use client" // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
+
 import { NextPage } from 'next'
 import { useState } from 'react'
 
@@ -18,4 +19,4 @@ const Page: NextPage<Props> = ({ }) => {
   )
 }
 
-export default Page  
+export default Page   
