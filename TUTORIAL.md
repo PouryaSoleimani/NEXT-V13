@@ -27,7 +27,6 @@
 -- We can also create custom layouts for different routes . for example if we set a layout for one route , all of the subroutes will receive that layout
 ---- to create a custom layout for a special route , we must create a {layout.tsx} file in the folder , and do just like the main {layout.tsx} page 
 
-
 <!-- ^ SERVER COMPONENTS AND CLIENT COMPONENTS -->
 
 <!-- ? A - SERVER COMPONENTS -->
