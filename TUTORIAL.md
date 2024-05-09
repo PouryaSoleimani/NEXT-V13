@@ -58,4 +58,3 @@
  - <<no-store>> --> fetch('/api' , `{ cache : "no-store" }`) --> <<SSR>> --> here we are having a fetching like <<GETSERVERSIDEPROPS>> in file-router , this is just similar to <<SSR>>.
   
 <!-- ! ISR -->
- - 

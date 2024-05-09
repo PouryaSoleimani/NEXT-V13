@@ -1,22 +1,25 @@
 // ^ CLIENT AND SERVER COMPONENTS
 // * THIS IS A CLIENT COMPONENT
-"use client" // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
+// "use client"
+// THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
 
-import { NextPage } from 'next'
-import { useState } from 'react'
+import React from 'react'
 
-interface Props { }
+const ClientComponents = async () => {
+  const request = await fetch('https://jsonplaceholder.typicode.com/users', { cache: 'force-cache' })
+  const response = await request.json()
 
-const Page: NextPage<Props> = ({ }) => {
-
-  const [first, setfirst] = useState('HELLO')
 
   return (
-    <>
-      <h1 className='bg-gradient-to-r from-sky-800 via-blue-800 text-4xl font-bold text-center p-6 to-slate-900'>CLIENT COMPONENT</h1>
-      <h2>{first}</h2>
-    </>
+    <div>
+      <h1 className='bg-cyan-500/30 p-8 text-4xl font-bold text-center'>CLIENT COMPONENTS</h1>
+
+      <ul className='flex flex-col items-start space-y-4 justify-center text-3xl py-4 px-4 '>
+        {response.map((item: { name: string }) => <li>{item.name}</li>)}
+      </ul>
+
+    </div>
   )
 }
 
-export default Page       
+export default ClientComponents
