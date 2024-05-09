@@ -1,4 +1,5 @@
 // ^ CLIENT AND SERVER COMPONENTS
+// * THIS IS A CLIENT COMPONENT
 "use client" // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
 
 import { NextPage } from 'next'
@@ -19,4 +20,4 @@ const Page: NextPage<Props> = ({ }) => {
   )
 }
 
-export default Page   
+export default Page      
