@@ -50,4 +50,12 @@
 
 
 <!-- ^ SSR & ISR IN NEXT V-13 -->
+12 - To use SSR in data fetching , we must send a second prop to our fetch :
+<!-- ! SSG -->
+ - <<force-cache>> --> fetch('/api' ,`{ cache : "force-cache" }`) --> <<SSG>> --> here we are having a fetching like <<GETSTATICPROPS>> in file-router , this type is just similar to <<SSG>> and its default in next.js.
+
 <!-- ! SSR -->
+ - <<no-store>> --> fetch('/api' , `{ cache : "no-store" }`) --> <<SSR>> --> here we are having a fetching like <<GETSERVERSIDEPROPS>> in file-router , this is just similar to <<SSR>>.
+  
+<!-- ! ISR -->
+ - 
