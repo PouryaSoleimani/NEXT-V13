@@ -1,6 +1,5 @@
-// ^ CLIENT AND SERVER COMPONENTS
-// * THIS IS A SERVER COMPONENT
-// "use client"  // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
+//^ SERVER COMPONENT
+
 
 import React from 'react'
 
@@ -24,7 +23,7 @@ const ClientComponents = async () => {
       </ul>
 
     </div>
-  ) 
+  )
 }
 
 export default ClientComponents  
