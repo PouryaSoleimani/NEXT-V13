@@ -41,7 +41,7 @@
 <!-- ^ WHEN TO USE EACH COMPONENT -->
 10 - USE << SERVER COMPONENTS >> vs << CLIENT COMPONENTS >> documentation of the official next.js website
 --- We always use <<CLIENT COMPONENTS >> if only we want to have <<ONCLICK>> or other eventlisteners , or if we have <<REACT HOOKS>> , or if we have <<BROWSER APIs>>
-
+--- Otherwise , <<WE ALWAYS USE SERVER COMPONENTS>>
 
 <!--^ CACHE IN NEXT V-13  -->
 11 - When we do a <<DATA FETCHING >> in next.js  , next will save our response in <<CACHE>> and will use it again from cache if we do that same fetching again
