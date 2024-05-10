@@ -1,3 +1,4 @@
+// ^ DATAS COMPOENT
 import React from 'react'
 type userType = { id: number, name: string, username: string }
 

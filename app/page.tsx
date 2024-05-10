@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="flex items-center justify-end space-x-10 p-4">
+      <div className="flex items-center justify-center space-x-10 p-4 w-full">
         <Datas />
         <Products />
       </div>
