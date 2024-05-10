@@ -1,8 +1,8 @@
-//^ HOMEPAGE
-import Image from "next/image";
+//^ HOMEPAGE 
 import Header from "./components/Header";
 import Datas from "./components/Datas";
 import Products from "./components/Products";
+
 
 export default function Home() {
   return (
@@ -14,4 +14,4 @@ export default function Home() {
       </div>
     </>
   );
-}
+} 
