@@ -82,3 +82,16 @@
 <!-- & LOADING.JS  -->
 15 - LOADING.JS is a reserved word in next.js , that defines the loading of our page , if we make this file in the <<app>> folder , it will be for all of the project
 - but if we create it in a special folder , the loader will be for that route and all of its subroutes
+
+
+<!-- & TEMPLATE.JS  -->
+16 - template.js file is almost similar to loading.js file , but the only difference is loading.js will store and remember the states in it such as (UseState) value and ...
+- but in template.js the states and any other variables and values will not be remembered and template.js will forget them all
+
+<!-- & ERROR HANDLING -->
+17 - In <<REACT.JS>> We had <EroroBoundary></ErrorBoundary> tags that wrapped the component , and in case of having an error , an error would be appeared , 
+- <ErrorBoundary> tags accepted a fallback attribute of the element or text of the error
+- in <NEXT.JS> we will have a file in the main route of the projcet called <error.js> and it will be displayed in case of error
+- in <error.js> file , we get a props called <error> and its the reason of our error , and we can show it in our component by using `{error.message}`
+- the <error.js> component  , also gives us a function in props , called reset() , this will retry the function and refresh it to see if the error can be fixed or not
+- 
