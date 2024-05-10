@@ -18,7 +18,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang="en">
       <body className={inter.className}>
-        <h2 className="bg-gradient-to-r from-yellow-400 via-purple-500 to-red-800 p-7 text-center font-extrabold text-6xl text-black border-b-8 border-black">HEADER SECTION</h2>
+
         {children}
       </body>
     </html>
