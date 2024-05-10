@@ -78,3 +78,7 @@
 14 - Streaming is a act of showing custom loading in the page UI , until our fetch function or any other timing functions is completed,
 -- this action in next.js is called <<Streaming>> , to implement streaming in a page , we must use <Suspense></Suspense> JSX tags.
 -- these <Suspense> Tags accept a parameter , the parameter is called <<fallback>> and in the value of fallback we can put the Tag or Loading Component to use as a <<LOADING VALUE>>
+
+<!-- & LOADING.JS  -->
+15 - LOADING.JS is a reserved word in next.js , that defines the loading of our page , if we make this file in the <<app>> folder , it will be for all of the project
+- but if we create it in a special folder , the loader will be for that route and all of its subroutes
