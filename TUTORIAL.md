@@ -100,3 +100,11 @@
 <!-- ^ GENERATE STATIC PARAMS -->
 
 <!-- ^ IMAGE COMPONENT IN NEXT.JS -->
+18 - GOOD DIFFERENCES IN <Image> TAGS :
+A - caching the image , so it will be loaded faster after the first visit of website
+B - lazyloading : loads the image whenever we scroll to its place
+C - converting the images into `.webp` files that is more compatible for web pages
+D - reducing the size of our image to 10x smaller than the original page size -> 250kb = 25kb
+E - forcing use to put an alt text for our image
+<!--? PRO PROPS FOR IMAGE -->
+A - the `width` and `height` props in <Image> tags , defines the resolution of the image , not the size , the higher the numbers, the better resoultion , and also more size in storage
