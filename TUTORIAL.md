@@ -31,7 +31,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-<!-- ^ SERVER COMPONENTS AND CLIENT COMPONENTS -->
+<!-- *^* SERVER COMPONENTS AND CLIENT COMPONENTS -->
 
 <!-- ? A - SERVER COMPONENTS -->
 9 - by default , every component is a server component and it is rendered in server side and then delivered to the browser
@@ -55,8 +55,8 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-<!-- ^ SSR ^ ISR IN NEXT V-13 -->
-12 - To use SSR ^ ISR in data fetching , we must send a second prop to our fetch :
+<!-- ^ SSR & ISR IN NEXT V-13 -->
+12 - To use SSR & ISR in data fetching , we must send a second prop to our fetch :
 
 <!-- ! SSG -->
  - <<force-cache>> --> fetch('/api' ,`{ cache : "force-cache" }`) --> <<SSG>> --> here we are having a fetching like <<GETSTATICPROPS>> in file-router , this type is just similar to <<SSG>> and its default in next.js.
@@ -87,7 +87,7 @@
 
 
 <!-- ^ TEMPLATE.JS  -->
-16 - template.js file is almost similar to loading.js file , but the only difference is loading.js will store and remember the states in it such as (UseState) value and ...
+16 - template.js file is almost similar to layout.js file , but the only difference is loading.js will store and remember the states in it such as (UseState) value and ...
 - but in template.js the states and any other variables and values will not be remembered and template.js will forget them all
 
 <!-- ^ ERROR HANDLING -->
@@ -108,3 +108,7 @@ D - reducing the size of our image to 10x smaller than the original page size ->
 E - forcing use to put an alt text for our image
 <!--? PRO PROPS FOR IMAGE -->
 A - the `width` and `height` props in <Image> tags , defines the resolution of the image , not the size , the higher the numbers, the better resoultion , and also more size in storage
+B - `quality` props in <Image> tags : it defines the quality of image by percentage , it accepts a number between `0-100` and the default value is `80`
+C - `priority` is a prop for <Image> tag accepts boolean `true or false` and the difference is when you set the priority to `true` for an Image , the lazyLoading for the image will be disabled
+- and it will be loaded at the first load of our page
+D - 
