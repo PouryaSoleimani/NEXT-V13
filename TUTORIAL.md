@@ -1,3 +1,4 @@
+
 ## NEXT - 13 - APP ROUTER - TUTORIAL
 
 <!-- & APP ROUTING -->
@@ -94,4 +95,5 @@
 - in <NEXT.JS> we will have a file in the main route of the projcet called <error.js> and it will be displayed in case of error
 - in <error.js> file , we get a props called <error> and its the reason of our error , and we can show it in our component by using `{error.message}`
 - the <error.js> component  , also gives us a function in props , called reset() , this will retry the function and refresh it to see if the error can be fixed or not
-- 
+  
+<!-- & GENERATE STATIC PARAMS -->
