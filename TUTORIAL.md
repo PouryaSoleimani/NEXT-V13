@@ -98,4 +98,5 @@
 - the <error.js> component  , also gives us a function in props , called reset() , this will retry the function and refresh it to see if the error can be fixed or not
   
 <!-- ^ GENERATE STATIC PARAMS -->
-****
+
+<!-- ^ IMAGE COMPONENT IN NEXT.JS -->

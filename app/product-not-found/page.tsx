@@ -7,7 +7,7 @@ export default function Page() {
   const route = useRouter()
   function backHandler() { route.back() }
 
-  //Return
+  //RETURN
   return (
     <div className='flex flex-col h-screen w-screen items-center justify-center text-4xl space-y-6 '>
       <h2 className='bg-red-800/30 w-fit px-8 py-4 font-bold '>Product Not Found</h2>

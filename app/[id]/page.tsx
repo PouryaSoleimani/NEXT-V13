@@ -1,5 +1,5 @@
 import React from 'react'
-import { notFound, redirect } from 'next/navigation'
+import { redirect } from 'next/navigation'
 
 type dynamicProductPageParams = { params: { id: string } }
 type productType = { id: number, title: string, price: string }
@@ -9,14 +9,15 @@ const DynamicProductPage = async (params: dynamicProductPageParams) => {
   const pageParams = params.params.id
 
   const request = await fetch(`https://fakestoreapi.com/products/${pageParams}`)
-  if (Number(pageParams) > 20) {
-    redirect('/product-not-found')
-  }
+
+  if (Number(pageParams) > 20) { redirect('/product-not-found') }
+
   const response = await request?.json()
 
 
-  //RETURN
+  //Return
   return (
+
     <>
       <div className='p-6 text-3xl font-bold text-center border-b-8 border-white'>
         <h1>DYNAMIC PRODUCT PAGE</h1>
@@ -25,12 +26,15 @@ const DynamicProductPage = async (params: dynamicProductPageParams) => {
       <div className='p-6 text-3xl font-bold text-center border-b-8 border-red-800'>
         <h1>Page Params : {pageParams}</h1>
       </div>
+
       {response && (
         <div className='p-6 text-3xl font-bold text-center border-b-8 border-blue-800'>
           <h1>{response.id} -- {response.title} -- {response.price}</h1>
         </div>
       )}
+
     </>
+
   )
 }
 
