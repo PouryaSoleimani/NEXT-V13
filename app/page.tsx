@@ -4,6 +4,7 @@ import Datas from './components/Datas';
 import Products from './components/Products';
 
 export default function Home() {
+  console.info("HELLo")
   return (
     <>
       <Header />
