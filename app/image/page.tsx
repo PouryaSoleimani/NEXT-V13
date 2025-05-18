@@ -1,4 +1,4 @@
-import ImageComponent from '../components/ImageComponent';
+import ImageComponent from '../../components/ImageComponent';
 
 //^ IMAGE ROUTE
 export default function Page() {

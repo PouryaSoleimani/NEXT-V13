@@ -1,7 +1,7 @@
 //^ HOMEPAGE
-import Header from './components/Header';
-import Datas from './components/Datas';
-import Products from './components/Products';
+import Header from '../components/Header';
+import Datas from '../components/Datas';
+import Products from '../components/Products';
 
 export default function Home() {
   console.info("HELLo")
