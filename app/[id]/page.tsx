@@ -10,7 +10,7 @@ const DynamicProductPage = async (params: dynamicProductPageParams) => {
 
   const request = await fetch(`https://fakestoreapi.com/products/${pageParams}`);
 
-  if (Number(pageParams) > 20 || typeof pageParams === 'string') {
+  if (Number(pageParams) > 20) {
     redirect('/product-not-found');
   }
 
