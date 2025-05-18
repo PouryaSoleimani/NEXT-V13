@@ -22,12 +22,12 @@ const DynamicProductPage = async (params: dynamicProductPageParams) => {
         <h1>DYNAMIC PRODUCT PAGE</h1>
       </div>
 
-      <div className="p-6 text-3xl font-bold text-center border-b-8 border-red-800 bg-red-800 text-white">
+      <div className="p-6 text-3xl font-black text-center border-b-8 border-red-800 bg-red-800 text-white">
         <h1>Page Params : {pageParams}</h1>
       </div>
 
       {response && (
-        <div className="p-6 text-3xl font-bold text-center border-b-8 border-blue-800 bg-blue-800 text-white rounded-b-xl">
+        <div className="p-6 text-3xl font-black text-center border-b-8 border-blue-800 bg-blue-800 text-white rounded-b-xl">
           <h1>
             {response.id} - {response.title.slice(0, 30)} : ${response.price}
           </h1>
