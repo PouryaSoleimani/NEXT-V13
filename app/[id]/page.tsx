@@ -7,8 +7,8 @@ type dynamicProductPageParams = { params: { id: string } };
 const DynamicProductPage = async (params: dynamicProductPageParams) => {
   const pageParams = params.params.id;
 
-  const request = await fetch(`https://fakestoreapi.com/products/${pageParams}`);
-
+  const request = await fetch(`https://fakestoreapi.com/products/${pageParams}`, { cache: 'force-cache' });
+  
   if (Number(pageParams) > 20) {
     redirect('/product-not-found');
   }
