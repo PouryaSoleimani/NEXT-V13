@@ -2,7 +2,6 @@ import React from 'react';
 import { redirect } from 'next/navigation';
 
 type dynamicProductPageParams = { params: { id: string } };
-type productType = { id: number; title: string; price: string };
 
 // COMPONENT
 const DynamicProductPage = async (params: dynamicProductPageParams) => {
