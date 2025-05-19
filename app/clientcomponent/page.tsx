@@ -11,7 +11,7 @@ const ClientComponent = () => {
     { id: 1, name: 'pourya', age: 30 },
     { id: 2, name: 'alireza', age: 25 },
     { id: 3, name: 'mohammad', age: 27 },
-    { id: 4, name: 'reza', age: 21 },
+    { id: 4, name: 'reza', age: 21 }, 
     { id: 5, name: 'ashkan', age: 22 },
   ];
 
