@@ -3,9 +3,15 @@ import AXIOS from '@/Axios/AxiosInstance';
 import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
+  // USING THE INSTANCE
   const req = await AXIOS.get('/products');
-  const data = await req.data;
-  console.info(data);
+  const data = req.data;
+
+  // CATCHING ERROR
+  const Err = await AXIOS.get('/produc1').catch((err) => err);
+  console.info('ERROR', Err.message);
+
+  // RETURN
   return (
     <div>
       AxiosPage
@@ -13,5 +19,4 @@ const AxiosPage = async () => {
     </div>
   );
 };
-
 export default AxiosPage;
