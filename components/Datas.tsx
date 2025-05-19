@@ -5,7 +5,7 @@ type userType = { id: number; name: string; username: string };
 
 //COMPONENT
 const Datas = async () => {
-  const request = await fetch('https://jsonplaceholder.typicode.com/users');
+  const request = await fetch('https://jsonplaceholder.typicode.com2/users');
   const response = await request.json();
 
   //RETURN ___________________________________________________________________________________________________________________________________
