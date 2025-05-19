@@ -7,7 +7,7 @@ type FormProps = { id: number; name: string; username: string };
 const ServerComponent = async () => {
   //FETCHING DATA FROM SERVER - SSG / SSR / ISR
   const request = await fetch('https://jsonplaceholder.typicode.com/users', {
-    // cache: 'force-cache' //! SSG
+    // cache: 'force-cache' //! SSG ---> DEFAULT
     // cache: 'no-store' //^ SSR
     next: { revalidate: 3600 }, //* ISR
   });
