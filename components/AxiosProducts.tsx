@@ -5,7 +5,7 @@ interface Props {
 }
 const AxiosProducts = (data: Props) => {
   const allProducts = data.data;
-  console.info("CLIENT");
+  console.info('CLIENT');
   return (
     <div>
       AxiosProducts
