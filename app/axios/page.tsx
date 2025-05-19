@@ -1,13 +1,16 @@
 import React from 'react';
 import AXIOS from '@/Axios/AxiosInstance';
-const AxiosPage = () => {
-  const getData = async () => {
-    const res = await AXIOS.get('/products').then((res) => console.log(res.data));
-    console.log(res);
-  };
-  getData();
-
-  return <div>AxiosPage</div>;
+import AxiosProducts from '@/components/AxiosProducts';
+const AxiosPage = async () => {
+  const req = await AXIOS.get('/products');
+  const data = await req.data;
+  console.info('SERVER');
+  return (
+    <div>
+      AxiosPage
+      <AxiosProducts data={data} />
+    </div>
+  );
 };
 
 export default AxiosPage;
