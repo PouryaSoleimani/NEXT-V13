@@ -1,5 +1,5 @@
 'use client';
-
+//! ERROR COMPONENT
 import React from 'react';
 
 const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
