@@ -4,17 +4,19 @@ interface Props {
   data: { id: number; title: string }[];
 }
 const AxiosProducts = (data: Props) => {
-  const allProducts = data.data;
-  console.info('CLIENT');
+  console.info('CLIENT', data);
   return (
     <div>
       AxiosProducts
-      {allProducts.length > 0 &&
-        allProducts?.map((item) => (
-          <div key={item.id}>
-            <h1 className="my-3 bg-orange-500/30 text-white font-black text-xl p-3 rounded mx-4">{item.title}</h1>
-          </div>
-        ))}
+      {data.data.length > 0 ? (
+        data.data.map((item) => (
+          <h2 key={item.id} className="bg-pink-500 py-4 my-4 px-4 rounded w-fit text-black">
+            {item.title}
+          </h2>
+        ))
+      ) : (
+        <div>No Data</div>
+      )}
     </div>
   );
 };

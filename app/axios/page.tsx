@@ -4,7 +4,7 @@ import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
   const req = await AXIOS.get('/products');
-  const data = await req.data.data;
+  const data = await req.data;
   console.info(data);
   return (
     <div>
