@@ -5,8 +5,6 @@ interface Props {
 }
 
 const AxiosProducts = (data: Props) => {
-  // console.info('CLIENT', data.data);
-
   return (
     <div>
       <h2 className="text-center text-3xl font-black w-fit mx-auto px-8 py-4 rounded-xl bg-purple-700">AxiosProducts</h2>

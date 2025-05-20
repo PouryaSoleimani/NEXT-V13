@@ -1,21 +1,15 @@
+// app/error.tsx
 'use client';
-//! ERROR COMPONENT
-import React from 'react';
 
-const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
-  // console.info(error);
+export default function ErrorBoundary({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  // Your custom logging logic here
+  console.error('Custom error logging:', error);
+
   return (
-    <section className="w-screen h-screen flex items-center justify-center text-2xl font-black">
-      <div className="bg-zinc-900 p-8 border-8 border-zinc-950 flex flex-col items-center justify-center gap-16 rounded-2xl">
-        <h2>ERROR : </h2>
-
-        <span className="bg-zinc-950 p-6 rounded text-red-800 font-bold text-3xl">{error.message}</span>
-
-        <button onClick={reset} className="bg-black py-4 px-8 rounded-xl">
-          Try Again
-        </button>
-      </div>
-    </section>
+    <div className="bg-zinc-800 p-10 rounded-xl mx-auto my-10 w-fit space-y-8">
+      <h2>Something went wrong!</h2>
+      <p className="bg-black/50 text-2xl font-black tracking-tight text-red-800">{error.message}</p>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
   );
-};
-export default Error;
+}
