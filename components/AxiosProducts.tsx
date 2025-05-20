@@ -9,7 +9,7 @@ const AxiosProducts = (data: Props) => {
 
   return (
     <div>
-      AxiosProducts
+      <h2 className="text-center text-3xl font-black w-fit mx-auto px-8 py-4 rounded-xl bg-purple-700">AxiosProducts</h2>
       {data.data.length > 0 ? (
         data.data.map((item) => (
           <h2 key={item.id} className="bg-pink-500 py-4 my-4 px-4 rounded w-fit text-black font-black text-2xl ">
