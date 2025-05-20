@@ -21,7 +21,7 @@ AXIOS.interceptors.request.use(
 
 AXIOS.interceptors.response.use(
   (response) => {
-    console.log('CONFIG INTERCEPTOR RESPONSE ===> WHEN OK ===>', config);
+    console.log('CONFIG INTERCEPTOR RESPONSE ===> WHEN OK ===>', response);
     return response;
   },
   (error) => {

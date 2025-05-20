@@ -4,14 +4,8 @@ import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
   // USING THE INSTANCE
-  const req = await AXIOS.get('/products');
+  const req = await AXIOS.get('/productssss'); // HERE WE CATCH ERRORS IN THE INSTANCE FILE USING INTERCEPTORS
   const data = req.data;
-
-  // CATCHING ERROR
-  const Err = await AXIOS.get('/productssss').catch((err) => err);
-  if (Err !== undefined) {
-    console.info('ERROR SERVER SIDE', Err.message);
-  }
 
   // RETURN
   return (
