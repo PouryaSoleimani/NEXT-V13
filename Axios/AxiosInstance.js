@@ -5,7 +5,7 @@ const AXIOS = axios.create({
   headers: { 'Content-Type': 'application/json' },
   timeout: 10000,
 });
-// INTERCEPTORS
+//^ INTERCEPTORS
 AXIOS.interceptors.request.use(
   (config) => {
     console.log('CONFIG INTERCEPTOR ===> WHEN OK ===>', config);
