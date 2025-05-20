@@ -15,7 +15,7 @@ AXIOS.interceptors.request.use(
   },
   (error) => {
     if (error) {
-      console.log('ERROR INTERCEPTOR  ===>', error.message);
+      console.log('ERROR INTERCEPTOR REQUEST  ===>', error.message);
     }
     return Promise.reject(error);
   },
