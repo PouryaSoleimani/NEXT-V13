@@ -8,11 +8,13 @@ const AXIOS = axios.create({
 // INTERCEPTORS
 AXIOS.interceptors.request.use(
   (config) => {
-    console.log('CONFIG ===>', config);
+    console.log('CONFIG INTERCEPTOR ===> WHEN OK ===>', config);
     return config;
   },
   (error) => {
-    console.log('ERROR  ===>', error);
+    if (error) {
+      console.log('ERROR INTERCEPTOR  ===>', error);
+    }
     return Promise.reject(error);
   },
 );
