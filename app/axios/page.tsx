@@ -6,7 +6,8 @@ import AxiosProducts from '@/components/AxiosProducts';
 const AxiosPage = async () => {
   try {
     AXIOS.get('/products');
-    const data = await AXIOS.get('/productsss');
+    const data = await AXIOS.get('/productsssss');
+    console.log('🟨🟨🟨 AXIOS PAGE ==>', data.data[0]);
     return (
       <div>
         AxiosPage
@@ -14,7 +15,7 @@ const AxiosPage = async () => {
       </div>
     );
   } catch (error: any) {
-    throw new Error(`message :${error.message}`);
+    console.info('🟧🟧🟧 AXIOS PAGE ERROR ==>', error.message);
   }
 };
 export default AxiosPage;
