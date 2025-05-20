@@ -10,7 +10,7 @@ const AXIOS = axios.create({
 // REQUEST
 AXIOS.interceptors.request.use(
   (config) => {
-    console.log('✅ INTERCEPTOR REQUEST CONFIG ===> WHEN OK ===>', config);
+    console.log('🟩🟩🟩🟩 INTERCEPTOR REQUEST CONFIG ===> WHEN OK ===>', config);
     return config;
   },
   (error) => {
@@ -24,12 +24,12 @@ AXIOS.interceptors.request.use(
 // RESPONSE
 AXIOS.interceptors.response.use(
   (response) => {
-    console.log('✅ INTERCEPTOR RESPONSE CONFIG ===> WHEN OK ===>', response.status , response.statusText);
+    console.log('✅ INTERCEPTOR RESPONSE CONFIG ===> WHEN OK ===>', response.status, response.statusText);
     return response;
   },
   (error) => {
     if (error) {
-      console.log('❌ INTERCEPTOR RESPONSE ERROR ===>', error.message);
+      console.log('🟥🟥🟥🟥  INTERCEPTOR RESPONSE ERROR ===>', error.message);
     }
     return Promise.reject(error);
   },

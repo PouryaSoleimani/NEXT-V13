@@ -3,7 +3,7 @@
 import React from 'react';
 
 const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
-  console.info(error);
+  // console.info(error);
   return (
     <section className="w-screen h-screen flex items-center justify-center text-2xl font-black">
       <div className="bg-zinc-900 p-8 border-8 border-zinc-950 flex flex-col items-center justify-center gap-16 rounded-2xl">
