@@ -4,17 +4,17 @@ import AXIOS from '@/Axios/AxiosInstance';
 import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
-  // USING THE INSTANCE
-  const req = await AXIOS.get('/products2222');
-  console.info("REQ ===>",req)
-  const data = await req.data;
-
-  // RETURN
-  return (
-    <div>
-      AxiosPage
-      <AxiosProducts data={data} />
-    </div>
-  );
+  try {
+    AXIOS.get('/products');
+    const data = await AXIOS.get('/productsss');
+    return (
+      <div>
+        AxiosPage
+        <AxiosProducts data={data.data} />
+      </div>
+    );
+  } catch (error: any) {
+    throw new Error(`message :${error.message}`);
+  }
 };
 export default AxiosPage;
