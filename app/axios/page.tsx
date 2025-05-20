@@ -4,18 +4,15 @@ import AXIOS from '@/Axios/AxiosInstance';
 import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
-  try {
+
     AXIOS.get('/products');
-    const data = await AXIOS.get('/productsssss');
-    console.log('🟩🟩🟩 AXIOS PAGE ==>', data.data[0]);
+    const data = await AXIOS.get('/productssssss');
+    console.log('🟩🟩🟩 AXIOS PAGE ==>', data.data);
     return (
       <div>
         AxiosPage
         <AxiosProducts data={data.data} />
       </div>
     );
-  } catch (error: any) {
-    console.info('🟧🟧🟧 AXIOS PAGE ERROR ==>', error.message);
-  }
 };
 export default AxiosPage;
