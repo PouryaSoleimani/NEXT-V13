@@ -5,7 +5,7 @@ import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
   AXIOS.get('/products');
-  const data = await AXIOS.get('/productssssss');
+  const data = await AXIOS.get('/products');
   console.log('🟩🟩🟩 AXIOS PAGE ==>', data.data);
   return (
     <div>
