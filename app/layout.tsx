@@ -1,9 +1,6 @@
 //^ LAYOUT.TSX
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: '⬛NEXT____TRAINING⬛',
@@ -14,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <h2 className="bg-red-700 p-6 text-3xl font-black">HEADER</h2>
         {children}
         <h2 className="bg-blue-800 p-6 text-3xl font-black">FOOTER</h2>
