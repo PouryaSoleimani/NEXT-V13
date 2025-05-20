@@ -1,11 +1,13 @@
 import axios from 'axios';
-
+// INSTANCE ____________________________________________________________________________________________________________________________________________
 const AXIOS = axios.create({
   baseURL: 'https://fakestoreapi.com',
   headers: { 'Content-Type': 'application/json' },
   timeout: 10000,
 });
-//^ INTERCEPTORS
+
+// INTERCEPTORS ________________________________________________________________________________________________________________________________________
+// REQUEST
 AXIOS.interceptors.request.use(
   (config) => {
     console.log('CONFIG INTERCEPTOR REQUEST ===> WHEN OK ===>', config);
@@ -19,6 +21,7 @@ AXIOS.interceptors.request.use(
   },
 );
 
+// RESPONSE
 AXIOS.interceptors.response.use(
   (response) => {
     console.log('CONFIG INTERCEPTOR RESPONSE ===> WHEN OK ===>', response);
