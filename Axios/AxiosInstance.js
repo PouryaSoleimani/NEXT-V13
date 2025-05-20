@@ -7,6 +7,7 @@ const AXIOS = axios.create({
 });
 
 // INTERCEPTORS ________________________________________________________________________________________________________________________________________
+
 // REQUEST
 AXIOS.interceptors.request.use(
   (config) => {

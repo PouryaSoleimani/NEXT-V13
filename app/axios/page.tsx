@@ -7,7 +7,7 @@ const AxiosPage = async () => {
   try {
     AXIOS.get('/products');
     const data = await AXIOS.get('/productsssss');
-    console.log('🟨🟨🟨 AXIOS PAGE ==>', data.data[0]);
+    console.log('🟩🟩🟩 AXIOS PAGE ==>', data.data[0]);
     return (
       <div>
         AxiosPage
