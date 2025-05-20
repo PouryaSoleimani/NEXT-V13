@@ -2,7 +2,7 @@
 'use client';
 
 export default function ErrorBoundary({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
-  console.error('Custom error logging:', error);
+  console.log('🟥🟥🟥 ERROR', error);
 
   return (
     <div className="bg-zinc-800 p-10 rounded-xl mx-auto my-10 w-fit space-y-8">
