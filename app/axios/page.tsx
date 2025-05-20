@@ -8,9 +8,9 @@ const AxiosPage = async () => {
   const data = req.data;
 
   // CATCHING ERROR
-  const Err = await AXIOS.get('/products').catch((err) => err);
+  const Err = await AXIOS.get('/productssss').catch((err) => err);
   if (Err !== undefined) {
-    console.info('ERROR SERVER SIDE', Err);
+    console.info('ERROR SERVER SIDE', Err.message);
   }
 
   // RETURN
