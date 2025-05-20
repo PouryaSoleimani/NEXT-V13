@@ -4,9 +4,9 @@ import AXIOS from '@/Axios/AxiosInstance';
 import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
-  AXIOS.get('/products');
-  const data = await AXIOS.get('/products');
+  const data = await AXIOS.get('/products', { signal: AbortSignal.timeout(5000) });
   console.log('🟩🟩🟩 AXIOS PAGE ==>', data.data);
+
   return (
     <div>
       AxiosPage
