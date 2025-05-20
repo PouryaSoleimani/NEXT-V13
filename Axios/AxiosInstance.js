@@ -10,12 +10,12 @@ const AXIOS = axios.create({
 // REQUEST
 AXIOS.interceptors.request.use(
   (config) => {
-    console.log('CONFIG INTERCEPTOR REQUEST ===> WHEN OK ===>', config);
+    console.log('✅ INTERCEPTOR REQUEST CONFIG ===> WHEN OK ===>', config);
     return config;
   },
   (error) => {
     if (error) {
-      console.log('ERROR INTERCEPTOR REQUEST  ===>', error.message);
+      console.log('❌ INTERCEPTOR REQUEST ERROR  ===>', error.message);
     }
     return Promise.reject(error);
   },
@@ -24,12 +24,12 @@ AXIOS.interceptors.request.use(
 // RESPONSE
 AXIOS.interceptors.response.use(
   (response) => {
-    console.log('CONFIG INTERCEPTOR RESPONSE ===> WHEN OK ===>', response);
+    console.log('✅ INTERCEPTOR RESPONSE CONFIG ===> WHEN OK ===>', response);
     return response;
   },
   (error) => {
     if (error) {
-      console.log('ERROR INTERCEPTOR ===>', error.message);
+      console.log('❌ INTERCEPTOR RESPONSE ERROR ===>', error.message);
     }
     return Promise.reject(error);
   },
