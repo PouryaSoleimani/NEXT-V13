@@ -5,7 +5,7 @@ import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
   // USING THE INSTANCE
-  const req = await AXIOS.get('/productssss');
+  const req = await AXIOS.get('/products');
   // HERE WE CATCH ERRORS IN THE INSTANCE FILE USING INTERCEPTORS
   const data = req.data;
 
