@@ -1,6 +1,13 @@
 //^ LAYOUT.TSX
 import type { Metadata } from 'next';
 import './globals.css';
+import { Rajdhani } from 'next/font/google';
+// FONTS
+const rajdhani = Rajdhani({
+  weight: ['400', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: '⬛NEXT____TRAINING⬛',
@@ -11,10 +18,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
-        <h2 className="bg-red-700 p-6 text-3xl font-black">HEADER</h2>
+      <body className={rajdhani.className}>
+        <h2 className="bg-red-700 p-6 text-3xl font-extrabold">HEADER</h2>
         {children}
-        <h2 className="bg-blue-800 p-6 text-3xl font-black">FOOTER</h2>
+        <h2 className="bg-blue-800 p-6 text-3xl font-extrabold">FOOTER</h2>
       </body>
     </html>
   );
