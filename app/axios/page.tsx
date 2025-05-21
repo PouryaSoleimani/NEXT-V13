@@ -6,6 +6,7 @@ import AxiosProducts from '@/components/AxiosProducts';
 const AxiosPage = async () => {
   const data = await AXIOS.get('/products', { signal: AbortSignal.timeout(5000) });
   // console.log('🟩🟩🟩 AXIOS PAGE ==>', data.data);
+  console.log("ENV",process.env.NEXT_PUBLIC_NAME);
 
   return (
     <div>

@@ -5,6 +5,8 @@ interface Props {
 }
 
 const AxiosProducts = (data: Props) => {
+  console.log('ENV', process.env.NEXT_PUBLIC_NAME);
+
   return (
     <div>
       <h2 className="text-center text-3xl font-black w-fit mx-auto px-8 py-4 rounded-xl bg-purple-700">AxiosProducts</h2>
