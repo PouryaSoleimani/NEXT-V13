@@ -17,7 +17,7 @@ const DynamicProductPage = async (params: dynamicProductPageParams) => {
 
   //Return
   return (
-    <section className="w-1/2 mx-auto mt-32 rounded-3xl p-8 bg-zinc-900 shadow-2xl">
+    <section className="w-1/2 mx-auto rounded-3xl p-8 bg-zinc-900 shadow-2xl my-10">
       <div className="p-6 text-3xl text-center border-b-8 rounded-t-xl border-white bg-white text-black font-black">
         <h1>DYNAMIC PRODUCT PAGE</h1>
       </div>
