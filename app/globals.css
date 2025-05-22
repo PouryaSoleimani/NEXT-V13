@@ -26,3 +26,9 @@ body {
     text-wrap: balance;
   }
 }
+.text {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-self: unset;
+}
