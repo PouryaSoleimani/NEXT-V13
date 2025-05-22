@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Rajdhani } from 'next/font/google';
-import Head from 'next/head';
+
 // FONTS
 const rajdhani = Rajdhani({
   weight: ['400', '700'],
@@ -19,6 +19,7 @@ const rajdhani = Rajdhani({
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      {/* USING HEAD */}
       <head>
         <title>THIS IS A NEXT TRAINING PAGE</title>
       </head>
