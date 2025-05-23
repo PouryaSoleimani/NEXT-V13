@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      {/* USING HEAD */}
       <head>{/* <title>THIS IS A NEXT TRAINING PAGE</title> */}</head>
       <body className={rajdhani.className}>
         <h2 className="bg-red-700 p-6 text-3xl font-extrabold">HEADER</h2>
