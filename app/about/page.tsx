@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
-import Title from '@/components/modules/Title';
+import Title from '@/modules/Title';
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
