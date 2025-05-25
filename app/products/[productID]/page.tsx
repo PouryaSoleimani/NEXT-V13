@@ -19,6 +19,7 @@ const DynamicProductPage = async ({ params }: ProductPageProps) => {
           <img src={product.image} loading="eager" alt="image" className="w-32 h-32" width={100} height={100} />
         </Suspense>
       </div>
+      
       <BackButton />
     </section>
   );
