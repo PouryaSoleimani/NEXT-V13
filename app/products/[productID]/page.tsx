@@ -1,5 +1,4 @@
 import BackButton from '@/components/BackButton';
-import Image from 'next/image';
 import React, { Suspense } from 'react';
 interface ProductPageProps {
   params: { productID: string };
