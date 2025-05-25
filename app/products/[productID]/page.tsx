@@ -6,7 +6,7 @@ interface ProductPageProps {
 }
 
 const DynamicProductPage = async ({ params }: ProductPageProps) => {
-  const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, { cache: 'force-cache' });
+  const req = fetch(`https://fakestoreapi.com/products/${params.productID.toString()}`, { cache: 'force-cache' });
   const product = await req.then((res) => res.json());
 
   return (
