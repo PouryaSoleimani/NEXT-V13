@@ -1,12 +1,11 @@
-import { useRouter } from 'next/router';
+'use client';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const CustomPageButton = () => {
   const router = useRouter();
 
-  const handleClick = () => {
-    router.push({ pathname: '/products/[productID]', query: { productID: 1 } });
-  };
+  const handleClick = () => {};
 
   return <button onClick={handleClick}>CustomPageButton</button>;
 };

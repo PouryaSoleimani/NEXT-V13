@@ -1,4 +1,5 @@
 import BackButton from '@/components/BackButton';
+import CustomPageButton from '@/components/CustomPageButton';
 import React, { Suspense } from 'react';
 interface ProductPageProps {
   params: { productID: string };
@@ -19,7 +20,7 @@ const DynamicProductPage = async ({ params }: ProductPageProps) => {
           <img src={product.image} loading="eager" alt="image" className="w-32 h-32" width={100} height={100} />
         </Suspense>
       </div>
-      
+      <CustomPageButton />
       <BackButton />
     </section>
   );
