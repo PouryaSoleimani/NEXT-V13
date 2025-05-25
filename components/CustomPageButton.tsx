@@ -4,34 +4,32 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 const fetchData = async () => {
-  const request = await fetch('https://fakestoreapi.com/productss', { cache: 'force-cache' });
+  const request = await fetch('https://fakestoreapi.com/products', { cache: 'force-cache' });
   const response = await request.json();
   return response;
 };
-const myPromise = fetchData();
 
 const CustomPageButton = () => {
   const router = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
+
   const redirectHandler = () => {
     toast.promise(
-      myPromise,
-      {
-        loading: 'Loading',
-        success: 'Got the data',
-        error: 'Error when fetching',
-      },
-      {
-        success: {
-          duration: 3000,
-          icon: '👏',
-        },
-      },
+      fetchData()
+        .then(() => {
+          toast.success('SUCCESS');
+          setTimeout(() => {
+            router.push('/products');
+          }, 1000);
+        })
+        .catch((err) => {
+          toast.error('ERROR');
+          return;
+        }),
+      { loading: 'Loading ...' },
+      { success: { duration: 3000, icon: '👏' } },
     );
-    setTimeout(() => {
-      router.push('/', { scroll: true });
-    }, 1000);
   };
   const handleClick = () => {
     router.push('/', { scroll: true });
