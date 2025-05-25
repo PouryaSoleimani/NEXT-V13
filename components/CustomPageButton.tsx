@@ -19,9 +19,7 @@ const CustomPageButton = () => {
       fetchData()
         .then(() => {
           toast.success('SUCCESS');
-          setTimeout(() => {
-            router.push('/products');
-          }, 1000);
+          setTimeout(() => { router.push('/products'); }, 1000);
         })
         .catch((err) => {
           toast.error('ERROR');
@@ -31,10 +29,13 @@ const CustomPageButton = () => {
       { success: { duration: 3000, icon: '👏' } },
     );
   };
+
   const handleClick = () => {
     router.push('/', { scroll: true });
   };
+
   console.info(pathName, searchParams);
+
   return (
     <>
       <button onClick={handleClick} className="bg-orange-500 px-6 py-2 rounded-lg text-black font-bold">
