@@ -15,7 +15,7 @@ const CustomPageButton = () => {
   const searchParams = useSearchParams();
   console.info(pathName, searchParams);
 
-
+  // REDIRECT
   const redirectHandler = () => {
     toast.promise(
       fetchData()
