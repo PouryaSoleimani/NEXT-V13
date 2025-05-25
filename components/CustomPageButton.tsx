@@ -13,28 +13,22 @@ const CustomPageButton = () => {
   const router = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
+  console.info(pathName, searchParams);
+
 
   const redirectHandler = () => {
     toast.promise(
       fetchData()
-        .then(() => {
-          toast.success('SUCCESS');
-          setTimeout(() => { router.push('/products'); }, 1000);
-        })
-        .catch((err) => {
-          toast.error('ERROR');
-          return;
-        }),
+        .then(() => { toast.success('SUCCESS'); setTimeout(() => { router.push('/products'); }, 1000); })
+        .catch((err) => { toast.error('ERROR'); return; }),
       { loading: 'Loading ...' },
       { success: { duration: 3000, icon: '👏' } },
     );
   };
 
-  const handleClick = () => {
-    router.push('/', { scroll: true });
-  };
+  const handleClick = () => { router.push('/', { scroll: true }); };
 
-  console.info(pathName, searchParams);
+
 
   return (
     <>
