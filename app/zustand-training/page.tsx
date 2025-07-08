@@ -6,6 +6,7 @@ type CounterStoreType = { count: number, increase: () => void, decrease: () => v
 
 
 const ZustandTraining = () => {
+
     const { count, increase, decrease, changeTo100, reset } = useCounterStore() as CounterStoreType
 
     return (
