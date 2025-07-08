@@ -10,7 +10,7 @@ type TodoComponentPropsType = {
   props: SingleTodoType[]
 }
 
-const TodoComponent = (props: TodoComponentPropsType) => {
+const TodoComponent: React.FC<TodoComponentPropsType> = (props) => {
   return (
     <div className='grid grid-cols-5 p-5 gap-4'>
       {props.props.map(todo => (
