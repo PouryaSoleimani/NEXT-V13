@@ -10,7 +10,7 @@ type TodoComponentPropsType = {
   props: SingleTodoType[]
 }
 
-const TodoComponent: React.FC<TodoComponentPropsType> = (props) => {
+const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> = (props) => {
   return (
     <div className='grid grid-cols-5 p-5 gap-4'>
       {props.props.map(todo => (
@@ -24,3 +24,11 @@ const TodoComponent: React.FC<TodoComponentPropsType> = (props) => {
 }
 
 export default TodoComponent
+
+
+// REACT.CSS PROPERTIES
+const styles: React.CSSProperties = {
+  color: 'red',
+  backgroundColor: 'black',
+  border: '1px solid white',
+} 
