@@ -39,3 +39,8 @@ type Props = { SinglePropItemType[] }
 // USEREDUCER TYPE
 
 <!--^ ________________________________________________________________________________________________________________________________________________________________ -->
+
+// USE THEME CONTEXT
+1 - themes.ts file
+2 - themeContext.tsx file
+3 - app.tsx file

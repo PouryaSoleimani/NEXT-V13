@@ -1,6 +1,8 @@
+'use client'
 import React from 'react'
 import TodoComponent from './_components/Todo'
 import UserComponent from './_components/User'
+import { ThemeContextProvider } from './context/themeContext'
 
 // const TypeScriptPage = (): JSX.Element => { // TYPE OF COMPONENT
 // const TypeScriptPage = (): React.ReactNode => { // TYPE OF COMPONENT
@@ -11,7 +13,9 @@ const TypeScriptPage: React.FC = (): JSX.Element => { // TYPE OF COMPONENT
     <>
       <div className='text-3xl font-bold p-6 text-center bg-blue-700 text-white my-6'>TypeScriptPage</div>
       <TodoComponent props={TodosList} />
-      <UserComponent props={UsersList} />
+      <ThemeContextProvider>
+        <UserComponent props={UsersList} />
+      </ThemeContextProvider>
     </>
   )
 }
