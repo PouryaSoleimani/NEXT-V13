@@ -5,7 +5,7 @@ import TodoComponent from './_components/Todo'
 // const TypeScriptPage = (): React.ReactNode => { // TYPE OF COMPONENT
 const TypeScriptPage: React.FC = (): JSX.Element => { // TYPE OF COMPONENT
   TypeScriptPage.displayName = "TS"
-  console.info(TypeScriptPage.displayName)
+  // console.info(TypeScriptPage.displayName)
   return (
     <>
       <div className='text-3xl font-bold p-6 text-center bg-blue-700 text-white my-6'>TypeScriptPage</div>

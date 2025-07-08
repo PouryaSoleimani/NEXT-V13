@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 type SingleTodoType = {
   id: number,
@@ -10,8 +10,12 @@ type TodoComponentPropsType = {
   props: SingleTodoType[]
 }
 
+// COMPONENT
 const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> = (props, children) => {
 
+  const [first, setFirst] = useState<boolean>(false) // USESTATE TYPE
+
+  // FUNCTIONS
   function clickHandler(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault()
     console.info('Clicked')

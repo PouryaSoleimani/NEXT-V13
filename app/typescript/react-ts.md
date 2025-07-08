@@ -23,3 +23,5 @@ type Props = { SinglePropItemType[] }
 // EVENTS TYPES --> event : React.FormEvent<HTMLButtonElement>
 
 <!--^ ________________________________________________________________________________________________________________________________________________________________ -->
+
+USESTATE TYPE --> useState<boolean>(false)
