@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+"use client"
+import React, { useEffect, useRef, useState } from 'react'
 
 type SingleTodoType = {
   id: number,
@@ -14,6 +15,13 @@ type TodoComponentPropsType = {
 const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> = (props, children) => {
 
   const [first, setFirst] = useState<boolean>(false) // USESTATE TYPE
+
+
+  const ELEM = useRef<HTMLInputElement>(null) // USEREF TYPE
+  useEffect(() => {
+    if (ELEM.current) { ELEM.current.focus() }
+  }, [])
+
 
   // FUNCTIONS
   function clickHandler(event: React.MouseEvent<HTMLButtonElement>) {
@@ -34,6 +42,7 @@ const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> =
           <p className={`${todo.isCompleted ? 'bg-green-500' : 'bg-red-500'} py-1 px-2 text-black rounded-md`}>{todo.isCompleted ? 'Completed' : 'Not Completed'}</p>
         </div>
       ))}
+      <input type="text" name="" id="" ref={ELEM} />
     </div>
   )
 }
