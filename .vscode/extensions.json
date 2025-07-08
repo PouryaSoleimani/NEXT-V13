@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "loiane.angular-extension-pack"
+        "loiane.angular-extension-pack",
+        "imgildev.vscode-typescript-generator",
+        "trunk.io"
     ]
 }
