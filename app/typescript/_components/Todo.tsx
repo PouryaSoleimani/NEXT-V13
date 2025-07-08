@@ -11,6 +11,17 @@ type TodoComponentPropsType = {
 }
 
 const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> = (props, children) => {
+
+  function clickHandler(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault()
+    console.info('Clicked')
+  }
+
+  function changeHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    console.info('Changed')
+  }
+
+  // ^ RETURN _________________________________________________________________________________________________________________________________________________
   return (
     <div className='grid grid-cols-5 p-5 gap-4'>
       {props.props.map(todo => (
