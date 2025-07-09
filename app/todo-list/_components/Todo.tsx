@@ -18,4 +18,4 @@ const Todo = ({ id, text, completed }: TodoType) => {
   )
 }
 
-export default Todo
+export default Todo 
