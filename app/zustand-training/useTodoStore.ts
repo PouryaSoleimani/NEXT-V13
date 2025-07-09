@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 type TodoType = { id: number; text: string; completed: boolean; };
-
 interface TodoState {
   todos: TodoType[];
   addTodo: (todo: TodoType) => void;

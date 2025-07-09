@@ -1,8 +1,7 @@
 "use client"
 import React from 'react'
-import { TodoType } from '../types/Todos.types'
 import useTodoStore from '@/app/zustand-training/useTodoStore'
-import { log } from 'console'
+import { toast } from 'react-hot-toast'
 
 
 const TodoForm = () => {
@@ -13,6 +12,7 @@ const TodoForm = () => {
     e.preventDefault()
     if (inputValue.trim() === '') return
     addTodo({ id: todos.length + 1, text: inputValue, completed: false })
+    toast.success("Todo added!")
     setInputValue('')
     console.log('TODOS FROM ZUSTAND ==>', todos);
   }

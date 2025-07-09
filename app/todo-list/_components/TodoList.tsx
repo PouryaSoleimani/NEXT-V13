@@ -11,7 +11,7 @@ const TodoList = () => {
       <ul className='overflow-scroll h-full'>
         {todos.length ? todos.map(todo => (
           <Todo key={todo.id} {...todo} />
-        )) : <p className='bg-black font-bold p-5 rounded-lg text-2xl'>No todos available</p>}
+        )) : <p className='bg-zinc-800/50 font-bold p-5 rounded-lg text-2xl'>No todos available</p>}
       </ul>
     </div>
   )
