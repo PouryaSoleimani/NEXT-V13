@@ -5,7 +5,6 @@ import TodoList from './_components/TodoList'
 
 const TodoListPage = () => {
 
-
   return (
     <div className='w-full h-[80vh] flex items-center justify-center'>
       <div className='w-1/2 h-1/2 bg-zinc-700 p-3 rounded-xl my-10 text-center overflow-scroll border-2'>
