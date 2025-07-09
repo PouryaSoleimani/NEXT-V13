@@ -2,6 +2,7 @@
 import React from 'react'
 import { TodoType } from '../types/Todos.types'
 import useTodoStore from '@/app/zustand-training/useTodoStore'
+import { log } from 'console'
 
 
 const TodoForm = () => {
@@ -13,6 +14,7 @@ const TodoForm = () => {
     if (inputValue.trim() === '') return
     addTodo({ id: todos.length + 1, text: inputValue, completed: false })
     setInputValue('')
+    console.log('TODOS FROM ZUSTAND ==>', todos);
   }
 
   return (
