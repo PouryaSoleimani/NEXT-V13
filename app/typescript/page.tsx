@@ -2,7 +2,7 @@
 import React from 'react'
 import TodoComponent from './_components/Todo'
 import UserComponent from './_components/User'
-import ReducerComponent from './ReducerComponent'
+import Reducer from './_components/Reducer'
 
 // const TypeScriptPage = (): JSX.Element => { // TYPE OF COMPONENT
 // const TypeScriptPage = (): React.ReactNode => { // TYPE OF COMPONENT
@@ -14,7 +14,7 @@ const TypeScriptPage: React.FC = (): JSX.Element => { // TYPE OF COMPONENT
       <div className='text-3xl font-bold p-6 text-center bg-blue-700 text-white my-6'>TypeScriptPage</div>
       <TodoComponent props={TodosList} />
       <UserComponent props={UsersList} />
-      <ReducerComponent />
+      <Reducer />
     </>
   )
 }

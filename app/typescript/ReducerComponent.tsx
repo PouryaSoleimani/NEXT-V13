@@ -1,9 +1,11 @@
 import React, { useReducer } from 'react'
+// TYPES
 type StateType = { count: number }
 type ActionType = { type: 'increment' | 'decrement' | 'reset', payload: number }
 
 
 
+// STATE & ACTION
 const initialState = { count: 0 }
 const reducerFunction = (state: StateType, action: ActionType) => {
   switch (action.type) {
@@ -14,9 +16,9 @@ const reducerFunction = (state: StateType, action: ActionType) => {
   }
 }
 
-
+//COMPONENET
 const ReducerComponent = () => {
-
+  // USE REDUCER
   const [state, dispatch] = useReducer(reducerFunction, initialState)
 
   return (

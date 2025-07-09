@@ -1,33 +1,27 @@
 import React, { useReducer } from 'react'
-
-type CounterType = { count: number }
-type ActionType = { type: "INCREMENT" | "DECREMENT" | "RESET", payload: number }
-
-// 2
+// TYPES
+type StateType = { count: number }
+type ActionType = { type: 'increment' | 'decrement' | 'reset', payload: 0 | 1 }
+// STATE & ACTION
 const initialState = { count: 0 }
-// 3
-const ReducerFunc = (state: CounterType, action: ActionType) => {
+const reducerfunction = (state: StateType, action: ActionType) => {
   switch (action.type) {
-    case 'INCREMENT': return { count: state.count + action.payload }
-    case 'DECREMENT': return { count: state.count - action.payload }
-    case 'RESET': return initialState
-    default: return state
+    case 'increment': return { count: state.count + action.payload }
+    case 'decrement': return { count: state.count - action.payload }
+    case 'reset': return { count: 0 }
+    default: throw new Error('invalid action ...')
   }
 }
-
-
-// ^ COMPONENT
+// COMPONENT
 const Reducer = () => {
-
-  // 1
-  const [state, dispatch] = useReducer(ReducerFunc, initialState)
-
+  // REDUCER
+  const [state, dispatch] = useReducer(reducerfunction, initialState)
   return (
-    <div>
-      <h2>COUNT : {state.count} </h2>
-      <button onClick={() => dispatch({ type: 'INCREMENT', payload: 1 })}>+</button>
-      <button onClick={() => dispatch({ type: 'DECREMENT', payload: 1 })}>-</button>
-      <button onClick={() => dispatch({ type: 'RESET', payload: 0 })}>RESET</button>
+    <div className='w-fit bg-zinc-900 my-4 p-5 text-2xl font-bold mx-auto rounded-xl'>
+      <h2 className='my-5 text-center text-4xl'>count : {state.count}</h2>
+      <button onClick={() => dispatch({ type: 'increment', payload: 1 })} className='px-4 py-2 bg-emerald-900 text-white mx-4 rounded-lg'>increment</button>
+      <button onClick={() => dispatch({ type: "decrement", payload: 1 })} className='px-4 py-2 bg-red-900 text-white mx-4 rounded-lg'>decrement</button>
+      <button onClick={() => dispatch({ type: "reset", payload: 0 })} className='px-4 py-2 bg-blue-900 text-white mx-4 rounded-lg'>reset</button>
     </div>
   )
 }
