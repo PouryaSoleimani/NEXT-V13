@@ -2,10 +2,11 @@ import React, { useReducer } from 'react'
 
 type CounterType = { count: number }
 type ActionType = { type: "INCREMENT" | "DECREMENT" | "RESET", payload: number }
+
+// 2
 const initialState = { count: 0 }
-
-
-const firstReducer = (state: CounterType, action: ActionType) => {
+// 3
+const ReducerFunc = (state: CounterType, action: ActionType) => {
   switch (action.type) {
     case 'INCREMENT': return { count: state.count + action.payload }
     case 'DECREMENT': return { count: state.count - action.payload }
@@ -18,7 +19,8 @@ const firstReducer = (state: CounterType, action: ActionType) => {
 // ^ COMPONENT
 const Reducer = () => {
 
-  const [state, dispatch] = useReducer(firstReducer, initialState)
+  // 1
+  const [state, dispatch] = useReducer(ReducerFunc, initialState)
 
   return (
     <div>
