@@ -7,8 +7,8 @@ const TodoListPage = () => {
 
 
   return (
-    <div className='w-full h-full flex items-center justify-center'>
-      <div className='w-1/2 h-1/2 bg-zinc-700 p-3 rounded-xl my-10 text-center'>
+    <div className='w-full h-[80vh] flex items-center justify-center'>
+      <div className='w-1/2 h-1/2 bg-zinc-700 p-3 rounded-xl my-10 text-center overflow-scroll border-2'>
         <h1 className='text-white mb-6 text-2xl font-bold underline underline-offset-4 decoration-4 decoration-emerald-700 '>Todo List</h1>
         <TodoForm />
         <TodoList />
