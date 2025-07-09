@@ -20,7 +20,7 @@ const ReducerComponent = () => {
   const [state, dispatch] = useReducer(reducerFunction, initialState)
 
   return (
-    <div className='bg-zinc-700 w-fit text-2xl p-5 mx-auto rounded-xl font-bold'>
+    <div className='bg-zinc-700 w-fit text-2xl p-5 mx-auto rounded-xl font-bold my-4'>
       <h2>count : {state.count}</h2>
       <button onClick={() => dispatch({ type: 'increment', payload: 1 })} className='bg-green-900 text-white px-3 py-2 mx-2 rounded-lg border-2 border-black my-3'>increment</button>
       <button onClick={() => dispatch({ type: 'decrement', payload: 1 })} className='bg-red-900 text-white px-3 py-2 mx-2 rounded-lg border-2 border-black my-3'>decrement</button>
