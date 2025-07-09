@@ -1,0 +1,26 @@
+"use client"
+import React from 'react'
+import { TodoType } from '../types/Todos.types'
+import useTodoStore from '@/app/zustand-training/useTodoStore'
+
+
+const TodoForm = () => {
+  const { todos, addTodo } = useTodoStore()
+  const [inputValue, setInputValue] = React.useState('')
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (inputValue.trim() === '') return
+    addTodo({ id: todos.length + 1, text: inputValue, completed: false })
+    setInputValue('')
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className='flex items-center justify-center gap-3 w-full'>
+      <input type="text" placeholder='Add Todo' className='p-2 rounded w-5/6 text-black font-bold' value={inputValue} onChange={e => setInputValue(e.target.value)} />
+      <button className='p-2 bg-emerald-900 border-2 text-white rounded w-1/6'>Add</button>
+    </form>
+  )
+}
+
+export default TodoForm
