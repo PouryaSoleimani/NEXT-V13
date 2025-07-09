@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useReducer } from 'react'
+type StateType = { count: number }
+type ActionType = { type: 'increment' | 'decrement' | 'reset', payload: number }
+
+
+
+const initialState = { count: 0 }
+const reducerFunction = (state: StateType, action: ActionType) => {
+  switch (action.type) {
+    case 'increment': return { count: state.count + action.payload }
+    case 'decrement': return { count: state.count - action.payload }
+    case 'reset': return { count: 0 }
+    default: throw new Error('invalid action')
+  }
+}
+
 
 const ReducerComponent = () => {
+
+  const [state, dispatch] = useReducer(reducerFunction, initialState)
+
   return (
-    <div className='bg-zinc-900 p-6 w-fit text-2xl mx-auto rounded-xl border-2 my-6'>
-      <h2>Count : 0</h2>
-      <div className='flex items-center gap-5 my-5'>
-        <button className='bg-emerald-800 text-white p-2 rounded-lg font-bold'>Increment</button>
-        <button className='bg-red-800 text-white p-2 rounded-lg font-bold'>Decrement</button>
-        <button className='bg-blue-800 text-white p-2 rounded-lg font-bold'>Reset</button>
-      </div>
+    <div className='bg-zinc-700 w-fit text-2xl p-5 mx-auto rounded-xl font-bold'>
+      <h2>count : {state.count}</h2>
+      <button onClick={() => dispatch({ type: 'increment', payload: 1 })} className='bg-green-900 text-white px-3 py-2 mx-2 rounded-lg border-2 border-black my-3'>increment</button>
+      <button onClick={() => dispatch({ type: 'decrement', payload: 1 })} className='bg-red-900 text-white px-3 py-2 mx-2 rounded-lg border-2 border-black my-3'>decrement</button>
+      <button onClick={() => dispatch({ type: 'reset', payload: 0 })} className='bg-blue-900 text-white px-3 py-2 mx-2 rounded-lg border-2 border-black my-3'>reset</button>
     </div>
   )
 }
