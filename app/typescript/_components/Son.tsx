@@ -5,7 +5,7 @@ import { SonPropsType } from './Father'
 
 
 const Son: React.FC<SonPropsType> = ({ title, availables, isBlack, theme }) => {
-  
+
   const [value, setvalue] = useState('')
   const elem = useRef<HTMLInputElement>(null)
 
