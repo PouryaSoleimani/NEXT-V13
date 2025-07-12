@@ -4,6 +4,7 @@ import TodoComponent from './_components/Todo'
 import UserComponent from './_components/User'
 import Reducer from './_components/Reducer'
 import Translate from './_components/translate/Translate'
+import Father from './_components/Father'
 
 // const TypeScriptPage = (): JSX.Element => { // TYPE OF COMPONENT
 // const TypeScriptPage = (): React.ReactNode => { // TYPE OF COMPONENT
@@ -17,6 +18,7 @@ const TypeScriptPage: React.FC = (): JSX.Element => { // TYPE OF COMPONENT
       <UserComponent props={UsersList} />
       <Reducer />
       <Translate toTranslate='error_tr' />
+      <Father />
     </>
   )
 }
