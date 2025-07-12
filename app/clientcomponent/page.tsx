@@ -43,6 +43,7 @@ const ClientComponent = () => {
 };
 export default ClientComponent;
 
+
 // ^  WE USE CLIENT COMPONENTS WHEN :
 // 1 - WE HAVE EVENTS LIKE (( ONCLICK )) OR (( ONCHANGE ))
 // 2 - WE MUST USE REACT HOOKS LIKE : (( USEEFFECT )) OR (( USESTATE )) AND ...

@@ -3,8 +3,8 @@ import React from 'react'
 import useTodoStore from '@/app/zustand-training/useTodoStore'
 import { toast } from 'react-hot-toast'
 
-
 const TodoForm = () => {
+
   const { todos, addTodo } = useTodoStore()
   const [inputValue, setInputValue] = React.useState('')
 
