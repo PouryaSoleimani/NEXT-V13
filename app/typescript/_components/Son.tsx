@@ -11,8 +11,24 @@ const Son: React.FC<SonPropsType> = ({ title, availables, isBlack, theme }) => {
   console.groupEnd()
 
   return (
-    <div>Son</div>
+    <div>
+      <h2 style={styles}>STYLED FROM REACT</h2>
+    </div>
   )
 }
 
 export default Son
+
+
+const styles: React.CSSProperties = {
+  color: 'cornflowerblue',
+  backgroundColor: '#c5eaf3',
+  border: '5px solid cornflowerblue',
+  padding: "10px",
+  width: '300px',
+  fontSize: '30px',
+  fontWeight: 'bolder',
+  borderRadius: '10px',
+  margin: '10px auto',
+  textAlign: "center"
+}
