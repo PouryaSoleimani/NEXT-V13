@@ -1,7 +1,13 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useRef, useState } from 'react'
 import { SonPropsType } from './Father'
 
+
+
 const Son: React.FC<SonPropsType> = ({ title, availables, isBlack, theme }) => {
+  
+  const [value, setvalue] = useState('')
+  const elem = useRef<HTMLInputElement>(null)
 
   console.group("%c SON PROPS", 'color: cyan')
   console.info('%c title :', 'color: yellow', title);
@@ -10,9 +16,14 @@ const Son: React.FC<SonPropsType> = ({ title, availables, isBlack, theme }) => {
   console.info('%c theme : ', 'color: yellow', theme);
   console.groupEnd()
 
+  useEffect(() => {
+    console.info('USE REF ===>', elem.current?.value)
+  }, [value])
+
   return (
     <div>
       <h2 style={styles}>STYLED FROM REACT</h2>
+      <input type="text" ref={elem} placeholder='TEXT' className='text-black' value={value} onChange={e => setvalue(e.target.value)} />
     </div>
   )
 }
