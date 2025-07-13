@@ -5,6 +5,7 @@ import UserComponent from './_components/User'
 import Reducer from './_components/Reducer'
 import Translate from './_components/translate/Translate'
 import Father from './_components/Father'
+import Theme from './context/Theme'
 
 // const TypeScriptPage = (): JSX.Element => { // TYPE OF COMPONENT
 // const TypeScriptPage = (): React.ReactNode => { // TYPE OF COMPONENT
@@ -19,6 +20,7 @@ const TypeScriptPage: React.FC = (): JSX.Element => { // TYPE OF COMPONENT
       <Reducer />
       <Translate toTranslate='error_tr' />
       <Father />
+      <Theme />
     </>
   )
 }
