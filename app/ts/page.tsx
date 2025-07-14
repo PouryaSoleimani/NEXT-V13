@@ -5,7 +5,7 @@ const TsTrainingPage = () => {
   // console.info('RESULT =>', result)
 
   const _Result = LoginFunction('Ali', '123456')
-  // console.info('RESULT ==> ', _Result)
+  console.info('RESULT ==> ', _Result)
 
   ReturnProductStatus('PENDING')
 

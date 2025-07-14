@@ -1,3 +1,4 @@
+// ? 1st Day of Review __________________________________________________________________
 // TUPLE TYPE
 type TupleType = [string, number, boolean];
 const TupleArray: TupleType = ['STRING', 123, true];
@@ -10,11 +11,7 @@ const func: FuncType = (a, b) => {
 export const result = func(10, 20);
 
 export function LoginFunction(username: string, password: string): boolean {
-  if (password === '123456') {
-    return true;
-  } else {
-    return false;
-  }
+  return password === '123456' ? true : false;
 }
 
 // UNION TYPES
@@ -59,3 +56,5 @@ function sum(num1: number, num2: number): number {
   return num1 + num2;
 }
 sum(...numbersArray); //* only possible with 'as const'
+
+// ? 2nd Day of Review __________________________________________________________________
