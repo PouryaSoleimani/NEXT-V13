@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { CheckCheck, CheckCircle2Icon, CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
+import { CheckCheck, CheckCircle2Icon, CircleCheckIcon, CircleHelpIcon, CircleIcon, LogInIcon, User2 } from "lucide-react"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, } from "@/components/ui/navigation-menu"
 import { HiBackspace } from "react-icons/hi"
+import Image from "next/image"
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Alert Dialog",
@@ -43,8 +44,9 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Header() {
   return (
-    <section className="bg-black flex items-center justify-center">
-      <NavigationMenu>
+    <section className="bg-black flex items-center justify-between px-6 py-1">
+      <Image src="/next.svg" alt="logo" width={200} height={100} className="bg-zinc-900 p-3 rounded-lg basis-1/12" />
+      <NavigationMenu className="basis-10/12">
         <NavigationMenuList className="bg-black p-2 m-2">
           <NavigationMenuItem>
             <NavigationMenuTrigger>Home</NavigationMenuTrigger>
@@ -188,6 +190,10 @@ export function Header() {
 
         </NavigationMenuList>
       </NavigationMenu>
+      <div className="flex items-center justify-center gap-6 basis-1/12">
+        <User2 className="size-9 bg-zinc-900 p-2 rounded-lg hover:bg-zinc-700 cursor-pointer" />
+        <LogInIcon className="size-9 bg-zinc-900 p-2 rounded-lg hover:bg-zinc-700 cursor-pointer" />
+      </div>
     </section>
   )
 }
