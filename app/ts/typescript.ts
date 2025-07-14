@@ -5,9 +5,7 @@ const TupleArray: TupleType = ['STRING', 123, true];
 
 // FUNCTION PARAMATER TYPE
 type FuncType = (a: number, b: number) => number;
-const func: FuncType = (a, b) => {
-  return a + b;
-};
+const func: FuncType = (a, b) => { return a + b; };
 export const result = func(10, 20);
 
 export function LoginFunction(username: string, password: string): boolean {
