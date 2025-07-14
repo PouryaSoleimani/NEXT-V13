@@ -26,6 +26,7 @@ const combinedArray: CombineArrayType = [2, 'ali', false];
 
 // LITERAL TYPES
 type ProductDeliverValue = 'PENDING' | 'SENT' | 'CANCELED' | 'DELIVERED';
+// use this instead of enums ⬆
 export function ReturnProductStatus(status: ProductDeliverValue) {
   switch (status) {
     case 'PENDING':
