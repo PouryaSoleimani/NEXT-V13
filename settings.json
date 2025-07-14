@@ -2,8 +2,8 @@
   "editor.fontFamily": "consolas, Vazir",
   "editor.fontWeight": "600",
   "editor.letterSpacing": 0.1,
-  "editor.lineHeight": 1.5,
-  "editor.fontSize": 11,
+  "editor.lineHeight": 1.65,
+  "editor.fontSize": 13,
   "editor.fontVariations": false,
   "editor.mouseWheelZoom": true,
   "window.zoomLevel": -1,
@@ -11,13 +11,52 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "editor.showUnused": true,
   "files.autoSave": "afterDelay",
-  "terminal.integrated.fontFamily": "cascadia mono",
+  "terminal.integrated.fontFamily": "Roboto Mono",
   "terminal.integrated.mouseWheelZoom": true,
   "terminal.integrated.fontLigatures.enabled": true,
   "tailwind-fold.showTailwindImage": false,
   "tailwind-fold.foldedTextColor": "#ccc",
   "tailwind-fold.foldStyle": "QUOTES",
   "workbench.colorCustomizations": {
+    "[Default Dark Modern]": {
+      "editor.background": "#17191B",
+      "breadcrumb.background": "#17191B",
+      "editorGutter.background": "#17191B",
+      "tab.hoverBorder": "#17191B",
+      "tab.activeBackground": "#17191B",
+      "input.background": "#17191B",
+      "titleBar.border": "#3d3d3d",
+      "sideBar.foreground": "#fff",
+      "titleBar.activeBackground": "#000",
+      "titleBar.inactiveBackground": "#000",
+      "foreground": "#f7f9fa",
+      "editor.lineHighlightBackground": "#000",
+      "editor.foldBackground": "#000000db",
+      "statusBar.background": "#000",
+      "menu.background": "#000",
+      "editorWidget.background": "#000",
+      "editorSuggestWidget.background": "#000",
+      "tab.inactiveBackground": "#000",
+      "editorGroupHeader.tabsBackground": "#000",
+      "editorGroup.emptyBackground": "#17191B",
+      "sideBar.background": "#000",
+      "editor.lineHighlightBorder": "#000",
+      "tab.activeBorderTop": "#fff",
+      "tab.activeBorder": "#17191B",
+      "editorGroup.border": "#0a0a0a00",
+      "quickInput.background": "#000",
+      "button.border": "#00000000",
+      "panel.background": "#000",
+      "panelTitle.activeForeground": "#fff",
+      "sideBarTitle.background": "#000",
+      "sideBarSectionHeader.background": "#000",
+      "sideBarSectionHeader.foreground": "#fff",
+      "sideBarSectionHeader.border": "#2e2e2e",
+      "activityBarTop.activeBackground": "#2e2e2e",
+      "menu.selectionBackground": "#2e2e2e",
+      "quickInputList.focusBackground": "#2e2e2e",
+      "notifications.background": "#000000"
+    },
     "[GitHub Dark Default]": {
       "titleBar.activeBackground": "#010409",
       "foreground": "#f7f9fa",
@@ -37,15 +76,15 @@
       "editorCursor.foreground": "#ffffff"
     },
     "[Next Dark Pro]": {
-      "editor.background": "#10141a",
-      "breadcrumb.background": "#10141a",
-      "editorGutter.background": "#10141a",
+      "editor.background": "#17191B",
+      "breadcrumb.background": "#17191B",
+      "editorGutter.background": "#17191B",
       "editorLineNumber.foreground": "#5353538b",
       "editorLineNumber.activeForeground": "#848484",
       "tab.hoverBorder": "#12141800",
-      "tab.activeBackground": "#10141a",
-      "input.background": "#10141a",
-      "tab.activeBorder": "#10141a",
+      "tab.activeBackground": "#17191B",
+      "input.background": "#17191B",
+      "tab.activeBorder": "#17191B",
       "titleBar.border": "#504f4f",
       "sideBar.foreground": "#fff",
       "sideBar.border": "#504f4f",
@@ -62,7 +101,7 @@
       "editorSuggestWidget.background": "#000",
       "tab.inactiveBackground": "#000",
       "editorGroupHeader.tabsBackground": "#000",
-      "editorGroup.emptyBackground": "#10141a",
+      "editorGroup.emptyBackground": "#17191B",
       "sideBar.background": "#000",
       "editor.lineHighlightBorder": "#000",
       "tab.activeBorderTop": "#fff",
@@ -97,45 +136,7 @@
       "activityBarBadge.background": "#fff",
       "activityBarBadge.foreground": "#000"
     },
-    "[Default Dark Modern]": {
-      "editor.background": "#10141a",
-      "breadcrumb.background": "#10141a",
-      "editorGutter.background": "#10141a",
-      "tab.hoverBorder": "#10141a",
-      "tab.activeBackground": "#10141a",
-      "input.background": "#10141a",
-      "titleBar.border": "#3d3d3d",
-      "sideBar.foreground": "#fff",
-      "titleBar.activeBackground": "#000",
-      "titleBar.inactiveBackground": "#000",
-      "foreground": "#f7f9fa",
-      "editor.lineHighlightBackground": "#000",
-      "editor.foldBackground": "#000000db",
-      "statusBar.background": "#000",
-      "menu.background": "#000",
-      "editorWidget.background": "#000",
-      "editorSuggestWidget.background": "#000",
-      "tab.inactiveBackground": "#000",
-      "editorGroupHeader.tabsBackground": "#000",
-      "editorGroup.emptyBackground": "#10141a",
-      "sideBar.background": "#000",
-      "editor.lineHighlightBorder": "#000",
-      "tab.activeBorderTop": "#fff",
-      "tab.activeBorder": "#10141a",
-      "editorGroup.border": "#0a0a0a00",
-      "quickInput.background": "#000",
-      "button.border": "#00000000",
-      "panel.background": "#000",
-      "panelTitle.activeForeground": "#fff",
-      "sideBarTitle.background": "#000",
-      "sideBarSectionHeader.background": "#000",
-      "sideBarSectionHeader.foreground": "#fff",
-      "sideBarSectionHeader.border": "#2e2e2e",
-      "activityBarTop.activeBackground": "#2e2e2e",
-      "menu.selectionBackground": "#2e2e2e",
-      "quickInputList.focusBackground": "#2e2e2e",
-      "notifications.background": "#000000"
-    },
+
     "[Min Dark]": {
       "editor.background": "#171719",
       "breadcrumb.background": "#171719",
@@ -311,8 +312,7 @@
           "variable.parameter",
           "punctuation",
           "meta.brace.round",
-          "punctuation.definition.block",
-          "variable"
+          "punctuation.definition.block"
         ],
         "settings": {
           "fontStyle": ""
@@ -370,9 +370,9 @@
             "support.constant.font-name.css",
             "punctuation.definition.tag.begin",
             "punctuation.definition.tag.end",
-            "keyword.operator.assignment",
             "variable.object.property",
-            "support.variable.property"
+            "support.variable.property",
+            "support.constant.color.w3c-standard-color-name.css"
           ],
           "settings": {
             "foreground": "#fafafa"
@@ -383,11 +383,7 @@
             "entity.other.attribute-name.pseudo-element.css",
             "support.function.gradient.css",
             "entity.other.attribute-name",
-            "entity.name.function",
-            "entity.name.type.class",
-            "support.type.primitive",
-            "entity.name.type.alias",
-            "entity.name.type"
+            "entity.name.function"
           ],
           "settings": {
             "foreground": "#B392F0"
@@ -417,8 +413,7 @@
         {
           "scope": [
             "support.class.component",
-            "meta.object.member",
-            "variable.other.constant"
+            "support.type.property-name.css"
           ],
           "settings": {
             "foreground": "#79B8FF"
@@ -428,14 +423,6 @@
           "scope": ["comment", "punctuation.definition.comment"],
           "settings": {
             "foreground": "#b2b2b3"
-          }
-        },
-        {
-          "name": "Unused variables underline",
-          "scope": ["variable.other.readwrite.unused", "variable.other.unused"],
-          "settings": {
-            "fontStyle": "underline",
-            "foreground": "#FFA500"
           }
         }
       ]
@@ -711,7 +698,7 @@
     "()",
     "[]",
     "{}",
-    ["yellow", "dodgerblue", "hotpink"],
+    ["dodgerblue", "yellow", "hotpink"],
     "Revioletd"
   ],
   "terminal.integrated.defaultProfile.windows": "Git Bash",
@@ -751,10 +738,12 @@
   "material-icon-theme.opacity": 1,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "GitHub Dark Default",
   "window.menuBarVisibility": "compact",
   "cursor.windowSwitcher.sidebarHoverCollapsed": true,
-  "editor.bracketPairColorization.enabled": true,
   "workbench.productIconTheme": "material-product-icons",
+  "workbench.activityBar.location": "top",
+  "window.commandCenter": false,
+  "workbench.panel.showLabels": false,
+  "editor.bracketPairColorization.enabled": true,
   "terminal.integrated.fontSize": 12
 }
