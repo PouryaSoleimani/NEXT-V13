@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Rajdhani } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
+import { Header } from '@/components/Header';
+import { NavigationMenu } from '@/components/ui/navigation-menu';
 
 // FONTS
 const rajdhani = Rajdhani({
@@ -22,7 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <head>{/* <title>THIS IS A NEXT TRAINING PAGE</title> */}</head>
       <body className={rajdhani.className}>
-        <h2 className="bg-red-700 p-6 text-3xl font-extrabold">HEADER</h2>
+        <Header />
         {children}
         <Toaster position="top-right" reverseOrder={false} />
         <h2 className="bg-blue-800 p-6 text-3xl font-extrabold">FOOTER</h2>
