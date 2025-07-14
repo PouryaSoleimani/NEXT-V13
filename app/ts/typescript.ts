@@ -47,3 +47,14 @@ export function ReturnProductStatus(status: ProductDeliverValue) {
 }
 
 // CONST ASSERTION
+const numbers = [10, 20] as const;
+// numbers.push(30); //! will throw error because of 'as const'
+
+const user = { name: 'ali' } as const;
+// user.name = 'mamad'; //! will throw error because of 'as const'
+
+const numbersArray = [2, 3] as const;
+function sum(num1: number, num2: number): number {
+  return num1 + num2;
+}
+sum(...numbersArray); //* only possible with 'as const'
