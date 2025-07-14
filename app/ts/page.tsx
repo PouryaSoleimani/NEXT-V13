@@ -1,12 +1,13 @@
 import React from 'react'
-import { result, LoginFunction } from './typescript'
+import { result, LoginFunction, ReturnProductStatus } from './typescript'
 const TsTrainingPage = () => {
 
-  console.info('RESULT =>', result)
+  // console.info('RESULT =>', result)
 
   const _Result = LoginFunction('Ali', '123456')
-  console.info('RESULT ==> ', _Result)
+  // console.info('RESULT ==> ', _Result)
 
+  ReturnProductStatus('PENDING')
 
 
 
