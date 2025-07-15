@@ -60,3 +60,4 @@ sum(...numbersArray); //* only possible with 'as const'
 // ? 2nd Day of Review __________________________________________________________________
 const linkElem = document.getElementById('LINK') as HTMLLinkElement;
 console.log(linkElem.href);
+
