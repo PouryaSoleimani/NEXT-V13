@@ -6,6 +6,7 @@ import { CheckCheck, CheckCircle2Icon, CircleCheckIcon, CircleHelpIcon, CircleIc
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, } from "@/components/ui/navigation-menu"
 import { HiBackspace } from "react-icons/hi"
 import Image from "next/image"
+import { SidebarTrigger } from "./ui/sidebar"
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Alert Dialog",
@@ -45,7 +46,10 @@ const components: { title: string; href: string; description: string }[] = [
 export function Header() {
   return (
     <section className="bg-black flex items-center justify-between px-6 py-1">
-      <Image src="/next.svg" alt="logo" width={200} height={100} className="bg-zinc-900 p-3 rounded-lg basis-1/12" />
+      <div className="flex items-center gap-4">
+        <SidebarTrigger className="w-3" />
+        <Image src="/next.svg" alt="logo" width={200} height={100} className="bg-zinc-900 p-3 rounded-2xl basis-1/12" />
+      </div>
       <NavigationMenu className="basis-10/12">
         <NavigationMenuList className="bg-black p-2 m-2">
           <NavigationMenuItem>
@@ -64,13 +68,13 @@ export function Header() {
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/docs" title="Introduction" className="hover:bg-zinc-900 p-2 rounded">
+                <ListItem href="/docs" title="Introduction" className="hover:bg-zinc-900 p-2 rounded-xl">
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Installation" className="hover:bg-zinc-900 p-2 rounded">
+                <ListItem href="/docs/installation" title="Installation" className="hover:bg-zinc-900 p-2 rounded-xl">
                   How to install dependencies and structure your app.
                 </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography" className="hover:bg-zinc-900 p-2 rounded">
+                <ListItem href="/docs/primitives/typography" title="Typography" className="hover:bg-zinc-900 p-2 rounded-xl">
                   Styles for headings, paragraphs, lists...etc
                 </ListItem>
               </ul>
@@ -86,7 +90,7 @@ export function Header() {
                     key={component.title}
                     title={component.title}
                     href={component.href}
-                    className="hover:bg-zinc-900 p-2 rounded"
+                    className="hover:bg-zinc-900 p-2 rounded-xl"
                   >
                     {component.description}
                   </ListItem>
@@ -108,7 +112,7 @@ export function Header() {
                 <li>
                   <NavigationMenuLink asChild >
                     <Link href="#" >
-                      <div className="hover:bg-zinc-900 p-2 rounded">
+                      <div className="hover:bg-zinc-900 p-2 rounded-xl">
                         <div className="font-medium">Components</div>
                         <div className="text-muted-foreground">
                           Browse all components in the library.
@@ -118,7 +122,7 @@ export function Header() {
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
                     <Link href="#">
-                      <div className="hover:bg-zinc-900 p-2 rounded">
+                      <div className="hover:bg-zinc-900 p-2 rounded-xl">
                         <div className="font-medium">Documentation</div>
                         <div className="text-muted-foreground">
                           Learn how to use the library.
@@ -128,7 +132,7 @@ export function Header() {
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
                     <Link href="#">
-                      <div className="hover:bg-zinc-900 p-2 rounded">
+                      <div className="hover:bg-zinc-900 p-2 rounded-xl">
                         <div className="font-medium">Blog</div>
                         <div className="text-muted-foreground">
                           Read our latest blog posts.
@@ -147,13 +151,13 @@ export function Header() {
               <ul className="flex flex-col gap-4 w-[300px]">
                 <li className="flex flex-col gap-3">
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded">Components</Link>
+                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded-xl">Components</Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded">Documentation</Link>
+                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded-xl">Documentation</Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded">Blocks</Link>
+                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded-xl">Blocks</Link>
                   </NavigationMenuLink>
                 </li>
               </ul>
@@ -166,19 +170,19 @@ export function Header() {
               <ul className="grid w-[200px] gap-4">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded">
+                    <Link href="#" className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl">
                       <HiBackspace className="w-6 h-6" />
                       Backlog
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded">
+                    <Link href="#" className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl">
                       <CheckCheck />
                       To Do
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded">
+                    <Link href="#" className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl">
                       <CheckCircle2Icon />
                       Done
                     </Link>
