@@ -69,13 +69,20 @@ interface User {
 // ? 3nd Day of review __________________________________________________________________
 class Person {
   constructor(public name: string, public age: number) { }
+
+  setAge(age: number) {
+    this.age = age
+  }
 }
 
 const AliPerson = new Person('ALI', 25)
 
 
 class PersonExtended extends Person {
-  constructor(name: string, age: number, public job: string) {
+  constructor(name: string, age: number, private job: string, readonly email: string) { // ! PRIVATE ACCESS MODIFIER
     super(name, age)
   }
 }
+
+const newPerson = new PersonExtended("ali", 32, 'designer', 'design@gmail.com')
+console.info(newPerson)
