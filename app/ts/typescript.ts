@@ -90,10 +90,27 @@ interface UserInterface {
   infos: { name: string, age: number }
   age: number,
   skills: string[]
+  logger(text: string): boolean
 }
 
 export const newUser2: UserInterface = {
   infos: { name: 'MAMAD', age: 32 },
   age: 32,
   skills: ['JS', 'TS'],
-} 
+  logger: (text: string) => { return true }
+}
+
+
+interface ApiResponseInterface {
+  materials: string[]
+  grams: { id: number, title: string }[]
+  materialID: number,
+  title: string
+}
+
+const _ApiResponse: ApiResponseInterface = {
+  materialID: 1,
+  materials: ['material1', 'material2'],
+  grams: [{ id: 2, title: 'gram' }],
+  title: 'Api RESPONSE'
+}
