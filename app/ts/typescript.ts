@@ -64,3 +64,18 @@ sum(...numbersArray); //* only possible with 'as const'
 interface User {
   name: string,
 }
+
+
+// ? 3nd Day of review __________________________________________________________________
+class Person {
+  constructor(public name: string, public age: number) { }
+}
+
+const AliPerson = new Person('ALI', 25)
+
+
+class PersonExtended extends Person {
+  constructor(name: string, age: number, public job: string) {
+    super(name, age)
+  }
+}
