@@ -1,4 +1,5 @@
 // ? 1st Day of Review __________________________________________________________________
+
 // TUPLE TYPE
 type TupleType = [string, number, boolean];
 const TupleArray: TupleType = ['STRING', 123, true];
@@ -124,9 +125,35 @@ class CarClass {
 export const newCar = new CarClass('BMW')
 
 class CarClassExtended extends CarClass {
-  constructor(name: string, public power: number) {
+  static count: 0
+  constructor(name: string, public power: number, private color: string) {
     super(name)
+    CarClassExtended.count++
   }
+  ColorSetter(newColor: string) { this.color = newColor }
+  ColorGetter() { return this.color }
 }
-const newCarExtended = new CarClassExtended('BMW M5', 567)
+const newCarExtended = new CarClassExtended('BMW M5', 567, 'BLACK')
 newCarExtended.drive()
+newCarExtended.ColorSetter('MATTE BLACK')
+newCarExtended.ColorGetter()
+
+CarClassExtended.count
+
+interface UserResponseInterface {
+  userInfo: { id: number, name: string, age: number }
+  userSkills: string[]
+  userRate: number
+}
+
+export const newApiUser: UserResponseInterface = {
+  userSkills: ['ts', 'react'],
+  userInfo: { id: 3, name: 'USER', age: 32 },
+  userRate: 3
+}
+
+newApiUser.userSkills.push('JS')
+
+newApiUser.userInfo.name = 'MAMADREZA NAGHIPOUR'
+
+
