@@ -2,6 +2,7 @@ import React from 'react'
 import { LoginFunction, ReturnProductStatus } from './typescript'
 import Logger from '@/hooks/Logger'
 import { _ApiResponse } from './typescript'
+import './typescript'
 
 const TsTrainingPage = () => {
 

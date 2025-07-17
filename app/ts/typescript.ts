@@ -114,3 +114,19 @@ export const _ApiResponse: ApiResponseInterface = {
   grams: [{ id: 2, title: 'gram' }],
   title: 'Api RESPONSE'
 }
+
+class CarClass {
+  constructor(public name: string,) { }
+  drive() {
+    console.info('RUN')
+  }
+}
+export const newCar = new CarClass('BMW')
+
+class CarClassExtended extends CarClass {
+  constructor(name: string, public power: number) {
+    super(name)
+  }
+}
+const newCarExtended = new CarClassExtended('BMW M5', 567)
+newCarExtended.drive()
