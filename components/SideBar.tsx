@@ -21,7 +21,7 @@ export function AppSidebar() {
       {/* دکمه برای باز و بسته کردن */}
       <button
         onClick={() => setOpen(!open)}
-        className={`p-2  text-white z-[999] rounded-md  transition-all duration-300 delay-75 ${open ? 'fixed top-3 left-64' : 'fixed top-3 left-1'}`}
+        className={`p-2  text-white z-[999] rounded-md  transition-all duration-500 ${open ? 'fixed top-3 left-64' : 'fixed top-3 left-1'}`}
       >
         <Menu className={`${open ? "" : ''}`} />
       </button>
