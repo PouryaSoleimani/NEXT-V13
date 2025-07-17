@@ -78,11 +78,22 @@ class Person {
 const AliPerson = new Person('ALI', 25)
 
 
-class PersonExtended extends Person {
-  constructor(name: string, age: number, private job: string, readonly email: string) { // ! PRIVATE ACCESS MODIFIER
-    super(name, age)
-  }
+class PersonExtended {
+  constructor(private password: string, readonly username: string) { }
+  get getPassword() { return this.password }
+}
+const newPerson = new PersonExtended('12345', 'PouryaSoleimani')
+
+console.log(newPerson.getPassword);
+
+interface UserInterface {
+  infos: { name: string, age: number }
+  age: number,
+  skills: string[]
 }
 
-const newPerson = new PersonExtended("ali", 32, 'designer', 'design@gmail.com')
-console.info(newPerson)
+export const newUser2: UserInterface = {
+  infos: { name: 'MAMAD', age: 32 },
+  age: 32,
+  skills: ['JS', 'TS'],
+} 
