@@ -3,6 +3,7 @@ import { LoginFunction, ReturnProductStatus } from './typescript'
 import Logger from '@/hooks/Logger'
 import { _ApiResponse } from './typescript'
 import './typescript'
+import { newCar2 } from './typescript'
 
 const TsTrainingPage = () => {
 
@@ -34,6 +35,8 @@ const TsTrainingPage = () => {
 
   Logger(_ApiResponse)
 
+
+  Logger(newCar2)
 
   //* RETURN
   return (

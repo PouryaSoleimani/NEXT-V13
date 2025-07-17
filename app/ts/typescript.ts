@@ -157,3 +157,15 @@ newApiUser.userSkills.push('JS')
 newApiUser.userInfo.name = 'MAMADREZA NAGHIPOUR'
 
 
+interface CarInterface {
+  basicInfo: { model: string, color: string, brand: string, vehicleType: 'SUV' | 'SEDAN' | 'SPORT' },
+  powerInfos: { hp: number, type: 'RWD' | 'FWD' | 'AWD', cylinderCount: 4 | 6 | 8 }
+  optionsInfos: { isCoupe: boolean, isConvertible: boolean, doorsCount: 2 | 4, }
+}
+
+export const newCar2: CarInterface = {
+  basicInfo: { model: 'M3', brand: "BMW", color: "BLACK", vehicleType: "SEDAN", },
+  optionsInfos: { isCoupe: false, isConvertible: false, doorsCount: 4 },
+  powerInfos: { hp: 675, type: 'AWD', cylinderCount: 6 },
+}
+
