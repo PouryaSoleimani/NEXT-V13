@@ -108,7 +108,7 @@ interface ApiResponseInterface {
   title: string
 }
 
-const _ApiResponse: ApiResponseInterface = {
+export const _ApiResponse: ApiResponseInterface = {
   materialID: 1,
   materials: ['material1', 'material2'],
   grams: [{ id: 2, title: 'gram' }],
