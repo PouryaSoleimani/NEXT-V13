@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginFunction, newKeyboard, ReturnProductStatus } from './typescript'
+import { LoginFunction, newKeyboard, newSimpleCar, ReturnProductStatus } from './typescript'
 import Logger from '@/hooks/Logger'
 import { _ApiResponse } from './typescript'
 import './typescript'
@@ -34,7 +34,7 @@ const TsTrainingPage = () => {
   Logger(_ApiResponse)
   Logger(newCar2)
   Logger(newKeyboard)
-
+  Logger(newSimpleCar)
 
   //* RETURN
   return (
