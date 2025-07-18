@@ -30,7 +30,6 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en">
       <head>{/* <title>THIS IS A NEXT TRAINING PAGE</title> */}</head>
-
       <body>
         <Toaster position="top-right" reverseOrder={false} />
         <SidebarProvider defaultOpen={defaultOpen}>

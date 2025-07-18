@@ -18,11 +18,7 @@ export function AppSidebar() {
 
   return (
     <div className="flex">
-      {/* دکمه برای باز و بسته کردن */}
-      <button
-        onClick={() => setOpen(!open)}
-        className={`p-2  text-white z-[999] rounded-md  transition-all duration-500 ${open ? 'fixed top-3 left-64' : 'fixed top-3 left-1'}`}
-      >
+      <button onClick={() => setOpen(!open)} className={`p-2 text-white z-[999] rounded-md transition-all duration-500 ${open ? 'fixed top-3 left-64' : 'fixed top-3 left-1'}`} >
         <Menu className={`${open ? "" : ''}`} />
       </button>
       <Sidebar className={`${open ? 'w-80' : 'w-16'} transition-all duration-300 overflow-hidden`}>
@@ -36,10 +32,7 @@ export function AppSidebar() {
                 {items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <Link
-                        href={item.url}
-                        className="hover:bg-black flex items-center gap-2"
-                      >
+                      <Link href={item.url} className="hover:bg-black flex items-center gap-2" >
                         <item.icon />
                         {open && <span>{item.title}</span>}
                       </Link>
