@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginFunction, ReturnProductStatus } from './typescript'
+import { LoginFunction, newKeyboard, ReturnProductStatus } from './typescript'
 import Logger from '@/hooks/Logger'
 import { _ApiResponse } from './typescript'
 import './typescript'
@@ -31,12 +31,10 @@ const TsTrainingPage = () => {
   console.info('RESULT ==> ', _Result)
 
   ReturnProductStatus('PENDING')
-
-
   Logger(_ApiResponse)
-
-
   Logger(newCar2)
+  Logger(newKeyboard)
+
 
   //* RETURN
   return (

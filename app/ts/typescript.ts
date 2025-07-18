@@ -169,3 +169,11 @@ export const newCar2: CarInterface = {
   powerInfos: { hp: 675, type: 'AWD', cylinderCount: 6 },
 }
 
+interface KeyboardInterface {
+  basicInfos: { name: string, size: "MINI" | "MEDIUM" | "FULL-SIZE", color: "BLACK" | "WHITE", }
+  additionalOptions: { hasRGB: boolean, isMechanical: boolean, switchColor: "RED" | "BLUE" | "BROWN" }
+}
+export const newKeyboard: KeyboardInterface = {
+  basicInfos: { name: "RAZER", color: "BLACK", size: "MINI", },
+  additionalOptions: { hasRGB: true, isMechanical: true, switchColor: 'RED' }
+}
