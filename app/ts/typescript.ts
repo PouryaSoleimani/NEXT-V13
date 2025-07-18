@@ -177,3 +177,11 @@ export const newKeyboard: KeyboardInterface = {
   basicInfos: { name: "RAZER", color: "BLACK", size: "MINI", },
   additionalOptions: { hasRGB: true, isMechanical: true, switchColor: 'RED' }
 }
+
+// INTERFACE vs TYPE
+//? MODIFY
+//? EXTENDS
+//? MERGE
+//* INTERFACES ARE BEST FOR PROPS IN REACT
+
+
