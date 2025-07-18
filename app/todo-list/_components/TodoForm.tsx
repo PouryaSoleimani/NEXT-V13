@@ -19,7 +19,13 @@ const TodoForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className='flex items-center justify-center gap-3 w-full'>
-      <input type="text" placeholder='Add Todo' className='p-2 rounded w-5/6 text-black font-bold' value={inputValue} onChange={e => setInputValue(e.target.value)} />
+      <input
+        type="text"
+        placeholder='Add Todo'
+        className='p-2 rounded w-5/6 text-black font-bold border-2 border-zinc-900'
+        value={inputValue}
+        onChange={e => setInputValue(e.target.value)}
+      />
       <button className='p-2 bg-emerald-900 border-2 text-white rounded w-1/6'>Add</button>
     </form>
   )
