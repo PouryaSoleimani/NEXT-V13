@@ -34,7 +34,7 @@ const TodoForm = () => {
       <div className='flex gap-3 items-center'>
         <Button className='mt-4 basis-1/3 font-semibold text-xl pb-3' variant={"destructive"}>Delete All Todos</Button>
         <Button className='mt-4 basis-1/3 font-semibold text-xl pb-3' variant={"secondary"}>Complete All Todos</Button>
-        <Button className='mt-4 basis-1/3 font-semibold text-xl pb-3' variant={"secondary"}>Make a Random Toto</Button>
+        <Button className='mt-4 basis-1/3 font-semibold text-xl pb-3' variant={"blue"}>Make a Random Toto</Button>
       </div>
     </>
   )
