@@ -2,6 +2,9 @@
 import React from 'react'
 import useTodoStore from '@/app/zustand-training/useTodoStore'
 import { toast } from 'react-hot-toast'
+import { Input } from "@/components/ui/input"
+import { Button } from '@/components/ui/button'
+
 
 const TodoForm = () => {
 
@@ -19,14 +22,13 @@ const TodoForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className='flex items-center justify-center gap-3 w-full'>
-      <input
-        type="text"
+      <Input
         placeholder='Add Todo'
-        className='p-2 rounded w-5/6 outline-none font-bold border-2 border-zinc-900 bg-black text-white'
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
+        className='py-6 rounded-lg w-5/6 outline-none font-bold border-2 border-zinc-900 bg-black text-white'
       />
-      <button className='p-2 py-[7px] bg-emerald-900 border-4 box-border border-black text-white rounded w-1/6'>Add</button>
+      <Button type='submit' size={'lg'} className='text-xl p-6 px-10 w-1/6 font-semibold bg-zinc-950 hover:bg-black hover:border'>Add</Button>
     </form>
   )
 }
