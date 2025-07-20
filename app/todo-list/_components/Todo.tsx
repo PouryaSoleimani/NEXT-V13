@@ -17,8 +17,10 @@ const Todo = ({ id, text, completed }: TodoType) => {
       <span className='text-white'>{text}</span>
       <button
         className='bg-red-900 text-white p-3 rounded hover:bg-red-800'
-        onClick={() => { removeTodo(id); toast.error("Todo removed!") }} >
-        <BiTrash className='w-6 h-6' /></button>
+        onClick={() => { removeTodo(id); toast.error("Todo removed!") }}
+      >
+        <BiTrash className='w-6 h-6' />
+      </button>
     </li>
   )
 }
