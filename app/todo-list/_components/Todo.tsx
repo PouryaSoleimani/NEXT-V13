@@ -12,7 +12,8 @@ const Todo = ({ id, text, completed }: TodoType) => {
 
   return (
     <li
-      onClick={() => toggleCompleted(id)} className={`flex items-center justify-between p-2 border-b border-b-zinc-600 bg-black rounded-lg pl-3 my-3 text-xl font-black ${completed == true ? 'line-through opacity-50' : 'text-white'}`} >
+      onClick={() => toggleCompleted(id)}
+      className={`flex items-center justify-between p-2 border-b border-b-zinc-600 bg-black rounded-lg pl-3 my-3 text-xl font-black ${completed == true ? 'line-through opacity-50' : 'text-white'}`} >
       <span className='text-white'>{text}</span>
       <button
         className='bg-red-900 text-white p-3 rounded hover:bg-red-800'

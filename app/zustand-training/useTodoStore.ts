@@ -8,6 +8,8 @@ interface TodoState {
   removeTodo: (id: number) => void;
   toggleCompleted: (id: number) => void;
   removeAllTodos: () => void;
+  makeRandomTodo: () => void;
+  toggleAllTodosComplete: () => void
 }
 
 const useTodoStore = create<TodoState>()(
@@ -20,7 +22,11 @@ const useTodoStore = create<TodoState>()(
         set((state) => ({
           todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)),
         })),
-      removeAllTodos: () => set((state) => ({ todos: [] }))
+      removeAllTodos: () => set((state) => ({ todos: [] })),
+      makeRandomTodo: () => set((state) => ({ todos: [...state.todos, { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false }] as any })),
+      toggleAllTodosComplete: () => set((state) => ({
+        todos: state.todos.map((todo) => ({ ...todo, completed: !todo.completed })),
+      }))
     }),
     { name: 'todo-storage', storage: createJSONStorage(() => localStorage) }
   )
