@@ -22,11 +22,11 @@ const TodoForm = () => {
       <input
         type="text"
         placeholder='Add Todo'
-        className='p-2 rounded w-5/6 text-black font-bold border-2 border-zinc-900'
+        className='p-2 rounded w-5/6 outline-none font-bold border-2 border-zinc-900 bg-black text-white'
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
       />
-      <button className='p-2 bg-emerald-900 border-2 text-white rounded w-1/6'>Add</button>
+      <button className='p-2 py-[7px] bg-emerald-900 border-4 box-border border-black text-white rounded w-1/6'>Add</button>
     </form>
   )
 }

@@ -20,8 +20,8 @@ const useTodoStore = create<TodoState>()(
           todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)),
         })),
     }),
-    { name: 'todo-storage', storage: createJSONStorage(() => localStorage) },
-  ),
+    { name: 'todo-storage', storage: createJSONStorage(() => localStorage) }
+  )
 );
 
 export default useTodoStore;

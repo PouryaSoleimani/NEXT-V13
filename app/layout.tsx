@@ -34,7 +34,6 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <Toaster position="top-right" reverseOrder={false} />
         <SidebarProvider defaultOpen={defaultOpen}>
           <div className='w-full h-full'>
-            <AppSidebar />
             <main className='w-full min-h-screen'>
               <Header />
               {children}

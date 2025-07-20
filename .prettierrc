@@ -3,7 +3,7 @@
   "singleQuote": true,
   "semi": true,
   "singleAttributePerLine": false,
-  "trailingComma": "all",
+  "trailingComma": "es5",
   "printWidth": 900,
   "cursorOffset": 5,
   "htmlWhitespaceSensitivity": "ignore"
