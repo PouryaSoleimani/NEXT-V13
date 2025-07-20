@@ -8,6 +8,7 @@ import { NavigationMenu } from '@/components/ui/navigation-menu';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/SideBar';
 import { cookies } from 'next/headers';
+import { ThemeProvider } from '@/components/theme/theme-provider';
 
 // FONTS
 const rajdhani = Rajdhani({
@@ -28,19 +29,21 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>{/* <title>THIS IS A NEXT TRAINING PAGE</title> */}</head>
       <body>
-        <Toaster position="top-right" reverseOrder={false} />
-        <SidebarProvider defaultOpen={defaultOpen}>
-          <div className='w-full h-full'>
-            <main className='w-full min-h-screen'>
-              <Header />
-              {children}
-              <h2 className="bg-blue-800 p-6 text-3xl font-extrabold fixed bottom-0 right-0 w-full text-center z-50">FOOTER</h2>
-            </main>
-          </div>
-        </SidebarProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange >
+          <Toaster position="top-right" reverseOrder={false} />
+          <SidebarProvider defaultOpen={defaultOpen}>
+            <div className='w-full h-full'>
+              <main className='w-full min-h-screen'>
+                <Header />
+                {children}
+                <h2 className="bg-blue-800 p-6 text-3xl font-extrabold fixed bottom-0 right-0 w-full text-center z-50">FOOTER</h2>
+              </main>
+            </div>
+          </SidebarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
