@@ -14,7 +14,7 @@ const TodoList = () => {
         {todos.length ? todos.map(todo => (
           <Todo key={todo.id} {...todo} />
         )) :
-          <p className='bg-zinc-800/50 h-62 font-bold p-5 rounded-lg text-2xl border border-zinc-900 flex flex-col items-center-safe justify-center gap-y-5'>
+          <p className='bg-zinc-800/50 h-48 font-bold rounded-lg text-2xl border border-zinc-900 flex flex-col items-center-safe justify-center gap-y-5'>
             <Check color="#ffffff" className='size-10 bg-black rounded p-1' />
             ALL TASKS DONE
           </p>}
