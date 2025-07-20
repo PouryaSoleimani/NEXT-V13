@@ -7,6 +7,7 @@ interface TodoState {
   addTodo: (todo: TodoType) => void;
   removeTodo: (id: number) => void;
   toggleCompleted: (id: number) => void;
+  removeAllTodos: () => void;
 }
 
 const useTodoStore = create<TodoState>()(
@@ -19,6 +20,7 @@ const useTodoStore = create<TodoState>()(
         set((state) => ({
           todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)),
         })),
+      removeAllTodos: () => set((state) => ({ todos: [] }))
     }),
     { name: 'todo-storage', storage: createJSONStorage(() => localStorage) }
   )
