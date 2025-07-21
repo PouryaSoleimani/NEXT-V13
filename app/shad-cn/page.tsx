@@ -24,7 +24,9 @@ function ShadCnPage() {
         <TabsComponent />
 
         <Separator orientation='vertical' className='h-90 w-1 mx-4 bg-zinc-900' />
-
+        
+        <CardComponent />
+        <CardComponent />
         <CardComponent />
 
       </div>

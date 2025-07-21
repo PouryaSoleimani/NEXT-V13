@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { ArrowDownToDotIcon, ShoppingBag, ShoppingBasket } from "lucide-react"
-import Link from "next/link"
+import { ShoppingBasket } from "lucide-react"
+import Image from "next/image"
 import toast from "react-hot-toast"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
+import { Badge } from "@/components/ui/badge"
 
 export default function CardComponent() {
 
@@ -12,7 +12,7 @@ export default function CardComponent() {
     toast.success('Item Added To Cart 🛒', { style: { backgroundColor: 'black', color: 'white', border: "2px solid #505050", fontWeight: 'bold' } })
   }
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-sm mx-1">
 
       <CardHeader>
         <CardTitle>Iphone 15 Promax</CardTitle>
@@ -27,32 +27,39 @@ export default function CardComponent() {
       </CardHeader>
 
       <CardContent>
-        <form>
-          <div className="flex flex-col gap-6">
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="m@example.com" required />
-            </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
-                <Link href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline" >
-                  Forgot your password?
-                </Link>
-              </div>
-              <Input id="password" type="password" required />
-            </div>
-          </div>
-        </form>
+        <Image src='/images/iphone_15_promax.jpg' alt="iphone15promax" width={350} height={300} className="rounded-lg mx-auto  shadow-xl shadow-black aspect-3/2 hover:scale-105 duration-300" />
       </CardContent>
 
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full">
-          Login
-        </Button>
-        <Button variant="outline" className="w-full">
-          Login with Google
-        </Button>
+
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant={'blue'} className="w-full"> More Info </Button>
+          </AlertDialogTrigger>
+
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle className="text-center text-xl font-bold mb-1 bg-zinc-900 py-2 rounded-md w-[95%] mx-auto">Iphone 15 Promax</AlertDialogTitle>
+              <AlertDialogDescription>
+                <Image src='/images/iphone_15_promax.jpg' alt="iphone15promax" width={435} height={300} className="rounded-lg border mx-auto  shadow-xl shadow-black aspect-3/2 hover:scale-105 duration-300" />
+                <div className="bg-black flex items-center-safe justify-around gap-3 w-[95%] mx-auto my-4 p-4 rounded-md *:font-bold *:p-2">
+                  <Badge>512 Gb</Badge>
+                  <Badge variant="secondary">Natural Titanium</Badge>
+                  <Badge variant="secondary" className="bg-blue-500 text-white dark:bg-blue-900">$ 999</Badge>
+                  <Badge variant="secondary" className="bg-orange-500 text-black">Warranty</Badge>
+                  <Badge variant="secondary" className="text-white dark:bg-emerald-900">Delivery</Badge>
+                </div>
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Close</AlertDialogCancel>
+              <AlertDialogAction onClick={() => buyHandler()}>Add to Cart</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+        <Button variant="black" className="w-full"> Compare </Button>
+
       </CardFooter>
 
     </Card>
