@@ -16,8 +16,10 @@ import { useTheme } from "next-themes"
 import toast from 'react-hot-toast'
 import Image from 'next/image'
 
+
 function ShadCnPage() {
   const { setTheme } = useTheme()
+
   return (
     <section className='container border mx-auto my-5 rounded-2xl border-zinc-950 bg-zinc-800 p-3'>
 
@@ -48,7 +50,10 @@ function ShadCnPage() {
         <BreadcrumbList className='!flex !items-center *:hover:text-white'>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/" className='flex items-center gap-1 justify-center'><Home className='size-4' />Home</Link>
+              <Link href="/" className='flex items-center gap-1 justify-center'>
+                <Home className='size-4' />
+                Home
+              </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
@@ -56,7 +61,10 @@ function ShadCnPage() {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1">
                 <BreadcrumbEllipsis className="size-4" />
-                <span className="sr-only"><Menu /> Toggle menu</span>
+                <span className="sr-only">
+                  <Menu />
+                  Toggle menu
+                </span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
                 <DropdownMenuItem>Documentation</DropdownMenuItem>
@@ -166,6 +174,7 @@ function ShadCnPage() {
         <Separator orientation='vertical' className='h-90 w-1 bg-zinc-900' />
 
       </div>
+
     </section>
   )
 }

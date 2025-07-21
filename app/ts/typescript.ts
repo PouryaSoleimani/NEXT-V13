@@ -68,7 +68,7 @@ interface User {
 
 // ? 3nd Day of review __________________________________________________________________
 class Person {
-  constructor(public name: string, public age: number) {}
+  constructor(public name: string, public age: number) { }
 
   setAge(age: number) {
     this.age = age;
@@ -78,7 +78,7 @@ class Person {
 const AliPerson = new Person('ALI', 25);
 
 class PersonExtended {
-  constructor(private password: string, readonly username: string) {}
+  constructor(private password: string, readonly username: string) { }
   get getPassword() {
     return this.password;
   }
@@ -118,7 +118,7 @@ export const _ApiResponse: ApiResponseInterface = {
 };
 
 class CarClass {
-  constructor(public name: string) {}
+  constructor(public name: string) { }
   drive() {
     console.info('RUN');
   }
@@ -198,7 +198,18 @@ export const newKeyboard: KeyboardInterface = {
 
 // INTERFACES --> IMPLEMENTS
 class CarClass2 implements SimpleCarInterface {
-  constructor(public company: string, public model: string, public type: string, public color: string, public passengers: number) {}
+  constructor(public company: string, public model: string, public type: string, public color: string, public passengers: number) { }
 }
 
 export const newSimpleCar = new CarClass2('BENZ', 'C350', 'SEDAN', 'BLACK', 4);
+
+// INTERSECTION TYPE
+type Admin = { name: string, course: string }
+type Teacher = { startDate: string, age: number }
+
+const firstTeacher: Admin & Teacher = {
+  name: 'ali',
+  course: 'math',
+  startDate: 'today',
+  age: 32
+}
