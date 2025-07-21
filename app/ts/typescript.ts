@@ -213,3 +213,14 @@ const firstTeacher: Admin & Teacher = {
   startDate: 'today',
   age: 32
 }
+
+type FormValidationType = {
+  [input: string]: string
+}
+
+const FormInfos: FormValidationType = {
+  name: 'ALI',
+  age: '32',
+  email: 'ali@gmail.com',
+  job: 'developer'
+}
