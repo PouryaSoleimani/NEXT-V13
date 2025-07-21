@@ -2,19 +2,27 @@ import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { ArrowDownToDotIcon, ShoppingBag, ShoppingBasket } from "lucide-react"
 import Link from "next/link"
+import toast from "react-hot-toast"
 
 export default function CardComponent() {
+
+  function buyHandler() {
+    toast.success('Item Added To Cart 🛒', { style: { backgroundColor: 'black', color: 'white', border: "2px solid #505050", fontWeight: 'bold' } })
+  }
   return (
     <Card className="w-full max-w-sm">
 
       <CardHeader>
-        <CardTitle>Login to your account</CardTitle>
+        <CardTitle>Iphone 15 Promax</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account
+          512Gb  |  Natural Titanium
         </CardDescription>
         <CardAction>
-          <Button variant="link">Sign Up</Button>
+          <Button variant="default" onClick={() => buyHandler()}>
+            <ShoppingBasket className="!size-6" />
+          </Button>
         </CardAction>
       </CardHeader>
 
