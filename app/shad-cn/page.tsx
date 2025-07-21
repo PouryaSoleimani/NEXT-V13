@@ -5,6 +5,7 @@ import { Separator } from '@radix-ui/react-separator'
 import BreadCrumbComponent from './_components/BreadCrumbComponent'
 import TabsComponent from './_components/TabsComponent'
 import ThemeToggleComponent from './_components/ThemeToggleComponent'
+import CardComponent from './_components/CardComponent'
 
 
 function ShadCnPage() {
@@ -22,8 +23,9 @@ function ShadCnPage() {
 
         <TabsComponent />
 
-        <Separator orientation='vertical' className='h-90 w-1 bg-zinc-900' />
+        <Separator orientation='vertical' className='h-90 w-1 mx-4 bg-zinc-900' />
 
+        <CardComponent />
 
       </div>
 

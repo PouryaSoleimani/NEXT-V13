@@ -10,7 +10,7 @@ import Image from 'next/image'
 
 function TabsComponent() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6 p-4">
+    <div className="flex w-full max-w-sm flex-col gap-6">
 
       <Tabs defaultValue="account">
         <TabsList className='border w-full border-zinc-900 flex gap-2 px-2'>
