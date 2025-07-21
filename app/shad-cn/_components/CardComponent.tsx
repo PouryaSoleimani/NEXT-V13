@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"
-import { ShoppingBasket } from "lucide-react"
+import { ShoppingBasket, Truck } from "lucide-react"
 import Image from "next/image"
 import toast from "react-hot-toast"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
 import { Badge } from "@/components/ui/badge"
+import { HiCash } from "react-icons/hi"
 
 export default function CardComponent() {
 
@@ -42,12 +43,12 @@ export default function CardComponent() {
               <AlertDialogTitle className="text-center text-xl font-bold mb-1 bg-zinc-900 py-2 rounded-md w-[95%] mx-auto">Iphone 15 Promax</AlertDialogTitle>
               <AlertDialogDescription>
                 <Image src='/images/iphone_15_promax.jpg' alt="iphone15promax" width={435} height={300} className="rounded-lg border mx-auto  shadow-xl shadow-black aspect-3/2 hover:scale-105 duration-300" />
-                <div className="bg-black flex items-center-safe justify-around gap-3 w-[95%] mx-auto my-4 p-4 rounded-md *:font-bold *:p-2">
+                <div className="bg-black flex items-center-safe justify-around gap-1 w-[95%] mx-auto my-4 p-4 rounded-md *:font-bold *:p-2">
                   <Badge>512 Gb</Badge>
                   <Badge variant="secondary">Natural Titanium</Badge>
-                  <Badge variant="secondary" className="bg-blue-500 text-white dark:bg-blue-900">$ 999</Badge>
-                  <Badge variant="secondary" className="bg-orange-500 text-black">Warranty</Badge>
-                  <Badge variant="secondary" className="text-white dark:bg-emerald-900">Delivery</Badge>
+                  <Badge>$ 999</Badge>
+                  <Badge><HiCash className="!size-4" />Warranty</Badge>
+                  <Badge><Truck className="!size-4" />Delivery</Badge>
                 </div>
               </AlertDialogDescription>
             </AlertDialogHeader>
