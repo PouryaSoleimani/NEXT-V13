@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import { Separator } from '@radix-ui/react-separator'
-
 import BreadCrumbComponent from './_components/BreadCrumbComponent'
 import TabsComponent from './_components/TabsComponent'
 import ThemeToggleComponent from './_components/ThemeToggleComponent'
