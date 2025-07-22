@@ -7,7 +7,7 @@ import { newCar2 } from './typescript'
 
 const TsTrainingPage = () => {
 
-  // console.info('RESULT =>', result)
+  // console.info('RESULT =>', result)c
 
 
   class PersonExtended {

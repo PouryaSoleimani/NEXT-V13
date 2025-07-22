@@ -214,6 +214,7 @@ const firstTeacher: Admin & Teacher = {
   age: 32
 }
 
+// INDEX TYPES
 type FormValidationType = {
   [input: string]: string
 }
@@ -224,3 +225,4 @@ const FormInfos: FormValidationType = {
   email: 'ali@gmail.com',
   job: 'developer'
 }
+
