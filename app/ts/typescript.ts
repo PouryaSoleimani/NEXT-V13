@@ -203,7 +203,7 @@ class CarClass2 implements SimpleCarInterface {
 
 export const newSimpleCar = new CarClass2('BENZ', 'C350', 'SEDAN', 'BLACK', 4);
 
-// INTERSECTION TYPE
+// INTERSECTION TYPE ( & )
 type Admin = { name: string, course: string }
 type Teacher = { startDate: string, age: number }
 
