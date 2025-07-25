@@ -236,3 +236,11 @@ export namespace IranKhordo {
   address: 'KARAJ'
 }
 
+/// TRIPLE SLASH DIRECTIVES
+/// <refrence path="app.js"   />
+
+
+// GENERICS
+function echo<T>(param: T): T {
+  return param
+}
