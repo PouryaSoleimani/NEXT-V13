@@ -68,7 +68,7 @@ interface User {
 
 // ? 3nd Day of review ===============================================================================
 class Person {
-  constructor(public name: string, public age: number) { }
+  constructor(public name: string, public age: number) {}
 
   setAge(age: number) {
     this.age = age;
@@ -78,7 +78,7 @@ class Person {
 const AliPerson = new Person('ALI', 25);
 
 class PersonExtended {
-  constructor(private password: string, readonly username: string) { }
+  constructor(private password: string, readonly username: string) {}
   get getPassword() {
     return this.password;
   }
@@ -118,7 +118,7 @@ export const _ApiResponse: ApiResponseInterface = {
 };
 
 class CarClass {
-  constructor(public name: string) { }
+  constructor(public name: string) {}
   drive() {
     console.info('RUN');
   }
@@ -198,74 +198,63 @@ export const newKeyboard: KeyboardInterface = {
 
 // INTERFACES --> IMPLEMENTS ===============================================================================
 class CarClass2 implements SimpleCarInterface {
-  constructor(public company: string, public model: string, public type: string, public color: string, public passengers: number) { }
+  constructor(public company: string, public model: string, public type: string, public color: string, public passengers: number) {}
 }
 
 export const newSimpleCar = new CarClass2('BENZ', 'C350', 'SEDAN', 'BLACK', 4);
 
 // INTERSECTION TYPE ( & ) ===============================================================================
-type Admin = { name: string, course: string }
-type Teacher = { startDate: string, age: number }
+type Admin = { name: string; course: string };
+type Teacher = { startDate: string; age: number };
 
 const firstTeacher: Admin & Teacher = {
   name: 'ali',
   course: 'math',
   startDate: 'today',
-  age: 32
-}
+  age: 32,
+};
 
 // INDEX TYPES ===============================================================================
 type FormValidationType = {
-  [input: string]: string
-}
+  [input: string]: string;
+};
 
 const FormInfos: FormValidationType = {
   name: 'ALI',
   age: '32',
   email: 'ali@gmail.com',
-  job: 'developer'
-}
+  job: 'developer',
+};
 
 // NAMESPACES  =======================================================================================
 export namespace Saipa {
-  car: 'PRIDE'
-  address: 'TEHRAN'
+  car: 'PRIDE';
+  address: 'TEHRAN';
 }
-export namespace IranKhordo {
-  car: 'SAMAND'
-  address: 'KARAJ'
+export namespace IranKhodro {
+  car: 'SAMAND';
+  address: 'KARAJ';
 }
 
 /// TRIPLE SLASH DIRECTIVES ===============================================================================
 /// <refrence path="app.js"   />
 
-
 // GENERICS ==========================================================================================
-function echo<T>(param: T): T { return param }
-echo('STRING')
-echo(13123)
+function echo<T>(param: T): T {
+  return param;
+}
+echo('STRING');
+echo(13123);
 
-
-function objectMerge<T, U>(obj1: T, obj2: U): T & U {
-  return { ...obj1, ...obj2 }
+function objectMerge<T extends object, U extends object>(obj1: T, obj2: U): T & U {
+  return { ...obj1, ...obj2 };
 }
 
-const object1 = { name: 'pourya' }
-const object2 = { job: 'developer' }
-objectMerge(object1, object2)
-
+const object1 = { name: 'pourya' };
+const object2 = { job: 'developer' };
+const mergedOBJ = objectMerge(object1, object2);
 
 function ArrayMaker<T, U>(param1: T, param2: U) {
-  return [param1, param2]
+  return [param1, param2];
 }
-export const myArray = ArrayMaker("param1", "PArAM2")
-
-
-
-class Box<T> {
-  constructor(private value: T) { }
-  getValue(): T { return this.value; }
-}
-const stringBox = new Box("DeepSeek");
-const numberBox = new Box(100);
-
+export const myArray = ArrayMaker('param1', 'PArAM2');
