@@ -265,3 +265,19 @@ function StringConcater<T extends string, U extends string>(str1: string, str2: 
 }
 
 export const concated = StringConcater('I LOVE', ' DEMON');
+
+// EXAMPLE
+interface Type {
+  length: number;
+}
+
+function describe<T extends Type>(param: T): [string, T] {
+  let text = `IT HAS 0 ITEMS`;
+
+  if (param.length) {
+    text = `IT HAS ${param.length} ITEMS`;
+  }
+  return [text, param];
+}
+
+export const describeResult = describe('HELLO');
