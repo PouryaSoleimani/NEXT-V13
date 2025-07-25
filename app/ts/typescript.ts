@@ -1,5 +1,8 @@
 // ? 1st Day of Review ===============================================================================
 
+import axios from 'axios';
+import { url } from 'inspector';
+
 // TUPLE TYPE
 type TupleType = [string, number, boolean];
 const TupleArray: TupleType = ['STRING', 123, true];
@@ -277,7 +280,34 @@ function describe<T extends Type>(param: T): [string, T] {
   if (param.length) {
     text = `IT HAS ${param.length} ITEMS`;
   }
+
   return [text, param];
 }
 
 export const describeResult = describe('HELLO');
+
+// GENERICS IN INTERFACES
+interface ApiResultInterface<T> {
+  data: T | null;
+  error: string | null;
+}
+
+interface CourseData {
+  title: string;
+  duration: string | number;
+  price: string | number;
+}
+interface UserData {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+}
+
+async function fetchData<T>(url: string) {
+  const req = await fetch(url);
+  const res = await req.json();
+  return res;
+}
+
+export const fetchResult = await fetchData<UserData>('https://jsonplaceholder.typicode.com/users/1');
