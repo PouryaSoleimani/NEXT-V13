@@ -226,3 +226,13 @@ const FormInfos: FormValidationType = {
   job: 'developer'
 }
 
+// NAMESPACES 
+export namespace Saipa {
+  car: 'PRIDE'
+  address: 'TEHRAN'
+}
+export namespace IranKhordo {
+  car: 'SAMAND'
+  address: 'KARAJ'
+}
+
