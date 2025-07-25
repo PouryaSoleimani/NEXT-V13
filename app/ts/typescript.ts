@@ -244,3 +244,31 @@ export namespace IranKhordo {
 function echo<T>(param: T): T {
   return param
 }
+
+echo('STRING')
+echo(13123)
+
+
+function objectMerge<T, U>(obj1: T, obj2: U): T & U {
+  return { ...obj1, ...obj2 }
+}
+
+const object1 = { name: 'pourya' }
+const object2 = { job: 'developer' }
+
+objectMerge(object1, object2)
+
+function ArrayMaker<T, U>(param1: T, param2: U) {
+  return [param1, param2]
+}
+
+export const myArray = ArrayMaker("param1", "PArAM2")
+
+
+class Box<T> {
+  constructor(private value: T) { }
+  getValue(): T { return this.value; }
+}
+const stringBox = new Box("DeepSeek");
+const numberBox = new Box(100);
+

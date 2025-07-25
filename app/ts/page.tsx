@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginFunction, newKeyboard, newSimpleCar, ReturnProductStatus } from './typescript'
+import { LoginFunction, newKeyboard, newSimpleCar, ReturnProductStatus , myArray } from './typescript'
 import Logger from '@/hooks/Logger'
 import { _ApiResponse } from './typescript'
 import './typescript'
@@ -7,9 +7,7 @@ import { newCar2 } from './typescript'
 
 const TsTrainingPage = () => {
 
-  // console.info('RESULT =>', result)c
-
-
+  console.info('RESULT =>', myArray)
   class PersonExtended {
     static Log() { console.info('log from class') }
     constructor(private password: string, readonly username: string) { }
