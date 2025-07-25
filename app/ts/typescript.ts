@@ -1,10 +1,10 @@
-// ? 1st Day of Review __________________________________________________________________
+// ? 1st Day of Review ===============================================================================
 
 // TUPLE TYPE
 type TupleType = [string, number, boolean];
 const TupleArray: TupleType = ['STRING', 123, true];
 
-// FUNCTION PARAMATER TYPE
+// FUNCTION PARAMATER TYPE ===============================================================================
 type FuncType = (a: number, b: number) => number;
 const func: FuncType = (a, b) => {
   return a + b;
@@ -15,14 +15,14 @@ export function LoginFunction(username: string, password: string): boolean {
   return password === '123456' ? true : false;
 }
 
-// UNION TYPES
+// UNION TYPES ===============================================================================
 type CombineType = string | number;
 const name: CombineType = 'HELLO';
 
 type CombineArrayType = (string | number | boolean)[];
 const combinedArray: CombineArrayType = [2, 'ali', false];
 
-// LITERAL TYPES
+// LITERAL TYPES ===============================================================================
 type ProductDeliverValue = 'PENDING' | 'SENT' | 'CANCELED' | 'DELIVERED';
 // use this instead of enums ⬆
 export function ReturnProductStatus(status: ProductDeliverValue) {
@@ -45,7 +45,7 @@ export function ReturnProductStatus(status: ProductDeliverValue) {
   }
 }
 
-// CONST ASSERTION
+// CONST ASSERTION ===============================================================================
 const numbers = [10, 20] as const;
 // numbers.push(30); //! will throw error because of 'as const'
 
@@ -58,7 +58,7 @@ function sum(num1: number, num2: number): number {
 }
 sum(...numbersArray); //* only possible with 'as const'
 
-// ? 2nd Day of Review __________________________________________________________________
+// ? 2nd Day of Review ===============================================================================
 // const linkElem = document.getElementById('LINK') as HTMLLinkElement;
 // console.log(linkElem.href);
 
@@ -66,7 +66,7 @@ interface User {
   name: string;
 }
 
-// ? 3nd Day of review __________________________________________________________________
+// ? 3nd Day of review ===============================================================================
 class Person {
   constructor(public name: string, public age: number) { }
 
@@ -161,7 +161,7 @@ newApiUser.userSkills.push('JS');
 
 newApiUser.userInfo.name = 'MAMADREZA NAGHIPOUR';
 
-//INTEFACES
+//INTEFACES ===============================================================================
 interface SimpleCarInterface {
   company: string;
   model: string;
@@ -190,20 +190,20 @@ export const newKeyboard: KeyboardInterface = {
   additionalOptions: { hasRGB: true, isMechanical: true, switchColor: 'RED' },
 };
 
-// INTERFACE vs TYPE
+// INTERFACE vs TYPE ===============================================================================
 //? MODIFY
 //? EXTENDS
 //? MERGE
 //* INTERFACES ARE BEST FOR PROPS IN REACT
 
-// INTERFACES --> IMPLEMENTS
+// INTERFACES --> IMPLEMENTS ===============================================================================
 class CarClass2 implements SimpleCarInterface {
   constructor(public company: string, public model: string, public type: string, public color: string, public passengers: number) { }
 }
 
 export const newSimpleCar = new CarClass2('BENZ', 'C350', 'SEDAN', 'BLACK', 4);
 
-// INTERSECTION TYPE ( & )
+// INTERSECTION TYPE ( & ) ===============================================================================
 type Admin = { name: string, course: string }
 type Teacher = { startDate: string, age: number }
 
@@ -214,7 +214,7 @@ const firstTeacher: Admin & Teacher = {
   age: 32
 }
 
-// INDEX TYPES
+// INDEX TYPES ===============================================================================
 type FormValidationType = {
   [input: string]: string
 }
@@ -226,7 +226,7 @@ const FormInfos: FormValidationType = {
   job: 'developer'
 }
 
-// NAMESPACES 
+// NAMESPACES  =======================================================================================
 export namespace Saipa {
   car: 'PRIDE'
   address: 'TEHRAN'
@@ -236,15 +236,12 @@ export namespace IranKhordo {
   address: 'KARAJ'
 }
 
-/// TRIPLE SLASH DIRECTIVES
+/// TRIPLE SLASH DIRECTIVES ===============================================================================
 /// <refrence path="app.js"   />
 
 
-// GENERICS
-function echo<T>(param: T): T {
-  return param
-}
-
+// GENERICS ==========================================================================================
+function echo<T>(param: T): T { return param }
 echo('STRING')
 echo(13123)
 
@@ -255,14 +252,14 @@ function objectMerge<T, U>(obj1: T, obj2: U): T & U {
 
 const object1 = { name: 'pourya' }
 const object2 = { job: 'developer' }
-
 objectMerge(object1, object2)
+
 
 function ArrayMaker<T, U>(param1: T, param2: U) {
   return [param1, param2]
 }
-
 export const myArray = ArrayMaker("param1", "PArAM2")
+
 
 
 class Box<T> {
