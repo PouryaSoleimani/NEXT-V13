@@ -287,7 +287,7 @@ function describe<T extends Type>(param: T): [string, T] {
 export const describeResult = describe('HELLO');
 
 // GENERICS IN INTERFACES
-interface ApiResultInterface<T> {
+interface ResultInterface<T> {
   data: T | null;
   error: string | null;
 }
@@ -310,4 +310,24 @@ async function fetchData<T>(url: string) {
   return res;
 }
 
-export const fetchResult = await fetchData<UserData>('https://jsonplaceholder.typicode.com/users/1');
+export const fetchResult: UserData = await fetchData<UserData>('https://jsonplaceholder.typicode.com/users/1');
+
+// GENERICS vs UNION TYPES
+class List<T extends number | string> {
+  public Items: T[] = [];
+  constructor(public name: string, public age: number) {}
+  setItems(newItem: T) {
+    this.Items.push(newItem);
+  }
+  showItems() {
+    return this.Items;
+  }
+}
+
+const ListExample = new List('hello', 32);
+
+export const listResult = ListExample.showItems();
+
+ListExample.setItems('32');
+ListExample.setItems('HELLO');
+F
