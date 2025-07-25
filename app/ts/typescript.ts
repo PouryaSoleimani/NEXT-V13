@@ -242,7 +242,7 @@ export namespace IranKhodro {
 /// TRIPLE SLASH DIRECTIVES ===============================================================================
 /// <refrence path="app.js"   />
 
-// GENERICS ==========================================================================================
+// GENERICS =============================================================================================================
 function echo<T>(param: T): T {
   return param;
 }
@@ -261,8 +261,8 @@ function ArrayMaker<T, U>(param1: T, param2: U) {
   return [param1, param2];
 }
 export const myArray = ArrayMaker('param1', 'PArAM2');
-// EXTENDS
 
+// EXTENDS
 function StringConcater<T extends string, U extends string>(str1: string, str2: string) {
   return str1.concat(str2);
 }
@@ -330,4 +330,3 @@ export const listResult = ListExample.showItems();
 
 ListExample.setItems('32');
 ListExample.setItems('HELLO');
-F
