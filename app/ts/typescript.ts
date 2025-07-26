@@ -342,9 +342,17 @@ type OptionaUserInterface<T> = {
 };
 
 // UTILITY TYPES
-type UserType = {
-  name: string;
-  age: number;
-};
+type UserType = { name: string; age: number };
 
 type UserRequired = Required<UserType>;
+type UserReadonly = Readonly<UserType>;
+type UserPartial = Partial<UserType>;
+type UserPick = Pick<UserType, 'name'>;
+
+type NullableType = string | null;
+type NotNullableType = NonNullable<NullableType>;
+
+type FullType = number | string | boolean | object;
+type ExcludeType = Exclude<FullType, number>;
+
+
