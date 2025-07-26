@@ -355,4 +355,7 @@ type NotNullableType = NonNullable<NullableType>;
 type FullType = number | string | boolean | object;
 type ExcludeType = Exclude<FullType, number>;
 
-
+// DECORATORS
+class CarClass3 {
+  constructor(public brand: string, public model: string) {}
+}
