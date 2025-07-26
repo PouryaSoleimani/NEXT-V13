@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { url } from 'inspector';
+import { Type } from 'lucide-react';
 
 // TUPLE TYPE
 type TupleType = [string, number, boolean];
@@ -330,3 +331,14 @@ export const listResult = ListExample.showItems();
 
 ListExample.setItems('32');
 ListExample.setItems('HELLO');
+
+// TYPE MAPPING
+interface UserMapInterface {
+  username: string;
+  email: string;
+}
+type OptionaUserInterface<T> = {
+  [key in keyof T]?: T[key];
+};
+
+// UTILITY TYPES
