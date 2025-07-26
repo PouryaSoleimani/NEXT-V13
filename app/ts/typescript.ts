@@ -342,3 +342,9 @@ type OptionaUserInterface<T> = {
 };
 
 // UTILITY TYPES
+type UserType = {
+  name: string;
+  age: number;
+};
+
+type UserRequired = Required<UserType>;
