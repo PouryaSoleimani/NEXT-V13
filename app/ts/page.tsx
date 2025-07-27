@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { LoginFunction, newKeyboard, newSimpleCar, ReturnProductStatus, listResult, fetchResult } from './typescript'
 import Logger from '@/hooks/Logger'
@@ -53,20 +54,45 @@ const TsTrainingPage = () => {
   }
 
 
+  function DecoratorFactory(param: number) {
+    return function (constructor: any) {
+      console.info('DECORATOR FACTORY ====> ', constructor);
+      constructor.prototype.id = param
+      console.info('DECORATOR FACTORY ====> ', constructor.prototype.id);
+    }
+  }
+  @DecoratorFactory(29)
+  class DecoratorFactoryClass {
+    constructor(public name: string, public age: string) { }
+  }
 
 
+  // EXAMPLE
+  function insertToDom(value: string) {
+    return function (target: any) {
+      const elem = document.querySelector('#LINK')!
+      if (elem) { elem.innerHTML = value }
+      else { console.info('ELEM NOT FOUND') }
+    }
+  }
+  function LowerCase(target: any, methodName: string, descriptor: PropertyDescriptor) {
+    console.info('LOG FROM LOWERCASE', target, methodName, descriptor)
+    methodName = "SPEAKING"
+    console.info(descriptor.value)
 
-
-
-
-
-
+  }
+  @insertToDom('<p>HELLO</p>')
+  class InsertToDomClass {
+    constructor(public name: string) { }
+    @LowerCase
+    speak() { console.info('SPEAKING') }
+  }
 
   //* RETURN
   return (
-    <div>
+    <div id='LINK'>
       <h1 className='text-4xl font-bold bg-blue-700 py-5 text-center w-fit px-4 rounded-lg mx-auto my-5 border-b-4 border-white'>TypeScript Training</h1>
-      <a href="/about" id='LINK'></a>
+      <a href="/about"></a>
     </div>
   )
 }
