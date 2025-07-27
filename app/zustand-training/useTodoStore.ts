@@ -9,7 +9,7 @@ interface TodoState {
   toggleCompleted: (id: number) => void;
   removeAllTodos: () => void;
   makeRandomTodo: () => void;
-  toggleAllTodosComplete: () => void
+  toggleAllTodosComplete: () => void;
 }
 
 const useTodoStore = create<TodoState>()(
@@ -18,18 +18,13 @@ const useTodoStore = create<TodoState>()(
       todos: [],
       addTodo: (todo: TodoType) => set((state) => ({ todos: [...state.todos, todo] })),
       removeTodo: (id: number) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
-      toggleCompleted: (id: number) =>
-        set((state) => ({
-          todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)),
-        })),
+      toggleCompleted: (id: number) => set((state) => ({ todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)) })),
       removeAllTodos: () => set(() => ({ todos: [] })),
-      makeRandomTodo: () => set((state) => ({
-        todos: [...state.todos,
-        { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false }] as any
-      })),
-      toggleAllTodosComplete: () => set((state) => ({
-        todos: state.todos.map((todo) => ({ ...todo, completed: !todo.completed })),
-      }))
+      makeRandomTodo: () => set((state) => ({ todos: [...state.todos, { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false }] as any })),
+      toggleAllTodosComplete: () =>
+        set((state) => ({
+          todos: state.todos.map((todo) => ({ ...todo, completed: !todo.completed })),
+        })),
     }),
     { name: 'todo-storage', storage: createJSONStorage(() => localStorage) }
   )

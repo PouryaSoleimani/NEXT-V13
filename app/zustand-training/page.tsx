@@ -12,7 +12,6 @@ const ZustandTraining = () => {
     return (
         <div className='h-[90vh]'>
             <h2 className='bg-emerald-700 text-center py-5 text-3xl font-black'>Zustand Training</h2>
-
             <div className='bg-zinc-900 p-6 w-[90%] mx-auto flex flex-col gap-6 items-center justify-center'>
                 <h2 className='text-center font-black text-4xl'>{count}</h2>
                 <div className='space-x-4'>

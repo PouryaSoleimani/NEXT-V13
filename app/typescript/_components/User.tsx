@@ -9,9 +9,9 @@ type UserComponentPropsType = {
 const UserComponent: React.FC<UserComponentPropsType> = ({ props }) => {
 
   return (
-    <div className='grid grid-cols-8 px-5 my-5'>
+    <div className='flex border gap-3 px-5 py-1 mx-10 rounded-lg border-zinc-500'>
       {props.map(user => (
-        <div key={user.id} className='flex items-center justify-between p-4 my-2 rounded-xl w-fit gap-6 font-bold '>
+        <div key={user.id} className='flex items-center grow justify-between p-4 my-2 rounded-xl  text-xl w-fit gap-6 font-bold bg-stone-800'>
           <h2>{user.name}</h2>
           <p>Age: {user.age}</p>
         </div>

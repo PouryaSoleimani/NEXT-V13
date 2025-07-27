@@ -1,15 +1,10 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 
-type SingleTodoType = {
-  id: number,
-  title: string,
-  isCompleted: boolean
-}
+type SingleTodoType = { id: number, title: string, isCompleted: boolean }
+type TodoComponentPropsType = { props: SingleTodoType[] }
 
-type TodoComponentPropsType = {
-  props: SingleTodoType[]
-}
+
 
 // COMPONENT
 const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> = (props, children) => {
