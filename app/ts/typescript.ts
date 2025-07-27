@@ -341,7 +341,7 @@ type OptionaUserInterface<T> = {
   [key in keyof T]?: T[key];
 };
 
-// UTILITY TYPES
+// UTILITY TYPES ==============================================================
 type UserType = { name: string; age: number };
 
 type UserRequired = Required<UserType>;
@@ -355,7 +355,12 @@ type NotNullableType = NonNullable<NullableType>;
 type FullType = number | string | boolean | object;
 type ExcludeType = Exclude<FullType, number>;
 
-// DECORATORS
+// DECORATORS ==================================================================
+
+function LoggerDecorator(target: any) {
+  console.info('LOG LOG');
+}
+@LoggerDecorator
 class CarClass3 {
   constructor(public brand: string, public model: string) {}
 }
