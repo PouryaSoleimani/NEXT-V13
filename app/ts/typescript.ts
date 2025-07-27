@@ -356,11 +356,3 @@ type FullType = number | string | boolean | object;
 type ExcludeType = Exclude<FullType, number>;
 
 // DECORATORS ==================================================================
-
-function LoggerDecorator(target: any) {
-  console.info('LOG LOG');
-}
-@LoggerDecorator
-class CarClass3 {
-  constructor(public brand: string, public model: string) {}
-}

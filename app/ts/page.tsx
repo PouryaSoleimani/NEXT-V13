@@ -4,10 +4,13 @@ import Logger from '@/hooks/Logger'
 import { _ApiResponse } from './typescript'
 import './typescript'
 import { newCar2 } from './typescript'
+import './typescript'
+
+
 
 const TsTrainingPage = () => {
 
-  console.info('RESULT =>', listResult)
+  // console.info('RESULT =>', listResult)
   class PersonExtended {
     static Log() { console.info('log from class') }
     constructor(private password: string, readonly username: string) { }
@@ -17,22 +20,47 @@ const TsTrainingPage = () => {
 
   const newPerson = new PersonExtended('12345', 'PouryaSoleimani')
 
-  console.info('%c PASSWORD ---->', 'color:cyan', newPerson.getPassword);
-  console.info('%c READ ONLY -->', 'color:cyan', newPerson.username);
+  // console.info('%c PASSWORD ---->', 'color:cyan', newPerson.getPassword);
+  // console.info('%c READ ONLY -->', 'color:cyan', newPerson.username);
   newPerson.setPassword = 'NEW PASSWORD'
-  Logger(newPerson)
+  // Logger(newPerson)
 
-  PersonExtended.Log()
+  // PersonExtended.Log()
 
 
   const _Result = LoginFunction('Ali', '123456')
-  console.info('RESULT ==> ', _Result)
+  // console.info('RESULT ==> ', _Result)
 
-  ReturnProductStatus('PENDING')
-  Logger(_ApiResponse)
-  Logger(newCar2)
-  Logger(newKeyboard)
-  Logger(newSimpleCar)
+  // ReturnProductStatus('PENDING')
+  // Logger(_ApiResponse)
+  // Logger(newCar2)
+  // Logger(newKeyboard)
+  // Logger(newSimpleCar)
+
+
+  function LoggerDecorator(constructor: any) {
+    console.info('LOG LOG ====> ', constructor.initCount);
+    const result = constructor.initCount + 10
+    console.info('LOG ==> ', result)
+    console.info('LOG ==> ', constructor.logHello())
+
+  }
+  @LoggerDecorator
+  class Car3 {
+    static initCount = 0
+    constructor(public make: string, public model: string) { }
+    static logHello() { console.info('HELLO FROM INSIDE THE CLASS') }
+  }
+
+
+
+
+
+
+
+
+
+
 
   //* RETURN
   return (
