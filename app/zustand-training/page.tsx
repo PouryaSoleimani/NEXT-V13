@@ -2,9 +2,17 @@
 import React from 'react';
 import useCounterStore from '@/zustand/store';
 
-type CounterStoreType = { count: number; increase: () => void; decrease: () => void; changeTo100: () => void; reset: () => void };
+type CounterStoreType = {
+  count: number;
+  increase: () => void;
+  decrease: () => void;
+  changeTo100: () => void;
+  reset: () => void
+};
 
 const ZustandTraining = () => {
+
+
   const { count, increase, decrease, changeTo100, reset } = useCounterStore() as CounterStoreType;
 
   return (
