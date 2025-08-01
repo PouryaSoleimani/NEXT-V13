@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -173,8 +173,12 @@
     @apply bg-background text-foreground;
   }
 }
-
+@font-face {
+  font-family: 'VAZIR';
+  src: url('/fonts/Vazir-Bold-UI.ttf') format('truetype');
+}
 body {
-  background-color:  #111111;
-  color  : white
+  background-color: #111111;
+  color: white;
+  font-family: 'VAZIR';
 }

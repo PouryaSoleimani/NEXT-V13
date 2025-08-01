@@ -25,9 +25,11 @@ export default function Mutate() {
     )
   }
 
+
+  // RETURN ==========================================================================================================================================================================
   return (
     <div className='p-4'>
-      <h1>لیست پست‌ها (با mutate)</h1>
+      <h1 className='text-center text-2xl font-semibold bg-black py-5 rounded-xl mb-4 border-b-4 border-yellow-500 font-["Geist Mono"]'>لیست پست‌ها (با mutate)</h1>
       <button className='bg-blue-500 text-white px-4 py-2 rounded' onClick={handleAddFakePost}>افزودن پست تستی</button>
       <div className='grid grid-cols-4 gap-3 *:border-4 my-4 *:p-2 *:rounded-md *:bg-black *:shadow-lg *:shadow-black'>
         {data?.map((post: any) => (
