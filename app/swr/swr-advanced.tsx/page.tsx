@@ -1,8 +1,11 @@
 import React from 'react'
+import Mutate from './_components/Mutate'
 
 function AdvancedSwrPage() {
   return (
-    <div>AdvancedSwrPage</div>
+    <div>
+      <Mutate />
+    </div>
   )
 }
 
