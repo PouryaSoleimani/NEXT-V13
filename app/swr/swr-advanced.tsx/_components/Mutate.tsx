@@ -16,12 +16,12 @@ export default function Mutate() {
     </div>)
   if (error) return <div>خطا در دریافت اطلاعات</div>
 
+  //POST FUNCTION
   const handleAddFakePost = () => {
-
     const newProduct = { id: Date.now(), title: 'محصول تستی جدید', description: 'TEST DESCRIPTION' }
     axios.post('https://fakestoreapi.com/products', newProduct)
     mutate('https://fakestoreapi.com/products', [...data, newProduct],
-      false // false یعنی دوباره fetch نکن
+      false
     )
   }
 
