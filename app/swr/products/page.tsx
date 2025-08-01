@@ -2,7 +2,7 @@
 import axios from 'axios'
 import { DessertIcon, DollarSign, LoaderCircle, Lock, Mail, Notebook, Phone, ShoppingBag, } from 'lucide-react'
 import React from 'react'
-import useSWR from 'swr'
+import useSWR, { mutate } from 'swr'
 import useProductsFetch, { SingleProductType } from '../_hooks/useProductsFetch'
 import { BiBasket, BiCategory } from 'react-icons/bi'
 

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import useSWR from 'swr'
+import useSWR, { mutate } from 'swr'
 
 
 export type SingleProductType = {
