@@ -1,7 +1,5 @@
 import axios from 'axios'
-import React from 'react'
-import useSWR, { mutate } from 'swr'
-
+import useSWR from 'swr'
 
 export type SingleProductType = {
   id: number,
@@ -10,11 +8,9 @@ export type SingleProductType = {
   description: string,
   category: string,
   image: string,
-  rating: {
-    rate: number,
-    count: number
-  }
+  rating: { rate: number, count: number }
 }
+
 const ProductsFetcher = () => axios.get('https://fakestoreapi.com/products').then(res => res.data)
 const useProductsFetch = () => {
   const { data, error, isLoading } =

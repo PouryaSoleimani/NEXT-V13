@@ -1,12 +1,7 @@
 'use client'
-import axios from 'axios'
-import { LoaderCircle, Lock, Mail, Phone, User } from 'lucide-react'
 import React from 'react'
-import useSWR from 'swr'
 import useFetchUsers, { SingleUserType } from './_hooks/useFetchUsers'
-
-const fetcher = (url: string) => axios.get(url).then(res => res.data)
-
+import { LoaderCircle, Lock, Mail, Phone, User } from 'lucide-react'
 function SwrPage() {
 
   const { data: users, error, isLoading } = useFetchUsers()
@@ -16,6 +11,7 @@ function SwrPage() {
       <LoaderCircle className='size-12 animate-spin' />
     </div>)
   if (error) return <div>Error loading data</div>
+
 
   return (
     <div className='bg-black p-4 rounded-md my-6 w-[90%] mx-auto shadow'>
