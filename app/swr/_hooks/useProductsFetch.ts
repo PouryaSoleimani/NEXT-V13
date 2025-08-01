@@ -17,7 +17,12 @@ export type SingleProductType = {
 }
 const ProductsFetcher = () => axios.get('https://fakestoreapi.com/products').then(res => res.data)
 const useProductsFetch = () => {
-  const { data, error, isLoading } = useSWR('https://fakestoreapi.com/products', ProductsFetcher)
+  const { data, error, isLoading } =
+    useSWR('https://fakestoreapi.com/products', ProductsFetcher,
+      {
+        refreshInterval: 5000,
+      })
+
   return { data: data as SingleProductType[], error, isLoading }
 }
 
