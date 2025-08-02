@@ -7,12 +7,10 @@ export type SingleUserType = {
   email: string,
   username: string,
   password: string,
-  name: {
-    firstname: string,
-    lastname: string
-  },
+  name: { firstname: string, lastname: string },
   phone: string
 }
+
 const Usersfetcher = (url: string) => axios.get(url).then(res => res.data)
 function useFetchUsers() {
   const { data, isLoading, error } = useSWR('https://fakestoreapi.com/users', Usersfetcher)
