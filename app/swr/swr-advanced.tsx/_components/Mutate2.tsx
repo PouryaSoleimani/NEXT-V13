@@ -44,7 +44,6 @@ function Mutate2() {
             <p className='mt-5'>{product.description.slice(0, 150)}</p>
           </div>
         ))}
-
       </div>
     </div>
   )
