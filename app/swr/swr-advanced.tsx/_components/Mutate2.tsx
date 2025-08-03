@@ -1,52 +1,72 @@
-"use client"
-import axios from 'axios'
-import { LoaderIcon } from 'lucide-react'
-import React from 'react'
-import { BiErrorAlt } from 'react-icons/bi'
-import useSWR, { mutate } from 'swr'
+'use client';
+import axios, { AxiosError } from 'axios';
+import { LoaderIcon } from 'lucide-react';
+import React from 'react';
+import toast, { ErrorIcon } from 'react-hot-toast';
+import { BiErrorAlt, BiErrorCircle, BiSolidErrorCircle } from 'react-icons/bi';
+import useSWR, { mutate } from 'swr';
 
-const fetcher = () => axios.get('https://fakestoreapi.com/products').then(res => res.data)
+const fetcher = () => axios.get('https://fakestoreapi.com/productsssssss').then((res) => res.data);
 function Mutate2() {
+  const { data, isLoading, error } = useSWR('https://fakestoreapi.com/productsssssss', fetcher, {
+    errorRetryCount: 10,
+    onError: (error: Error) => {
+      console.info('%c SWR ERROR ===>', 'color:pink', error.message);
+      toast.error(error.message, {
+        icon: <BiSolidErrorCircle className="size-10 text-red-600" />,
+        style: { border: '5px solid red', backgroundColor: 'black', color: 'whitesmoke', fontFamily: 'monospace' },
+      });
+    },
+  });
 
-  const { data, isLoading, error } = useSWR('https://fakestoreapi.com/products', fetcher)
-  console.info('DATA 2 ==>', data)
+  console.info('DATA 2 ==>', data);
   function addSingleProduct() {
-    const fakeProduct = { id: Date.now(), title: 'FAKE PRODUCT', description: 'DESCRIPTION' }
-    axios.post('https://fakestoreapi.com/products', fakeProduct)
-    mutate('https://fakestoreapi.com/products', [...data, fakeProduct], false)
+    const fakeProduct = { id: Date.now(), title: 'FAKE PRODUCT', description: 'DESCRIPTION' };
+    axios
+      .post('https://fakestoreapi.com/products', fakeProduct)
+      .then((res) => res.data)
+      .catch((error: AxiosError) => {
+        console.info('%c AXIOS ERROR ==>', 'color:red', error.message);
+        toast.error(error.message);
+      });
+    mutate('https://fakestoreapi.com/products', [...data, fakeProduct], false);
   }
 
   if (isLoading) {
     return (
-      <div className='w-screen h-screen flex flex-col gap-6 items-center justify-center'>
+      <div className="w-screen h-screen flex flex-col gap-6 items-center justify-center">
         Loading ...
-        <LoaderIcon className='size-12 text-rose-700 animate-spin' />
+        <LoaderIcon className="size-12 text-rose-700 animate-spin" />
       </div>
-    )
+    );
   }
 
   if (error) {
     return (
-      <div className='w-screen h-screen flex flex-col gap-6 items-center justify-center'>
-        Error !
-        <BiErrorAlt className='size-12 bg-rose-700 animate-bounce' />
+      <div className="w-screen h-screen flex flex-col gap-6 items-center justify-center">
+        <div className="bg-black p-10 rounded-xl flex flex-col gap-10">
+          <span className="text-3xl"> Error !</span>
+          <BiErrorCircle className="size-32 text-rose-700 animate-bounce" />
+        </div>
       </div>
-    )
+    );
   }
 
   return (
-    <div className='flex flex-col justify-center'>
-      <button onClick={addSingleProduct} className='bg-emerald-900 mx-24 mt-4 h-16 w-44 rounded-xl border-4 border-white'>ADD</button>
-      <div className='w-[90%] mx-auto my-4 gap-3 grid grid-cols-6 '>
+    <div className="flex flex-col justify-center">
+      <button onClick={addSingleProduct} className="bg-emerald-900 mx-24 mt-4 h-16 w-44 rounded-xl border-4 border-white">
+        ADD
+      </button>
+      <div className="w-[90%] mx-auto my-4 gap-3 grid grid-cols-6 ">
         {data?.map((product: any) => (
-          <div key={product.id} className='bg-black  overflow-hidden p-3 border-4 rounded-xl border-rose-700/50'>
-            <h1 className='text-center text-rose-600'>{product.title.slice(0, 25)}</h1>
-            <p className='mt-5'>{product.description.slice(0, 150)}</p>
+          <div key={product.id} className="bg-black  overflow-hidden p-3 border-4 rounded-xl border-rose-700/50">
+            <h1 className="text-center text-rose-600">{product.title.slice(0, 25)}</h1>
+            <p className="mt-5">{product.description.slice(0, 150)}</p>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Mutate2
+export default Mutate2;
