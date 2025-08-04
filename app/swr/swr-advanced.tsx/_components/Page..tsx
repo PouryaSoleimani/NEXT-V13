@@ -1,12 +1,13 @@
 'use client';
 import axios from 'axios';
 import { FileQuestionMark, LoaderCircle, RotateCcw } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import React from 'react';
-import useSWR from 'swr';
-
+import useSWR, { Fetcher } from 'swr';
+type Product = { id: number; title: string };
 function PageComponent({ index }: { index: number }) {
   console.info('index ===>', index);
-  const _fetcher = () => axios.get(`https://fakestoreapi.com/products/${index}`).then((res) => res.data);
+  const _fetcher: Fetcher<Product, string> = () => axios.get(`https://fakestoreapi.com/products/${index}`).then((res) => res.data);
 
   const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${index}`, _fetcher);
 
@@ -28,7 +29,7 @@ function PageComponent({ index }: { index: number }) {
         <h2 className="flex items-center gap-2 text-red-900 bg-black p-3 rounded-xl">
           <FileQuestionMark /> ERROR
         </h2>
-        <button className="bg-blue-900 size-12 rounded-full flex items-center justify-center">
+        <button onClick={() => location.reload()} className="bg-blue-900  cursor-pointer size-12 rounded-full flex items-center justify-center">
           <RotateCcw />
         </button>
       </div>

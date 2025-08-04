@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { FileQuestionMark, LoaderCircle, RotateCcw } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import useSWR from 'swr';
 
 function PaginationSwr() {
@@ -12,9 +13,10 @@ function PaginationSwr() {
   const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${page}`, SingleProductFetcher);
 
   useEffect(() => {
-    if (page < 1) {
+    if (page == 1) {
       setIsValid(false);
     }
+    console.info('PAGE ==>', page);
   }, [page]);
 
   if (isLoading) {
@@ -43,11 +45,28 @@ function PaginationSwr() {
       <div className="bg-black p-6 rounded-xl border-b-8 border-zinc-500">
         {data?.id} . {data?.title} : {data?.price}
       </div>
-      <div className="flex gap-5">
-        <button className="bg-black p-3 rounded-xl" onClick={() => setPage((prev) => prev - 1)}>
+      <div className="flex gap-5 justify-center bg-zinc-800 w-fit mx-auto p-4 rounded-xl">
+        <button
+          className={`bg-black p-3 rounded-xl ${!isValid ? 'opacity-50' : ''}`}
+          disabled={!isValid}
+          onClick={() => {
+            if (+page <= 1) {
+              return;
+            } else {
+              setIsValid(true);
+              setPage((prev) => prev - 1);
+            }
+          }}
+        >
           {'< '}PREV
         </button>
-        <button className="bg-black p-3 rounded-xl" onClick={() => setPage((prev) => prev + 1)}>
+        <button
+          className="bg-black p-3 rounded-xl"
+          onClick={() => {
+            setPage((prev) => prev + 1);
+            setIsValid(true);
+          }}
+        >
           NEXT {' >'}
         </button>
       </div>

@@ -54,11 +54,11 @@
   }
 }
 .section {
-  width: 100vw;
-  height: 100vh;
+  width: 90vw;
+  height: 90vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 2rem;
+  margin: 0 auto;
 }
 
 .text {
@@ -75,19 +75,19 @@
   gap: 5px;
 }
 .btn {
+  width: 150px;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   background-color: black;
   color: white;
   font-family: monospace;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 16px;
   box-sizing: border-box;
-  margin: 0 5px;
   cursor: pointer;
-  transition: all 250ms linear;
+  transition: all 150ms linear;
   &:hover {
-    background-color: whitesmoke;
+    background-color: rgb(59, 59, 59);
     color: black;
   }
 }
