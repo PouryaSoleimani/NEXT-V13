@@ -52,14 +52,15 @@
   .text-balance {
     text-wrap: balance;
   }
-  .section {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .text {
   color: black;
   display: flex;
@@ -67,6 +68,29 @@
   justify-self: unset;
 }
 
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 250ms linear;
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+  }
+}
 @layer base {
   :root {
     --sidebar: oklch(0.985 0 0);
