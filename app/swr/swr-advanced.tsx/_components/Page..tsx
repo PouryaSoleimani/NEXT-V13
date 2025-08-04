@@ -15,8 +15,8 @@ function PageComponent({ index }: { index: number }) {
   if (isLoading) {
     return (
       <div className="section flex-col gap-8">
-        <h2 className="flex items-center gap-2 text-blue-900 bg-black p-3 rounded-xl">
-          <LoaderCircle className="animate-spin" /> LOADING
+        <h2 className="flex items-center gap-2 text-white bg-black p-3 rounded-xl">
+          <LoaderCircle className="animate-spin text-pink-500" /> LOADING
         </h2>
       </div>
     );
