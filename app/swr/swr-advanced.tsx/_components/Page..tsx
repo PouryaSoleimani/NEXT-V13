@@ -3,14 +3,15 @@ import axios from 'axios';
 import { FileQuestionMark, LoaderCircle, RotateCcw } from 'lucide-react';
 import React from 'react';
 import useSWR from 'swr';
-function PageComponent(index: any) {
 
-  const fetcher = () => axios.get(`https://fakestoreapi.com/products/${index}`).then((res) => res.data);
+function PageComponent({ index }: { index: number }) {
+  console.info('index ===>', index);
+  const _fetcher = () => axios.get(`https://fakestoreapi.com/products/${index}`).then((res) => res.data);
 
-  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${index}`, fetcher);
+  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${index}`, _fetcher);
 
   console.info('data =>', data);
-  
+
   if (isLoading) {
     return (
       <div className="section flex-col gap-8">
@@ -34,8 +35,11 @@ function PageComponent(index: any) {
     );
   }
 
-  
-  return data.map((item : any) => <div key={item.id}>{item.name}</div>);
+  return (
+    <div>
+      {data.id} . {data.title}
+    </div>
+  );
 }
 
 export default PageComponent;
