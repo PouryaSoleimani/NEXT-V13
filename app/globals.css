@@ -52,6 +52,13 @@
   .text-balance {
     text-wrap: balance;
   }
+  .section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .text {
   color: black;
@@ -173,6 +180,7 @@
     @apply bg-background text-foreground;
   }
 }
+
 @font-face {
   font-family: 'VAZIR';
   src: url('/fonts/Vazir-Bold-UI.ttf') format('truetype');

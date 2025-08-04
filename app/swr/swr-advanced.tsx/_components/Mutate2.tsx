@@ -1,14 +1,15 @@
 'use client';
 import axios, { AxiosError } from 'axios';
-import { LoaderIcon } from 'lucide-react';
-import React from 'react';
+import { BrushCleaning, LoaderIcon, ShieldAlert } from 'lucide-react';
+import React, { useState } from 'react';
 import toast, { ErrorIcon } from 'react-hot-toast';
 import { BiErrorAlt, BiErrorCircle, BiSolidErrorCircle } from 'react-icons/bi';
 import useSWR, { mutate } from 'swr';
 
-const fetcher = () => axios.get('https://fakestoreapi.com/productsssssss').then((res) => res.data);
+const fetcher = () => axios.get('https://fakestoreapi.com/products').then((res) => res.data);
 function Mutate2() {
-  const { data, isLoading, error } = useSWR('https://fakestoreapi.com/productsssssss', fetcher, {
+  const [validated, setValidated] = useState(false);
+  const { data, isLoading, error } = useSWR(validated ? 'https://fakestoreapi.com/products' : null, fetcher, {
     errorRetryCount: 10,
     onError: (error: Error) => {
       console.info('%c SWR ERROR ===>', 'color:pink', error.message);
@@ -18,8 +19,6 @@ function Mutate2() {
       });
     },
   });
-
-  console.info('DATA 2 ==>', data);
   function addSingleProduct() {
     const fakeProduct = { id: Date.now(), title: 'FAKE PRODUCT', description: 'DESCRIPTION' };
     axios
@@ -30,6 +29,16 @@ function Mutate2() {
         toast.error(error.message);
       });
     mutate('https://fakestoreapi.com/products', [...data, fakeProduct], false);
+  }
+  if (!data) {
+    return (
+      <div className="w-screen h-screen flex flex-col gap-6 items-center justify-center">
+        <div className="bg-black p-8 rounded-xl flex flex-col gap-4 border-4 border-orange-500">
+          <span className="text-3xl">NO DATA</span>
+          <ShieldAlert className="size-16 text-orange-500 mx-auto animate-pulse" />
+        </div>
+      </div>
+    );
   }
 
   if (isLoading) {
@@ -59,9 +68,9 @@ function Mutate2() {
       </button>
       <div className="w-[90%] mx-auto my-4 gap-3 grid grid-cols-6 ">
         {data?.map((product: any) => (
-          <div key={product.id} className="bg-black  overflow-hidden p-3 border-4 rounded-xl border-rose-700/50">
-            <h1 className="text-center text-rose-600">{product.title.slice(0, 25)}</h1>
-            <p className="mt-5">{product.description.slice(0, 150)}</p>
+          <div key={product.id} className="bg-black h-44 overflow-hidden p-3 border-4 rounded-xl border-rose-700/50">
+            <h1 className="text-justify text-rose-600">{product.title.slice(0, 25)}</h1>
+            <p className="mt-2 text-justify font-stretch-90%">{product.description.slice(0, 30)}</p>
           </div>
         ))}
       </div>
