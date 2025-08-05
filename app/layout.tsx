@@ -24,19 +24,20 @@ export const metadata: Metadata = {
 
 // COMPONENT
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-
-  const cookieStore = await cookies()
-  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get('sidebar_state')?.value === 'true';
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>{/* <title>THIS IS A NEXT TRAINING PAGE</title> */}</head>
+      <head>
+        <link rel="preload" href="/api/data" as="fetch" crossOrigin="anonymous" />
+      </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Toaster position="top-right" reverseOrder={false} />
           <SidebarProvider defaultOpen={defaultOpen}>
-            <div className='w-full h-full'>
-              <main className='w-full min-h-screen'>
+            <div className="w-full h-full">
+              <main className="w-full min-h-screen">
                 <Header />
                 {children}
                 <h2 className="bg-blue-800 p-6 text-3xl font-extrabold fixed bottom-0 right-0 w-full text-center z-50">FOOTER</h2>

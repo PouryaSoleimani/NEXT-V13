@@ -1,19 +1,34 @@
 'use client';
 import axios from 'axios';
+import { LoaderCircle } from 'lucide-react';
 import { Params } from 'next/dist/server/request/params';
 import { PathParamsContext } from 'next/dist/shared/lib/hooks-client-context.shared-runtime';
-import { useParams } from 'next/navigation';
-import React from 'react';
-import useSWR from 'swr';
+import { useParams, useRouter } from 'next/navigation';
+import React, { useLayoutEffect } from 'react';
+import useSWR, { preload } from 'swr';
 
 function page() {
   const params: Params = useParams();
-  const _fetcher = () => axios.get(`https://fakestoreapi.com/products/${params.slug}`).then((res) => res.data);
-  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${params.slug}`, _fetcher);
-  if (isLoading) {
-    return;
-  }
-  return <div className="w-screen h-screen flex items-center justify-center overflow-hidden">{data?.title}</div>;
+  const _fetcher = () => axios.get(`https://fakestoreapi.com/products/${params?.slug}`).then((res) => res.data);
+  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher);
+  const router = useRouter();
+
+  if (isLoading)
+    return (
+      <div className="w-screen h-screen flex flex-col gap-4 items-center justify-center">
+        <p>LOADING ... </p>
+        <LoaderCircle className="size-12 animate-spin text-yellow-500" />
+      </div>
+    );
+
+  return (
+    <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center overflow-hidden">
+      {data!.title || 'adasdasdsad'}
+      <button className="btn" onClick={() => router.back()}>
+        BACK
+      </button>
+    </div>
+  );
 }
 
 export default page;
