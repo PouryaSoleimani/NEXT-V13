@@ -25,7 +25,7 @@ function page() {
             href={`/swr/fake-store/${item.id}`}
             onMouseEnter={() => {
               preload(`https://fakestoreapi.com/products/${item.id}`, () => _singleFetcher(item.id));
-              console.info('HOVERED')
+              console.info('HOVERED');
             }}
             className="my-2 block bg-black p-3 rounded-xl hover:border-b-4 border-b-yellow-500"
             key={item.id}
