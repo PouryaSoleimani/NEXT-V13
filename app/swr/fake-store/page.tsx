@@ -3,9 +3,10 @@ import axios from 'axios';
 import { LoaderCircle } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-import useSWR from 'swr';
-import { preload } from 'swr';
+import useSWR, { preload } from 'swr';
+
 const _productsFetcher = () => axios.get('https://fakestoreapi.com/products').then((res) => res.data);
+const _singleFetcher = (id: number | string) => axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => res.data);
 function page() {
   const { data, isLoading, mutate, error } = useSWR('https://fakestoreapi.com/products', _productsFetcher);
   if (isLoading)
@@ -16,12 +17,19 @@ function page() {
       </div>
     );
 
-
   return (
     <div className="section">
       <div className="">
         {data?.map((item: any) => (
-          <Link href={`/swr/fake-store/${item.id}`} className="my-2 block bg-black p-3 rounded-xl hover:border-b-4 border-b-yellow-500" key={item.id}>
+          <Link
+            href={`/swr/fake-store/${item.id}`}
+            onMouseEnter={() => {
+              preload(`https://fakestoreapi.com/products/${item.id}`, () => _singleFetcher(item.id));
+              console.info('HOVERED')
+            }}
+            className="my-2 block bg-black p-3 rounded-xl hover:border-b-4 border-b-yellow-500"
+            key={item.id}
+          >
             {item.id}.{item.title}
           </Link>
         ))}

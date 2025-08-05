@@ -10,7 +10,8 @@ import useSWR, { preload } from 'swr';
 function page() {
   const params: Params = useParams();
   const _fetcher = () => axios.get(`https://fakestoreapi.com/products/${params?.slug}`).then((res) => res.data);
-  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher);
+  preload(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher);
+  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher, { suspense: true });
   const router = useRouter();
 
   if (isLoading)
@@ -23,7 +24,7 @@ function page() {
 
   return (
     <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center overflow-hidden">
-      {data!.title || 'adasdasdsad'}
+      {data.id}.{data.title}
       <button className="btn" onClick={() => router.back()}>
         BACK
       </button>
