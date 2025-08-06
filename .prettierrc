@@ -4,7 +4,7 @@
   "semi": true,
   "singleAttributePerLine": false,
   "trailingComma": "es5",
-  "printWidth": 150,
+  "printWidth": 120,
   "cursorOffset": 5,
   "htmlWhitespaceSensitivity": "ignore"
 }
