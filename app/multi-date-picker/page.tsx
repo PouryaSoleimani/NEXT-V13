@@ -18,10 +18,10 @@ function MultiDatePicker() {
           تاریخ تولد خود را انتخاب کنید <span className="text-yellow-500 text-2xl translate-y-1">* </span>
         </h2>
         <DatePicker
-          className="rmdp-prime"
-          inputClass="p-2 border-2 border-yellow-500 rounded-lg"
           calendar={persian}
           locale={persian_fa}
+          className="rmdp-prime"
+          inputClass="p-2 border-2 border-yellow-500 rounded-lg"
           value={value}
           weekDays={weekdays.reverse()}
           onChange={setValue}
