@@ -10,7 +10,7 @@ import { HiDocumentDownload } from 'react-icons/hi';
 function PdfDownloadPage() {
   return (
     <section className='flex flex-col gap-6'>
-      <PDFViewer width="100%" height="600" style={{ fontFamily: 'Vazir' }} >
+      <PDFViewer width="100%" height="800" style={{ fontFamily: 'Vazir' }} >
         <PdfPreview />
       </PDFViewer>
 

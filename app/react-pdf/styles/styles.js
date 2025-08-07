@@ -4,10 +4,9 @@ export const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 2,
     fontSize: 14,
     textAlign: 'center',
-    marginBottom: 20,
     fontFamily: 'vazir',
     borderBottom: '5px solid #d84040',
     backgroundColor: '#ccc',
@@ -52,5 +51,17 @@ export const styles = StyleSheet.create({
   header: {
     backgroundColor: '#eeeeee',
     fontWeight: 'bold',
+  },
+  infos: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginBottom: 2,
+    fontSize: 10,
+    fontFamily: 'vazir',
+    fontWeight: 'bold',
+    backgroundColor: '#ccc',
+    padding: '8px',
+    borderRadius: 5,
   },
 });
