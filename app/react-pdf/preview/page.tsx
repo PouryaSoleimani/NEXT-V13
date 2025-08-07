@@ -28,10 +28,12 @@ function PdfPreview() {
     <Document>
       <Page size="A5" style={styles.page}>
         {/* HEADER */}
+        F
         <View style={styles.headerContainer}>
           <Text>{new Date(Date.now()).toLocaleDateString('fa-IR')}</Text>
           <Text style={styles.headerText}>فاکتور فروش </Text>
         </View>
+
         <View style={styles.infos}>
           <Text>شرکت : {Texts.company}</Text>
           <Text>نام : {Texts.name}</Text>
@@ -40,14 +42,17 @@ function PdfPreview() {
           <Text>تلفن : {Texts.phone}</Text>
           <Text>آدرس : {Texts.address}</Text>
         </View>
+
         {/* TABLE */}
         <View style={styles.table}>
+
           {/* TABLE HEADER */}
           <View style={styles.row}>
             <Text style={[styles.cell, styles.header, { width: '45%' }]}>قیمت</Text>
             <Text style={[styles.cell, styles.header, { width: '10%' }]}>تعداد</Text>
             <Text style={[styles.cell, styles.header, { width: '45%' }]}>نام محصول</Text>
           </View>
+
           {/* TABLE ROWS --> FAKE STORE API */}
           {Products?.slice(0, 10).map((product: SingleProductType) => (
             <View key={product.id} style={styles.row}>
@@ -56,6 +61,7 @@ function PdfPreview() {
               <Text style={[styles.cell, { width: '45%' }]}>{product.title.slice(0, 20)}</Text>
             </View>
           ))}
+
           {/* TOTAL PRICE ROW */}
           <View style={[styles.row, { backgroundColor: "#ddd", padding: 0, fontWeight: 'bold' }]}>
             <Text style={[styles.cell, { width: '75%', fontWeight: 'bold' }]}>
@@ -64,6 +70,7 @@ function PdfPreview() {
             <Text style={[styles.cell, { width: '25%', fontWeight: 'bold', backgroundColor: "#d84040", color: 'white' }]}>جمع کل</Text>
           </View>
         </View>
+
       </Page>
     </Document>
   )
