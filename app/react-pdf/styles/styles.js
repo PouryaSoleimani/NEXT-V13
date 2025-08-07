@@ -1,0 +1,67 @@
+import { StyleSheet } from '@react-pdf/renderer';
+
+export const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 2,
+    fontSize: 14,
+    textAlign: 'center',
+    fontFamily: 'vazir',
+    borderBottom: '5px solid #d84040',
+    backgroundColor: '#ccc',
+    borderRadius: 5,
+    padding: '8px',
+    width: '100%',
+    display: 'inline-block',
+    marginTop: '10px',
+  },
+  headerText: {},
+  page: {
+    padding: 30,
+    fontSize: 14,
+    fontFamily: 'vazir',
+    textAlign: 'center',
+    border: '2px solid #ccc',
+  },
+  section: {
+    marginBottom: 10,
+    borderBottom: '1px solid #ccc',
+    paddingBottom: 10,
+  },
+  table: {
+    display: 'table',
+    width: 'auto',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderRightWidth: 0,
+    borderBottomWidth: 0,
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  cell: {
+    width: '33.33%',
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    padding: 8,
+    fontSize: 12,
+  },
+  header: {
+    backgroundColor: '#eeeeee',
+    fontWeight: 'bold',
+  },
+  infos: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginBottom: 2,
+    fontSize: 10,
+    fontFamily: 'vazir',
+    fontWeight: 'bold',
+    backgroundColor: '#ccc',
+    padding: '8px',
+    borderRadius: 5,
+  },
+});

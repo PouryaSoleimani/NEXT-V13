@@ -55,7 +55,7 @@
 }
 .section {
   width: 90vw;
-  height: 90vh;
+  height: auto;
   display: flex;
   padding: 2rem;
   margin: 0 auto;
@@ -214,8 +214,28 @@ body {
   color: white;
   font-family: 'VAZIR';
 }
-.rmdp-week-day{
-  color : black !important;
+.rmdp-week-day {
+  color: black !important;
   background-color: #0d1015;
 }
- 
+
+.text-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1919;
+}
+
+.text-subtitle {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #666;
+  &:hover {
+    color: #000;
+    cursor: pointer;
+  }
+}
+
+.text-subtitle:hover {
+  color: #000;
+  cursor: pointer;
+}
