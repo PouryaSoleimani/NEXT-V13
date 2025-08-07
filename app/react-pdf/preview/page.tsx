@@ -28,7 +28,6 @@ function PdfPreview() {
     <Document>
       <Page size="A5" style={styles.page}>
         {/* HEADER */}
-        F
         <View style={styles.headerContainer}>
           <Text>{new Date(Date.now()).toLocaleDateString('fa-IR')}</Text>
           <Text style={styles.headerText}>فاکتور فروش </Text>
