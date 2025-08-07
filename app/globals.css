@@ -229,4 +229,13 @@ body {
   font-size: 0.75rem;
   font-weight: 400;
   color: #666;
+  &:hover {
+    color: #000;
+    cursor: pointer;
+  }
+}
+
+.text-subtitle:hover {
+  color: #000;
+  cursor: pointer;
 }

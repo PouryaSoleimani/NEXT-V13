@@ -1,12 +1,13 @@
 import BackButton from '@/components/BackButton';
 import CustomPageButton from '@/components/CustomPageButton';
 import React, { Suspense } from 'react';
+
 interface ProductPageProps {
   params: { productID: string };
 }
 
 const DynamicProductPage = async ({ params }: ProductPageProps) => {
-  const req = fetch(`https://fakestoreapi.com/products/${params.productID.toString()}`, { cache: 'force-cache' });
+  const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, { cache: 'force-cache' });
   const product = await req.then((res) => res.json());
 
   return (
@@ -17,7 +18,7 @@ const DynamicProductPage = async ({ params }: ProductPageProps) => {
           {product.id} . {product.title.slice(0, 10)}
         </h2>
         <Suspense fallback={<p>Loading...</p>}>
-          <img src={product.image} loading="eager" alt="image" className="w-32 h-32" width={100} height={100} />
+          <img src={product.image} alt="image" className="w-32 h-32" width={100} height={100} />
         </Suspense>
       </div>
       <CustomPageButton />
