@@ -65,10 +65,10 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
   },
   image: {
-    width: '50%', 
-    height: 50, 
+    width: '50%',
+    height: 50,
     margin: '0 auto',
-    borderRadius: 5, 
+    borderRadius: 5,
     objectFit: 'contain',
   },
 });
