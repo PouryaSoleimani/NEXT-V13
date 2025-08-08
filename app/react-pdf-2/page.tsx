@@ -4,16 +4,19 @@ import { Page, Text, View, Document, PDFViewer, Font, Image } from '@react-pdf/r
 import { _styles } from './styles';
 import axios from 'axios';
 import useSWR from 'swr';
-import { SingleProductType } from '../swr/_hooks/useProductsFetch';
-import DownloadPdf from './Download';
 
+// FONT
 Font.register({ family: 'vazir', src: '/fonts/Vazir-Bold-UI.ttf', fontWeight: 700 });
 
+//FETCHER
 type _SingleProductType = { id: number; title: string; price: number };
 const _productsFetcher2 = () => axios.get('https://fakestoreapi.com/products').then((res) => res.data);
 
+// COMPONENT
 function ReactPdf2Component() {
+  //FETCH
   const { data: _Products } = useSWR('https://fakestoreapi.com/products', _productsFetcher2);
+  // TOTAL
   const _total =
     _Products
       ?.map((item: any) => item.price)
@@ -26,11 +29,13 @@ function ReactPdf2Component() {
       <PDFViewer style={{ width: '100%', height: '80%' }}>
         <Document>
           <Page size="A5" style={_styles.page}>
+            {/* HEADER */}
             <View style={_styles.headerContainer}>
               <Image src="/ScreenShot-Tool-20250808130504.png" style={_styles.image} />
               <Text>فاکتور فروش</Text>
             </View>
 
+            {/* TABLE */}
             <View style={_styles.table}>
               <View style={_styles.row}>
                 <Text style={[_styles.cell, _styles.header, { width: '45%' }]}>قیمت</Text>
@@ -49,6 +54,7 @@ function ReactPdf2Component() {
               ))}
             </View>
 
+            {/* TOTAL */}
             <View style={_styles.headerContainer}>
               <Text>{_total?.toLocaleString('fa-IR')} تومان</Text>
               <Text>جمع کل</Text>
@@ -56,8 +62,6 @@ function ReactPdf2Component() {
           </Page>
         </Document>
       </PDFViewer>
-
-      {/* <DownloadPdf /> */}
     </div>
   );
 }
