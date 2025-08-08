@@ -1,7 +1,7 @@
 
 'use client'
 import React, { useEffect } from 'react'
-import { Document, Page, Text, View, Font } from '@react-pdf/renderer';
+import { Document, Page, Text, View, Font, Image } from '@react-pdf/renderer';
 import { Texts } from '../data/db'; // FAKE DB
 import { styles } from './../styles/styles';
 import axios from 'axios';
@@ -27,6 +27,14 @@ function PdfPreview() {
   return (
     <Document>
       <Page size="A5" style={styles.page}>
+        {/* LOGO */}
+        <Image
+          id='adadsad'
+          src={'https://acniowa.com/wp-content/uploads/2016/03/test-image.png'}
+          source={'https://acniowa.com/wp-content/uploads/2016/03/test-image.png'}
+          style={{ width: '150px', height: "150px", display: 'flex' }}
+          cache
+        />
         {/* HEADER */}
         <View style={styles.headerContainer}>
           <Text>{new Date(Date.now()).toLocaleDateString('fa-IR')}</Text>
