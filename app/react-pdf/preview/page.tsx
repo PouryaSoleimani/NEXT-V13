@@ -28,13 +28,7 @@ function PdfPreview() {
     <Document>
       <Page size="A5" style={styles.page}>
         {/* LOGO */}
-        <Image
-          id='adadsad'
-          src={'https://acniowa.com/wp-content/uploads/2016/03/test-image.png'}
-          source={'https://acniowa.com/wp-content/uploads/2016/03/test-image.png'}
-          style={{ width: '150px', height: "150px", display: 'flex' }}
-          cache
-        />
+        <Image src='/ScreenShot-Tool-20250808130504.png' style={styles.image} />
         {/* HEADER */}
         <View style={styles.headerContainer}>
           <Text>{new Date(Date.now()).toLocaleDateString('fa-IR')}</Text>
@@ -61,7 +55,7 @@ function PdfPreview() {
           </View>
 
           {/* TABLE ROWS --> FAKE STORE API */}
-          {Products?.slice(0, 10).map((product: SingleProductType) => (
+          {Products?.slice(0, 8).map((product: SingleProductType) => (
             <View key={product.id} style={styles.row}>
               <Text style={[styles.cell, { width: '45%' }]}>{(product.price * 100000).toLocaleString('fa-IR')} تومان</Text>
               <Text style={[styles.cell, { width: '10%' }]}>{Math.floor(Math.random() * 10) + 1}</Text>

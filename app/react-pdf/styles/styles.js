@@ -64,4 +64,11 @@ export const styles = StyleSheet.create({
     padding: '8px',
     borderRadius: 5,
   },
+  image: {
+    width: '50%', 
+    height: 50, 
+    margin: '0 auto',
+    borderRadius: 5, 
+    objectFit: 'contain',
+  },
 });
