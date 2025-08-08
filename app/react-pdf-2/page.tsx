@@ -20,7 +20,7 @@ function ReactPdf2Component() {
       .reduce((a: number, b: number) => a + b)
       .toFixed(0) * 1000000;
 
-  //^ RETURN ==================================================================================================
+  //^ RETURN =================================================================================================================================================================================
   return (
     <div className="mx-auto border-4 h-[90vh] flex flex-col items-center justify-between pt-10 border-red-500">
       <PDFViewer style={{ width: '100%', height: '80%' }}>
