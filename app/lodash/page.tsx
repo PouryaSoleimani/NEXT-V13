@@ -88,7 +88,7 @@ function LodashPage() {
   const withoutArray = _.without(stringArray, 'BAG');
   // console.info(withoutArray);
 
-  const removedArray = _.remove(products, (item) => item.id === 1);
+  // const removedArray = _.remove(products, (item) => item.id === 1);
   // console.info(removedArray);
 
   const takenArray = _.take(array, 5);
@@ -104,9 +104,21 @@ function LodashPage() {
   // console.info(filteredArray)
 
   const mappedArray = _.map(users, item => item.name)
-  console.info(mappedArray)
+  // console.info(mappedArray)
 
-  
+  const everyArray = _.every(products, 'category')
+  // console.info(everyArray)
+
+  const finded = _.find(products, item => item.category == 'accessories')
+  // console.info(finded)
+
+  const forEachedArray = [1, 2, 3, 4, 5]
+  // _.forEach(forEachedArray , item => console.info(item))
+
+  const grouped = _.groupBy(products, 'category')
+  // console.info(grouped)
+
+
   return (
     <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
@@ -118,8 +130,8 @@ function LodashPage() {
         ))}
       </p>
       <div className='flex items-center gap-5 bg-black p-3 rounded-lg'>
-        {mappedArray.map(item => (
-          <p key={item} className='text-2xl font-mono font-black '>{item}</p>
+        {filteredArray.map(item => (
+          <p key={item.id} className='text-2xl font-mono font-black '>{item.title}</p>
         ))}
       </div>
     </div>
