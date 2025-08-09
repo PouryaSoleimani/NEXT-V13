@@ -2,12 +2,12 @@ export const array = [10, 20, 50, 60, 30, 70, 90, 100];
 export const array2 = [10, 20, 110, 120];
 
 export const users = [
-  { id: 1, name: 'ali', age: 25 },
-  { id: 2, name: 'reza', age: 22 },
-  { id: 3, name: 'pourya', age: 32 },
-  { id: 4, name: 'mamad', age: 25 },
-  { id: 5, name: 'zahra', age: 21 },
-  { id: 6, name: 'ashkan', age: 21 },
+  { id: 1, name: 'ali', age: 25, active: false },
+  { id: 2, name: 'reza', age: 22, active: true },
+  { id: 3, name: 'pourya', age: 32, active: false },
+  { id: 4, name: 'mamad', age: 25, active: false },
+  { id: 5, name: 'zahra', age: 21, active: true },
+  { id: 6, name: 'ashkan', age: 21, active: false },
 ];
 
 export const products = [

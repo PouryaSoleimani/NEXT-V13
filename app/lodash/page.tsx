@@ -66,7 +66,7 @@ function LodashPage() {
   const headItem = _.head(products);
   // console.info('headItem', headItem);
 
-  const getIndex = _.indexOf(users, { id: 3, name: 'pourya', age: 32 });
+  const getIndex = _.indexOf(users, { id: 3, name: 'pourya', age: 32, active: false });
   // console.info('getIndex', getIndex);
 
   const intersectionArray = _.intersection(array, array2);
@@ -123,7 +123,10 @@ function LodashPage() {
 
   const IsIncludes2 = _.map(users, item => item.name).includes('pourya')
   // console.info(IsIncludes2)
+  const partitioned = _.partition(users, item => item.active)
+  console.info(partitioned)
 
+  // 
   return (
     <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
@@ -144,3 +147,4 @@ function LodashPage() {
 }
 
 export default LodashPage;
+// 
