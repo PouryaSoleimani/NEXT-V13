@@ -97,6 +97,12 @@ function LodashPage() {
   const takenArrayRight = _.takeRight(array, 5);
   // console.info(takenArrayRight);
 
+  const unionArray = _.union(array, array2);
+  console.info(unionArray);
+
+  const unionByArray = _.unionBy(array, array2);
+  console.info(unionByArray);
+
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
