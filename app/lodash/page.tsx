@@ -2,6 +2,7 @@ import React from 'react';
 import * as _ from 'lodash';
 import { StarIcon } from 'lucide-react';
 import { array, users, products, falsyIncludedArray, array2, unpulledArray } from './db';
+import { take } from 'lodash';
 
 // COMPONENT ===============================================================================================================================================================================================================
 function LodashPage() {
@@ -89,6 +90,12 @@ function LodashPage() {
 
   const removedArray = _.remove(products, (item) => item.id === 1);
   // console.info(removedArray);
+
+  const takenArray = _.take(array, 5);
+  // console.info(takenArray);
+
+  const takenArrayRight = _.takeRight(array, 5);
+  // console.info(takenArrayRight);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
