@@ -8,7 +8,7 @@ const array2 = [110, 120];
 const users = [
   { id: 1, name: 'ali', age: 25 },
   { id: 2, name: 'reza', age: 22 },
-  { id: 3, name: 'pourya', age: 22 },
+  { id: 3, name: 'pourya', age: 32 },
   { id: 4, name: 'mamad', age: 25 },
   { id: 5, name: 'zahra', age: 21 },
   { id: 6, name: 'ashkan', age: 21 },
@@ -86,9 +86,12 @@ function LodashPage() {
   // console.info('findedIndex', findedIndex);
 
   const headItem = _.head(products);
-  console.info('headItem', headItem);
+  // console.info('headItem', headItem);
 
+  const getIndex = _.indexOf(users, { id: 3, name: 'pourya', age: 32 });
+  console.info('getIndex', getIndex);
 
+  
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
