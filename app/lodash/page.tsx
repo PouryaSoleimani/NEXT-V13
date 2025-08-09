@@ -98,11 +98,16 @@ function LodashPage() {
   // console.info(takenArrayRight);
 
   const unionArray = _.union(array, array2);
-  console.info(unionArray);
+  // console.info(unionArray);
 
+  const filteredArray = _.filter(products, item => item.price > 250)
+  // console.info(filteredArray)
+
+  const mappedArray = _.map(users, item => item.name)
+  console.info(mappedArray)
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
+    <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
         {filledArray.map((item, index) => (
           <StarIcon key={index} className="fill-yellow-500 text-yellow-500" />
@@ -111,6 +116,11 @@ function LodashPage() {
           <StarIcon key={index} className="fill-gray-500 text-gray-500" />
         ))}
       </p>
+      <div className='flex items-center gap-5 bg-black p-3 rounded-lg'>
+        {mappedArray.map(item => (
+          <p key={item} className='text-2xl font-mono font-black '>{item}</p>
+        ))}
+      </div>
     </div>
   );
 }
