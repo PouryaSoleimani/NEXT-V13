@@ -95,7 +95,12 @@ function LodashPage() {
   // console.info('intersectionArray', intersectionArray);
 
   const joinedArray = _.join(array, ' | ');
-  console.info('joinedArray', joinedArray);
+  // console.info('joinedArray', joinedArray);
+
+  const lastItem = _.last(products);
+  // console.info('lastItem', lastItem);
+
+
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
