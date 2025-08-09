@@ -4,6 +4,7 @@ import { Page, Text, View, Document, PDFViewer, Font, Image } from '@react-pdf/r
 import { _styles } from './styles';
 import axios from 'axios';
 import useSWR from 'swr';
+import _ from 'lodash';
 
 // FONT
 Font.register({ family: 'vazir', src: '/fonts/Vazir-Bold-UI.ttf', fontWeight: 700 });
@@ -17,11 +18,9 @@ function ReactPdf2Component() {
   //FETCH
   const { data: _Products } = useSWR('https://fakestoreapi.com/products', _productsFetcher2);
   // TOTAL
-  const _total =
-    _Products
-      ?.map((item: any) => item.price)
-      .reduce((a: number, b: number) => a + b)
-      .toFixed(0) * 1000000;
+
+  const _total = _.sumBy(_Products, (item: _SingleProductType) => item.price * 10000)
+
 
   //^ RETURN =================================================================================================================================================================================
   return (

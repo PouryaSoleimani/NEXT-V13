@@ -57,7 +57,7 @@ function LodashPage() {
   const droppedArray = _.drop(array, 2);
   // console.info('droppedArray', droppedArray);
 
-  const filledArray = _.fill([0, 0, 0, 0], '*');
+  const filledArray = _.fill(Array(4), '*');
   // console.info('filledArray', filledArray);
 
   const findedIndex = _.findIndex(users, { name: 'zahra' });
