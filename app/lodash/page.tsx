@@ -1,5 +1,6 @@
 import React from 'react';
 import * as _ from 'lodash';
+import { StarIcon } from 'lucide-react';
 
 const array = [10, 20, 50, 60, 30, 70, 90, 100];
 const array2 = [110, 120];
@@ -78,13 +79,19 @@ function LodashPage() {
   const droppedArray = _.drop(array, 2);
   // console.info('droppedArray', droppedArray);
 
-
-
-  
+  const filledArray = _.fill([0, 0, 0, 0], '*');
+  console.info('filledArray', filledArray);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      {/* <p className="p-4 bg-stone-800 text-xl rounded-lg text-white">{findProduct2?.title}</p> */}
+      <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
+        {filledArray.map((item) => (
+          <StarIcon className="fill-yellow-500 text-yellow-500" />
+        ))}
+        {Array.from({ length: 5 - filledArray.length }, () => (
+          <StarIcon className="fill-gray-500 text-gray-500" />
+        ))}
+      </p>
     </div>
   );
 }
