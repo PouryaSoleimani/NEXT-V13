@@ -133,8 +133,16 @@ function LodashPage() {
   const sample = _.sample(users)
   // console.info(sample)
 
-  
+  const shuffled = _.shuffle(array)
+  // console.info(shuffled)
 
+  const size = _.size(array)
+  // console.info(size)
+
+  const some = _.some(users, item => item.name == 'pourya')
+  // console.info(some)
+
+  
 
   // RETURN ====================================================================================================+====================== 
   return (
