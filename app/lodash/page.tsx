@@ -21,6 +21,8 @@ const products = [
   { id: 7, title: 'BOOTS', category: 'shoes', price: 350 },
 ];
 
+const falsyIncludedArray = [1, 20, false, '', 0, null, undefined, NaN, 30, 'pourya'];
+
 // COMPONENT ===============================================================================================================================================================================================================
 function LodashPage() {
   const sortedArray = _.sortBy(array).reverse();
@@ -50,9 +52,22 @@ function LodashPage() {
   const shuffledUsers = _.shuffle(users);
   // console.info('shuffledUsers', shuffledUsers);
 
+  const findUser = _.find(users, { id: 1 });
+  // console.info('findUser', findUser);
+
+  const findProduct = _.find(products, { title: 'SHIRT' });
+  // console.info('findProduct', findProduct);
+
+  const findProduct2 = _.find(products, { title: 'BOOTS' });
+  // console.info('findProduct2', findProduct2);
+
+  const compactedArray = _.compact(falsyIncludedArray);
+  console.info('compactedArray', compactedArray);
+
+
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      {/* <p className="p-4 bg-stone-800 text-xl rounded-lg text-white">{shuffledUsers[0].name.toUpperCase()}</p> */}
+      <p className="p-4 bg-stone-800 text-xl rounded-lg text-white">{findProduct2?.title}</p>
     </div>
   );
 }
