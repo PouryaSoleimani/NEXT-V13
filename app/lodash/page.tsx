@@ -106,6 +106,7 @@ function LodashPage() {
   const mappedArray = _.map(users, item => item.name)
   console.info(mappedArray)
 
+  
   return (
     <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
