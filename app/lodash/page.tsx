@@ -2,6 +2,8 @@ import React from 'react';
 import * as _ from 'lodash';
 
 const array = [10, 20, 50, 60, 30, 70, 90, 100];
+const array2 = [110, 120];
+
 const users = [
   { id: 1, name: 'ali', age: 25 },
   { id: 2, name: 'reza', age: 22 },
@@ -64,9 +66,24 @@ function LodashPage() {
   const compactedArray = _.compact(falsyIncludedArray);
   // console.info('compactedArray', compactedArray);
 
+  const concatedArray = _.concat(array, array2);
+  // console.info('concatedArray', concatedArray);
+
+  const difference = _.difference([1, 2, 3], [1, 2]);
+  console.info('difference', difference);
+
+  const differenceBy = _.differenceBy([1, 2, 3], [1, 2]);
+  console.info('differenceBy', differenceBy);
+
+  const intersection = _.intersection([1, 2, 3], [1, 2]);
+  // console.info('intersection', intersection);
+
+  const union = _.union([1, 2, 3], [1, 2]);
+  // console.info('union', union);
+
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <p className="p-4 bg-stone-800 text-xl rounded-lg text-white">{findProduct2?.title}</p>
+      {/* <p className="p-4 bg-stone-800 text-xl rounded-lg text-white">{findProduct2?.title}</p> */}
     </div>
   );
 }
