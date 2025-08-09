@@ -70,16 +70,17 @@ function LodashPage() {
   // console.info('concatedArray', concatedArray);
 
   const difference = _.difference([1, 2, 3], [1, 2]);
-  console.info('difference', difference);
+  // console.info('difference', difference);
 
   const differenceBy = _.differenceBy([1, 2, 3], [1, 2]);
-  console.info('differenceBy', differenceBy);
+  // console.info('differenceBy', differenceBy);
 
-  const intersection = _.intersection([1, 2, 3], [1, 2]);
-  // console.info('intersection', intersection);
+  const droppedArray = _.drop(array, 2);
+  // console.info('droppedArray', droppedArray);
 
-  const union = _.union([1, 2, 3], [1, 2]);
-  // console.info('union', union);
+
+
+  
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
