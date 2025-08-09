@@ -123,12 +123,17 @@ function LodashPage() {
 
   const IsIncludes2 = _.map(users, item => item.name).includes('pourya')
   // console.info(IsIncludes2)
+
   const partitioned = _.partition(users, item => item.active)
-  console.info(partitioned)
+  // console.info(partitioned)
 
   const reduced = _.reduce(products, (sum, item) => sum + item.price, 0)
-  console.info(reduced)
+  // console.info(reduced)
 
+  const sample = _.sample(users)
+  // console.info(sample)
+
+  
 
 
   // RETURN ====================================================================================================+====================== 
