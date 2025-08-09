@@ -9,9 +9,9 @@ const users = [
   { id: 1, name: 'ali', age: 25 },
   { id: 2, name: 'reza', age: 22 },
   { id: 3, name: 'pourya', age: 22 },
-  { id: 3, name: 'mamad', age: 25 },
-  { id: 3, name: 'zahra', age: 21 },
-  { id: 3, name: 'ashkan', age: 21 },
+  { id: 4, name: 'mamad', age: 25 },
+  { id: 5, name: 'zahra', age: 21 },
+  { id: 6, name: 'ashkan', age: 21 },
 ];
 
 const products = [
@@ -80,7 +80,10 @@ function LodashPage() {
   // console.info('droppedArray', droppedArray);
 
   const filledArray = _.fill([0, 0, 0, 0], '*');
-  console.info('filledArray', filledArray);
+  // console.info('filledArray', filledArray);
+
+  const findedIndex = _.findIndex(users, { name: 'pourya' });
+  console.info('findedIndex', findedIndex);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
