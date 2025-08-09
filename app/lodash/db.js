@@ -12,7 +12,7 @@ export const users = [
 
 export const products = [
   { id: 1, title: 'BAG', category: 'accessories', price: 100 },
-  { id: 2, title: 'CAPS', category: 'accessories', price: 50 },
+  { id: 2, title: 'CAPS', category: 'accessories', price: 150 },
   { id: 3, title: 'SHIRT', category: 'clothes', price: 200 },
   { id: 4, title: 'PANTS', category: 'clothes', price: 150 },
   { id: 5, title: 'JACKET', category: 'clothes', price: 300 },

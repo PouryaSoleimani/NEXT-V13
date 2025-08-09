@@ -126,8 +126,12 @@ function LodashPage() {
   const partitioned = _.partition(users, item => item.active)
   console.info(partitioned)
 
+  const reduced = _.reduce(products, (sum, item) => sum + item.price, 0)
+  console.info(reduced)
 
-  // 
+
+
+  // RETURN ====================================================================================================+====================== 
   return (
     <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
