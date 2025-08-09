@@ -142,7 +142,11 @@ function LodashPage() {
   const some = _.some(users, item => item.name == 'pourya')
   // console.info(some)
 
-  
+  const sorted = _.sortBy(products, product => product.price)
+  // console.info(sorted)
+
+  const rejected = _.reject(products, item => item.price < 250)
+  console.info(rejected)
 
   // RETURN ====================================================================================================+====================== 
   return (
