@@ -1,7 +1,7 @@
 import React from 'react';
 import * as _ from 'lodash';
 import { StarIcon } from 'lucide-react';
-import { array, users, products, falsyIncludedArray, array2 } from './db';
+import { array, users, products, falsyIncludedArray, array2, unpulledArray } from './db';
 
 // COMPONENT ===============================================================================================================================================================================================================
 function LodashPage() {
@@ -77,8 +77,17 @@ function LodashPage() {
   const lastItem = _.last(products);
   // console.info('lastItem', lastItem);
 
-  const nth = _.nth(products, 3);
-  console.info('nth', nth);
+  const nth = _.nth(products, 0);
+  // console.info('nth', nth);
+
+  const stringArray = products.map((item) => item.title);
+  const pulledArray = _.pull(stringArray, 'BAG');
+  // console.info(pulledArray);
+
+  const withoutArray = _.without(stringArray, 'BAG');
+  console.info(withoutArray);
+
+  
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">

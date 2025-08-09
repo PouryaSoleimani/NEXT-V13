@@ -21,3 +21,5 @@ export const products = [
 ];
 
 export const falsyIncludedArray = [1, 20, false, '', 0, null, undefined, NaN, 30, 'pourya'];
+
+export const unpulledArray = ['a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'c'];
