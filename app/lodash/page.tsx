@@ -100,8 +100,6 @@ function LodashPage() {
   const unionArray = _.union(array, array2);
   console.info(unionArray);
 
-  const unionByArray = _.unionBy(array, array2);
-  console.info(unionByArray);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
