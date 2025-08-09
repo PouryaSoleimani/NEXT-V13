@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import { StarIcon } from 'lucide-react';
 
 const array = [10, 20, 50, 60, 30, 70, 90, 100];
-const array2 = [110, 120];
+const array2 = [10, 20, 110, 120];
 
 const users = [
   { id: 1, name: 'ali', age: 25 },
@@ -89,9 +89,11 @@ function LodashPage() {
   // console.info('headItem', headItem);
 
   const getIndex = _.indexOf(users, { id: 3, name: 'pourya', age: 32 });
-  console.info('getIndex', getIndex);
+  // console.info('getIndex', getIndex);
 
-  
+  const intersectionArray = _.intersection(array, array2);
+  // console.info('intersectionArray', intersectionArray);
+
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
