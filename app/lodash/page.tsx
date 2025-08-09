@@ -83,7 +83,7 @@ function LodashPage() {
   // console.info('filledArray', filledArray);
 
   const findedIndex = _.findIndex(users, { name: 'zahra' });
-  console.info('findedIndex', findedIndex);
+  // console.info('findedIndex', findedIndex);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
