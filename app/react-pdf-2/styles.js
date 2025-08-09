@@ -1,9 +1,10 @@
 import { StyleSheet } from '@react-pdf/renderer';
 
-export const styles = StyleSheet.create({
+export const _styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 2,
     fontSize: 14,
     textAlign: 'center',
@@ -70,5 +71,11 @@ export const styles = StyleSheet.create({
     margin: '0 auto',
     borderRadius: 5,
     objectFit: 'contain',
+  },
+  image: {
+    width: '50px',
+    height: '30px',
+    border: '3px solid #303030',
+    borderRadius: '5px',
   },
 });
