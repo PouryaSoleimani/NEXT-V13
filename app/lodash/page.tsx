@@ -118,6 +118,11 @@ function LodashPage() {
   const grouped = _.groupBy(products, 'category')
   // console.info(grouped)
 
+  const Isinclude = _.map(products, item => item.title).includes('BAG')
+  // console.info(Isinclude)
+
+  const IsIncludes2 = _.map(users, item => item.name).includes('pourya')
+  // console.info(IsIncludes2)
 
   return (
     <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
