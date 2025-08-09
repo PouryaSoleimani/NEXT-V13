@@ -82,7 +82,7 @@ function LodashPage() {
   const filledArray = _.fill([0, 0, 0, 0], '*');
   // console.info('filledArray', filledArray);
 
-  const findedIndex = _.findIndex(users, { name: 'pourya' });
+  const findedIndex = _.findIndex(users, { name: 'zahra' });
   console.info('findedIndex', findedIndex);
 
   return (
