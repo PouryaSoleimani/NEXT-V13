@@ -85,9 +85,7 @@ function LodashPage() {
   // console.info(pulledArray);
 
   const withoutArray = _.without(stringArray, 'BAG');
-  console.info(withoutArray);
-
-  
+  // console.info(withoutArray);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
