@@ -62,8 +62,7 @@ function LodashPage() {
   // console.info('findProduct2', findProduct2);
 
   const compactedArray = _.compact(falsyIncludedArray);
-  console.info('compactedArray', compactedArray);
-
+  // console.info('compactedArray', compactedArray);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
