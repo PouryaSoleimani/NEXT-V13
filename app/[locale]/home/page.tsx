@@ -9,12 +9,12 @@ function NextInternationalPage() {
   return (
     <div className='w-screen h-screen flex flex-col gap-5 items-center justify-center text-lg font-[Vazir]'>
       <span className='text-4xl bg-zinc-800 font-black  p-5 rounded-lg border-4 border-zinc-300'>
-        {t('welcome', { name: 'Pourya' })}
+        {t('hello.world')}
       </span>
       <div className='flex items-center gap-3'>
         <button className='p-2 rounded-lg border-2 border-zinc-300 w-16 text-center bg-green-600' onClick={() => changeLocale('en')}>EN</button>
         <button className='p-2 rounded-lg border-2 border-zinc-300 w-16 text-center bg-red-600' onClick={() => changeLocale('fa')}>FA</button>
-        <button className='p-2 rounded-lg border-2 border-zinc-300 w-16 text-center bg-red-600' onClick={() => changeLocale('ar')}>AR</button>
+        <button className='p-2 rounded-lg border-2 border-zinc-300 w-16 text-center bg-blue-600' onClick={() => changeLocale('ar')}>AR</button>
       </div>
     </div>
   )
