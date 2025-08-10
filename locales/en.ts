@@ -1,5 +1,5 @@
 export default {
-  'hello': 'Hello',
+  hello: 'Hello',
   'hello.world': 'Hello world!',
-  'welcome': 'Hello {name}!'
-} as const
+  welcome: 'Hello {name}!',
+} as const;
