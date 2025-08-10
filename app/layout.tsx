@@ -9,7 +9,8 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/SideBar';
 import { cookies } from 'next/headers';
 import { ThemeProvider } from '@/components/theme/theme-provider';
-
+import { ReactElement } from 'react'
+import { I18nProviderClient } from '@/locales/client'
 // FONTS
 const rajdhani = Rajdhani({
   weight: ['400', '700'],
