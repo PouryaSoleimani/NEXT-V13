@@ -146,7 +146,10 @@ function LodashPage() {
   // console.info(sorted)
 
   const rejected = _.reject(products, (item) => item.price < 250);
-  console.info(rejected);
+  // console.info(rejected);
+
+  const gte = _.gt(10, 5);
+  console.info(gte);
 
   // RETURN ====================================================================================================+======================
   return (
