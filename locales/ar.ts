@@ -4,5 +4,5 @@ export default {
   welcome: 'مرحبا {name}!',
   Pourya: 'بوریا',
   download: 'الدانلود',
-  text : 'العربیه'
+  text: 'العربیه',
 } as const;
