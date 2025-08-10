@@ -9,7 +9,6 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/SideBar';
 import { cookies } from 'next/headers';
 import { ThemeProvider } from '@/components/theme/theme-provider';
-import { I18nProvider } from '@/locales/i18n';
 
 // FONTS
 const rajdhani = Rajdhani({
