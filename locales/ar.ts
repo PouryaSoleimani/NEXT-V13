@@ -1,6 +1,6 @@
 export default {
   hello: 'مرحبا',
-  'hello.world': 'مرحبا بالعالم!',
+  helloWorld: 'مرحبا بالعالم!',
   welcome: 'مرحبا {name}!',
   Pourya: 'بوریا',
   download: 'الدانلود',
