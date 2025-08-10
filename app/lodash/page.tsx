@@ -100,55 +100,55 @@ function LodashPage() {
   const unionArray = _.union(array, array2);
   // console.info(unionArray);
 
-  const filteredArray = _.filter(products, item => item.price > 250)
+  const filteredArray = _.filter(products, (item) => item.price > 250);
   // console.info(filteredArray)
 
-  const mappedArray = _.map(users, item => item.name)
+  const mappedArray = _.map(users, (item) => item.name);
   // console.info(mappedArray)
 
-  const everyArray = _.every(products, 'category')
+  const everyArray = _.every(products, 'category');
   // console.info(everyArray)
 
-  const finded = _.find(products, item => item.category == 'accessories')
+  const finded = _.find(products, (item) => item.category == 'accessories');
   // console.info(finded)
 
-  const forEachedArray = [1, 2, 3, 4, 5]
+  const forEachedArray = [1, 2, 3, 4, 5];
   // _.forEach(forEachedArray , item => console.info(item))
 
-  const grouped = _.groupBy(products, 'category')
+  const grouped = _.groupBy(products, 'category');
   // console.info(grouped)
 
-  const Isinclude = _.map(products, item => item.title).includes('BAG')
+  const Isinclude = _.map(products, (item) => item.title).includes('BAG');
   // console.info(Isinclude)
 
-  const IsIncludes2 = _.map(users, item => item.name).includes('pourya')
+  const IsIncludes2 = _.map(users, (item) => item.name).includes('pourya');
   // console.info(IsIncludes2)
 
-  const partitioned = _.partition(users, item => item.active)
+  const partitioned = _.partition(users, (item) => item.active);
   // console.info(partitioned)
 
-  const reduced = _.reduce(products, (sum, item) => sum + item.price, 0)
+  const reduced = _.reduce(products, (sum, item) => sum + item.price, 0);
   // console.info(reduced)
 
-  const sample = _.sample(users)
+  const sample = _.sample(users);
   // console.info(sample)
 
-  const shuffled = _.shuffle(array)
+  const shuffled = _.shuffle(array);
   // console.info(shuffled)
 
-  const size = _.size(array)
+  const size = _.size(array);
   // console.info(size)
 
-  const some = _.some(users, item => item.name == 'pourya')
+  const some = _.some(users, (item) => item.name == 'pourya');
   // console.info(some)
 
-  const sorted = _.sortBy(products, product => product.price)
+  const sorted = _.sortBy(products, (product) => product.price);
   // console.info(sorted)
 
-  const rejected = _.reject(products, item => item.price < 250)
-  console.info(rejected)
+  const rejected = _.reject(products, (item) => item.price < 250);
+  console.info(rejected);
 
-  // RETURN ====================================================================================================+====================== 
+  // RETURN ====================================================================================================+======================
   return (
     <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
       <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
@@ -159,9 +159,11 @@ function LodashPage() {
           <StarIcon key={index} className="fill-gray-500 text-gray-500" />
         ))}
       </p>
-      <div className='flex items-center gap-5 bg-black p-3 rounded-lg'>
-        {filteredArray.map(item => (
-          <p key={item.id} className='text-2xl font-mono font-black '>{item.title}</p>
+      <div className="flex items-center gap-5 bg-black p-3 rounded-lg">
+        {filteredArray.map((item) => (
+          <p key={item.id} className="text-2xl font-mono font-black ">
+            {item.title}
+          </p>
         ))}
       </div>
     </div>
@@ -169,4 +171,4 @@ function LodashPage() {
 }
 
 export default LodashPage;
-// 
+//
