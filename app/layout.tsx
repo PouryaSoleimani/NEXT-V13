@@ -12,11 +12,7 @@ import { ThemeProvider } from '@/components/theme/theme-provider';
 import { ReactElement } from 'react';
 
 // FONTS
-const rajdhani = Rajdhani({
-  weight: ['400', '700'],
-  style: ['normal'],
-  subsets: ['latin'],
-});
+const rajdhani = Rajdhani({ weight: ['400', '700'], style: ['normal'], subsets: ['latin'], });
 
 export const metadata: Metadata = {
   title: '⬛NEXT____TRAINING⬛',
@@ -35,7 +31,7 @@ export default async function RootLayout({ children, params }: { children: React
       <head>
         <link rel="preload" href="/api/data" as="fetch" crossOrigin="anonymous" />
       </head>
-      <body>
+      <body className={rajdhani.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Toaster position="top-right" reverseOrder={false} />
           <SidebarProvider defaultOpen={defaultOpen}>
