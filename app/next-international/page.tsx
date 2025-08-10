@@ -1,14 +1,11 @@
-'use client'
 import React from 'react'
-import { useI18n } from '@/locales/client'
+import { useI18n } from '@/locales/i18n';
+import { useCurrentLocale } from '@/locales/i18n';
+
 function NextInterNationalPage() {
-  const t = useI18n()
+  const locale = useCurrentLocale();
   return (
-    <div>
-      <h1>{t('hello')}</h1>
-      <h1>{t('hello.world')}</h1>
-      <h1>{t('welcome', { name: 'Pourya' })}</h1>
-    </div>
+    <div>{locale}</div>
   )
 }
 

@@ -1,5 +1,5 @@
 export default {
-  'hello': 'Hello',
-  'hello.world': 'Hello world!',
-  'welcome': 'Hello {name}!'
-} as const
+  locale :'en',
+  hello: "Hello world",
+  welcome: "Welcome to my website",
+};

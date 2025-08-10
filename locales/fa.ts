@@ -1,5 +1,5 @@
 export default {
-  'hello': 'سلام عمو جان',
-  'hello.world': 'سلام بابا جان',
-  'welcome': 'سلام {name}!'
-} as const
+  locale :'fa',
+  hello: "سلام دنیا",
+  welcome: "به وبسایت من خوش آمدید",
+};
