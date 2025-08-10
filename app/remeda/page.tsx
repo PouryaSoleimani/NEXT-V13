@@ -18,6 +18,15 @@ function Remeda() {
   const filtered = R.filter(products, (item) => item.category == 'shoes');
   // console.info(filtered)
 
+  const grouped = R.groupBy(products, (item) => item.category);
+  // console.info(grouped);
+
+  const mapped = R.map(products, (item) => item.title);
+  // console.info(mapped);
+
+  const reduced = R.reduce(products, (sum, item) => sum + item.price, 0);
+  // console.info(reduced);
+
 
   return (
     <div>
