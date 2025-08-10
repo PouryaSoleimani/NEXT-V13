@@ -20,14 +20,12 @@ export const metadata: Metadata = {
 };
 
 // COMPONENT
-export default async function RootLayout({ children, params }: { children: ReactElement, params: Promise<{ locale: string }> }) {
+export default async function RootLayout({ children }: { children: ReactElement }) {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get('sidebar_state')?.value === 'true';
-  const locale = (await params).locale;
-  // const dir = new Intl.Locale(locale).getTextInfo().direction
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head>
         <link rel="preload" href="/api/data" as="fetch" crossOrigin="anonymous" />
       </head>
