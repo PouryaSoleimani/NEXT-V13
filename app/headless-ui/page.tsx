@@ -14,6 +14,7 @@ function HeadlessUi() {
 
   return (
     <div className="flex flex-col gap-3 items-center justify-center-safe h-screen">
+      {/* MENU */}
       <Menu>
         <MenuButton>
           <Button variant={'blue'}>MENU</Button>
@@ -43,6 +44,7 @@ function HeadlessUi() {
           </form>
         </MenuItems>
       </Menu>
+      {/* FORM */}
       <div className="w-full max-w-lg px-4">
         <Fieldset className="space-y-6 rounded-xl bg-white/5 p-6 sm:p-10">
           <Legend className="text-base/7 font-semibold text-white">Shipping details</Legend>
@@ -92,7 +94,7 @@ function HeadlessUi() {
           </Field>
         </Fieldset>
       </div>
-
+      {/* TABS */}
       <TabGroup>
         <TabList className="flex bg-zinc-800 w-64 justify-around px-3 py-1.5 rounded-lg">
           <Tab>Tab 1</Tab>
