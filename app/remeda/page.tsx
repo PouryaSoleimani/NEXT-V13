@@ -1,40 +1,40 @@
 import React from 'react';
-import * as _ from 'remeda';
+import * as __ from 'remeda';
 import { products, users } from '../lodash/db';
 import { indexOf } from 'lodash';
 
 function Remeda() {
-  const sorted = _.sort(products, (item) => item.price).reverse();
+  const sorted = __.sort(products, (item) => item.price).reverse();
   // console.info(sorted);
 
-  const partitioned = _.partition(products, (item) => item.category == 'accessories');
+  const partitioned = __.partition(products, (item) => item.category == 'accessories');
   // console.info(partitioned);
 
-  const chuncked = _.chunk(products, 3);
+  const chuncked = __.chunk(products, 3);
   // console.info(chuncked)
 
-  const concated = _.concat(products, users);
+  const concated = __.concat(products, users);
   // console.info(concated)
 
-  const filtered = _.filter(products, (item) => item.category == 'shoes');
+  const filtered = __.filter(products, (item) => item.category == 'shoes');
   // console.info(filtered)
 
-  const grouped = _.groupBy(products, (item) => item.category);
+  const grouped = __.groupBy(products, (item) => item.category);
   // console.info(grouped);
 
-  const mapped = _.map(products, (item) => item.title);
+  const mapped = __.map(products, (item) => item.title);
   // console.info(mapped);
 
-  const reduced = _.reduce(products, (sum, item) => sum + item.price, 0);
+  const reduced = __.reduce(products, (sum, item) => sum + item.price, 0);
   // console.info(reduced);
 
-  const foundIndex = _.findIndex(products, (item) => item.id == 2);
+  const foundIndex = __.findIndex(products, (item) => item.id == 2);
   // console.info(foundIndex);
 
-  const first = _.first(products);
+  const first = __.first(products);
   // console.info(first)
 
-  const randomString = _.randomString(10);
+  const randomString = __.randomString(10);
   console.info(randomString);
 
   return (
