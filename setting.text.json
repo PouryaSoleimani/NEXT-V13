@@ -4,9 +4,9 @@
   "editor.letterSpacing": 0.2,
   "editor.fontSize": 12,
   "editor.lineHeight": 1.7,
+  "editor.bracketPairColorization.enabled": false,
   "editor.fontVariations": false,
   "editor.mouseWheelZoom": true,
-  "editor.bracketPairColorization.enabled": true,
   "window.zoomLevel": -1,
   "window.commandCenter": false,
   "editor.minimap.enabled": false,
@@ -378,9 +378,9 @@
         {
           "scope": [
             "entity.name.type.module",
-             "entity.name.type",
+            "entity.name.type",
             "support.type.primitive"
-            ],
+          ],
           "settings": {
             "foreground": "#f69d50"
           }
@@ -428,7 +428,8 @@
             "meta.object-literal.key",
             "variable.other.object.property",
             "entity.name.label",
-            "meta.namespace.declaration"
+            "meta.namespace.declaration",
+            "variable.other.readwrite.alias"
           ],
           "settings": {
             "foreground": "#fafafa"
@@ -471,7 +472,9 @@
             "meta.object.member",
             "variable.other.object",
             "constant.numeric.decimal",
-            "variable.other.constant"
+            "variable.other.constant",
+            "variable.other.readwrite",
+            "variable.parameter"
           ],
           "settings": {
             "foreground": "#79B8FF"
@@ -495,34 +498,8 @@
           }
         }
       ]
-    },
-    "[Min Theme+]": {
-      "textMateRules": [
-        {
-          "scope": [
-            "variable.other.constant.object",
-            "variable.parameter",
-            "variable.other.readwrite",
-            "string.json.comments",
-            "support.type.property-name.json.comments",
-            "variable.other.constant",
-            "variable.other.object"
-          ],
-          "settings": {
-            "foreground": "#E06C75"
-          }
-        },
-        {
-          "scope": [
-            "variable.other.property",
-            "variable.other.object.property"
-          ],
-          "settings": {
-            "foreground": "#f5c876"
-          }
-        }
-      ]
     }
+
   },
   "editor.stickyScroll.enabled": false,
   "[jsonc]": {
@@ -561,7 +538,7 @@
   "editor.inlineSuggest.suppressSuggestions": true,
   "git.enableSmartCommit": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "bracketPairColorizer.colorMode": "Consecutive",
   "bracketPairColorizer.consecutivePairColors": [
@@ -575,7 +552,7 @@
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "git.autofetch": true,
   "git.confirmSync": false,
-  "tailwind-fold.autoFold": true,
+  "tailwind-fold.autoFold": false,
   "tailwind-fold.foldedText": " ... ",
   "editor.fontLigatures": true,
   "gitlens.ai.model": "gitkraken",
@@ -607,5 +584,5 @@
   "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "top",
   "workbench.statusBar.visible": false,
-  "workbench.colorTheme": "Min Dark"
+  "workbench.colorTheme": "GitHub Dark Default"
 }
