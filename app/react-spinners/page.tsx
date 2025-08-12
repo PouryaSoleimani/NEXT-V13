@@ -1,25 +1,26 @@
 "use client"
 import { useState, CSSProperties } from "react";
-import { BeatLoader, BounceLoader, ClipLoader, GridLoader, PulseLoader, ScaleLoader } from "react-spinners";
-
-const override: CSSProperties = {
-  display: "block",
-  margin: "0 auto",
-  borderColor: "red",
-};
+import { BeatLoader, BounceLoader, ClipLoader, FadeLoader, GridLoader, PulseLoader, ScaleLoader } from "react-spinners";
 
 function ReactSpinners() {
   let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffaf25");
-
+  let [color, setColor] = useState("#e10808");
+  setTimeout(() => {
+    setLoading(false)
+  }, 2000);
   return (
     <div className="sweet-loading">
       <div className="flex items-center justify-center py-10">
         <button className="btn mx-auto" onClick={() => setLoading(!loading)}>Toggle Loader</button>
       </div>
       <div className="flex items-center justify-center">
-        <BounceLoader color={color} loading={loading} cssOverride={override} speedMultiplier={0.8} size={15} aria-label="Loading Spinner" data-testid="loader" />
+        <FadeLoader color={color} loading={loading} speedMultiplier={0.8} width={5} height={15} className="scale-50" aria-label="Loading Spinner" data-testid="loader" />
       </div>
+      {!loading && (
+        <div className="flex items-center justify-center text-xl font-black bg-emerald-800 w-fit mx-auto px-5 py-2 rounded-xl">
+          <h2>DONE</h2>
+        </div>
+      )}
     </div>
   );
 }
