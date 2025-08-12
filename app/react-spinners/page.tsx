@@ -1,6 +1,6 @@
 "use client"
 import { useState, CSSProperties } from "react";
-import { BeatLoader, ClipLoader, GridLoader, ScaleLoader } from "react-spinners";
+import { BeatLoader, ClipLoader, GridLoader, PulseLoader, ScaleLoader } from "react-spinners";
 
 const override: CSSProperties = {
   display: "block",
@@ -18,7 +18,7 @@ function ReactSpinners() {
         <button className="btn mx-auto" onClick={() => setLoading(!loading)}>Toggle Loader</button>
       </div>
       <div className="flex items-center justify-center">
-        <BeatLoader color={color} loading={loading} cssOverride={override} size={20} aria-label="Loading Spinner" data-testid="loader" />
+        <PulseLoader color={color} loading={loading} cssOverride={override} speedMultiplier={0.8} size={15} aria-label="Loading Spinner" data-testid="loader" />
       </div>
     </div>
   );
