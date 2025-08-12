@@ -75,9 +75,11 @@
   gap: 5px;
 }
 .btn {
-  width: 150px;
+  width: 160px;
   padding: 0.5rem 1rem;
+  white-space: nowrap;
   border-radius: 5px;
+  box-sizing: border-box;
   background-color: black;
   color: white;
   font-family: monospace;
@@ -87,8 +89,7 @@
   cursor: pointer;
   transition: all 150ms linear;
   &:hover {
-    background-color: rgb(59, 59, 59);
-    color: black;
+    border: 3px solid white;
   }
 }
 @layer base {
