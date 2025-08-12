@@ -95,6 +95,9 @@ importers:
       remeda:
         specifier: ^2.30.0
         version: 2.30.0
+      sweetalert2:
+        specifier: ^11.22.3
+        version: 11.22.3
       swr:
         specifier: ^2.3.4
         version: 2.3.4(react@19.1.1)
@@ -1507,6 +1510,9 @@ packages:
 
   svg-arc-to-cubic-bezier@3.2.0:
     resolution: {integrity: sha512-djbJ/vZKZO+gPoSDThGNpKDO+o+bAeA4XQKovvkNCqnIS2t+S4qnLAGQhyyrulhCFRl1WWzAp0wUDV8PpTVU3g==}
+
+  sweetalert2@11.22.3:
+    resolution: {integrity: sha512-//WtZEvs9XRmyQVs77tz02ERu2JUTATQvrec+MjJYtKtnYSYDDgAmDdWzRWMkcxClj828EQgfHrpM+tI6qcMOg==}
 
   swr@2.3.4:
     resolution: {integrity: sha512-bYd2lrhc+VarcpkgWclcUi92wYCpOgMws9Sd1hG1ntAu0NEy+14CbotuFjshBU2kt9rYj9TSmDcybpxpeTU1fg==}
@@ -2940,6 +2946,8 @@ snapshots:
       react: 19.1.1
 
   svg-arc-to-cubic-bezier@3.2.0: {}
+
+  sweetalert2@11.22.3: {}
 
   swr@2.3.4(react@19.1.1):
     dependencies:
