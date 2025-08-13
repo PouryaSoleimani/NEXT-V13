@@ -5,7 +5,6 @@ import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
 
-  const controller = new AbortController()
   const data = await AXIOS.get('/products', { signal: AbortSignal.timeout(3000) })
   console.log('ENV', process.env.NEXT_PUBLIC_NAME);
 
