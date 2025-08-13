@@ -19,7 +19,7 @@ AXIOS.interceptors.request.use(
       console.log('❌ INTERCEPTOR REQUEST ERROR  ===>', error.message);
     }
     return Promise.reject(error);
-  },
+  }
 );
 
 // RESPONSE
@@ -33,7 +33,7 @@ AXIOS.interceptors.response.use(
       console.log('🟥🟥🟥🟥  INTERCEPTOR RESPONSE ERROR ===>', error.message);
     }
     return Promise.reject(error);
-  },
+  }
 );
 
 export default AXIOS;
