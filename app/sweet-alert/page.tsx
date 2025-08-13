@@ -24,8 +24,18 @@ function SweetAlertPage() {
     }).then(value => {
       if (value.isConfirmed) {
         console.info("CONFIRMED")
+        Swal.fire({
+          icon: 'success',
+          text: 'SUCCESS',
+          theme: 'dark',
+        })
       } else {
         console.info('REJECTED')
+        Swal.fire({
+          icon: 'error',
+          text: 'REJECTED',
+          theme: 'dark',
+        })
       }
     })
   }
