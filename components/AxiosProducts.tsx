@@ -8,7 +8,7 @@ const AxiosProducts = (data: Props) => {
   console.log('ENV', process.env.NEXT_PUBLIC_NAME);
 
   return (
-    <div>
+    <div className='px-6'>
       <h2 className="text-center text-3xl font-black w-fit mx-auto px-8 py-4 rounded-xl bg-purple-700">AxiosProducts</h2>
       {data.data.length > 0 ? (
         data.data.map((item) => (

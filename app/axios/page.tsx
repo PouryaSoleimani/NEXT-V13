@@ -4,7 +4,9 @@ import AXIOS from '@/Axios/AxiosInstance';
 import AxiosProducts from '@/components/AxiosProducts';
 
 const AxiosPage = async () => {
-  const data = await AXIOS.get('/products', { signal: AbortSignal.timeout(5000) });
+
+  const controller = new AbortController()
+  const data = await AXIOS.get('/products', { signal: AbortSignal.timeout(3000) })
   console.log('ENV', process.env.NEXT_PUBLIC_NAME);
 
   return (
@@ -15,6 +17,7 @@ const AxiosPage = async () => {
   );
 };
 export default AxiosPage;
+
 
 export const metadata = {
   title: '🟪 AXIOS PAGE 🟪',
