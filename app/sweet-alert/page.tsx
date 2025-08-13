@@ -16,8 +16,11 @@ function SweetAlertPage() {
       color: '#fff',
       denyButtonColor: '#d83030',
       customClass: {
-        confirmButton: '!bg-black !w-full border-4 border-white block'
-      }
+        confirmButton: '!bg-black !w-32 inline-block hover:bg-white transition-all duration-300',
+        cancelButton: '!bg-red-900 !w-32 inline-block hover:bg-red-800 transition-all duration-300'
+      },
+      showCloseButton: true,
+      showCancelButton: true,
     }).then(value => {
       if (value.isConfirmed) {
         console.info("CONFIRMED")
