@@ -21,6 +21,7 @@ function SweetAlertPage() {
         title: '!font-black',
         container: 'text-xl font-bold'
       },
+      animation: true,
       showCloseButton: true,
       showCancelButton: true,
       input: "text",

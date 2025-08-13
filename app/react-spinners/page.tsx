@@ -4,8 +4,8 @@ import { ClipLoader } from "react-spinners";
 
 
 function ReactSpinners() {
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
+  const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState("#ffffff");
 
   return (
     <div className="sweet-loading flex flex-col items-center">

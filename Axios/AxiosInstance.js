@@ -11,7 +11,7 @@ const AXIOS = axios.create({
 // REQUEST
 AXIOS.interceptors.request.use(
   (config) => {
-    console.log('🟩🟩🟩🟩 INTERCEPTOR REQUEST CONFIG ===> WHEN OK ===>', config);
+    console.log('🟩 INTERCEPTOR REQUEST CONFIG ===> WHEN OK ===>', config);
     return config;
   },
   (error) => {
