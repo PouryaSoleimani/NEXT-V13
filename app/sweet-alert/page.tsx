@@ -6,7 +6,7 @@ function SweetAlertPage() {
   function swalHandler() {
     Swal.fire({
       title: 'Success',
-      text: 'Registerated successfully',
+      text: 'Registered successfully',
       icon: 'success',
       confirmButtonText: 'OK',
       theme: 'dark',
@@ -17,20 +17,24 @@ function SweetAlertPage() {
       denyButtonColor: '#d83030',
       customClass: {
         confirmButton: '!bg-black !w-32 inline-block hover:bg-white transition-all duration-300',
-        cancelButton: '!bg-red-900 !w-32 inline-block hover:bg-red-800 transition-all duration-300'
+        cancelButton: '!bg-red-900 !w-32 inline-block hover:bg-red-800 transition-all duration-300',
+        title: '!font-black',
+        container: 'text-xl font-bold'
       },
       showCloseButton: true,
       showCancelButton: true,
+      input: "text",
+      inputLabel: "Your IP address",
     }).then(value => {
-      if (value.isConfirmed) {
-        console.info("CONFIRMED")
+      if (value.value) {
+        console.info("VALUE ===>", value.value)
         Swal.fire({
           icon: 'success',
-          text: 'SUCCESS',
+          text: `SUCCESS ==> ${value.value}`,
           theme: 'dark',
         })
       } else {
-        console.info('REJECTED')
+        console.info('REJECTED ===> ')
         Swal.fire({
           icon: 'error',
           text: 'REJECTED',
