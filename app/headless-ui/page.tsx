@@ -6,18 +6,23 @@ import { Description, Field, Fieldset, Input, Label, Legend, Select, Textarea } 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 import clsx from 'clsx';
 import { ChevronDownIcon } from 'lucide-react';
+import Logger from '@/hooks/Logger';
 
 function HeadlessUi() {
   function showSettingsDialog() {
     alert('Open settings dialog!');
   }
+  const name = 'POURYA'
+  Logger('NAME', 'warning', name)
+
+
 
   return (
     <div className="flex flex-col gap-3 items-center justify-center-safe h-screen">
       {/* MENU */}
       <Menu>
         <MenuButton>
-          <Button variant={'blue'}>MENU</Button>
+          <span>MENU</span>
         </MenuButton>
         <MenuItems anchor="bottom" className="border p-10 grid grid-cols-2 gap-4 mt-2 rounded-xl bg-zinc-900">
           <MenuItem>
