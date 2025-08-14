@@ -47,7 +47,7 @@ export function Header() {
   return (
     <section className="bg-black flex items-center justify-between px-6 py-1">
       <div className="flex items-center gap-4 pl-16">
-        <Image src="/next.svg" alt="logo" width={200} height={100} className="bg-zinc-900 p-3 rounded-2xl basis-1/12" />
+        <Image src="/favicon-32x32.png" alt="logo" width={200} height={100} className="bg-zinc-900 p-3 rounded-2xl basis-1/12" />
       </div>
       <NavigationMenu className="basis-10/12">
         <NavigationMenuList className="bg-black p-2 m-2">

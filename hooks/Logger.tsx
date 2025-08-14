@@ -5,7 +5,6 @@ function Logger(text: string, type: 'log' | 'info' | 'error' | 'success' | 'warn
     font-weight : 800;
     font-size : 14px;
     padding : 2px 4px;
-    margin : 10px 0;
     box-sizing : border-box;
     border-radius : 8px;
     color : ${type === 'log' ? 'black' : type === 'info' ? 'black' : type === 'warning' ? 'black' : type === 'error' ? 'white' : 'black'};
