@@ -17,9 +17,7 @@ const rajdhani = Rajdhani({ weight: ['400', '700'], style: ['normal'], subsets: 
 export const metadata: Metadata = {
   title: '⬛NEXT____TRAINING⬛',
   description: 'THIS IS A NEXT TRAINING PAGE',
-  icons: {
-    icon: '/favicon-32x32.png'
-  }
+  icons: { icon: '/favicon-32x32.png' }
 };
 
 // COMPONENT
