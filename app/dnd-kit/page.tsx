@@ -20,16 +20,18 @@ export default function DndKitPage() {
     <section className="p-10 w-fit gap-4">
       <DndContext onDragEnd={handleDragEnd}>
         {!isDropped ? draggableMarkup : null}
-        {!isDropped2 ? draggableMarkup : null}
+        {!isDropped2 ? draggableMarkup2 : null}
         <Droppable>{isDropped ? draggableMarkup : isDropped2 ? draggableMarkup2 : 'DROP'}</Droppable>
       </DndContext>
     </section>
   );
 
   function handleDragEnd(event: any) {
-    if (event.over && event.over.id === 'droppable') {
+    if (event.over && event?.over.id === 'droppable') {
       setIsDropped(true);
-    } else {
+      setIsDropped2(false);
+    } else if (event.over && event?.over.id === 'droppable2') {
+      setIsDropped2(true);
       setIsDropped(false);
     }
   }
