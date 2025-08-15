@@ -7,7 +7,7 @@ export function Droppable(props: any) {
 
   const droppableStyles = {
     width: 1500,
-    height: 700,
+    height: 500,
     backgroundColor: `${isOver ? '#002c22' : 'black'}`,
     display: 'flex',
     justifyContent: 'center',
