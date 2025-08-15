@@ -16,6 +16,7 @@ const Draggable = (props: any) => {
     cursor: 'grab',
     borderRadius: '8px',
     transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
+    margin: '10px',
   };
 
   return (

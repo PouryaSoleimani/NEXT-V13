@@ -12,7 +12,6 @@ const Droppable = (props: any) => {
     display: 'flex',
     justifyContent: 'start',
     alignItems: 'start',
-    padding: '10px',
     fontSize: '22px',
     borderRadius: '15px',
     fontWeight: '900',
