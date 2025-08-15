@@ -25,9 +25,7 @@ function DndKitPage() {
         {parent === null ? draggableMarkup : null}
         <div className="flex gap-3 w-screen h-screen items-start justify-center pt-10 grow">
           {containers.map((id) => (
-            // We updated the Droppable component so it would accept an `id`
-            // prop and pass it to `useDroppable`
-            <Droppable key={id} id={id}>
+            <Droppable key={id} id={id} parent={parent}>
               {parent === id ? draggableMarkup : 'Drop here'}
             </Droppable>
           ))}
