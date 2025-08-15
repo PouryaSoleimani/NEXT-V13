@@ -1,18 +1,14 @@
 'use client';
 import { useDroppable } from '@dnd-kit/core';
-interface DroppableProps {
-  text: string;
-}
 
 //^ DROPPPABLE
-export function Droppable(props: DroppableProps) {
+export function Droppable(props: any) {
   const { setNodeRef, isOver } = useDroppable({ id: 'droppable-area' });
-  const { text } = props;
 
   const droppableStyles = {
     width: 1500,
     height: 700,
-    backgroundColor: `${isOver ? 'darkgreen' : 'black'}`,
+    backgroundColor: `${isOver ? '#002c22' : 'black'}`,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -23,7 +19,7 @@ export function Droppable(props: DroppableProps) {
 
   return (
     <div ref={setNodeRef} style={droppableStyles}>
-      {text}
+      {props.children}
     </div>
   );
 }

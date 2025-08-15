@@ -1,34 +1,23 @@
-'use client';
+import React, { useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
-import React from 'react';
-import toast from 'react-hot-toast';
-import { Draggable } from './_components/Draggable';
-import { Droppable } from './_components/Droppable';
 
-function DndKitpage() {
+import { Droppable } from './_components/Droppable';
+import { Draggable } from './_components/Draggable';
+
+function App() {
+  const [isDropped, setIsDropped] = useState(false);
+  const draggableMarkup = <Draggable>Drag me</Draggable>;
+
+  return (
+    <DndContext onDragEnd={handleDragEnd}>
+      {!isDropped ? draggableMarkup : null}
+      <Droppable>{isDropped ? draggableMarkup : 'Drop here'}</Droppable>
+    </DndContext>
+  );
+
   function handleDragEnd(event: any) {
-    if (event.over) {
-      toast.success('ITEM DROPPED', {
-        style: {
-          background: 'black',
-          color: 'white',
-          border: '4px solid white',
-          borderRadius: '10px',
-          fontWeight: '900',
-        },
-      });
+    if (event.over && event.over.id === 'droppable') {
+      setIsDropped(true);
     }
   }
-  return (
-    <section>
-      <DndContext onDragEnd={handleDragEnd}>
-        <div style={{ display: 'flex', gap: 50, padding: 40 }}>
-          <Draggable text="DRAGGABLE" />
-          <Droppable text="DROPABBLE" />
-        </div>
-      </DndContext>
-    </section>
-  );
 }
-
-export default DndKitpage;
