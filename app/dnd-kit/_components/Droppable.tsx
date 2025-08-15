@@ -1,7 +1,7 @@
 'use client';
 import { useDroppable } from '@dnd-kit/core';
 
-export function Droppable() {
+export function Droppable(props: any) {
   const { isOver, setNodeRef } = useDroppable({ id: 'droppable-area' });
 
   const style = {
@@ -18,7 +18,7 @@ export function Droppable() {
 
   return (
     <div ref={setNodeRef} style={style}>
-      DROP HERE
+      {props.children}
     </div>
   );
 }
