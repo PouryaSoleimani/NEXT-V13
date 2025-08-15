@@ -2,8 +2,13 @@
 import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
 
-export function Draggable() {
+interface DraggableProps {
+  text: string;
+}
+
+export function Draggable(props: DraggableProps) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: 'draggable-item' });
+  const { text } = props;
 
   const style = {
     width: 100,

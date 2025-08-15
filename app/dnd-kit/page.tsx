@@ -23,8 +23,8 @@ function DndKitpage() {
     <section>
       <DndContext onDragEnd={handleDragEnd}>
         <div style={{ display: 'flex', gap: 50, padding: 40 }}>
-          <Draggable />
-          <Droppable text="DRAGGABLE" />
+          <Draggable text="DRAGGABLE" />
+          <Droppable text="DROPABBLE" />
         </div>
       </DndContext>
     </section>
