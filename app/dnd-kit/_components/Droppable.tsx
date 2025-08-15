@@ -1,18 +1,18 @@
-import React from 'react';
-import { useDroppable } from '@dnd-kit/core';
+'use client'
+import { useDroppable } from "@dnd-kit/core";
 
-export default function Droppable(props: any) {
-  const { isOver, setNodeRef } = useDroppable({
-    id: 'droppable',
-  });
+export function Droppable() {
+
+  const { isOver, setNodeRef } = useDroppable({ id: "droppable-area", });
+
   const style = {
-    color: isOver ? 'green' : undefined,
+    width: 150,
+    height: 150,
+    backgroundColor: isOver ? "lightgreen" : "lightgray",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   };
 
-
-  return (
-    <div ref={setNodeRef} style={style} className='border-4 h-[50vh] mx-20 rounded-xl'>
-      {props.children}
-    </div>
-  );
+  return <div ref={setNodeRef} style={style}>DROP HERE</div>;
 }
