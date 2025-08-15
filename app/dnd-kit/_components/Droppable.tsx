@@ -6,16 +6,19 @@ export function Droppable(props: any) {
   const { setNodeRef, isOver } = useDroppable({ id: 'droppable' });
 
   const droppableStyles = {
-    width: 1500,
-    height: 500,
+    width: 'auto',
+    minWidth: '250px',
+    minHeight: '250px',
+    height: 'auto',
     backgroundColor: `${isOver ? '#002c22' : 'black'}`,
     display: 'flex',
     justifyContent: 'start',
     alignItems: 'start',
     border: '4px solid white',
-    padding: '1rem',
+    padding: '0.5rem',
     borderRadius: '10px',
     fontWeight: '900',
+    margin: '10px 0',
   };
 
   return (
