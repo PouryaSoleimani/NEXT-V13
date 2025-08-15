@@ -3,44 +3,48 @@ import React, { useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
 import Draggable from './_components/Draggable';
 import Droppable from './_components/Droppable';
-import toast from 'react-hot-toast';
 
 function DndKitPage() {
   const containers = ['A'];
-  const [parent, setParent] = useState(null);
-  const todos = ['Go to GYM', 'Learn NEXT', 'Learn REACT']
-  const draggableMarkup = ((text: string) => <Draggable id={text}>{text}</Draggable>);
+  const todos = ['Go to GYM', 'Learn NEXT', 'Learn REACT'];
+  const [parent, setParent] = useState<string | null>(null);
+  const [activeTodo, setActiveTodo] = useState<string | null>(null);
 
+  const draggableMarkup = (text: string) => (
+    <Draggable id={text}>{text}</Draggable>
+  );
 
   function handleDragEnd(event: any) {
-    const { over } = event;
-    setParent(over ? over.id : null);
+    const { active, over } = event;
+    if (over) {
+      setParent(over.id);
+      setActiveTodo(active.id);
+    } else {
+      setParent(null);
+      setActiveTodo(null);
+    }
   }
 
   return (
-    <div>
-      <DndContext onDragEnd={handleDragEnd}>
-        <div className='flex'>
-          {parent === null ?
-            todos.map((item: any, index: number) => (
-              <div key={item.id}>
-                {draggableMarkup(item.toString())}
-              </div>
-            ))
-            : null}
-        </div>
-        <div className="flex gap-3 w-screen h-screen items-start justify-center p-10 grow">
-          {containers.map((id) => (
-            <Droppable key={id} id={id} parent={parent}>
-              {parent === id ? draggableMarkup(parent) : 'DONE TODOS'}
-            </Droppable>
+    <DndContext onDragEnd={handleDragEnd}>
+      <div className="flex gap-3">
+        {parent === null &&
+          todos.map((item, index) => (
+            <div key={index}>{draggableMarkup(item)}</div>
           ))}
-        </div>
-      </DndContext>
-    </div>
+      </div>
+
+      <div className="flex gap-3 w-screen h-screen items-start justify-center p-10 grow">
+        {containers.map((id) => (
+          <Droppable key={id} id={id} parent={parent}>
+            {parent === id && activeTodo
+              ? draggableMarkup(activeTodo)
+              : 'DONE TODOS'}
+          </Droppable>
+        ))}
+      </div>
+    </DndContext>
   );
 }
 
 export default DndKitPage;
-
-
