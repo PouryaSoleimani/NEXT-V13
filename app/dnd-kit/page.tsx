@@ -25,6 +25,8 @@ export default function DndKitPage() {
   function handleDragEnd(event: any) {
     if (event.over && event.over.id === 'droppable') {
       setIsDropped(true);
+    } else {
+      setIsDropped(false);
     }
   }
 }

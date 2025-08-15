@@ -2,7 +2,7 @@ function Logger(text: string, type: 'log' | 'info' | 'error' | 'success' | 'warn
   console.info(
     `%c ${text} `,
     `
-    background-color : ${
+background-color : ${
       type === 'log'
         ? 'white'
         : type === 'info'
@@ -11,7 +11,7 @@ function Logger(text: string, type: 'log' | 'info' | 'error' | 'success' | 'warn
         ? '#ffdd00'
         : type === 'error'
         ? '#c10007'
-        : '#0d542b'
+        : '#497d00'
     } ;
     font-weight : 800;
     font-size : 12px;

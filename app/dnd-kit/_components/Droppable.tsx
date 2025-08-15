@@ -10,9 +10,10 @@ export function Droppable(props: any) {
     height: 500,
     backgroundColor: `${isOver ? '#002c22' : 'black'}`,
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'start',
+    alignItems: 'start',
     border: '4px solid white',
+    padding: '1rem',
     borderRadius: '10px',
     fontWeight: '900',
   };
