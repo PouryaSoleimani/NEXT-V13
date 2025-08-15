@@ -2,10 +2,10 @@ import React from 'react';
 import { useDraggable } from '@dnd-kit/core';
 
 const Draggable = (props: any) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: 'draggable' });
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: props.id });
   const style = {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     backgroundColor: 'white',
     color: 'black',
     display: 'flex',

@@ -6,20 +6,16 @@ import Droppable from './_components/Droppable';
 import toast from 'react-hot-toast';
 
 function DndKitPage() {
-  const [isDropped, setIsDropped] = useState(false);
-  const [parent, setParent] = useState(null);
   const containers = ['A', 'B', 'C'];
-  const draggableMarkup = (<Draggable> DRAG ME</Draggable>);
+  const [parent, setParent] = useState(null);
+
+  const draggableMarkup = (
+    <Draggable id="draggable">DRAG ME</Draggable>
+  );
 
 
   function handleDragEnd(event: any) {
     const { over } = event;
-    if (event.over && event.over.id === 'droppable') {
-      toast.success('ITEM DROPPED ✅');
-      setIsDropped(true);
-    } else {
-      setIsDropped(false)
-    }
     setParent(over ? over.id : null);
   }
 
@@ -27,7 +23,7 @@ function DndKitPage() {
     <div>
       <DndContext onDragEnd={handleDragEnd}>
         {parent === null ? draggableMarkup : null}
-        <div className="flex flex-col gap-3 w-screen h-screen items-center justify-center">
+        <div className="flex gap-3 w-screen h-screen items-start justify-center pt-10 grow">
           {containers.map((id) => (
             // We updated the Droppable component so it would accept an `id`
             // prop and pass it to `useDroppable`
