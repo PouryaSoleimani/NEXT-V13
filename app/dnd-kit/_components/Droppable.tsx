@@ -3,7 +3,7 @@ import { useDroppable } from '@dnd-kit/core';
 
 //^ DROPPPABLE
 export function Droppable(props: any) {
-  const { setNodeRef, isOver } = useDroppable({ id: 'droppable-area' });
+  const { setNodeRef, isOver } = useDroppable({ id: 'droppable' });
 
   const droppableStyles = {
     width: 1500,
