@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { DndContext, useDraggable, useDroppable } from '@dnd-kit/core';
+import { useDraggable } from '@dnd-kit/core';
 
 export function Draggable() {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: 'draggable-item' });
