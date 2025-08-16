@@ -17,8 +17,8 @@ function DndKitPage() {
 
   const draggableMarkup = (text: string) => <Draggable id={text}>{text}</Draggable>;
   useEffect(() => {
-    Logger("ACTIVE TODO", 'log', activeTodo)
-  }, [activeTodo])
+    Logger('ACTIVE TODO', 'log', activeTodo);
+  }, [activeTodo]);
 
   function handleDragEnd(event: any) {
     const { active, over } = event;
