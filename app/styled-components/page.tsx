@@ -69,7 +69,7 @@ const Section = styled.section`
   width : 90vw;
   height : 50vh;
   margin : 0.2rem 1rem ;
-  border-radius : 1rem;
+  border-radius : 0.8rem;
   padding : 1rem ;
   background-color : ${(props: any) => props.theme.background};
   color : ${(props: any) => props.theme.color};
@@ -99,7 +99,8 @@ function StyledComponentsPage() {
             <SecondButton href="/" variant="black"> WHITE </SecondButton>
             <button>CLICK ME</button>
           </div>
-          <div className='flex items-center justify-end w-full pr-5'>
+          <div className='flex m-0 text-2xl font-black pl-8 items-center justify-between w-full px-5'>
+            <h2>{theme.title}</h2>
             <Button variant={theme.title == 'DARK' ? 'black' : 'white'} onClick={() => setTheme(theme === Dark ? Light : Dark)} >{theme.title == "DARK" ? <Sun /> : <Moon />}</Button>
           </div>
           <Section>
