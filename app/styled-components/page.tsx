@@ -85,25 +85,25 @@ function StyledComponentsPage() {
   return (
     <>
       <GlobalStyles />
-      <div className="flex flex-col items-center gap-4 p-10">
-        <div className='flex items-center gap-3'>
-          <Button variant="success">SUCCESS</Button>
-          <Button variant="outline">OUTLINE</Button>
-          <Button variant="danger">DANGER</Button>
-          <Button variant="warning">WARNING</Button>
-          <Button variant="info">INFO</Button>
-          <Button variant="black">BLACK</Button>
-          <Button variant="white">WHITE</Button>
-          <SecondButton href="/" variant="black"> WHITE </SecondButton>
-          <button>CLICK ME</button>
-        </div>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <div className="flex flex-col items-center gap-4 p-10">
+          <div className='flex items-center gap-3'>
+            <Button variant="success">SUCCESS</Button>
+            <Button variant="outline">OUTLINE</Button>
+            <Button variant="danger">DANGER</Button>
+            <Button variant="warning">WARNING</Button>
+            <Button variant="info">INFO</Button>
+            <Button variant="black">BLACK</Button>
+            <Button variant="white">WHITE</Button>
+            <SecondButton href="/" variant="black"> WHITE </SecondButton>
+            <button>CLICK ME</button>
+          </div>
           <Button variant="white" onClick={() => setTheme(theme === Dark ? Light : Dark)} >SWITCH THEME</Button>
           <Section>
             <h2>TITLE</h2>
           </Section>
-        </ThemeProvider>
-      </div>
+        </div >
+      </ThemeProvider>
     </>
   );
 }
