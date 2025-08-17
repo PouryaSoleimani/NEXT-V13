@@ -1,4 +1,5 @@
 'use client';
+import { Moon, Sun } from 'lucide-react';
 import React, { useState } from 'react';
 import styled, { createGlobalStyle, ThemeProvider, useTheme } from 'styled-components';
 
@@ -67,7 +68,7 @@ const Light = {
 const Section = styled.section`
   width : 90vw;
   height : 50vh;
-  margin : 1rem ;
+  margin : 0.2rem 1rem ;
   border-radius : 1rem;
   padding : 1rem ;
   background-color : ${(props: any) => props.theme.background};
@@ -98,7 +99,9 @@ function StyledComponentsPage() {
             <SecondButton href="/" variant="black"> WHITE </SecondButton>
             <button>CLICK ME</button>
           </div>
-          <Button variant="white" onClick={() => setTheme(theme === Dark ? Light : Dark)} >SWITCH THEME</Button>
+          <div className='flex items-center justify-end w-full pr-5'>
+            <Button variant={theme.title == 'DARK' ? 'black' : 'white'} onClick={() => setTheme(theme === Dark ? Light : Dark)} >{theme.title == "DARK" ? <Sun /> : <Moon />}</Button>
+          </div>
           <Section>
             <h2>TITLE</h2>
           </Section>
