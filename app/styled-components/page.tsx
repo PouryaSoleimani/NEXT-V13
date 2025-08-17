@@ -7,16 +7,16 @@ const Button: any = styled.button`
     props.variant == 'success'
       ? '#62f639'
       : props.variant === 'danger'
-      ? '#d84040'
-      : props.variant === 'warning'
-      ? 'orange'
-      : props.variant === 'info'
-      ? 'cornflowerblue'
-      : props.variant === 'black'
-      ? 'black'
-      : props.variant === 'white'
-      ? 'white'
-      : 'transparent'};
+        ? '#d84040'
+        : props.variant === 'warning'
+          ? 'orange'
+          : props.variant === 'info'
+            ? 'cornflowerblue'
+            : props.variant === 'black'
+              ? 'black'
+              : props.variant === 'white'
+                ? 'white'
+                : 'transparent'};
   width: 85px;
   height: 35px;
   border-radius: 8px;
@@ -47,11 +47,10 @@ button {
   font-size: 16px;
   cursor : pointer;
   transition : all 250ms linear;
-  &:hover {
- rotate : -3deg
-  }
+&:hover { rotate : -3deg }
 }
 `;
+// COMPONENT
 function StyledComponentsPage() {
   return (
     <>
