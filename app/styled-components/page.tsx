@@ -26,6 +26,14 @@ const Button: any = styled.button`
   border: ${(props: any) => (props.variant === 'outline' ? '2px solid #aaa' : 'none')};
 `;
 
+const SecondButton = styled(Button)`
+  box-shadow: none;
+  transition: all 300ms linear;
+  &:hover {
+    box-shadow: 2px 2px 1px #2c2c2c;
+  }
+`;
+
 function StyledComponentsPage() {
   return (
     <div className="flex items-center gap-4 p-10">
@@ -36,6 +44,7 @@ function StyledComponentsPage() {
       <Button variant="info">INFO</Button>
       <Button variant="black">BLACK</Button>
       <Button variant="white">WHITE</Button>
+      <SecondButton variant="black">WHITE</SecondButton>
     </div>
   );
 }
