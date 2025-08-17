@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider, useTheme } from 'styled-components';
 
 const Button: any = styled.button`
   background-color: ${(props: any) =>
@@ -51,11 +51,13 @@ button {
 &:hover { transform : translateY(-3px) }
 }
 `;
+
 const Dark = {
   title: 'DARK',
   background: 'black',
   color: 'white'
 }
+
 const Light = {
   title: 'LIGHT',
   background: 'white',
@@ -78,6 +80,7 @@ const Section = styled.section`
 `
 // COMPONENT
 function StyledComponentsPage() {
+  // const THEME = useTheme()
   const [theme, setTheme] = useState(Dark)
   return (
     <>
