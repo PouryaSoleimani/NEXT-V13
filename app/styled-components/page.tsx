@@ -1,6 +1,6 @@
 'use client';
-import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import React, { useState } from 'react';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const Button: any = styled.button`
   background-color: ${(props: any) =>
@@ -50,8 +50,29 @@ button {
 &:hover { rotate : -3deg }
 }
 `;
+
+
+
+const Dark = {
+  div: 'black',
+  title: '#fff',
+  desc: '#b6b6b6'
+}
+const Light = {
+  div: '#fff',
+  title: 'black',
+  desc: '#b6b6b6'
+}
+
+const Div = styled.div`
+  background-color : ${(props: any) => props.theme.div};
+  padding : 1rem;
+  color : ${(props: any) => props.theme.title};
+  border-radius : 15px;
+`
 // COMPONENT
 function StyledComponentsPage() {
+  const [theme, setTheme] = useState(Dark)
   return (
     <>
       <GlobalStyles />
@@ -67,6 +88,13 @@ function StyledComponentsPage() {
           WHITE
         </SecondButton>
         <button>CLICK ME</button>
+        <label htmlFor="check">DARK MODE</label>
+        <input type="checkbox" name="check" id="CHECK" onChange={() => setTheme(theme === Dark ? Light : Dark)} />
+        <ThemeProvider theme={theme}>
+          <Div>
+            asdasdsad
+          </Div>
+        </ThemeProvider>
       </div>
     </>
   );
