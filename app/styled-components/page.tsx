@@ -17,10 +17,11 @@ const Button: any = styled.button`
               : props.variant === 'white'
                 ? 'white'
                 : 'transparent'};
-  width: 85px;
+  width: auto;
   height: 35px;
   border-radius: 8px;
   font-weight: 700;
+  padding : 0 10px;
   font-size: 16px;
   color: ${(props: any) => (props.variant === 'outline' ? '#aaa' : props.variant === 'black' ? 'white' : 'black')};
   border: ${(props: any) => (props.variant === 'outline' ? '2px solid #aaa' : 'none')};
@@ -47,28 +48,33 @@ button {
   font-size: 16px;
   cursor : pointer;
   transition : all 250ms linear;
-&:hover { rotate : -3deg }
+&:hover { transform : translateY(-3px) }
 }
 `;
-
-
-
 const Dark = {
-  div: 'black',
-  title: '#fff',
-  desc: '#b6b6b6'
+  title: 'DARK',
+  background: 'black',
+  color: 'white'
 }
 const Light = {
-  div: '#fff',
-  title: 'black',
-  desc: '#b6b6b6'
+  title: 'LIGHT',
+  background: 'white',
+  color: 'black'
 }
 
-const Div = styled.div`
-  background-color : ${(props: any) => props.theme.div};
-  padding : 1rem;
-  color : ${(props: any) => props.theme.title};
-  border-radius : 15px;
+const Section = styled.section`
+  width : 90vw;
+  height : 50vh;
+  margin : 1rem ;
+  border-radius : 1rem;
+  padding : 1rem ;
+  background-color : ${(props: any) => props.theme.background};
+  color : ${(props: any) => props.theme.color};
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  font-size : 24px;
+  font-weight : 900;
 `
 // COMPONENT
 function StyledComponentsPage() {
@@ -76,24 +82,23 @@ function StyledComponentsPage() {
   return (
     <>
       <GlobalStyles />
-      <div className="flex items-center gap-4 p-10">
-        <Button variant="success">SUCCESS</Button>
-        <Button variant="outline">OUTLINE</Button>
-        <Button variant="danger">DANGER</Button>
-        <Button variant="warning">WARNING</Button>
-        <Button variant="info">INFO</Button>
-        <Button variant="black">BLACK</Button>
-        <Button variant="white">WHITE</Button>
-        <SecondButton href="/" variant="black">
-          WHITE
-        </SecondButton>
-        <button>CLICK ME</button>
-        <label htmlFor="check">DARK MODE</label>
-        <input type="checkbox" name="check" id="CHECK" onChange={() => setTheme(theme === Dark ? Light : Dark)} />
+      <div className="flex flex-col items-center gap-4 p-10">
+        <div className='flex items-center gap-3'>
+          <Button variant="success">SUCCESS</Button>
+          <Button variant="outline">OUTLINE</Button>
+          <Button variant="danger">DANGER</Button>
+          <Button variant="warning">WARNING</Button>
+          <Button variant="info">INFO</Button>
+          <Button variant="black">BLACK</Button>
+          <Button variant="white">WHITE</Button>
+          <SecondButton href="/" variant="black"> WHITE </SecondButton>
+          <button>CLICK ME</button>
+        </div>
         <ThemeProvider theme={theme}>
-          <Div>
-            asdasdsad
-          </Div>
+          <Button variant="white" onClick={() => setTheme(theme === Dark ? Light : Dark)} >SWITCH THEME</Button>
+          <Section>
+            <h2>TITLE</h2>
+          </Section>
         </ThemeProvider>
       </div>
     </>
