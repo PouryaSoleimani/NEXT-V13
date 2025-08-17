@@ -115,13 +115,11 @@ export default function DndKitPage() {
 
   return (
     <div style={{ padding: '24px', color: 'white' }}>
-      <h1>🖱️ درگ اند دراپ ساده</h1>
 
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <div style={{ display: 'flex', gap: '32px' }}>
           {/* لیست اصلی */}
           <div>
-            <h2>لیست کارها</h2>
             <SortableContext items={items}>
               {items.map((id) => (
                 <SortableItem key={id} id={id} />
@@ -131,7 +129,6 @@ export default function DndKitPage() {
 
           {/* ناحیه انجام شده */}
           <div>
-            <h2>انجام شده</h2>
             <DroppableArea id="done-area">
               <SortableContext items={doneItems}>
                 {doneItems.map((id) => (
