@@ -16,19 +16,16 @@ const FormikPage = () => {
           return errors
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          setSubmitting(true)
           console.log(values)
-          setTimeout(() => { setSubmitting(false) }, 700);
+          setTimeout(() => { setSubmitting(false) }, 3000);
           resetForm()
         }}
       >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
           <Form className='flex flex-col border-4 border-zinc-600 w-fit mx-auto my-16 gap-3 p-10 rounded-xl'>
             <Field type="text" name="name" placeholder="name" />
-            <ErrorMessage name='name' component={'span'} className='bg-red-900 text-white p-1 rounded text-[11px]' />
             <Field type="password" name="password" placeholder="password" />
-            <ErrorMessage name='password' component={'span'} className='bg-red-900 text-white p-1 rounded text-[11px]' />
-            <Button variant={'success'} disabled={!!isSubmitting} type="submit" onClick={() => console.info(isSubmitting)} className='!bg-emerald-700'>{isSubmitting ? 'LOADING' : 'SEND'}</Button>
+            <button disabled={isSubmitting} type="submit" onClick={() => console.info(isSubmitting)} className='!bg-emerald-700'>{isSubmitting == true ? 'LOADING' : 'SEND'}</button>
           </Form>
         )}
       </Formik>
