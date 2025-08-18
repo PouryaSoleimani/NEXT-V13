@@ -10,7 +10,7 @@ const FormikPage = () => {
         initialValues={{ email: '', password: '' }}
         onSubmit={(values) => { console.info('VALUES ==>', values) }}
       >
-        {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, /* and other goodies */ }) => (
+        {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit} className='mx-auto my-32 bg-black p-8 rounded-xl w-fit flex flex-col gap-5'>
             <input type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} className='px-3 py-1.5 rounded text-2xl' />
             {errors.email && touched.email && errors.email}
