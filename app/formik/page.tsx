@@ -16,10 +16,9 @@ const FormikPage = () => {
           return errors
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
+          setSubmitting(true)
           console.log(values)
-          setTimeout(() => {
-            setSubmitting(false)
-          }, 400);
+          setTimeout(() => { setSubmitting(false) }, 700);
           resetForm()
         }}
       >
@@ -29,7 +28,7 @@ const FormikPage = () => {
             <ErrorMessage name='name' component={'span'} className='bg-red-900 text-white p-1 rounded text-[11px]' />
             <Field type="password" name="password" placeholder="password" />
             <ErrorMessage name='password' component={'span'} className='bg-red-900 text-white p-1 rounded text-[11px]' />
-            <Button variant={'success'} disabled={!!isSubmitting} type="submit" className='!bg-emerald-700'>SEND</Button>
+            <Button variant={'success'} disabled={!!isSubmitting} type="submit" onClick={() => console.info(isSubmitting)} className='!bg-emerald-700'>{isSubmitting ? 'LOADING' : 'SEND'}</Button>
           </Form>
         )}
       </Formik>
