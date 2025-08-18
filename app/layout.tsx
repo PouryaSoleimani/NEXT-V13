@@ -40,9 +40,6 @@ export default async function RootLayout({ children }: { children: ReactElement 
               <main className="w-full min-h-screen font-bold">
                 <Header />
                 {children}
-                <h2 className="bg-blue-800 p-6 text-3xl font-extrabold fixed bottom-0 right-0 w-full text-center z-50">
-                  FOOTER
-                </h2>
               </main>
             </div>
           </SidebarProvider>

@@ -1,32 +1,30 @@
 'use client'
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Form, Field } from 'formik';
+import { Button } from '@/components/ui/button';
 type ErrorsType = { email: string, name: string }
 
 const FormikPage = () => {
   return (
-    <div>
+    <div className='section flex-col bg-black rounded-xl !mt-16 min-h-[80vh]'>
       <Formik
-        initialValues={{ email: '', password: '' }}
-        onSubmit={(values) => { console.info('VALUES ==>', values) }}
+        initialValues={{ name: '', password: '' }}
+        onSubmit={(values) => console.info('VALUES ==>', values)}
+        validate={(values) => {
+          const errors = { name: '', password: '' };
+          if (values.name.trim() == '') { errors.name = 'REQUIRED' }
+          if (values.password.trim() == '') { errors.password = "REQUIRED" }
+          return errors
+        }}
       >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-          <form onSubmit={handleSubmit} className='mx-auto my-32 bg-black p-8 rounded-xl w-fit flex flex-col gap-5'>
-            <input type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} className='px-3 py-1.5 rounded text-2xl' />
-            {errors.email && touched.email && errors.email}
-            <input
-              type="password"
-              name="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-              className='px-3 py-1.5 rounded text-2xl'
-            />
-            {errors.password && touched.password && errors.password}
-            <button type="submit" disabled={isSubmitting} className='btn !bg-teal-600 block !w-full !text-2xl'>
-              Submit
-            </button>
-          </form>
+          <Form className='flex flex-col border-4 border-zinc-600 w-fit mx-auto my-16 gap-6 p-10 rounded-xl' onSubmit={handleSubmit}>
+            <Field type="text" name="name" placeholder="name" />
+            {errors.name && <span className='text-red-600'>{errors.name}</span>}
+            <Field type="password" name="password" placeholder="password" />
+            {errors.password && <span className='text-red-600'>{errors.password}</span>}
+            <Button variant={'success'} disabled={!!isSubmitting} type="submit" className='!bg-emerald-700'>SEND</Button>
+          </Form>
         )}
       </Formik>
     </div >
