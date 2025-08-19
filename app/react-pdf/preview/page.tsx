@@ -33,7 +33,7 @@ function PdfPreview() {
         {/* HEADER */}
         <View style={styles.headerContainer}>
           <Text>{new Date(Date.now()).toLocaleDateString('fa-IR')}</Text>
-          <Text style={styles.headerText}>فاکتور فروش </Text>
+          <Text>فاکتور فروش </Text>
         </View>
 
         <View style={styles.infos}>

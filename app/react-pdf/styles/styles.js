@@ -16,7 +16,6 @@ export const styles = StyleSheet.create({
     display: 'inline-block',
     marginTop: '10px',
   },
-  headerText: {},
   page: {
     padding: 30,
     fontSize: 14,
