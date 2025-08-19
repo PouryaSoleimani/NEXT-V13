@@ -9,6 +9,7 @@ import useSWR from 'swr';
 type SingleProductType = { id: number; title: string; price: number; category: string };
 
 Font.register({ family: 'vazir', src: '/fonts/Vazir-Bold-UI.ttf', fontWeight: 700 });
+
 const _productsFetcher = () =>
   axios
     .get('https://fakestoreapi.com/products')
