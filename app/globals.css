@@ -235,8 +235,10 @@ body {
     cursor: pointer;
   }
 }
-
 .text-subtitle:hover {
   color: #000;
   cursor: pointer;
+}
+.text-xss {
+  font-size: 10px;
 }

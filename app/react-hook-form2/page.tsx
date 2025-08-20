@@ -19,7 +19,7 @@ const schema = z.object({
 function ReactHookFormPage() {
 
   const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<Inputs>({
-    // resolver: zodResolver(schema),
+    resolver: zodResolver(schema),
     defaultValues: {
       email: '',
       password: ''
@@ -29,10 +29,13 @@ function ReactHookFormPage() {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.info(data)
     reset()
-    toast(`LOGIN INFO :  
-      email : ${data.email} || Password :$${data.password}`,
-      { style: { fontWeight: 'bold', border: '3px solid black', whiteSpace: "pre-line" } })
+    toast(`LOGIN INFO  
+      email : ${data.email}
+      Password :$${data.password}`,
+      { style: { fontWeight: 'bold', fontSize: '11px', border: '5px solid cornflowerblue', padding: '5px', whiteSpace: "pre-line" } })
   }
+
+  const emailData = watch('email')
 
   return (
     <div className='w-screen h-screen flex items-center justify-center'>
@@ -57,7 +60,8 @@ function ReactHookFormPage() {
                   placeholder="m@example.com"
                   {...register("email", { required: { value: true, message: 'Email is required' } })}
                 />
-                {errors.email && <p className="text-red-800 text-xs">{errors.email.message}</p>}
+                {<p className='pl-1 text-xss'>{emailData}</p>}
+                {errors.email && <p className="text-red-800 text-xs pl-1">{errors.email.message}</p>}
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
@@ -69,9 +73,13 @@ function ReactHookFormPage() {
                 <Input
                   id="password"
                   type="password"
-                  {...register("password", { required: { value: true, message: 'Password is required' }, validate: (value) => value.length >= 6 || 'Password must be at least 6 characters long' })}
+                  {...register("password",
+                    {
+                      required: { value: true, message: 'Password is required' },
+                      validate: (value) => value.length >= 6 || 'Password must be at least 6 characters long'
+                    })}
                 />
-                {errors.password && <p className="text-red-800 text-xs">{errors.password.message}</p>}
+                {errors.password && <p className="text-red-800 text-xs pl-1">{errors.password.message}</p>}
               </div>
             </div>
           </CardContent>
