@@ -8,22 +8,36 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "@/components/ui/input"
 import toast from 'react-hot-toast'
 import { Checkbox } from '@/components/ui/checkbox'
+import DatePicker from "react-multi-date-picker"
+import persian from "react-date-object/calendars/persian"
+import persian_fa from "react-date-object/locales/persian_fa"
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { CalendarIcon } from 'lucide-react'
+import { Calendar, CalendarHijri } from '@/components/ui/calendar'
+import { format } from 'date-fns'
+import { cn } from '@/lib/utils'
+
+
+
 const ToastStyles = { fontSize: '12px', fontWeight: 900, backgroundColor: '#2c2c2c', color: 'white', border: '1px solid #ccc' }
 
 const formSchema = z.object({
   username: z.string().nonempty({ error: 'USERNAME IS REQUIRED' }),
   password: z.string().nonempty({ error: 'PASSWORD IS REQUIRED' }).min(4, { error: 'MIN 4 CHARS' }),
   isAccepted: z.boolean().nonoptional({ error: 'NOT OPTIONAL' }),
-  age: z.coerce.number({ error: 'AGE MUST BE A NUMBER' }).min(18, { error: "YOU MUST BE AT LEAST 18" }).max(90, { error: 'SORRY , YOU ARE TOO OLD' }).nullable()
+  age: z.coerce.number({ error: 'AGE MUST BE A NUMBER' }).min(18, { error: "YOU MUST BE AT LEAST 18" }).max(90, { error: 'SORRY , YOU ARE TOO OLD' }).nullable(),
+  date: z.date({ error: 'REQUIRED' })
 })
 
 function ReactHookFromSecond() {
+  const [open, setOpen] = React.useState(false)
+  const [date, setDate] = React.useState<Date | undefined>(undefined)
 
   type FormSchemaType = z.infer<typeof formSchema>;
 
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema) as any,
-    defaultValues: { username: '', password: '', isAccepted: false, }
+    defaultValues: { username: '', password: '', isAccepted: false, date: new Date() }
   })
 
   function OnSubmit(values: z.infer<typeof formSchema>) {
@@ -55,7 +69,7 @@ function ReactHookFromSecond() {
                 <FormControl>
                   <Input type='text' className='!bg-black focus:ring' placeholder="Username" {...field} />
                 </FormControl>
-                <FormMessage className='text-xxs text-red-900' />
+                <FormMessage role='alert' className='text-xxs text-red-900' />
               </FormItem>
             )}
           />
@@ -111,7 +125,43 @@ function ReactHookFromSecond() {
               </FormItem>
             )}
           />
-
+          <FormField
+            control={form.control}
+            name="date"
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel>Date of birth</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button variant={"outline"} className={cn("w-[240px] pl-3 text-left font-normal font-[VAZIR]", !field.value && "text-muted-foreground")} >
+                        {field.value ? (format(field.value, "PPP")) : (
+                          <span>Pick a date</span>
+                        )}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) =>
+                        date > new Date() || date < new Date("1900-01-01")
+                      }
+                      className='font-[VAZIR]'
+                      captionLayout="dropdown"
+                    />
+                  </PopoverContent>
+                </Popover>
+                <FormDescription>
+                  Your date of birth is used to calculate your age.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <Button
             type="submit"
             className='block w-full'
