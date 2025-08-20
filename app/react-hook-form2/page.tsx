@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
 import toast from 'react-hot-toast'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
 
 type Inputs = { email: string, password: string, }
 
@@ -18,24 +19,29 @@ const schema = z.object({
 
 function ReactHookFormPage() {
 
-  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<Inputs>({
+  // const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<Inputs>({
+  //   resolver: zodResolver(schema),
+  //   defaultValues: {
+  //     email: '',
+  //     password: ''
+  //   }
+  // })
+
+  const form = useForm<Inputs>({
     resolver: zodResolver(schema),
-    defaultValues: {
-      email: '',
-      password: ''
-    }
+    defaultValues: { email: '', password: '' }
   })
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.info(data)
-    reset()
+    form.reset()
     toast(`LOGIN INFO  
       email : ${data.email}
       Password :$${data.password}`,
       { style: { fontWeight: 'bold', fontSize: '11px', border: '5px solid cornflowerblue', padding: '5px', whiteSpace: "pre-line" } })
   }
 
-  const emailData = watch('email')
+  const emailData = form.watch('email')
 
   return (
     <div className='w-screen h-screen flex items-center justify-center'>
@@ -49,46 +55,62 @@ function ReactHookFormPage() {
             <Button variant="black">Sign Up</Button>
           </CardAction>
         </CardHeader>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent>
-            <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="m@example.com"
-                  {...register("email", { required: { value: true, message: 'Email is required' } })}
-                />
-                {<p className='pl-1 text-xss'>{emailData}</p>}
-                {errors.email && <p className="text-red-800 text-xs pl-1">{errors.email.message}</p>}
-              </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline" >
-                    Forgot your password?
-                  </a>
+
+        {/* FORM */}
+
+        <Form {...form}>
+
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+
+            <CardContent>
+              <div className="flex flex-col gap-6">
+                <div className="grid gap-2">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="shadcn" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  {<p className='pl-1 text-xss'>{emailData}</p>}
+                  {form.formState.errors.email && <p className="text-red-800 text-xs pl-1">{form.formState.errors.root?.message}</p>}
                 </div>
-                <Input
-                  id="password"
-                  type="password"
-                  {...register("password",
-                    {
-                      required: { value: true, message: 'Password is required' },
-                      validate: (value) => value.length >= 6 || 'Password must be at least 6 characters long'
-                    })}
-                />
-                {errors.password && <p className="text-red-800 text-xs pl-1">{errors.password.message}</p>}
+                <div className="grid gap-2">
+                  <div className="flex items-center">
+                    <Label htmlFor="password">Password</Label>
+                    <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline" >
+                      Forgot your password?
+                    </a>
+                  </div>
+                  <Input
+                    id="password"
+                    type="password"
+                    {...form.register("password",
+                      {
+                        required: { value: true, message: 'Password is required' },
+                        validate: (value) => value.length >= 6 || 'Password must be at least 6 characters long'
+                      })}
+                  />
+                  {form.formState.errors.password && <p className="text-red-800 text-xs pl-1">{form.formState.errors.password.message}</p>}
+                </div>
               </div>
-            </div>
-          </CardContent>
-          <CardFooter className="flex-col gap-2">
-            <Button type="submit" className="w-full mt-5" disabled={!!errors.email?.message && !!errors.password?.message}>
-              Login
-            </Button>
-          </CardFooter>
-        </form>
+            </CardContent>
+
+            <CardFooter className="flex-col gap-2">
+              <Button type="submit" className="w-full mt-5" disabled={!!form.formState.errors.email?.message && !!form.formState.errors.password?.message}>
+                Login
+              </Button>
+            </CardFooter>
+
+          </form>
+        </Form>
+
       </Card>
     </div>
   )
