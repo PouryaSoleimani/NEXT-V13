@@ -11,20 +11,19 @@ import { Checkbox } from '@/components/ui/checkbox'
 
 
 const formSchema = z.object({
-  username: z.string().nonempty({ message: 'USERNAME IS REQUIRED' }),
-  password: z.string().nonempty({ message: 'PASSWORD IS REQUIRED' }).min(4, { message: 'MIN 4 CHARS' }),
-  isAccepted: z.boolean().nonoptional({ message: 'NOT OPTIONAL' })
+  username: z.string().nonempty({ error: 'USERNAME IS REQUIRED' }),
+  password: z.string().nonempty({ error: 'PASSWORD IS REQUIRED' }).min(4, { error: 'MIN 4 CHARS' }),
+  isAccepted: z.boolean().nonoptional({ error: 'NOT OPTIONAL' }),
+  age: z.coerce.number({ error: 'AGE MUST BE A NUMBER' }).min(18, { error: "YOU MUST BE AT LEAST 18" }).max(90, { error: 'SORRY , YOU ARE TOO OLD' }).nullable()
 })
 
 function ReactHookFromSecond() {
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: '',
-      password: '',
-      isAccepted: false,
-    }
+  type FormSchemaType = z.infer<typeof formSchema>;
+
+  const form = useForm<FormSchemaType>({
+    resolver: zodResolver(formSchema) as any,
+    defaultValues: { username: '', password: '', isAccepted: false, age: 0 }
   })
 
   function OnSubmit(values: z.infer<typeof formSchema>) {
@@ -46,7 +45,7 @@ function ReactHookFromSecond() {
 
   return (
     <div className='w-screen h-screen flex flex-col gap-2 items-center justify-center bg-black'>
-      <h2 className='bg-neutral-900 border-2 w-96 p-3 rounded-lg text-center'>LOGIN</h2>
+      <h2 className='bg-neutral-100 border-2 w-96 p-3 rounded-lg text-center text-black'>LOGIN</h2>
       <Form {...form} >
         <form onSubmit={form.handleSubmit(OnSubmit)} className="space-y-8 bg-neutral-900 p-5 rounded-xl border-2 w-96">
 
@@ -57,7 +56,7 @@ function ReactHookFromSecond() {
               <FormItem>
                 <FormLabel className='font-black'>Username</FormLabel>
                 <FormControl>
-                  <Input type='text' className='!bg-black' placeholder="Username" {...field} />
+                  <Input type='text' className='!bg-black focus:ring' placeholder="Username" {...field} />
                 </FormControl>
                 <FormMessage className='text-xxs text-red-900' />
               </FormItem>
@@ -71,12 +70,27 @@ function ReactHookFromSecond() {
               <FormItem>
                 <FormLabel className='font-black'>Password</FormLabel>
                 <FormControl>
-                  <Input type='password' className='!bg-black' placeholder="Password" {...field} />
+                  <Input type='password' className='!bg-black focus:ring' placeholder="Password" {...field} />
                 </FormControl>
                 <FormMessage className='text-xxs text-red-900' />
               </FormItem>
             )}
           />
+
+          <FormField
+            control={form.control}
+            name='age'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='font-black'>Age</FormLabel>
+                <FormControl>
+                  <Input type='number' className='!bg-black focus:ring' placeholder='Age' {...field} value={field.value ?? ''} />
+                </FormControl>
+                <FormMessage className='text-xxs text-red-900' />
+              </FormItem>
+            )}
+          />
+
 
           <FormField
             control={form.control}
