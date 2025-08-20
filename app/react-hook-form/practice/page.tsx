@@ -1,6 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -33,13 +33,13 @@ function ReactHookFormPractice() {
 
   return (
     <div className='w-screen h-screen overflow-hidden grid place-items-center-safe'>
-      <Card className='bg-black '>
-        <CardHeader>
+      <Card className='bg-black shadow-xxs shadow-zinc-400'>
+        <CardHeader className='border-b-2'>
           LOGIN
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(submitHandler)} className='flex flex-col gap-y-5'>
+            <form onSubmit={form.handleSubmit(submitHandler)} className='flex flex-col gap-y-5' >
               <FormField
                 control={form.control}
                 name='name'
@@ -48,7 +48,7 @@ function ReactHookFormPractice() {
                     <FormControl>
                       <Input type='text' placeholder='Username' {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className='text-xxs text-red-900 pl-1 -translate-y-1' />
                   </FormItem>
                 )}
               />
@@ -60,7 +60,7 @@ function ReactHookFormPractice() {
                     <FormControl>
                       <Input type='text' placeholder='Password'  {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className='text-xxs text-red-900 pl-1 -translate-y-1' />
                   </FormItem>
                 )}
               />
