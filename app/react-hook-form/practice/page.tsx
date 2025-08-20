@@ -1,10 +1,11 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Skeleton } from '@/components/ui/skeleton'
 import { zodResolver } from '@hookform/resolvers/zod'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import z from 'zod'
@@ -17,11 +18,16 @@ const Schema = z.object({
 })
 
 function ReactHookFormPractice() {
+  const [isEdit, setIsEdit] = useState(false)
   const form = useForm<z.infer<typeof Schema>>({
     resolver: zodResolver(Schema),
-    defaultValues: {
-      name: '',
-      password: ''
+    defaultValues: async () => {
+      const req = await fetch('https://jsonplaceholder.typicode.com/users/1')
+      const data = await req.json()
+      return {
+        name: isEdit ? data.name : '',
+        password: isEdit ? data.email : ''
+      }
     }
   })
 
@@ -39,14 +45,19 @@ function ReactHookFormPractice() {
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(submitHandler)} className='flex flex-col gap-y-5' >
+            <form onSubmit={form.handleSubmit(submitHandler)} className='flex flex-col gap-y-3' >
               <FormField
                 control={form.control}
                 name='name'
                 render={({ field }: { field: any }) => (
                   <FormItem>
+                    <FormLabel className='font-semibold font-mono m-0 pl-1'>Username</FormLabel>
                     <FormControl>
-                      <Input type='text' placeholder='Username' {...field} />
+                      {!field.value && isEdit ?
+                        <Skeleton className="h-9 w-44 border rounded-md" />
+                        :
+                        <Input type='text' placeholder='Username' {...field} value={field.value || ''} />
+                      }
                     </FormControl>
                     <FormMessage className='text-xxs text-red-900 pl-1 -translate-y-1' />
                   </FormItem>
@@ -57,8 +68,13 @@ function ReactHookFormPractice() {
                 name='password'
                 render={({ field }: { field: any }) => (
                   <FormItem>
+                    <FormLabel className='font-semibold font-mono m-0 pl-1'>Password</FormLabel>
                     <FormControl>
-                      <Input type='text' placeholder='Password'  {...field} />
+                      {!field.value && isEdit ?
+                        <Skeleton className="h-9 w-44 border rounded-md" />
+                        :
+                        <Input type='text' placeholder='Password' {...field} value={field.value || ''} />
+                      }
                     </FormControl>
                     <FormMessage className='text-xxs text-red-900 pl-1 -translate-y-1' />
                   </FormItem>
