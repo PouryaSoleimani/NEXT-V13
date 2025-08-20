@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: { children: ReactElement 
   const defaultOpen = cookieStore.get('sidebar_state')?.value === 'true';
 
   return (
-    <html suppressHydrationWarning>
+    <html suppressHydrationWarning className='overflow-hidden'>
       <head>
         <link rel="preload" href="/api/data" as="fetch" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
