@@ -44,7 +44,7 @@ function ReactHookFromSecond() {
   }
 
   return (
-    <div className='w-screen max-w-screen h-screen max-h-screen flex flex-col gap-2 items-center justify-center bg-black !overflow-hidden'>
+    <div className='w-screen max-w-screen h-screen  flex flex-col gap-2 items-center justify-center-safe bg-black !overflow-hidden'>
       <h2 className='bg-neutral-100 border-2 w-96 p-3 rounded-lg text-center text-black'>LOGIN</h2>
       <Form {...form} >
         <form onSubmit={form.handleSubmit(OnSubmit)} className="space-y-8 bg-neutral-900 p-5 rounded-xl border-2 w-96">
