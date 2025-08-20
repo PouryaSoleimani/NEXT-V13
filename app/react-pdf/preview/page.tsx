@@ -70,9 +70,7 @@ function PdfPreview() {
             <Text style={[styles.cell, { width: '75%', fontWeight: 'bold' }]}>
               {(total * 100000).toLocaleString('fa-IR')} تومان
             </Text>
-            <Text
-              style={[styles.cell, { width: '25%', fontWeight: 'bold', backgroundColor: '#d84040', color: 'white' }]}
-            >
+            <Text style={[styles.cell, { width: '25%', fontWeight: 'bold', backgroundColor: '#d84040', color: 'white' }]} >
               جمع کل
             </Text>
           </View>
