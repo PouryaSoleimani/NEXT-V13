@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Button } from '@/components/ui/button';
 type ErrorsType = { email: string, name: string }
 
 const FormikPage = () => {
