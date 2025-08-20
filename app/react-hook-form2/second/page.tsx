@@ -8,7 +8,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "@/components/ui/input"
 import toast from 'react-hot-toast'
 import { Checkbox } from '@/components/ui/checkbox'
-
+const ToastStyles = { fontSize: '12px', fontWeight: 900, backgroundColor: '#2c2c2c', color: 'white', border: '1px solid #ccc' }
 
 const formSchema = z.object({
   username: z.string().nonempty({ error: 'USERNAME IS REQUIRED' }),
@@ -28,23 +28,20 @@ function ReactHookFromSecond() {
 
   function OnSubmit(values: z.infer<typeof formSchema>) {
     if (values.isAccepted == false) {
-      toast.error('PLEASE ACCEPT THE TERMS TO CONTINUE',
-        { style: { fontSize: '12px', fontWeight: 900, backgroundColor: '#2c2c2c', color: 'white', border: '1px solid #ccc' } })
+      toast.error('PLEASE ACCEPT THE TERMS TO CONTINUE', { style: ToastStyles })
       return
     }
     if (values.username.includes('@')) {
-      toast.error('INVALID USERNAME',
-        { style: { fontSize: '12px', fontWeight: 900, backgroundColor: '#2c2c2c', color: 'white', border: '1px solid #ccc' } })
+      toast.error('INVALID USERNAME', { style: ToastStyles })
       return
     }
     console.info("FORM VALUES ==> ", values)
     form.reset()
-    toast.success(`<${values.username}> Successfully Registered`,
-      { style: { fontSize: '12px', fontWeight: 900, backgroundColor: '#2c2c2c', color: 'white', border: '1px solid #ccc' } })
+    toast.success(`<${values.username}> Successfully Registered`, { style: ToastStyles })
   }
 
   return (
-    <div className='w-screen max-w-screen h-screen  flex flex-col gap-2 items-center justify-center-safe bg-black !overflow-hidden'>
+    <div className='w-screen max-w-screen h-screen flex flex-col gap-2 items-center justify-center-safe bg-black !overflow-hidden'>
       <h2 className='bg-neutral-100 border-2 w-96 p-3 rounded-lg text-center text-black'>LOGIN</h2>
       <Form {...form} >
         <form onSubmit={form.handleSubmit(OnSubmit)} className="space-y-8 bg-neutral-900 p-5 rounded-xl border-2 w-96">
@@ -91,7 +88,6 @@ function ReactHookFromSecond() {
             )}
           />
 
-
           <FormField
             control={form.control}
             name="isAccepted"
@@ -119,8 +115,7 @@ function ReactHookFromSecond() {
           <Button
             type="submit"
             className='block w-full'
-            disabled={!!form.formState.errors.isAccepted || !!form.formState.errors.username || !!form.formState.errors.password}
-          >
+            disabled={!!form.formState.errors.isAccepted || !!form.formState.errors.username || !!form.formState.errors.password} >
             Submit
           </Button>
 
