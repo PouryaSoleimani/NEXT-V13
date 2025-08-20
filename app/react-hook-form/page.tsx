@@ -10,9 +10,7 @@ import { z } from "zod"
 import { register } from 'module'
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  name: z.string().min(2, { message: "Username must be at least 2 characters.", }),
   password: z.string().min(2, { message: 'too short' })
 })
 
@@ -48,7 +46,7 @@ const ReactHookFormPage = () => {
         <CardContent>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onsubmit)} >
+            <form onSubmit={form.handleSubmit(onSubmit)} >
               <div className="flex flex-col gap-6">
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
@@ -57,7 +55,7 @@ const ReactHookFormPage = () => {
                     type="email"
                     placeholder="m@example.com"
                     required
-                    {...register('name')}
+                    {...form.register("name")}
                   />
                 </div>
                 <div className="grid gap-2">
@@ -70,7 +68,7 @@ const ReactHookFormPage = () => {
                       Forgot your password?
                     </a>
                   </div>
-                  <Input {...register('password')} id="password" type="password" required />
+                  <Input {...form.register('password')} id="password" type="password" required />
                 </div>
               </div>
             </form>
