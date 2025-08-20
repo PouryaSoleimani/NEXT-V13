@@ -18,7 +18,9 @@ const Schema = z.object({
 })
 
 function ReactHookFormPractice() {
-  const [isEdit, setIsEdit] = useState(false)
+
+  const [isEdit, setIsEdit] = useState(true)
+
   const form = useForm<z.infer<typeof Schema>>({
     resolver: zodResolver(Schema),
     defaultValues: async () => {
@@ -40,9 +42,7 @@ function ReactHookFormPractice() {
   return (
     <div className='w-screen h-screen overflow-hidden grid place-items-center-safe'>
       <Card className='bg-black shadow-xxs shadow-zinc-400'>
-        <CardHeader className='border-b-2'>
-          LOGIN
-        </CardHeader>
+        <CardHeader className='border-b-2'> LOGIN </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(submitHandler)} className='flex flex-col gap-y-3' >
@@ -63,6 +63,7 @@ function ReactHookFormPractice() {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
                 name='password'
@@ -80,7 +81,8 @@ function ReactHookFormPractice() {
                   </FormItem>
                 )}
               />
-              <Button>SUBMIT</Button>
+
+              <Button className='mt-3' type='submit'>SUBMIT</Button>
             </form>
           </Form>
         </CardContent>
