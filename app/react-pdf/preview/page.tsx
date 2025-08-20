@@ -9,6 +9,7 @@ import useSWR from 'swr';
 type SingleProductType = { id: number; title: string; price: number; category: string };
 
 Font.register({ family: 'vazir', src: '/fonts/Vazir-Bold-UI.ttf', fontWeight: 700 });
+
 const _productsFetcher = () =>
   axios
     .get('https://fakestoreapi.com/products')
@@ -32,7 +33,7 @@ function PdfPreview() {
         {/* HEADER */}
         <View style={styles.headerContainer}>
           <Text>{new Date(Date.now()).toLocaleDateString('fa-IR')}</Text>
-          <Text style={styles.headerText}>فاکتور فروش </Text>
+          <Text>فاکتور فروش </Text>
         </View>
 
         <View style={styles.infos}>
@@ -69,9 +70,7 @@ function PdfPreview() {
             <Text style={[styles.cell, { width: '75%', fontWeight: 'bold' }]}>
               {(total * 100000).toLocaleString('fa-IR')} تومان
             </Text>
-            <Text
-              style={[styles.cell, { width: '25%', fontWeight: 'bold', backgroundColor: '#d84040', color: 'white' }]}
-            >
+            <Text style={[styles.cell, { width: '25%', fontWeight: 'bold', backgroundColor: '#d84040', color: 'white' }]} >
               جمع کل
             </Text>
           </View>
