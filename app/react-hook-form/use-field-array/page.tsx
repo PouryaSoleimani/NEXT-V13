@@ -8,11 +8,9 @@ import { Controller, useFieldArray, useForm } from 'react-hook-form';
 function UseFieldArrayPage() {
   const { control, register, handleSubmit } = useForm();
   const { fields, append, prepend, remove } = useFieldArray({
+    name: "user",
     control,
-    name: "name",
-    rules: {
-      required: { value: true, message: 'IT IS REQUIRED' }
-    }
+    rules: { required: { value: true, message: 'IT IS REQUIRED' } }
   });
   return (
     <div>
@@ -20,10 +18,10 @@ function UseFieldArrayPage() {
         <ul>
           {fields.map((item, index) => (
             <li key={item.id} className='flex gap-2 p-2 m-5 rounded-md bg-black' >
-              <Input {...register(`test.${index}.firstName`)} className='w-2/5' placeholder='firstname' />
+              <Input {...register(`user.${index}.firstName`)} className='w-2/5' placeholder='firstname' />
               <Controller
                 render={({ field }) => <Input {...field} className='w-2/5' placeholder='lastname' />}
-                name={`test.${index}.lastName`}
+                name={`user.${index}.lastName`}
                 control={control}
               />
               <Button variant={'red'} type="button" onClick={() => remove(index)} className='w-1/5'><Trash /></Button>
@@ -31,9 +29,7 @@ function UseFieldArrayPage() {
           ))}
         </ul>
         <div className='flex justify-center py-5 gap-3'>
-          <Button type="button" onClick={() => append({ firstName: "", lastName: "" })} className='w-32'>
-            append
-          </Button>
+          <Button type="button" onClick={() => append({ firstName: "", lastName: "" })} className='w-32'> append </Button>
           <Button type="submit" className='w-32'>SUBMIT</Button>
         </div>
       </form>
