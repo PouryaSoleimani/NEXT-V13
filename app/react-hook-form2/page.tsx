@@ -31,7 +31,6 @@ function ReactHookFormPage() {
     resolver: zodResolver(schema),
     defaultValues: { email: '', password: '' }
   })
-
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.info(data)
     form.reset()
