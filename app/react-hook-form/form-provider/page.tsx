@@ -22,8 +22,6 @@ function MyFormProvider() {
 
   const methods = useForm({
     resolver: zodResolver(schema),
-    defaultValues: {
-    }
   })
   const { register, reset } = methods
 
