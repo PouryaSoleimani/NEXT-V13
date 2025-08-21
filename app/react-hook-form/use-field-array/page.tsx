@@ -17,7 +17,7 @@ function UseFieldArrayPage() {
       <form onSubmit={handleSubmit(data => console.log(data))} className='bg-zinc-800 w-1/2 flex flex-col mx-auto my-20'>
         <ul>
           {fields.map((item, index) => (
-            <li key={item.id} className='flex gap-2 p-2 m-5 rounded-md bg-black' >
+            <li key={item.id} className='flex gap-2 p-2 m-1.5 rounded-md bg-black' >
               <Input {...register(`user.${index}.firstName`)} className='w-2/5' placeholder='firstname' />
               <Controller
                 render={({ field }) => <Input {...field} className='w-2/5' placeholder='lastname' />}
