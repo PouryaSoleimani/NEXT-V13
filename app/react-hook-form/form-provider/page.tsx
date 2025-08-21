@@ -4,6 +4,8 @@ import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import React, { useEffect } from 'react'
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
+import CustomInput from './_components/CustomInput'
+import EmailInput from './_components/EmailInput'
 
 function MyFormProvider() {
 
@@ -20,6 +22,8 @@ function MyFormProvider() {
           <form onSubmit={methods.handleSubmit(onSubmit)} className='space-y-3'>
             <Input {...register("name")} placeholder='name' />
             <NestedInput />
+            <CustomInput />
+            <EmailInput />
             <Button type="submit" variant={'blue'} className='mt-4 block w-full'>SUBMIT</Button>
           </form>
         </Card>
