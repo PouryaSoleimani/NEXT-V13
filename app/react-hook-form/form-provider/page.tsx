@@ -15,7 +15,7 @@ const schema = z.object({
   name: z.string(),
   data: z.string(),
   age: z.string(),
-  email: z.string(),
+  email: z.string().nonempty({ error: 'EMAIL IS REQUIRED' }),
   password: z.string().min(5, 'MINIMUN IS 5'),
 })
 function MyFormProvider() {
@@ -34,7 +34,7 @@ function MyFormProvider() {
     <FormProvider {...methods}>
       <div className='w-screen h-screen grid place-items-center'>
         <Card className='p-4'>
-          <form onSubmit={methods.handleSubmit(onSubmit)} className='space-y-3'>
+          <form onSubmit={methods.handleSubmit(onSubmit)} className='space-y-2'>
             <Input {...register("name")} placeholder='name' />
             <NestedInput />
             <CustomInput />
