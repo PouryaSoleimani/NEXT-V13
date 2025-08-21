@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { JSX } from 'react';
 import TodoComponent from './_components/Todo';
 import UserComponent from './_components/User';
 import Reducer from './_components/Reducer';
