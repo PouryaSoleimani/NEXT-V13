@@ -27,13 +27,13 @@ function UseFieldArrayPage() {
         <ul>
           {fields.map((item, index) => (
             <li key={item.id} className='flex gap-2 p-2 m-1.5 rounded-md bg-black' >
-              <Input {...register(`user.${index}.firstName`)} className='w-2/5' placeholder='firstname' />
+              <Input {...register(`user.${index}.firstName`)} className='w-1/2' placeholder='firstname' />
               <Controller
-                render={({ field }) => <Input {...field} className='w-2/5' placeholder='lastname' />}
+                render={({ field }) => <Input {...field} className='w-1/2' placeholder='lastname' />}
                 name={`user.${index}.lastName`}
                 control={control}
               />
-              <Button variant={'red'} type="button" onClick={() => remove(index)} className='w-1/5'><Trash /></Button>
+              <Button variant={'red'} type="button" onClick={() => remove(index)} className='w-16'><Trash /></Button>
             </li>
           ))}
         </ul>
