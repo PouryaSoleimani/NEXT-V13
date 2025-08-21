@@ -15,7 +15,7 @@ const schema = z.object({
   name: z.string(),
   data: z.string(),
   age: z.string(),
-  email: z.string().nonempty({ error: 'EMAIL IS REQUIRED' }),
+  email: z.email({ error: 'EMAIL IS NOT VALID' }).nonempty({ error: 'EMAIL IS REQUIRED' }),
   password: z.string().min(5, 'MINIMUN IS 5'),
 })
 function MyFormProvider() {
