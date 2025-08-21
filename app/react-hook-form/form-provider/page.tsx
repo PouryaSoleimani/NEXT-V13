@@ -6,10 +6,25 @@ import React, { useEffect } from 'react'
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 import CustomInput from './_components/CustomInput'
 import EmailInput from './_components/EmailInput'
+import PasswordInput from './_components/PasswordInput'
+import z from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
+
+const schema = z.object({
+  name: z.string(),
+  data: z.string(),
+  age: z.string(),
+  email: z.string(),
+  password: z.string().min(5, 'MINIMUN IS 5'),
+})
 function MyFormProvider() {
 
-  const methods = useForm()
+  const methods = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: {
+    }
+  })
   const { register, reset } = methods
 
   const onSubmit = (data: any) => { console.log(data); reset() }
@@ -24,6 +39,7 @@ function MyFormProvider() {
             <NestedInput />
             <CustomInput />
             <EmailInput />
+            <PasswordInput />
             <Button type="submit" variant={'blue'} className='mt-4 block w-full'>SUBMIT</Button>
           </form>
         </Card>
