@@ -7,7 +7,9 @@ export default function EmailInput() {
   return (
     <>
       <Input {...register('email')} placeholder='email' />
-      {formState.errors.email && <p className='text-red-800 text-xs pl-1 -translate-y-1'>{formState.errors?.email.message as any}</p>}
+      {formState.errors.email && <p className='text-red-800 text-xs pl-1 -translate-y-1'>
+        {formState.errors?.email.message as any}
+      </p>}
     </>
 
   )
