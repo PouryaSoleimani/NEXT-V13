@@ -3,18 +3,11 @@ import { useQuery } from '@tanstack/react-query'
 import { Card } from '@/components/ui/card'
 import { LoaderCircle } from 'lucide-react'
 import { BiError } from 'react-icons/bi'
+import useFetchUsers from './_hooks/useFetchUsers'
 
 const ReactQuery = () => {
 
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['repoData'],
-    queryFn: () => fetch('http://localhost:5000/users').then((res) => res.json(),),
-    staleTime: 5000,
-    refetchOnMount: true,
-    refetchOnWindowFocus: true,
-    refetchInterval: 5000,
-    refetchOnReconnect: true,
-  })
+  const { isLoading, error, data } = useFetchUsers()
 
   if (isLoading) return (
     <div className='w-screen h-screen flex flex-col text-xl font-mono gap-2 justify-center items-center'>
