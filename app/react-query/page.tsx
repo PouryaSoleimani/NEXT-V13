@@ -39,7 +39,7 @@ const ReactQuery = () => {
             </Card>
           ))}
         </div>
-        <Button variant={'outline'} onClick={() => refetch()} className='m-5'>
+        <Button variant={'outline'} onClick={() => refetch()} className="m-5">
           REFETCH
         </Button>
       </section>

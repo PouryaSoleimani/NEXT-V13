@@ -1,7 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import React from 'react';
 
 const useFetchUsers = () => {
+  const QueryClient = useQueryClient();
   return useQuery({
     queryKey: ['repoData'],
     queryFn: () => fetch('http://localhost:5000/users').then((res) => res.json()),
@@ -16,6 +17,11 @@ const useFetchUsers = () => {
         name: item.name.toUpperCase(),
         age: '$ ' + (item.age * 1000).toLocaleString(),
       }));
+    },
+    initialData: () => {
+      const users = QueryClient?.getQueryData(['repoData']);
+      console.info(users);
+      return users;
     },
   });
 };
