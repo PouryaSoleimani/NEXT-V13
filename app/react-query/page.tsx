@@ -41,7 +41,7 @@ const ReactQuery = () => {
   return (
     <>
       <section className="h-screen  bg-black">
-        <h2 className="text-orange-500 text-4xl text-center font-black relative top-10 left-0 right-0">
+        <h2 className="text-orange-500 text-4xl text-center font-black relative top-10 left-0 right-0 bg-neutral-900 w-fit mx-auto p-2.5 rounded-xl">
           REACT___QUERY
         </h2>
         <div className="flex flex-col justify-center-safe  mt-16 px-10 gap-6">
