@@ -26,7 +26,7 @@ const Mutation = () => {
     <div>
       {mutation.isPending ? ('Adding todo...') : (
         <div className='center py-5'>
-          <Button variant={'blue'} onClick={() => { mutation.mutate() }} > Create Todo </Button>
+          <Button variant={'blue'} onClick={() => { mutation.mutate() }}> Create Todo </Button>
         </div>
       )}
       <div className='center'>
