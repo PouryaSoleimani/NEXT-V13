@@ -1,44 +1,50 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
+import { SquareCheckBig } from 'lucide-react'
 import React from 'react'
 
 
 const Mutation = () => {
-  const newTodo = { title: 'LEARN REACT___LIBS', isDone: false }
+  const newTodo = { title: 'LEARN NEST___JS', isDone: false }
 
   function getAllTodos() { return axios.get("http://localhost:5000/todos").then(res => res.data) }
 
+  const client = useQueryClient()
+
+  const { data } = useQuery({ queryKey: ['todos'], queryFn: getAllTodos })
+
   const mutation = useMutation({
-    mutationFn: () => {
-      return axios.post('http://localhost:5000/todos', newTodo)
-    },
+    mutationKey: ['todos'],
+    mutationFn: () => { return axios.post('http://localhost:5000/todos', newTodo) },
+    onSuccess: () => { client.invalidateQueries() }
   })
 
-  const { data } = useQuery({
-    queryKey: ['todos'],
-    queryFn: getAllTodos
-  })
   return (
     <div>
       {mutation.isPending ? ('Adding todo...') : (
-        <>
-          {mutation.isError ? (
-            <div>An error occurred: {mutation.error.message}</div>
-          ) : null}
-
-          {mutation.isSuccess ? <div>Todo added!</div> : null}
-
+        <div className='center py-5'>
           <Button variant={'blue'} onClick={() => { mutation.mutate() }} > Create Todo </Button>
-        </>
+        </div>
       )}
-      <Card className='w-fit mx-auto grid grid-cols-6 place-items-center m-3 px-6'>
-        {data?.map((item: any) => (
-          <h2 key={item.id} className='flex mx-auto bg-black items-center justify-center gap-3 px-4 py-2 rounded-lg'>{item.title} {item.isDone == true ? '✅' : '❌'}</h2>
-        ))}
-      </Card>
+      <div className='center'>
+        {data.length == 0 ? (
+          <div className='screen center'>
+            <div className='flex gap-2 text-green-700 bg-black p-3 text-4xl rounded-lg'>
+              <SquareCheckBig size={34} />
+              All Tasks Done
+            </div>
+          </div>
+        ) :
+          <Card className='w-[90%] grid grid-cols-6 place-items-center m-3 px-6'>
+            {data?.map((item: any) => (
+              <h2 key={item.id} className='center mx-auto bg-black gap-5 px-4 py-2 rounded-lg '>{item.title} {item.isDone == true ? '✅' : '❌'}</h2>
+            ))}
+          </Card>
+        }
+      </div>
     </div>
   )
 }
