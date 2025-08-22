@@ -19,7 +19,7 @@ const Mutation = () => {
   const mutation = useMutation({
     mutationKey: ['todos'],
     mutationFn: () => { return axios.post('http://localhost:5000/todos', newTodo) },
-    onSuccess: () => { client.invalidateQueries() }
+    onSuccess: () => { client.invalidateQueries() } // mutation
   })
 
   return (
