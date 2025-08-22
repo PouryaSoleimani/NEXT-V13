@@ -35,6 +35,7 @@
     "date-fns": "^4.1.0",
     "form": "^0.2.5",
     "formik": "^2.4.6",
+    "json-server": "1.0.0-beta.3",
     "lodash": "^4.17.21",
     "lucide-react": "^0.537.0",
     "next": "^15.4.6",
