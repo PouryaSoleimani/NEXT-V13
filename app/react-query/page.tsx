@@ -81,7 +81,7 @@ const ReactQuery = () => {
             </PaginationContent>
           </Pagination>
 
-
+          ّ
         </div>
         <div className="flex items-center justify-center-safe">
           <Button variant={'outline'} onClick={() => refetch()} className="m-5">
