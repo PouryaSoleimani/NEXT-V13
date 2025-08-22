@@ -15,5 +15,11 @@
     { "id": "13", "name": "ashkan", "age": 24 },
     { "id": "14", "name": "shahriar", "age": 36 },
     { "id": "15", "name": "reza", "age": 21 }
+  ],
+  "products": [
+    { "id": "1", "name": "shoe", "price": 24 },
+    { "id": "2", "name": "t-shirt", "price": 36 },
+    { "id": "3", "name": "pants", "price": 21 },
+    { "id": "4", "name": "bag", "price": 24 }
   ]
 }

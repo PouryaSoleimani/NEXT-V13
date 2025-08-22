@@ -15,7 +15,8 @@ const queryClient = new QueryClient({
 export default function ReactQueryLayout({ children }: { children: ReactElement }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQuery />
+      {/* <ReactQuery /> */}
+      {children}
     </QueryClientProvider>
   );
 }
