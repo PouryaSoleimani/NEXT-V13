@@ -4,9 +4,10 @@ import { Card } from '@/components/ui/card';
 import { LoaderCircle } from 'lucide-react';
 import { BiError } from 'react-icons/bi';
 import useFetchUsers from './_hooks/useFetchUsers';
+import { Button } from '@/components/ui/button';
 
 const ReactQuery = () => {
-  const { isLoading, error, data } = useFetchUsers();
+  const { isLoading, error, data, refetch } = useFetchUsers();
 
   if (isLoading)
     return (
@@ -23,7 +24,7 @@ const ReactQuery = () => {
         Error : {error.message}
       </div>
     );
- 
+
   return (
     <>
       <section className="h-screen  bg-black">
@@ -38,6 +39,9 @@ const ReactQuery = () => {
             </Card>
           ))}
         </div>
+        <Button variant={'outline'} onClick={() => refetch()} className='m-5'>
+          REFETCH
+        </Button>
       </section>
     </>
   );
