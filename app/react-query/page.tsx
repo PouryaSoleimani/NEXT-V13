@@ -49,7 +49,7 @@ const ReactQuery = () => {
             {data?.map((item: any) => (
               <Card key={item.id} className="p-3 text-xl gap-y-3 font-mono *:rounded-lg w-36">
                 <Badge variant={'outline'} className='rounded-[2px] text-md font-black'>#{item.id}</Badge>
-                <h1 className=''>{item.name}</h1>
+                <h1>{item.name}</h1>
                 <p className='bg-neutral-950/50 px-1 py-1.5'>{item.age}</p>
               </Card>
             ))}

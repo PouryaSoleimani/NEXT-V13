@@ -23,7 +23,6 @@ function useData() {
     queries: _queries.map((item: any) => ({
       queryKey: [item.key],
       queryFn: item.fn,
-      staleTime: 100000,
     })),
     combine: (results) => {
       return {

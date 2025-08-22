@@ -1,8 +1,8 @@
-import { useQuery, useQueryClient, keepPreviousData } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 
 
 const useFetchUsers = (page: number) => {
-  const QueryClient = useQueryClient();
+
   return useQuery({
     queryKey: ['repoData', page],
     queryFn: () => fetch(`http://localhost:5000/users?_page=${page}&_per_page=3`).then((res) => res.json()),
