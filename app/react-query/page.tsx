@@ -9,12 +9,12 @@ const queryClient = new QueryClient()
 
 const ReactQuery = () => {
 
-  const { isPending, error, data } = useQuery({
+  const { isLoading, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: () => fetch('http://localhost:5000/users').then((res) => res.json(),),
   })
 
-  if (isPending) return (
+  if (isLoading) return (
     <div className='w-screen h-screen flex  flex-col text-xl font-mono gap-2 justify-center items-center'>
       <LoaderCircle className='size-12 animate-spin stroke-orange-500' />
       Loading ...
