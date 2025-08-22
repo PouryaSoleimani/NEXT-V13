@@ -99,25 +99,5 @@
     }
   ],
   "todos": [
-    {
-      "id": "66e0",
-      "title": "LEARN REACT___LIBS",
-      "isDone": false
-    },
-    {
-      "id": "77be",
-      "title": "LEARN REACT___LIBS",
-      "isDone": false
-    },
-    {
-      "id": "16e8",
-      "title": "LEARN NEXT___JS",
-      "isDone": false
-    },
-    {
-      "id": "23d0",
-      "title": "LEARN NEST___JS",
-      "isDone": false
-    }
   ]
 }

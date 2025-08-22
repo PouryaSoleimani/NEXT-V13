@@ -30,7 +30,7 @@ const Mutation = () => {
         </div>
       )}
       <div className='center'>
-        {data.length == 0 ? (
+        {data?.length == 0 ? (
           <div className='screen center'>
             <div className='flex gap-2 text-green-700 bg-black p-3 text-4xl rounded-lg'>
               <SquareCheckBig size={34} />
@@ -38,9 +38,9 @@ const Mutation = () => {
             </div>
           </div>
         ) :
-          <Card className='w-[90%] grid grid-cols-6 place-items-center m-3 px-6'>
+          <Card className='w-[90%] grid grid-cols-6 m-3 px-2'>
             {data?.map((item: any) => (
-              <h2 key={item.id} className='center mx-auto bg-black gap-5 px-4 py-2 rounded-lg '>{item.title} {item.isDone == true ? '✅' : '❌'}</h2>
+              <h2 key={item.id} className='center mx-auto bg-black place-items-stretch gap-5 px-4 py-2 rounded-lg '>{item.title} {item.isDone == true ? '✅' : '❌'}</h2>
             ))}
           </Card>
         }

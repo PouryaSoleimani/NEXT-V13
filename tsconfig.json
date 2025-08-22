@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -20,11 +24,23 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["*"],
-      "@/modules/*": ["components/modules/*"]
+      "@/*": [
+        "*"
+      ],
+      "@/modules/*": [
+        "components/modules/*"
+      ]
     },
     "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "hooks/useToggle.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "hooks/useToggle.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
