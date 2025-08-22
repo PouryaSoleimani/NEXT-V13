@@ -1,6 +1,7 @@
 import React from 'react'
 import { QueryClient, useQuery, } from '@tanstack/react-query'
 import { Card } from '@/components/ui/card'
+import { LoaderCircle } from 'lucide-react'
 
 const queryClient = new QueryClient()
 
@@ -12,7 +13,12 @@ const ReactQuery = () => {
     queryFn: () => fetch('http://localhost:5000/users').then((res) => res.json(),),
   })
 
-  if (isPending) return 'Loading...'
+  if (isPending) return (
+    <div className='w-screen h-screen flex  flex-col text-xl font-mono gap-2 justify-center items-center'>
+      <LoaderCircle className='size-12 animate-spin stroke-orange-500' />
+      Loading ...
+    </div>
+  )
 
   if (error) return 'An error has occurred: ' + error.message
 
