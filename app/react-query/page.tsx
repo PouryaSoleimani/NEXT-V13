@@ -23,7 +23,7 @@ const ReactQuery = () => {
         Error : {error.message}
       </div>
     );
-
+ 
   return (
     <>
       <section className="h-screen  bg-black">
