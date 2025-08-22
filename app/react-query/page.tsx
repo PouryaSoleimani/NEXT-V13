@@ -1,33 +1,42 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { Card } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, LoaderCircle } from 'lucide-react';
 import { BiError } from 'react-icons/bi';
 import useFetchUsers from './_hooks/useFetchUsers';
 import { Button } from '@/components/ui/button';
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, } from '@/components/ui/pagination';
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem } from '@/components/ui/pagination';
 import { Badge } from '@/components/ui/badge';
+import toast from 'react-hot-toast';
 
 const ReactQuery = () => {
   const [page, setPage] = useState(1);
   const { isLoading, error, data, refetch } = useFetchUsers(page);
 
-  if (isLoading)
+  useEffect(() => {
+    if (page == 5 || page <= 1) {
+      toast('No More Data', { style: { fontWeight: 900 } })
+    }
+  }, [page])
+
+  if (isLoading) {
     return (
-      <div className="w-screen h-screen  bg-black flex flex-col text-xl font-mono gap-2 justify-center items-center">
+      <div className="w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center items-center">
         <LoaderCircle className="size-12 animate-spin stroke-orange-500" />
         Loading ...
       </div>
     );
 
-  if (error)
+  }
+
+  if (error) {
     return (
-      <div className="w-screen h-screen bg-black  flex flex-col text-xl font-mono gap-2 justify-center items-center">
+      <div className="w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center items-center">
         <BiError className="size-12 text-red-500" />
         Error : {error.message}
       </div>
     );
+  }
 
   return (
     <>

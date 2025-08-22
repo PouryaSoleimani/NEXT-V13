@@ -1,5 +1,5 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import React from 'react';
+import { useQuery, useQueryClient, keepPreviousData } from '@tanstack/react-query';
+
 
 const useFetchUsers = (page: number) => {
   const QueryClient = useQueryClient();
@@ -11,6 +11,7 @@ const useFetchUsers = (page: number) => {
     // refetchOnWindowFocus: true,
     // refetchInterval: 5000,
     // refetchOnReconnect: true,
+    placeholderData: keepPreviousData,
     select: (data) => {
       return data?.data.map((item: any) => ({
         ...item,
