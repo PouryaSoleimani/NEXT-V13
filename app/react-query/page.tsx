@@ -1,11 +1,8 @@
 import React from 'react'
-import { QueryClient, useQuery, } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { Card } from '@/components/ui/card'
 import { LoaderCircle } from 'lucide-react'
 import { BiError } from 'react-icons/bi'
-
-const queryClient = new QueryClient()
-
 
 const ReactQuery = () => {
 
@@ -20,7 +17,7 @@ const ReactQuery = () => {
   })
 
   if (isLoading) return (
-    <div className='w-screen h-screen flex  flex-col text-xl font-mono gap-2 justify-center items-center'>
+    <div className='w-screen h-screen flex flex-col text-xl font-mono gap-2 justify-center items-center'>
       <LoaderCircle className='size-12 animate-spin stroke-orange-500' />
       Loading ...
     </div>
