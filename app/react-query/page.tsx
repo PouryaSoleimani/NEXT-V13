@@ -24,7 +24,7 @@ const ReactQuery = () => {
   )
 
   if (error) return (
-    <div className='w-screen h-screen flex  flex-col text-xl font-mono gap-2 justify-center items-center'>
+    <div className='w-screen h-screen flex flex-col text-xl font-mono gap-2 justify-center items-center'>
       <BiError className='size-12 text-red-500' />
       Error : {error.message}
     </div>
