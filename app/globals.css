@@ -253,3 +253,10 @@ input[type='number'] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
