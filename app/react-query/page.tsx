@@ -2,6 +2,7 @@ import React from 'react'
 import { QueryClient, useQuery, } from '@tanstack/react-query'
 import { Card } from '@/components/ui/card'
 import { LoaderCircle } from 'lucide-react'
+import { BiError } from 'react-icons/bi'
 
 const queryClient = new QueryClient()
 
@@ -20,7 +21,12 @@ const ReactQuery = () => {
     </div>
   )
 
-  if (error) return 'An error has occurred: ' + error.message
+  if (error) return (
+    <div className='w-screen h-screen flex  flex-col text-xl font-mono gap-2 justify-center items-center'>
+      <BiError className='size-12 text-red-500' />
+      Error : {error.message}
+    </div>
+  )
 
   return (
     <>
