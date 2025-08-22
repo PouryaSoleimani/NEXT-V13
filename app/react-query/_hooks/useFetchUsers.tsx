@@ -15,7 +15,7 @@ const useFetchUsers = (page: number) => {
       return data.map((item: any) => ({
         ...item,
         name: item.name.toUpperCase(),
-        age: '$ ' + (item.age * 1000).toLocaleString(),
+        age: '$' + (item.age * 1000).toLocaleString(),
       }));
     },
     initialData: () => {
