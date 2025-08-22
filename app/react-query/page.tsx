@@ -1,5 +1,5 @@
 import React from 'react'
-import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-query'
+import { QueryClient, useQuery, } from '@tanstack/react-query'
 import { Card } from '@/components/ui/card'
 
 const queryClient = new QueryClient()
