@@ -13,14 +13,9 @@ const ReactQuery = () => {
   const [page, setPage] = useState(1);
   const { isLoading, error, data, refetch } = useFetchUsers(page);
 
-  // useEffect(() => {
-  //   console.info('page', page)
-  //   return;
-  // }, [page])
-
   if (isLoading)
     return (
-      <div className="w-screen h-screen flex flex-col text-xl font-mono gap-2 justify-center items-center">
+      <div className="w-screen h-screen  bg-black flex flex-col text-xl font-mono gap-2 justify-center items-center">
         <LoaderCircle className="size-12 animate-spin stroke-orange-500" />
         Loading ...
       </div>
@@ -28,7 +23,7 @@ const ReactQuery = () => {
 
   if (error)
     return (
-      <div className="w-screen h-screen flex flex-col text-xl font-mono gap-2 justify-center items-center">
+      <div className="w-screen h-screen bg-black  flex flex-col text-xl font-mono gap-2 justify-center items-center">
         <BiError className="size-12 text-red-500" />
         Error : {error.message}
       </div>
@@ -44,7 +39,7 @@ const ReactQuery = () => {
           <div className='flex items-center-safe justify-center-safe gap-3'>
             {data?.map((item: any) => (
               <Card key={item.id} className="p-3 text-xl gap-y-3 font-mono *:rounded-lg w-36">
-                <Badge variant={'outline'} className='rounded-[2px] text-md  font-black'>#{item.id}</Badge>
+                <Badge variant={'outline'} className='rounded-[2px] text-md font-black'>#{item.id}</Badge>
                 <h1 className=''>{item.name}</h1>
                 <p className='bg-neutral-950/50 px-1 py-1.5'>{item.age}</p>
               </Card>
@@ -54,7 +49,7 @@ const ReactQuery = () => {
           <Pagination>
             <PaginationContent>
               <PaginationItem>
-                <Button disabled={page <= 1} variant={'ghost'} onClick={() => setPage(prev => prev - 1)} > <ChevronLeft /> Previous </Button>
+                <Button disabled={page <= 1} variant={'default'} className='disabled:bg-neutral-900/50' onClick={() => setPage(prev => prev - 1)} > <ChevronLeft /> Previous </Button>
               </PaginationItem>
               <PaginationItem>
                 <Button onClick={() => setPage(1)}>1</Button>
@@ -69,10 +64,10 @@ const ReactQuery = () => {
                 <Button onClick={() => setPage(4)}>4</Button>
               </PaginationItem>
               <PaginationItem>
-                <PaginationEllipsis />
+                <Button onClick={() => setPage(5)}>5</Button>
               </PaginationItem>
               <PaginationItem>
-                <Button disabled={page > (+data?.length + 1)} variant={'ghost'} onClick={() => setPage(prev => prev + 1)} >Next <ChevronRight /></Button>
+                <Button disabled={page > (+data?.length + 1)} variant={'default'} className='disabled:bg-neutral-900/50' onClick={() => setPage(prev => prev + 1)} >Next <ChevronRight /></Button>
               </PaginationItem>
             </PaginationContent>
           </Pagination>
@@ -83,7 +78,7 @@ const ReactQuery = () => {
           <Button variant={'outline'} onClick={() => refetch()} className="m-5">
             REFETCH
           </Button>
-          <Badge className='text-lg px-4 font-black'>{page}</Badge>
+          <Badge variant={'outline'} className='text-lg px-4 font-black'>{page}</Badge>
         </div>
       </section>
     </>
