@@ -1,7 +1,7 @@
 //^ LAYOUT.TSX
 'use client'
 import { ReactElement } from 'react';
-import { QueryClient, QueryClientProvider, useQuery, } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ReactQuery from './page';
 const queryClient = new QueryClient()
 
