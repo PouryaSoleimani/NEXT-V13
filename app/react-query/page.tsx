@@ -7,17 +7,17 @@ import useFetchUsers from './_hooks/useFetchUsers';
 import { Button } from '@/components/ui/button';
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem } from '@/components/ui/pagination';
 import { Badge } from '@/components/ui/badge';
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const ReactQuery = () => {
   const [page, setPage] = useState(1);
   const { isLoading, error, data, refetch } = useFetchUsers(page);
 
-  // useEffect(() => {
-  //   if (page == 5 || page <= 1) {
-  //     toast('No More Data', { style: { fontWeight: 900 } })
-  //   }
-  // }, [page])
+  useEffect(() => {
+    if (page == 5 || page <= 1) {
+      toast('No More Data', { style: { fontWeight: 900 } })
+    }
+  }, [page])
 
   if (isLoading) {
     return (
