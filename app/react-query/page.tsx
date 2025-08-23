@@ -36,7 +36,6 @@ const ReactQuery = () => {
       </div>
     );
   }
-
   return (
     <>
       <section className="h-screen  bg-black">
