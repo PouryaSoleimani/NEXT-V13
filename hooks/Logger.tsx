@@ -13,11 +13,13 @@ background-color : ${
         ? '#c10007'
         : '#497d00'
     } ;
-    font-weight : 800;
+    font-weight : 900;
     font-size : 12px;
-    padding : 2px 4px;
+    font-family : 'Fira Code';
+    padding : 2px 3px;
     box-sizing : border-box;
-    border-radius : 3px;
+    border-radius : 30px;
+    border: 5px solid black;
     color : ${
       type === 'log'
         ? 'black'

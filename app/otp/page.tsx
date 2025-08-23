@@ -7,6 +7,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
+import Logger from '@/hooks/Logger';
 
 const FormSchema = z.object({
   pin: z.string().min(6, {
@@ -23,6 +24,7 @@ export default function InputOTPForm() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    Logger('OTP', 'log', data);
     toast(`You submitted the following values : ${data.pin} `);
   }
 
