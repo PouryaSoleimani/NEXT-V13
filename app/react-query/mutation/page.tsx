@@ -32,7 +32,7 @@ const Mutation = () => {
       <div className='center'>
         {data?.length == 0 ? (
           <div className='screen center'>
-            <div className='flex gap-2 text-green-700 bg-black p-3 text-4xl rounded-lg'>
+            <div className='flex gap-2 text-green-500 bg-black p-3 text-4xl rounded-lg'>
               <SquareCheckBig size={34} />
               All Tasks Done
             </div>
