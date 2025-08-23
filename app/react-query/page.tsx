@@ -15,9 +15,9 @@ const ReactQuery = () => {
 
   useEffect(() => {
     if (page == 5 || page <= 1) {
-      toast('No More Data', { style: { fontWeight: 900 } })
+      toast('No More Data', { style: { fontWeight: 900 } });
     }
-  }, [page])
+  }, [page]);
 
   if (isLoading) {
     return (
@@ -26,7 +26,6 @@ const ReactQuery = () => {
         Loading ...
       </div>
     );
-
   }
 
   if (error) {
@@ -45,20 +44,29 @@ const ReactQuery = () => {
           REACT___QUERY
         </h2>
         <div className="flex flex-col justify-center-safe  mt-16 px-10 gap-6">
-          <div className='flex items-center-safe justify-center-safe gap-3'>
+          <div className="flex items-center-safe justify-center-safe gap-3">
             {data?.map((item: any) => (
               <Card key={item.id} className="p-3 text-xl gap-y-3 font-mono *:rounded-lg w-36">
-                <Badge variant={'outline'} className='rounded-[2px] text-md font-black'>#{item.id}</Badge>
+                <Badge variant={'outline'} className="rounded-[2px] text-md font-black">
+                  #{item.id}
+                </Badge>
                 <h1>{item.name}</h1>
-                <p className='bg-neutral-950/50 px-1 py-1.5'>{item.age}</p>
+                <p className="bg-neutral-950/50 px-1 py-1.5">{item.age}</p>
               </Card>
             ))}
           </div>
-
           <Pagination>
             <PaginationContent>
               <PaginationItem>
-                <Button disabled={page <= 1} variant={'default'} className='disabled:bg-neutral-900/50' onClick={() => setPage(prev => prev - 1)} > <ChevronLeft /> Previous </Button>
+                <Button
+                  disabled={page <= 1}
+                  variant={'default'}
+                  className="disabled:bg-neutral-900/50"
+                  onClick={() => setPage((prev) => prev - 1)}
+                >
+                  {' '}
+                  <ChevronLeft /> Previous{' '}
+                </Button>
               </PaginationItem>
               <PaginationItem>
                 <Button onClick={() => setPage(1)}>1</Button>
@@ -76,18 +84,26 @@ const ReactQuery = () => {
                 <Button onClick={() => setPage(5)}>5</Button>
               </PaginationItem>
               <PaginationItem>
-                <Button disabled={page > (+data?.length + 1)} variant={'default'} className='disabled:bg-neutral-900/50' onClick={() => setPage(prev => prev + 1)} >Next <ChevronRight /></Button>
+                <Button
+                  disabled={page > +data?.length + 1}
+                  variant={'default'}
+                  className="disabled:bg-neutral-900/50"
+                  onClick={() => setPage((prev) => prev + 1)}
+                >
+                  Next <ChevronRight />
+                </Button>
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-
           ّ
         </div>
         <div className="flex items-center justify-center-safe">
           <Button variant={'outline'} onClick={() => refetch()} className="m-5">
             REFETCH
           </Button>
-          <Badge variant={'outline'} className='text-lg px-4 font-black'>{page}</Badge>
+          <Badge variant={'outline'} className="text-lg px-4 font-black">
+            {page}
+          </Badge>
         </div>
       </section>
     </>
