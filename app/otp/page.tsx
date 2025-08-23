@@ -25,7 +25,8 @@ export default function InputOTPForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     Logger('OTP', 'log', data);
-    toast(`You submitted the following values : ${data.pin} `);
+    form.reset();
+    toast(`CODE : ${data.pin}`, { style: { fontWeight: 900, fontSize: '15px' } });
   }
 
   return (
@@ -43,7 +44,7 @@ export default function InputOTPForm() {
                 <FormLabel className="text-center">One-Time Password</FormLabel>
                 <FormControl>
                   <InputOTP maxLength={6} {...field}>
-                    <InputOTPGroup className="flex gap-3 *:rounded-lg *:size-12">
+                    <InputOTPGroup className="flex gap-3 *:rounded-lg *:size-12 *:border-4 *:shadow-md *:shadow-black">
                       <InputOTPSlot index={0} />
                       <InputOTPSlot index={1} />
                       <InputOTPSlot index={2} />
