@@ -21,7 +21,7 @@ const ReactQuery = () => {
 
   if (isLoading) {
     return (
-      <div className="w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center items-center">
+      <div className="w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center i ems-center">
         <LoaderCircle className="size-12 animate-spin stroke-orange-500" />
         Loading ...
       </div>
