@@ -17,6 +17,7 @@ const ReactQuery = () => {
     if (page == 5 || page <= 1) {
       toast('No More Data', { style: { fontWeight: 900 } });
     }
+    page
   }, [page]);
 
   if (isLoading) {
