@@ -21,10 +21,7 @@ const BreadCrumbComponent = () => {
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1">
               <BreadcrumbEllipsis className="size-4" />
-              <span className="sr-only">
-                <Menu />
-                Toggle menu
-              </span>
+              <span className="sr-only"> <Menu /> Toggle menu </span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Documentation</DropdownMenuItem>

@@ -13,13 +13,13 @@ function TabsComponent() {
     <div className="flex w-full max-w-sm flex-col gap-6">
 
       <Tabs defaultValue="account">
-        <TabsList className='border w-full border-zinc-900 flex gap-2 px-2'>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
-          <TabsTrigger value="image">Image</TabsTrigger>
+        <TabsList className='border w-full border-zinc-900 rounded-md flex gap-2 px-1'>
+          <TabsTrigger className='rounded-sm' value="account">Account</TabsTrigger>
+          <TabsTrigger className='rounded-sm' value="password">Password</TabsTrigger>
+          <TabsTrigger className='rounded-sm' value="image">Image</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="account">
+        <TabsContent value="account" className='h-[150px]'>
           <Card>
             <CardHeader>
               <CardTitle>Account</CardTitle>
@@ -45,7 +45,7 @@ function TabsComponent() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="password">
+        <TabsContent value="password" className='h-[150px]'>
           <Card>
             <CardHeader>
               <CardTitle>Password</CardTitle>
@@ -72,7 +72,7 @@ function TabsComponent() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="image">
+        <TabsContent value="image" className='h-[150px]'>
           <Card>
             <CardHeader>
               <CardTitle>Image</CardTitle>
@@ -81,7 +81,7 @@ function TabsComponent() {
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-6">
-              <Image placeholder='empty' blurDataURL='/images/cartoonNature.jpg' loading='eager' width={300} height={300} alt='profile__image' src={'/images/cartoonNature.avif'} className='rounded-lg shadow-lg shadow-black' />
+              <Image placeholder='empty' blurDataURL='/images/cartoonNature.jpg' loading='eager' width={300} height={290} alt='profile__image' src={'/images/cartoonNature.avif'} className='rounded-lg shadow-lg shadow-black' />
             </CardContent>
             <CardFooter>
               <Button className='w-full' variant={'success'} onClick={() => { toast.success('Image Confirmed') }}>Confirm</Button>
