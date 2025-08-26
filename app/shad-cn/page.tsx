@@ -32,8 +32,6 @@ function ShadCnPage() {
 
       <Separator orientation='horizontal' className='w-[98%] mx-auto my-4 h-1 bg-zinc-900 ' />
 
-
-
     </section>
   )
 }

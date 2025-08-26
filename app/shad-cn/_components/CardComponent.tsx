@@ -17,11 +17,9 @@ export default function CardComponent() {
 
       <CardHeader>
         <CardTitle>Iphone 15 Promax</CardTitle>
-        <CardDescription>
-          512Gb  |  Natural Titanium
-        </CardDescription>
+        <CardDescription> 512GB | Natural Titanium </CardDescription>
         <CardAction>
-          <Button variant="default" onClick={() => buyHandler()}>
+          <Button variant="black" onClick={() => buyHandler()}>
             <ShoppingBasket className="!size-6" />
           </Button>
         </CardAction>
@@ -35,7 +33,7 @@ export default function CardComponent() {
 
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant={'blue'} className="w-full"> More Info </Button>
+            <Button variant={'lime'} className="w-full"> More Info </Button>
           </AlertDialogTrigger>
 
           <AlertDialogContent>
@@ -43,13 +41,13 @@ export default function CardComponent() {
               <AlertDialogTitle className="text-center text-xl font-bold mb-1 bg-zinc-900 py-2 rounded-md w-[95%] mx-auto">Iphone 15 Promax</AlertDialogTitle>
               <AlertDialogDescription>
                 <Image src='/images/iphone_15_promax.jpg' alt="iphone15promax" width={435} height={300} className="rounded-lg border mx-auto  shadow-xl shadow-black aspect-3/2 hover:scale-105 duration-300" />
-                <div className="bg-black flex items-center-safe justify-around gap-1 w-[95%] mx-auto my-4 p-4 rounded-md *:font-bold *:p-2">
+                <span className="bg-black flex items-center-safe justify-around gap-1 w-[95%] mx-auto my-4 p-4 rounded-md *:font-bold *:p-2">
                   <Badge>512 Gb</Badge>
                   <Badge variant="secondary">Natural Titanium</Badge>
                   <Badge>$ 999</Badge>
                   <Badge><HiCash className="!size-4" />Warranty</Badge>
                   <Badge><Truck className="!size-4" />Delivery</Badge>
-                </div>
+                </span>
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>

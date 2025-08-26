@@ -18,7 +18,8 @@ const buttonVariants = cva(
         blue: "bg-blue-900 hover:bg-blue-800  font-bold",
         black: 'bg-black hover:bg-zinc-950  font-bold',
         success: 'bg-emerald-700 hover:bg-emerald-500 text-white  font-bold',
-        red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300"
+        red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300",
+        lime: 'bg-lime-600 hover:bg-lime-400 transition-colors ease-out duration-300 text-black font-sans font-black'
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3 font-bold",
