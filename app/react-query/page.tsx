@@ -36,6 +36,7 @@ const ReactQuery = () => {
       </div>
     );
   }
+
   return (
     <>
       <section className="h-screen  bg-black">
@@ -63,8 +64,7 @@ const ReactQuery = () => {
                   className="disabled:bg-neutral-900/50"
                   onClick={() => setPage((prev) => prev - 1)}
                 >
-                  {' '}
-                  <ChevronLeft /> Previous{' '}
+                  <ChevronLeft /> Previous
                 </Button>
               </PaginationItem>
               <PaginationItem>
@@ -94,7 +94,6 @@ const ReactQuery = () => {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-          ّ
         </div>
         <div className="flex items-center justify-center-safe">
           <Button variant={'outline'} onClick={() => refetch()} className="m-5">

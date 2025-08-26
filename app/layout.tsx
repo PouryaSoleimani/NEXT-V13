@@ -35,12 +35,10 @@ export default async function RootLayout({ children }: { children: ReactElement 
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Toaster position="top-right" reverseOrder={false} />
           <SidebarProvider defaultOpen={defaultOpen}>
-            <div className="w-full h-full">
-              <main className="w-full min-h-screen font-bold">
-                <Header />
-                {children}
-              </main>
-            </div>
+            <main className="w-full min-h-screen font-bold">
+              <Header />
+              {children}
+            </main>
           </SidebarProvider>
         </ThemeProvider>
       </body>
