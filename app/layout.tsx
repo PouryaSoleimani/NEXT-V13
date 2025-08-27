@@ -1,7 +1,6 @@
 //^ LAYOUT.TSX
 import type { Metadata } from "next";
 import "./globals.css";
-import { Rajdhani } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { cookies } from "next/headers";
 import { ReactElement } from "react";
@@ -13,12 +12,11 @@ import { AppSidebar } from "@/components/SideBar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 
 // FONTS
-const rajdhani = Rajdhani({ weight: ["400", "700"], style: ["normal"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "⬛NEXT____TRAINING⬛",
   description: "THIS IS A NEXT TRAINING PAGE",
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "@/favicon.ico" },
 };
 
 // COMPONENT
@@ -35,7 +33,7 @@ export default async function RootLayout({ children }: { children: ReactElement 
         <link rel="preload" href="/api/data" as="fetch" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className={rajdhani.className}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Toaster position="top-right" reverseOrder={false} />
           <SidebarProvider defaultOpen={defaultOpen}>
