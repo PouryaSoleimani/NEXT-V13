@@ -91,7 +91,7 @@ function StyledComponentsPage() {
           <div className='flex items-center gap-3'>
             <Button variant="success">SUCCESS</Button>
             <Button variant="outline">OUTLINE</Button>
-            <Button variant="danger">DANGER</Button>
+            <Button variant="danger">DANGER</Button>0
             <Button variant="warning">WARNING</Button>
             <Button variant="info">INFO</Button>
             <Button variant="black">BLACK</Button>
