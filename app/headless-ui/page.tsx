@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
 import {
-  Menu, MenuButton, MenuItem, MenuItems,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
   Description,
   Field,
   Fieldset,
@@ -10,10 +13,13 @@ import {
   Legend,
   Select,
   Textarea,
-  Tab, TabGroup, TabList, TabPanel, TabPanels
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
 } from "@headlessui/react";
 import { Button } from "@/components/ui/button";
-
 
 import clsx from "clsx";
 import { ChevronDownIcon } from "lucide-react";
@@ -21,7 +27,9 @@ import { ChevronDownIcon } from "lucide-react";
 import Logger from "@/hooks/Logger";
 
 function HeadlessUi() {
-  function showSettingsDialog() { alert("Open settings dialog!"); }
+  function showSettingsDialog() {
+    alert("Open settings dialog!");
+  }
   const name = "POURYA";
   Logger("NAME", "warning", name);
 

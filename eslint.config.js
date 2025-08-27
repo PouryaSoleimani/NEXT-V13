@@ -43,22 +43,7 @@ export default [
       "no-unused-vars": "off",
       "import/no-unresolved": "off",
       "@typescript-eslint/no-unused-vars": "off",
-      "import/order": [
-        "warn",
-        {
-          groups: ["builtin", "external", "internal", ["parent", "sibling", "index"]],
-          "newlines-between": "always",
-        },
-        {
-          files: ["next.config.js", "*.config.js", "*.config.ts"],
-          languageOptions: {
-            parser: tseslint.parser,
-          },
-          rules: {
-            "import/no-unresolved": "off",
-          },
-        },
-      ],
+      "import/order": "off",
       "prettier/prettier": "warn",
     },
 

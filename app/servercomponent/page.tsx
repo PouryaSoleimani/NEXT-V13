@@ -25,7 +25,7 @@ const ServerComponent = async () => {
 
       <div>
         {response.map((user: FormProps) => (
-          <Form {...user} />
+          <Form {...user} key={user.id} />
         ))}
       </div>
     </>
