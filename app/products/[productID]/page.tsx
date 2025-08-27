@@ -2,11 +2,8 @@ import BackButton from '@/components/BackButton';
 import CustomPageButton from '@/components/CustomPageButton';
 import React, { Suspense } from 'react';
 
-interface ProductPageProps {
-  params: { productID: string };
-}
 
-const DynamicProductPage = async ({ params }: ProductPageProps) => {
+const DynamicProductPage = async ({ params }: any) => {
   const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, { cache: 'force-cache' });
   const product = await req.then((res) => res.json());
 

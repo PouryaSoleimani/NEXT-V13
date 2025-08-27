@@ -1,6 +1,5 @@
-/** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa')({
-  dest: 'public',
+  dest: 'public', // مسیر خروجی service worker
   register: true,
   skipWaiting: true,
 });
