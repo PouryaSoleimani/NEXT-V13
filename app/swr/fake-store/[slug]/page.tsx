@@ -1,11 +1,11 @@
-'use client';
-import axios from 'axios';
-import { LoaderCircle } from 'lucide-react';
-import { Params } from 'next/dist/server/request/params';
-import { PathParamsContext } from 'next/dist/shared/lib/hooks-client-context.shared-runtime';
-import { useParams, useRouter } from 'next/navigation';
-import React, { useLayoutEffect } from 'react';
-import useSWR, { preload } from 'swr';
+"use client";
+import axios from "axios";
+import { LoaderCircle } from "lucide-react";
+import { Params } from "next/dist/server/request/params";
+import { PathParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
+import { useParams, useRouter } from "next/navigation";
+import React, { useLayoutEffect } from "react";
+import useSWR, { preload } from "swr";
 
 function page() {
   const params: Params = useParams();

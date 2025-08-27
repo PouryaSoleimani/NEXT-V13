@@ -1,13 +1,13 @@
-import React from 'react';
-import * as __ from 'remeda';
-import { products, users } from '../lodash/db';
-import { indexOf } from 'lodash';
+import React from "react";
+import * as __ from "remeda";
+import { products, users } from "../lodash/db";
+import { indexOf } from "lodash";
 
 function Remeda() {
   const sorted = __.sort(products, (item) => item.price).reverse();
   // console.info(sorted);
 
-  const partitioned = __.partition(products, (item) => item.category == 'accessories');
+  const partitioned = __.partition(products, (item) => item.category == "accessories");
   // console.info(partitioned);
 
   const chuncked = __.chunk(products, 3);
@@ -16,7 +16,7 @@ function Remeda() {
   const concated = __.concat(products, users);
   // console.info(concated)
 
-  const filtered = __.filter(products, (item) => item.category == 'shoes');
+  const filtered = __.filter(products, (item) => item.category == "shoes");
   // console.info(filtered)
 
   const grouped = __.groupBy(products, (item) => item.category);

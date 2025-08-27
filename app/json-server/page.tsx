@@ -1,8 +1,8 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 function JsonServerPage() {
-  const [first, setfirst] = useState('');
+  const [first, setfirst] = useState("");
   return <div>JsonServerPage</div>;
 }
 

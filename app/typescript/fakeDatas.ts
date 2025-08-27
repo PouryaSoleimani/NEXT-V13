@@ -1,8 +1,8 @@
-import { SonPropsType } from './_components/Father';
+import { SonPropsType } from "./_components/Father";
 
 export const SonsProps: SonPropsType = {
-  title: 'SON TITLE',
+  title: "SON TITLE",
   availables: [2, 3, 4],
   isBlack: true,
-  theme: 'DARK',
+  theme: "DARK",
 };

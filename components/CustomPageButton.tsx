@@ -1,10 +1,10 @@
-'use client';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import React from 'react';
-import toast from 'react-hot-toast';
+"use client";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import React from "react";
+import toast from "react-hot-toast";
 
 const fetchData = async () => {
-  const request = await fetch('https://fakestoreapi.com/products', { cache: 'force-cache' });
+  const request = await fetch("https://fakestoreapi.com/products", { cache: "force-cache" });
   const response = await request.json();
   return response;
 };
@@ -19,16 +19,24 @@ const CustomPageButton = () => {
   const redirectHandler = () => {
     toast.promise(
       fetchData()
-        .then(() => { toast.success('SUCCESS'); setTimeout(() => { router.push('/products'); }, 1000); })
-        .catch((err) => { toast.error('ERROR'); return; }),
-      { loading: 'Loading ...' },
-      { success: { duration: 3000, icon: '👏' } },
+        .then(() => {
+          toast.success("SUCCESS");
+          setTimeout(() => {
+            router.push("/products");
+          }, 1000);
+        })
+        .catch((err) => {
+          toast.error("ERROR");
+          return;
+        }),
+      { loading: "Loading ..." },
+      { success: { duration: 3000, icon: "👏" } }
     );
   };
 
-  const handleClick = () => { router.push('/', { scroll: true }); };
-
-
+  const handleClick = () => {
+    router.push("/", { scroll: true });
+  };
 
   return (
     <>

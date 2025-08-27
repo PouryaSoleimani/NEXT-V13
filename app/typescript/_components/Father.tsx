@@ -1,11 +1,11 @@
-import React from 'react';
-import Son from './Son';
-import { SonsProps } from '../fakeDatas';
+import React from "react";
+import Son from "./Son";
+import { SonsProps } from "../fakeDatas";
 export interface SonPropsType {
   title: string;
   availables: Array<number>;
   isBlack: boolean;
-  theme: 'DARK' | 'LIGHT';
+  theme: "DARK" | "LIGHT";
 }
 
 const Father = () => {

@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 type useFormStoreType = {
   datas: [];
   addDatas: (state: [], datas: {} | []) => void;
@@ -14,8 +14,8 @@ const useFormStore = create()(
       },
     }),
     {
-      name: '___FORM_STORE',
+      name: "___FORM_STORE",
       storage: () => createJSONStorage(localStorage),
-    },
-  ),
+    }
+  )
 );

@@ -1,10 +1,10 @@
 //^ HOMEPAGE
-import { Header } from '../components/Header';
-import Datas from '../components/Datas';
-import Products from '../components/Products';
+import { Header } from "../components/Header";
+import Datas from "../components/Datas";
+import Products from "../components/Products";
 
 export default function Home() {
-  console.info('HELLo');
+  console.info("HELLo");
   return (
     <>
       <div className="flex items-center justify-center space-x-10 p-4 w-full">

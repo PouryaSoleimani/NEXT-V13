@@ -1,64 +1,61 @@
-'use client';
-import { useState } from 'react';
-import { DndContext, DragEndEvent, closestCenter, useDroppable, } from '@dnd-kit/core';
-import { SortableContext, useSortable, arrayMove, } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-
+"use client";
+import { useState } from "react";
+import { DndContext, DragEndEvent, closestCenter, useDroppable } from "@dnd-kit/core";
+import { SortableContext, useSortable, arrayMove } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 //^ STYLES
 const itemStyle: React.CSSProperties = {
-  padding: '16px',
-  margin: '8px',
-  background: 'black',
-  cursor: 'grab',
-  fontSize: '22px',
-  borderRadius: '15px',
-  fontWeight: '900',
-  width: '300px',
-  height: '100px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  border: '3px solid white',
+  padding: "16px",
+  margin: "8px",
+  background: "black",
+  cursor: "grab",
+  fontSize: "22px",
+  borderRadius: "15px",
+  fontWeight: "900",
+  width: "300px",
+  height: "100px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  border: "3px solid white",
 };
 
 const doneItemStyle: React.CSSProperties = {
-  padding: '16px',
-  margin: '8px',
-  background: 'darkgreen',
-  fontFamily: 'Vazir',
-  borderRadius: '15px',
-  width: '300px',
-  height: '100px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: 'white',
-  fontWeight: 'bold',
-  fontSize: '20px',
+  padding: "16px",
+  margin: "8px",
+  background: "darkgreen",
+  fontFamily: "Vazir",
+  borderRadius: "15px",
+  width: "300px",
+  height: "100px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "white",
+  fontWeight: "bold",
+  fontSize: "20px",
 };
 
 const droppableBase: React.CSSProperties = {
-  padding: '16px',
-  margin: '8px',
-  borderRadius: '15px',
-  width: '450px',
-  height: '350px',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  border: '3px solid white',
-  background: 'black',
-  transition: 'background 0.2s',
-  overflowY: 'auto',
+  padding: "16px",
+  margin: "8px",
+  borderRadius: "15px",
+  width: "450px",
+  height: "350px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  border: "3px solid white",
+  background: "black",
+  transition: "background 0.2s",
+  overflowY: "auto",
 };
-
 
 //^ SORTABLES
 const SortableItem = ({ id }: { id: string }) => {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id });
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   const style = {
     ...itemStyle,
@@ -73,9 +70,8 @@ const SortableItem = ({ id }: { id: string }) => {
   );
 };
 
-
 //^ DROPPABLE
-const DroppableArea = ({ id, children, }: { id: string; children: React.ReactNode; }) => {
+const DroppableArea = ({ id, children }: { id: string; children: React.ReactNode }) => {
   const { setNodeRef, isOver } = useDroppable({ id });
 
   return (
@@ -83,7 +79,7 @@ const DroppableArea = ({ id, children, }: { id: string; children: React.ReactNod
       ref={setNodeRef}
       style={{
         ...droppableBase,
-        background: isOver ? '#1a3d1a' : droppableBase.background,
+        background: isOver ? "#1a3d1a" : droppableBase.background,
       }}
     >
       {children}
@@ -91,17 +87,16 @@ const DroppableArea = ({ id, children, }: { id: string; children: React.ReactNod
   );
 };
 
-
 //^ MAIN PAGE
 export default function DndKitPage() {
-  const [items, setItems] = useState(['1', '2', '3']);
+  const [items, setItems] = useState(["1", "2", "3"]);
   const [doneItems, setDoneItems] = useState<string[]>([]);
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (!over) return;
 
-    if (over.id === 'done-area') {
+    if (over.id === "done-area") {
       // انتقال به لیست done
       setItems((prev) => prev.filter((item) => item !== active.id));
       setDoneItems((prev) => [...prev, active.id as string]);
@@ -114,10 +109,9 @@ export default function DndKitPage() {
   };
 
   return (
-    <div style={{ padding: '24px', color: 'white' }}>
-
+    <div style={{ padding: "24px", color: "white" }}>
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <div style={{ display: 'flex', gap: '32px' }}>
+        <div style={{ display: "flex", gap: "32px" }}>
           {/* لیست اصلی */}
           <div>
             <SortableContext items={items}>

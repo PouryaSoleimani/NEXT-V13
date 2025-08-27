@@ -1,15 +1,14 @@
-import React from 'react'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
-
+import React from "react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 function ThemeToggleComponent() {
-  const { setTheme } = useTheme()
+  const { setTheme } = useTheme();
 
   return (
-    <div className='flex items-center justify-end pt-2 w-full pr-3'>
+    <div className="flex items-center justify-end pt-2 w-full pr-3">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" size="icon">
@@ -25,7 +24,7 @@ function ThemeToggleComponent() {
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  )
+  );
 }
 
-export default ThemeToggleComponent
+export default ThemeToggleComponent;

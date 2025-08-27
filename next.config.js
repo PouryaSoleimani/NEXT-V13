@@ -1,5 +1,5 @@
-const withPWA = require('next-pwa')({
-  dest: 'public', // مسیر خروجی service worker
+const withPWA = require("next-pwa")({
+  dest: "public", // مسیر خروجی service worker
   register: true,
   skipWaiting: true,
 });

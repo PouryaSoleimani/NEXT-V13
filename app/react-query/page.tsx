@@ -1,13 +1,13 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { ChevronLeft, ChevronRight, LoaderCircle } from 'lucide-react';
-import { BiError } from 'react-icons/bi';
-import useFetchUsers from './_hooks/useFetchUsers';
-import { Button } from '@/components/ui/button';
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem } from '@/components/ui/pagination';
-import { Badge } from '@/components/ui/badge';
-import toast from 'react-hot-toast';
+"use client";
+import React, { useEffect, useState } from "react";
+import { Card } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight, LoaderCircle } from "lucide-react";
+import { BiError } from "react-icons/bi";
+import useFetchUsers from "./_hooks/useFetchUsers";
+import { Button } from "@/components/ui/button";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem } from "@/components/ui/pagination";
+import { Badge } from "@/components/ui/badge";
+import toast from "react-hot-toast";
 
 const ReactQuery = () => {
   const [page, setPage] = useState(1);
@@ -15,9 +15,9 @@ const ReactQuery = () => {
 
   useEffect(() => {
     if (page == 5 || page <= 1) {
-      toast('No More Data', { style: { fontWeight: 900 } });
+      toast("No More Data", { style: { fontWeight: 900 } });
     }
-    page
+    page;
   }, [page]);
 
   if (isLoading) {
@@ -48,7 +48,7 @@ const ReactQuery = () => {
           <div className="flex items-center-safe justify-center-safe gap-3">
             {data?.map((item: any) => (
               <Card key={item.id} className="p-3 text-xl gap-y-3 font-mono *:rounded-lg w-36">
-                <Badge variant={'outline'} className="rounded-[2px] text-md font-black">
+                <Badge variant={"outline"} className="rounded-[2px] text-md font-black">
                   #{item.id}
                 </Badge>
                 <h1>{item.name}</h1>
@@ -59,12 +59,7 @@ const ReactQuery = () => {
           <Pagination>
             <PaginationContent>
               <PaginationItem>
-                <Button
-                  disabled={page <= 1}
-                  variant={'default'}
-                  className="disabled:bg-neutral-900/50"
-                  onClick={() => setPage((prev) => prev - 1)}
-                >
+                <Button disabled={page <= 1} variant={"default"} className="disabled:bg-neutral-900/50" onClick={() => setPage((prev) => prev - 1)}>
                   <ChevronLeft /> Previous
                 </Button>
               </PaginationItem>
@@ -86,7 +81,7 @@ const ReactQuery = () => {
               <PaginationItem>
                 <Button
                   disabled={page > +data?.length + 1}
-                  variant={'default'}
+                  variant={"default"}
                   className="disabled:bg-neutral-900/50"
                   onClick={() => setPage((prev) => prev + 1)}
                 >
@@ -97,10 +92,10 @@ const ReactQuery = () => {
           </Pagination>
         </div>
         <div className="flex items-center justify-center-safe">
-          <Button variant={'outline'} onClick={() => refetch()} className="m-5">
+          <Button variant={"outline"} onClick={() => refetch()} className="m-5">
             REFETCH
           </Button>
-          <Badge variant={'outline'} className="text-lg px-4 font-black">
+          <Badge variant={"outline"} className="text-lg px-4 font-black">
             {page}
           </Badge>
         </div>

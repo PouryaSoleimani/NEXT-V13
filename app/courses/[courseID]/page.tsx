@@ -1,5 +1,5 @@
 //^ DYNAMIC COURSE PAGE
-import React from 'react';
+import React from "react";
 type SingleCoursePageParams = { params: { courseID: string } };
 
 const SingleCoursePage = (params: any) => {

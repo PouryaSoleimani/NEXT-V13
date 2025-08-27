@@ -1,12 +1,10 @@
-// ? 1st Day of Review ===============================================================================
-
-import axios from 'axios';
-import { url } from 'inspector';
-import { Type } from 'lucide-react';
+import axios from "axios";
+import { url } from "inspector";
+import { Type } from "lucide-react";
 
 // TUPLE TYPE
 type TupleType = [string, number, boolean];
-const TupleArray: TupleType = ['STRING', 123, true];
+const TupleArray: TupleType = ["STRING", 123, true];
 
 // FUNCTION PARAMATER TYPE ===============================================================================
 type FuncType = (a: number, b: number) => number;
@@ -16,35 +14,35 @@ const func: FuncType = (a, b) => {
 export const result = func(10, 20);
 
 export function LoginFunction(username: string, password: string): boolean {
-  return password == '123456' ? true : false;
+  return password == "123456" ? true : false;
 }
 
 // UNION TYPES ===============================================================================
 type CombineType = string | number;
-const name: CombineType = 'HELLO';
+const name: CombineType = "HELLO";
 
 type CombineArrayType = (string | number | boolean)[];
-const combinedArray: CombineArrayType = [2, 'ali', false];
+const combinedArray: CombineArrayType = [2, "ali", false];
 
 // LITERAL TYPES ===============================================================================
-type ProductDeliverValue = 'PENDING' | 'SENT' | 'CANCELED' | 'DELIVERED';
+type ProductDeliverValue = "PENDING" | "SENT" | "CANCELED" | "DELIVERED";
 // use this instead of enums ⬆
 export function ReturnProductStatus(status: ProductDeliverValue) {
   switch (status) {
-    case 'PENDING':
-      console.info('%c PENDING', 'color:orange');
+    case "PENDING":
+      console.info("%c PENDING", "color:orange");
       break;
-    case 'SENT':
-      console.info('%c SENT', 'color:green');
+    case "SENT":
+      console.info("%c SENT", "color:green");
       break;
-    case 'CANCELED':
-      console.info('%c CANCELED', 'color:red');
+    case "CANCELED":
+      console.info("%c CANCELED", "color:red");
       break;
-    case 'DELIVERED':
-      console.info('%c DELIVERED', 'color:limegreen');
+    case "DELIVERED":
+      console.info("%c DELIVERED", "color:limegreen");
       break;
     default:
-      console.info('%c UNKNOWN', 'color: hotpink');
+      console.info("%c UNKNOWN", "color: hotpink");
       break;
   }
 }
@@ -53,7 +51,7 @@ export function ReturnProductStatus(status: ProductDeliverValue) {
 const numbers = [10, 20] as const;
 // numbers.push(30); //! will throw error because of 'as const'
 
-const user = { name: 'ali' } as const;
+const user = { name: "ali" } as const;
 // user.name = 'mamad'; //! will throw error because of 'as const'
 
 const numbersArray = [2, 3] as const;
@@ -72,22 +70,28 @@ interface User {
 
 // ? 3nd Day of review ===============================================================================
 class Person {
-  constructor(public name: string, public age: number) {}
+  constructor(
+    public name: string,
+    public age: number
+  ) {}
 
   setAge(age: number) {
     this.age = age;
   }
 }
 
-const AliPerson = new Person('ALI', 25);
+const AliPerson = new Person("ALI", 25);
 
 class PersonExtended {
-  constructor(private password: string, readonly username: string) {}
+  constructor(
+    private password: string,
+    readonly username: string
+  ) {}
   get getPassword() {
     return this.password;
   }
 }
-const newPerson = new PersonExtended('12345', 'PouryaSoleimani');
+const newPerson = new PersonExtended("12345", "PouryaSoleimani");
 
 console.log(newPerson.getPassword);
 
@@ -99,9 +103,9 @@ interface UserInterface {
 }
 
 export const newUser2: UserInterface = {
-  infos: { name: 'MAMAD', age: 32 },
+  infos: { name: "MAMAD", age: 32 },
   age: 32,
-  skills: ['JS', 'TS'],
+  skills: ["JS", "TS"],
   logger: (text: string) => {
     return true;
   },
@@ -116,22 +120,26 @@ interface ApiResponseInterface {
 
 export const _ApiResponse: ApiResponseInterface = {
   materialID: 1,
-  materials: ['material1', 'material2'],
-  grams: [{ id: 2, title: 'gram' }],
-  title: 'Api RESPONSE',
+  materials: ["material1", "material2"],
+  grams: [{ id: 2, title: "gram" }],
+  title: "Api RESPONSE",
 };
 
 class CarClass {
   constructor(public name: string) {}
   drive() {
-    console.info('RUN');
+    console.info("RUN");
   }
 }
-export const newCar = new CarClass('BMW');
+export const newCar = new CarClass("BMW");
 
 class CarClassExtended extends CarClass {
   static count: 0;
-  constructor(name: string, public power: number, private color: string) {
+  constructor(
+    name: string,
+    public power: number,
+    private color: string
+  ) {
     super(name);
     CarClassExtended.count++;
   }
@@ -142,9 +150,9 @@ class CarClassExtended extends CarClass {
     return this.color;
   }
 }
-const newCarExtended = new CarClassExtended('BMW M5', 567, 'BLACK');
+const newCarExtended = new CarClassExtended("BMW M5", 567, "BLACK");
 newCarExtended.drive();
-newCarExtended.ColorSetter('MATTE BLACK');
+newCarExtended.ColorSetter("MATTE BLACK");
 newCarExtended.ColorGetter();
 
 CarClassExtended.count;
@@ -156,14 +164,14 @@ interface UserResponseInterface {
 }
 
 export const newApiUser: UserResponseInterface = {
-  userSkills: ['ts', 'react'],
-  userInfo: { id: 3, name: 'USER', age: 32 },
+  userSkills: ["ts", "react"],
+  userInfo: { id: 3, name: "USER", age: 32 },
   userRate: 3,
 };
 
-newApiUser.userSkills.push('JS');
+newApiUser.userSkills.push("JS");
 
-newApiUser.userInfo.name = 'MAMADREZA NAGHIPOUR';
+newApiUser.userInfo.name = "MAMADREZA NAGHIPOUR";
 
 //INTEFACES ===============================================================================
 interface SimpleCarInterface {
@@ -174,24 +182,24 @@ interface SimpleCarInterface {
   passengers: number;
 }
 interface CarInterface {
-  basicInfo: { model: string; color: string; brand: string; vehicleType: 'SUV' | 'SEDAN' | 'SPORT' };
-  powerInfos: { hp: number; type: 'RWD' | 'FWD' | 'AWD'; cylinderCount: 4 | 6 | 8 };
+  basicInfo: { model: string; color: string; brand: string; vehicleType: "SUV" | "SEDAN" | "SPORT" };
+  powerInfos: { hp: number; type: "RWD" | "FWD" | "AWD"; cylinderCount: 4 | 6 | 8 };
   optionsInfos: { isCoupe: boolean; isConvertible: boolean; doorsCount: 2 | 4 };
 }
 
 export const newCar2: CarInterface = {
-  basicInfo: { model: 'M3', brand: 'BMW', color: 'BLACK', vehicleType: 'SEDAN' },
+  basicInfo: { model: "M3", brand: "BMW", color: "BLACK", vehicleType: "SEDAN" },
   optionsInfos: { isCoupe: false, isConvertible: false, doorsCount: 4 },
-  powerInfos: { hp: 675, type: 'AWD', cylinderCount: 6 },
+  powerInfos: { hp: 675, type: "AWD", cylinderCount: 6 },
 };
 
 interface KeyboardInterface {
-  basicInfos: { name: string; size: 'MINI' | 'MEDIUM' | 'FULL-SIZE'; color: 'BLACK' | 'WHITE' };
-  additionalOptions: { hasRGB: boolean; isMechanical: boolean; switchColor: 'RED' | 'BLUE' | 'BROWN' };
+  basicInfos: { name: string; size: "MINI" | "MEDIUM" | "FULL-SIZE"; color: "BLACK" | "WHITE" };
+  additionalOptions: { hasRGB: boolean; isMechanical: boolean; switchColor: "RED" | "BLUE" | "BROWN" };
 }
 export const newKeyboard: KeyboardInterface = {
-  basicInfos: { name: 'RAZER', color: 'BLACK', size: 'MINI' },
-  additionalOptions: { hasRGB: true, isMechanical: true, switchColor: 'RED' },
+  basicInfos: { name: "RAZER", color: "BLACK", size: "MINI" },
+  additionalOptions: { hasRGB: true, isMechanical: true, switchColor: "RED" },
 };
 
 // INTERFACE vs TYPE ===============================================================================
@@ -211,16 +219,16 @@ class CarClass2 implements SimpleCarInterface {
   ) {}
 }
 
-export const newSimpleCar = new CarClass2('BENZ', 'C350', 'SEDAN', 'BLACK', 4);
+export const newSimpleCar = new CarClass2("BENZ", "C350", "SEDAN", "BLACK", 4);
 
 // INTERSECTION TYPE ( & ) ===============================================================================
 type Admin = { name: string; course: string };
 type Teacher = { startDate: string; age: number };
 
 const firstTeacher: Admin & Teacher = {
-  name: 'ali',
-  course: 'math',
-  startDate: 'today',
+  name: "ali",
+  course: "math",
+  startDate: "today",
   age: 32,
 };
 
@@ -230,20 +238,20 @@ type FormValidationType = {
 };
 
 const FormInfos: FormValidationType = {
-  name: 'ALI',
-  age: '32',
-  email: 'ali@gmail.com',
-  job: 'developer',
+  name: "ALI",
+  age: "32",
+  email: "ali@gmail.com",
+  job: "developer",
 };
 
 // NAMESPACES  =======================================================================================
 export namespace Saipa {
-  car: 'PRIDE';
-  address: 'TEHRAN';
+  car: "PRIDE";
+  address: "TEHRAN";
 }
 export namespace IranKhodro {
-  car: 'SAMAND';
-  address: 'KARAJ';
+  car: "SAMAND";
+  address: "KARAJ";
 }
 
 /// TRIPLE SLASH DIRECTIVES ===============================================================================
@@ -253,28 +261,28 @@ export namespace IranKhodro {
 function echo<T>(param: T): T {
   return param;
 }
-echo('STRING');
+echo("STRING");
 echo(13123);
 
 function objectMerge<T extends object, U extends object>(obj1: T, obj2: U): T & U {
   return { ...obj1, ...obj2 };
 }
 
-const object1 = { name: 'pourya' };
-const object2 = { job: 'developer' };
+const object1 = { name: "pourya" };
+const object2 = { job: "developer" };
 const mergedOBJ = objectMerge(object1, object2);
 
 function ArrayMaker<T, U>(param1: T, param2: U) {
   return [param1, param2];
 }
-export const myArray = ArrayMaker('param1', 'PArAM2');
+export const myArray = ArrayMaker("param1", "PArAM2");
 
 // EXTENDS
 function StringConcater<T extends string, U extends string>(str1: string, str2: string) {
   return str1.concat(str2);
 }
 
-export const concated = StringConcater('I LOVE', ' DEMON');
+export const concated = StringConcater("I LOVE", " DEMON");
 
 // EXAMPLE
 interface Type {
@@ -291,7 +299,7 @@ function describe<T extends Type>(param: T): [string, T] {
   return [text, param];
 }
 
-export const describeResult = describe('HELLO');
+export const describeResult = describe("HELLO");
 
 // GENERICS IN INTERFACES
 interface ResultInterface<T> {
@@ -317,12 +325,15 @@ async function fetchData<T>(url: string) {
   return res;
 }
 
-export const fetchResult: UserData = await fetchData<UserData>('https://jsonplaceholder.typicode.com/users/1');
+export const fetchResult: UserData = await fetchData<UserData>("https://jsonplaceholder.typicode.com/users/1");
 
 // GENERICS vs UNION TYPES
 class List<T extends number | string> {
   public Items: T[] = [];
-  constructor(public name: string, public age: number) {}
+  constructor(
+    public name: string,
+    public age: number
+  ) {}
   setItems(newItem: T) {
     this.Items.push(newItem);
   }
@@ -331,12 +342,12 @@ class List<T extends number | string> {
   }
 }
 
-const ListExample = new List('hello', 32);
+const ListExample = new List("hello", 32);
 
 export const listResult = ListExample.showItems();
 
-ListExample.setItems('32');
-ListExample.setItems('HELLO');
+ListExample.setItems("32");
+ListExample.setItems("HELLO");
 
 // TYPE MAPPING
 interface UserMapInterface {
@@ -353,7 +364,7 @@ type UserType = { name: string; age: number };
 type UserRequired = Required<UserType>;
 type UserReadonly = Readonly<UserType>;
 type UserPartial = Partial<UserType>;
-type UserPick = Pick<UserType, 'name'>;
+type UserPick = Pick<UserType, "name">;
 
 type NullableType = string | null;
 type NotNullableType = NonNullable<NullableType>;

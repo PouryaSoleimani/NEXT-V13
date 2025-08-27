@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -207,13 +207,13 @@
 }
 
 @font-face {
-  font-family: 'VAZIR';
-  src: url('/fonts/Vazir-Bold-UI.ttf') format('truetype');
+  font-family: "VAZIR";
+  src: url("/fonts/Vazir-Bold-UI.ttf") format("truetype");
 }
 body {
   background-color: #111111;
   color: white;
-  font-family: 'VAZIR';
+  font-family: "VAZIR";
 }
 .rmdp-week-day {
   color: black !important;
@@ -243,13 +243,13 @@ body {
   font-size: 10px;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
@@ -259,7 +259,7 @@ input[type='number'] {
   height: 100vh;
 }
 .center {
-  display :flex;
-  align-items : center;
-  justify-content : center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

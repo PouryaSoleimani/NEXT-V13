@@ -1,11 +1,11 @@
 //^ DATAS COMPOENT
-import React from 'react';
+import React from "react";
 
 type userType = { id: number; name: string; username: string };
 
 //COMPONENT
 const Datas = async () => {
-  const request = await fetch('https://jsonplaceholder.typicode.com/users');
+  const request = await fetch("https://jsonplaceholder.typicode.com/users");
   const response = await request.json();
 
   //RETURN ___________________________________________________________________________________________________________________________________

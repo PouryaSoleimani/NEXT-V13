@@ -1,13 +1,13 @@
 type pngIconType = {
-  children: React.ReactNode,
-  png: boolean,
-  svg?: never
-}
+  children: React.ReactNode;
+  png: boolean;
+  svg?: never;
+};
 
 type svgIconType = {
-  children: React.ReactNode,
-  png?: never,
-  svg: never
-}
+  children: React.ReactNode;
+  png?: never;
+  svg: never;
+};
 
-export type IconTye = pngIconType | svgIconType
+export type IconTye = pngIconType | svgIconType;

@@ -1,5 +1,5 @@
-import React from 'react';
-import { AllTypes } from './Translate.types';
+import React from "react";
+import { AllTypes } from "./Translate.types";
 
 const Translate = ({ toTranslate }: AllTypes) => {
   return (

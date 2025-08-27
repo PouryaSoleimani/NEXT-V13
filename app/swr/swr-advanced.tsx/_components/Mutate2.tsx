@@ -1,34 +1,34 @@
-'use client';
-import axios, { AxiosError } from 'axios';
-import { BrushCleaning, LoaderIcon, ShieldAlert } from 'lucide-react';
-import React, { useState } from 'react';
-import toast, { ErrorIcon } from 'react-hot-toast';
-import { BiErrorAlt, BiErrorCircle, BiSolidErrorCircle } from 'react-icons/bi';
-import useSWR, { mutate } from 'swr';
+"use client";
+import axios, { AxiosError } from "axios";
+import { BrushCleaning, LoaderIcon, ShieldAlert } from "lucide-react";
+import React, { useState } from "react";
+import toast, { ErrorIcon } from "react-hot-toast";
+import { BiErrorAlt, BiErrorCircle, BiSolidErrorCircle } from "react-icons/bi";
+import useSWR, { mutate } from "swr";
 
-const fetcher = () => axios.get('https://fakestoreapi.com/products').then((res) => res.data);
+const fetcher = () => axios.get("https://fakestoreapi.com/products").then((res) => res.data);
 function Mutate2() {
   const [validated, setValidated] = useState(false);
-  const { data, isLoading, error } = useSWR(validated ? 'https://fakestoreapi.com/products' : null, fetcher, {
+  const { data, isLoading, error } = useSWR(validated ? "https://fakestoreapi.com/products" : null, fetcher, {
     errorRetryCount: 10,
     onError: (error: Error) => {
-      console.info('%c SWR ERROR ===>', 'color:pink', error.message);
+      console.info("%c SWR ERROR ===>", "color:pink", error.message);
       toast.error(error.message, {
         icon: <BiSolidErrorCircle className="size-10 text-red-600" />,
-        style: { border: '5px solid red', backgroundColor: 'black', color: 'whitesmoke', fontFamily: 'monospace' },
+        style: { border: "5px solid red", backgroundColor: "black", color: "whitesmoke", fontFamily: "monospace" },
       });
     },
   });
   function addSingleProduct() {
-    const fakeProduct = { id: Date.now(), title: 'FAKE PRODUCT', description: 'DESCRIPTION' };
+    const fakeProduct = { id: Date.now(), title: "FAKE PRODUCT", description: "DESCRIPTION" };
     axios
-      .post('https://fakestoreapi.com/products', fakeProduct)
+      .post("https://fakestoreapi.com/products", fakeProduct)
       .then((res) => res.data)
       .catch((error: AxiosError) => {
-        console.info('%c AXIOS ERROR ==>', 'color:red', error.message);
+        console.info("%c AXIOS ERROR ==>", "color:red", error.message);
         toast.error(error.message);
       });
-    mutate('https://fakestoreapi.com/products', [...data, fakeProduct], false);
+    mutate("https://fakestoreapi.com/products", [...data, fakeProduct], false);
   }
   if (!data) {
     return (

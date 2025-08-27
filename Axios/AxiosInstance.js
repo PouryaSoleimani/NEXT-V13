@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 // INSTANCE ____________________________________________________________________________________________________________________________________________
 const AXIOS = axios.create({
-  baseURL: 'https://fakestoreapi.com',
-  headers: { 'Content-Type': 'application/json' },
+  baseURL: "https://fakestoreapi.com",
+  headers: { "Content-Type": "application/json" },
   timeout: 10000,
 });
 
@@ -11,12 +11,12 @@ const AXIOS = axios.create({
 // REQUEST
 AXIOS.interceptors.request.use(
   (config) => {
-    console.log('🟩 INTERCEPTOR REQUEST CONFIG ===> WHEN OK ===>', config);
+    console.log("🟩 INTERCEPTOR REQUEST CONFIG ===> WHEN OK ===>", config);
     return config;
   },
   (error) => {
     if (error) {
-      console.log('❌ INTERCEPTOR REQUEST ERROR  ===>', error.message);
+      console.log("❌ INTERCEPTOR REQUEST ERROR  ===>", error.message);
     }
     return Promise.reject(error);
   }
@@ -25,12 +25,12 @@ AXIOS.interceptors.request.use(
 // RESPONSE
 AXIOS.interceptors.response.use(
   (response) => {
-    console.log('✅ INTERCEPTOR RESPONSE CONFIG ===> WHEN OK ===>', response.status, response.statusText);
+    console.log("✅ INTERCEPTOR RESPONSE CONFIG ===> WHEN OK ===>", response.status, response.statusText);
     return response;
   },
   (error) => {
     if (error) {
-      console.log('🟥🟥🟥🟥  INTERCEPTOR RESPONSE ERROR ===>', error.message);
+      console.log("🟥🟥🟥🟥  INTERCEPTOR RESPONSE ERROR ===>", error.message);
     }
     return Promise.reject(error);
   }

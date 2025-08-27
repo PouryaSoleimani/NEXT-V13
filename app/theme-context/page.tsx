@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ThemePage = () => {
-  return (
-    <div>ThemePage</div>
-  )
-}
+  return <div>ThemePage</div>;
+};
 
-export default ThemePage
+export default ThemePage;

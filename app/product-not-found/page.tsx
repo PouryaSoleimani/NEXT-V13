@@ -1,6 +1,6 @@
 //^ PRODUCT NOT FOUND
-'use client';
-import { useRouter } from 'next/navigation';
+"use client";
+import { useRouter } from "next/navigation";
 
 //COMPONENT
 export default function Page() {

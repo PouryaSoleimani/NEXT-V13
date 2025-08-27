@@ -530,10 +530,7 @@
           }
         },
         {
-          "scope": [
-            "entity.other.attribute-name.pseudo-element.css",
-            "support.function.gradient.css"
-          ],
+          "scope": ["entity.other.attribute-name.pseudo-element.css", "support.function.gradient.css"],
           "settings": {
             "foreground": "#b392f0"
           }
@@ -567,11 +564,7 @@
           }
         },
         {
-          "scope": [
-            "entity.name.type.module",
-            "entity.name.type",
-            "support.type.primitive"
-          ],
+          "scope": ["entity.name.type.module", "entity.name.type", "support.type.primitive"],
           "settings": {
             "foreground": "#f69d50"
           }
@@ -627,10 +620,7 @@
           }
         },
         {
-          "scope": [
-            "variable.other.property",
-            "variable.other.object.property"
-          ],
+          "scope": ["variable.other.property", "variable.other.object.property"],
           "settings": {
             "foreground": "#6b92ff"
           }
@@ -648,9 +638,7 @@
           }
         },
         {
-          "scope": [
-            "source.tsx meta.var.expr.tsx meta.objectliteral.tsx meta.object.member.tsx meta.brace.round.tsx"
-          ],
+          "scope": ["source.tsx meta.var.expr.tsx meta.objectliteral.tsx meta.object.member.tsx meta.brace.round.tsx"],
           "settings": {
             "foreground": "#e6e6e6"
           }
@@ -700,13 +688,7 @@
   "editor.inlineSuggest.suppressSuggestions": true,
   "git.enableSmartCommit": true,
 
-  "RainbowBrackets.consecutivePairColors": [
-    "()",
-    "[]",
-    "{}",
-    ["#ffdf20", "#ed6aff", "#51a2ff"],
-    "Revioletd"
-  ],
+  "RainbowBrackets.consecutivePairColors": ["()", "[]", "{}", ["#ffdf20", "#ed6aff", "#51a2ff"], "Revioletd"],
   "prettier.bracketSameLine": true,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "git.autofetch": true,

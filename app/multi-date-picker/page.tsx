@@ -1,14 +1,14 @@
-'use client';
-import React, { useState } from 'react';
-import DatePicker from 'react-multi-date-picker';
-import { Calendar } from 'react-multi-date-picker';
-import persian from 'react-date-object/calendars/persian';
-import persian_fa from 'react-date-object/locales/persian_fa';
-import Icon from 'react-multi-date-picker/components/icon';
-import { ArrowBigLeft, ArrowBigRight } from 'lucide-react';
-import 'react-multi-date-picker/styles/layouts/prime.css';
+"use client";
+import React, { useState } from "react";
+import DatePicker from "react-multi-date-picker";
+import { Calendar } from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+import Icon from "react-multi-date-picker/components/icon";
+import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
+import "react-multi-date-picker/styles/layouts/prime.css";
 
-const weekdays = ['ج', 'پ', 'چ', 'س', 'د', 'ی', 'ش'];
+const weekdays = ["ج", "پ", "چ", "س", "د", "ی", "ش"];
 function MultiDatePicker() {
   const [value, setValue] = useState<any>(new Date().toString());
   return (
@@ -30,35 +30,33 @@ function MultiDatePicker() {
           mapDays={({ date, today, selectedDate, currentMonth, isSameDate }) => {
             let props: any = {};
             let isWeekend = [6].includes(date.weekDay.index);
-            if (isWeekend) props.className = 'highlight highlight-red';
+            if (isWeekend) props.className = "highlight highlight-red";
 
             props.style = {
-              borderRadius: '3px',
-              backgroundColor: date.month.index === currentMonth.index ? '#ccc' : '',
+              borderRadius: "3px",
+              backgroundColor: date.month.index === currentMonth.index ? "#ccc" : "",
             };
 
-            if (isSameDate(date, today)) props.style.color = 'yellow';
+            if (isSameDate(date, today)) props.style.color = "yellow";
             if (isSameDate(date, selectedDate))
               props.style = {
                 ...props.style,
-                color: 'black',
-                backgroundColor: 'yellow',
-                fontWeight: 'bold',
-                border: '2px solid black',
+                color: "black",
+                backgroundColor: "yellow",
+                fontWeight: "bold",
+                border: "2px solid black",
               };
 
             return props;
           }}
           renderButton={(direction: any, handleClick: any) => (
             <button onClick={handleClick} className="text-black hover:bg-yellow-500 rounded-sm mx-2 p-1">
-              {direction === 'right' ? <ArrowBigLeft className="size-5" /> : <ArrowBigRight className="size-5" />}
+              {direction === "right" ? <ArrowBigLeft className="size-5" /> : <ArrowBigRight className="size-5" />}
             </button>
           )}
         />
       </div>
-      <p className="bg-black p-3 rounded-xl border-b-4 border-b-yellow-500 tracking-wide text-xl">
-        {value?.toDate?.().toLocaleString('fa-IR')}
-      </p>
+      <p className="bg-black p-3 rounded-xl border-b-4 border-b-yellow-500 tracking-wide text-xl">{value?.toDate?.().toLocaleString("fa-IR")}</p>
     </div>
   );
 }

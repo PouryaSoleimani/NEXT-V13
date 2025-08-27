@@ -1,7 +1,6 @@
-"use client"
+"use client";
 import { useState, CSSProperties } from "react";
 import { ClipLoader } from "react-spinners";
-
 
 function ReactSpinners() {
   const [loading, setLoading] = useState(true);
@@ -9,7 +8,9 @@ function ReactSpinners() {
 
   return (
     <div className="sweet-loading flex flex-col items-center">
-      <button onClick={() => setLoading(!loading)} className="btn mx-auto my-10">Toggle Loader</button>
+      <button onClick={() => setLoading(!loading)} className="btn mx-auto my-10">
+        Toggle Loader
+      </button>
       <ClipLoader
         color={color}
         loading={loading}
@@ -17,7 +18,8 @@ function ReactSpinners() {
         size={35}
         className="stroke-3"
         aria-label="Loading Spinner"
-        data-testid="loader" />
+        data-testid="loader"
+      />
     </div>
   );
 }

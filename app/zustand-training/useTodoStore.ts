@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 type TodoType = { id: number; text: string; completed: boolean };
 interface TodoState {
@@ -18,15 +18,17 @@ const useTodoStore = create<TodoState>()(
       todos: [],
       addTodo: (todo: TodoType) => set((state) => ({ todos: [...state.todos, todo] })),
       removeTodo: (id: number) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
-      toggleCompleted: (id: number) => set((state) => ({ todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)) })),
+      toggleCompleted: (id: number) =>
+        set((state) => ({ todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)) })),
       removeAllTodos: () => set(() => ({ todos: [] })),
-      makeRandomTodo: () => set((state) => ({ todos: [...state.todos, { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false }] as any })),
+      makeRandomTodo: () =>
+        set((state) => ({ todos: [...state.todos, { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false }] as any })),
       toggleAllTodosComplete: () =>
         set((state) => ({
           todos: state.todos.map((todo) => ({ ...todo, completed: !todo.completed })),
         })),
     }),
-    { name: 'todo-storage', storage: createJSONStorage(() => localStorage) }
+    { name: "todo-storage", storage: createJSONStorage(() => localStorage) }
   )
 );
 

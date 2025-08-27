@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 type CounterStoreType = { count: number };
 
 const useCounterStore = create((set) => ({

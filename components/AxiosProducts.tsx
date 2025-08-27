@@ -1,14 +1,14 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 interface Props {
   data: { id: number; title: string }[];
 }
 
 const AxiosProducts = (data: Props) => {
-  console.log('ENV', process.env.NEXT_PUBLIC_NAME);
+  console.log("ENV", process.env.NEXT_PUBLIC_NAME);
 
   return (
-    <div className='px-6'>
+    <div className="px-6">
       <h2 className="text-center text-3xl font-black w-fit mx-auto px-8 py-4 rounded-xl bg-purple-700">AxiosProducts</h2>
       {data.data.length > 0 ? (
         data.data.map((item) => (

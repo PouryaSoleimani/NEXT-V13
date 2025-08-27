@@ -1,9 +1,9 @@
 //^ PRODUCTS COMPONENT
-import React from 'react';
+import React from "react";
 type productType = { id: number; title: string; price: string };
 
 const Products = async () => {
-  const request = await fetch('https://fakestoreapi.com/products');
+  const request = await fetch("https://fakestoreapi.com/products");
   const reponse = await request.json();
 
   return (

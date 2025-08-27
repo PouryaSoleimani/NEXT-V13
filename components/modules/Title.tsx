@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Title = () => {
   return <div>Title TITILE TITLE</div>;

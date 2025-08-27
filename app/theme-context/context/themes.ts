@@ -1,6 +1,6 @@
 const themes = {
-  light: { background: 'white', color: 'black' },
-  dark: { background: 'black', color: 'white' },
-}
+  light: { background: "white", color: "black" },
+  dark: { background: "black", color: "white" },
+};
 
-export default themes
+export default themes;

@@ -1,22 +1,22 @@
 //^ CLIENT COMPONENT
-'use client'; // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
+"use client"; // THIS LINE OF CODE MAKES OUR COMPONENT A CLIENT COMPONENT , AND WITHOUT THIS OUR COMPONENT IS ALWAYS A SERVER COMPONENT
 
-import React from 'react';
+import React from "react";
 
 type dataType = { id: number; name: string; age: number };
 
 //COMPONENT
 const ClientComponent = () => {
   const datas: dataType[] = [
-    { id: 1, name: 'pourya', age: 30 },
-    { id: 2, name: 'alireza', age: 25 },
-    { id: 3, name: 'mohammad', age: 27 },
-    { id: 4, name: 'reza', age: 21 },
-    { id: 5, name: 'ashkan', age: 22 },
+    { id: 1, name: "pourya", age: 30 },
+    { id: 2, name: "alireza", age: 25 },
+    { id: 3, name: "mohammad", age: 27 },
+    { id: 4, name: "reza", age: 21 },
+    { id: 5, name: "ashkan", age: 22 },
   ];
 
   function clickHandler() {
-    console.log('CLICK CLICK');
+    console.log("CLICK CLICK");
   }
 
   // RETURN
@@ -42,7 +42,6 @@ const ClientComponent = () => {
   );
 };
 export default ClientComponent;
-
 
 // ^  WE USE CLIENT COMPONENTS WHEN :
 // 1 - WE HAVE EVENTS LIKE (( ONCLICK )) OR (( ONCHANGE ))

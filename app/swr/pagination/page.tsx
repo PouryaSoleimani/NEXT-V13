@@ -1,7 +1,7 @@
-'use client';
-import React, { useState } from 'react';
-import PageComponent from '../swr-advanced.tsx/_components/Page.';
-import InfiniteLoading from '../swr-advanced.tsx/_components/InfiniteLoading';
+"use client";
+import React, { useState } from "react";
+import PageComponent from "../swr-advanced.tsx/_components/Page.";
+import InfiniteLoading from "../swr-advanced.tsx/_components/InfiniteLoading";
 
 function Page() {
   const [index, setIndex] = useState<number>(1);
