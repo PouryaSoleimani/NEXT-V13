@@ -4,5 +4,4 @@ export default withPWA({
   dest: "public",
   register: true,
   skipWaiting: true,
-  reactStrictMode: true,
 });
