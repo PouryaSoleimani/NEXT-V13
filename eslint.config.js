@@ -49,9 +49,19 @@ export default [
           groups: ["builtin", "external", "internal", ["parent", "sibling", "index"]],
           "newlines-between": "always",
         },
+        {
+          files: ["next.config.js", "*.config.js", "*.config.ts"],
+          languageOptions: {
+            parser: tseslint.parser,
+          },
+          rules: {
+            "import/no-unresolved": "off",
+          },
+        },
       ],
       "prettier/prettier": "warn",
     },
+
     settings: {
       react: {
         version: "detect",

@@ -1,9 +1,8 @@
-const withPWA = require("next-pwa")({
-  dest: "public", // مسیر خروجی service worker
-  register: true,
-  skipWaiting: true,
-});
+import withPWA from "next-pwa";
 
 export default withPWA({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
   reactStrictMode: true,
 });
