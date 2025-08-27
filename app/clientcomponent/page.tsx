@@ -23,7 +23,9 @@ const ClientComponent = () => {
   return (
     <>
       <div>
-        <h1 className="bg-slate-800/70 backdrop-blur-3xl text-slate-100 text-4xl mb-4 text-center font-bold p-7">CLIENT COMPONENT</h1>
+        <h1 className="bg-slate-800/70 backdrop-blur-3xl text-slate-100 text-4xl mb-4 text-center font-bold p-7">
+          CLIENT COMPONENT
+        </h1>
       </div>
 
       <div className="w-1/2 h-fit bg-zinc-700/40 mx-auto text-2xl p-4 flex space-x-32">
@@ -34,7 +36,10 @@ const ClientComponent = () => {
             </li>
           ))}
         </ul>
-        <button onClick={clickHandler} className="bg-violet-500 h-[5rem] my-auto px-4 rounded-lg text-black font-bold">
+        <button
+          onClick={clickHandler}
+          className="bg-violet-500 h-[5rem] my-auto px-4 rounded-lg text-black font-bold"
+        >
           CLICK ME
         </button>
       </div>

@@ -9,16 +9,25 @@ import useSWR, { mutate } from "swr";
 const fetcher = () => axios.get("https://fakestoreapi.com/products").then((res) => res.data);
 function Mutate2() {
   const [validated, setValidated] = useState(false);
-  const { data, isLoading, error } = useSWR(validated ? "https://fakestoreapi.com/products" : null, fetcher, {
-    errorRetryCount: 10,
-    onError: (error: Error) => {
-      console.info("%c SWR ERROR ===>", "color:pink", error.message);
-      toast.error(error.message, {
-        icon: <BiSolidErrorCircle className="size-10 text-red-600" />,
-        style: { border: "5px solid red", backgroundColor: "black", color: "whitesmoke", fontFamily: "monospace" },
-      });
-    },
-  });
+  const { data, isLoading, error } = useSWR(
+    validated ? "https://fakestoreapi.com/products" : null,
+    fetcher,
+    {
+      errorRetryCount: 10,
+      onError: (error: Error) => {
+        console.info("%c SWR ERROR ===>", "color:pink", error.message);
+        toast.error(error.message, {
+          icon: <BiSolidErrorCircle className="size-10 text-red-600" />,
+          style: {
+            border: "5px solid red",
+            backgroundColor: "black",
+            color: "whitesmoke",
+            fontFamily: "monospace",
+          },
+        });
+      },
+    }
+  );
   function addSingleProduct() {
     const fakeProduct = { id: Date.now(), title: "FAKE PRODUCT", description: "DESCRIPTION" };
     axios
@@ -63,12 +72,18 @@ function Mutate2() {
 
   return (
     <div className="flex flex-col justify-center">
-      <button onClick={addSingleProduct} className="bg-emerald-900 mx-24 mt-4 h-16 w-44 rounded-xl border-4 border-white">
+      <button
+        onClick={addSingleProduct}
+        className="bg-emerald-900 mx-24 mt-4 h-16 w-44 rounded-xl border-4 border-white"
+      >
         ADD
       </button>
       <div className="w-[90%] mx-auto my-4 gap-3 grid grid-cols-6 ">
         {data?.map((product: any) => (
-          <div key={product.id} className="bg-black h-44 overflow-hidden p-3 border-4 rounded-xl border-rose-700/50">
+          <div
+            key={product.id}
+            className="bg-black h-44 overflow-hidden p-3 border-4 rounded-xl border-rose-700/50"
+          >
             <h1 className="text-justify text-rose-600">{product.title.slice(0, 25)}</h1>
             <p className="mt-2 text-justify font-stretch-90%">{product.description.slice(0, 30)}</p>
           </div>

@@ -17,12 +17,22 @@ const useTodoStore = create<TodoState>()(
     (set) => ({
       todos: [],
       addTodo: (todo: TodoType) => set((state) => ({ todos: [...state.todos, todo] })),
-      removeTodo: (id: number) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
+      removeTodo: (id: number) =>
+        set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
       toggleCompleted: (id: number) =>
-        set((state) => ({ todos: state.todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)) })),
+        set((state) => ({
+          todos: state.todos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+          ),
+        })),
       removeAllTodos: () => set(() => ({ todos: [] })),
       makeRandomTodo: () =>
-        set((state) => ({ todos: [...state.todos, { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false }] as any })),
+        set((state) => ({
+          todos: [
+            ...state.todos,
+            { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false },
+          ] as any,
+        })),
       toggleAllTodosComplete: () =>
         set((state) => ({
           todos: state.todos.map((todo) => ({ ...todo, completed: !todo.completed })),

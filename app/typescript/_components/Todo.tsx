@@ -5,7 +5,10 @@ type SingleTodoType = { id: number; title: string; isCompleted: boolean };
 type TodoComponentPropsType = { props: SingleTodoType[] };
 
 // COMPONENT
-const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> = (props, children) => {
+const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> = (
+  props,
+  children
+) => {
   const [first, setFirst] = useState<boolean>(false); // USESTATE TYPE
 
   const ELEM = useRef<HTMLInputElement>(null); // USEREF TYPE
@@ -34,7 +37,9 @@ const TodoComponent: React.FC<React.PropsWithChildren<TodoComponentPropsType>> =
           className="flex justify-between items-center border-2 border-zinc-600 gap-5 bg-zinc-900 p-4 rounded-xl text-2xl my-3 font-black"
         >
           <h3>{todo.title}</h3>
-          <p className={`${todo.isCompleted ? "bg-green-500" : "bg-red-500"} py-1 px-2 text-black rounded-md`}>
+          <p
+            className={`${todo.isCompleted ? "bg-green-500" : "bg-red-500"} py-1 px-2 text-black rounded-md`}
+          >
             {todo.isCompleted ? "Completed" : "Not Completed"}
           </p>
         </div>

@@ -5,7 +5,12 @@ import { ChevronLeft, ChevronRight, LoaderCircle } from "lucide-react";
 import { BiError } from "react-icons/bi";
 import useFetchUsers from "./_hooks/useFetchUsers";
 import { Button } from "@/components/ui/button";
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem } from "@/components/ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+} from "@/components/ui/pagination";
 import { Badge } from "@/components/ui/badge";
 import toast from "react-hot-toast";
 
@@ -59,7 +64,12 @@ const ReactQuery = () => {
           <Pagination>
             <PaginationContent>
               <PaginationItem>
-                <Button disabled={page <= 1} variant={"default"} className="disabled:bg-neutral-900/50" onClick={() => setPage((prev) => prev - 1)}>
+                <Button
+                  disabled={page <= 1}
+                  variant={"default"}
+                  className="disabled:bg-neutral-900/50"
+                  onClick={() => setPage((prev) => prev - 1)}
+                >
                   <ChevronLeft /> Previous
                 </Button>
               </PaginationItem>

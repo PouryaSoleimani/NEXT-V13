@@ -40,10 +40,16 @@ const CustomPageButton = () => {
 
   return (
     <>
-      <button onClick={handleClick} className="bg-orange-500 px-6 py-2 rounded-lg text-black font-bold">
+      <button
+        onClick={handleClick}
+        className="bg-orange-500 px-6 py-2 rounded-lg text-black font-bold"
+      >
         CustomPageButton
       </button>
-      <button onClick={redirectHandler} className="bg-red-500 my-2 px-14 py-2 rounded-lg text-black font-bold">
+      <button
+        onClick={redirectHandler}
+        className="bg-red-500 my-2 px-14 py-2 rounded-lg text-black font-bold"
+      >
         REDIRECT
       </button>
     </>

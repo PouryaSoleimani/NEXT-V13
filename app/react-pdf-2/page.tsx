@@ -11,7 +11,8 @@ Font.register({ family: "vazir", src: "/fonts/Vazir-Bold-UI.ttf", fontWeight: 70
 
 //FETCHER
 type _SingleProductType = { id: number; title: string; price: number };
-const _productsFetcher2 = () => axios.get("https://fakestoreapi.com/products").then((res) => res.data);
+const _productsFetcher2 = () =>
+  axios.get("https://fakestoreapi.com/products").then((res) => res.data);
 
 // COMPONENT
 function ReactPdf2Component() {
@@ -43,8 +44,12 @@ function ReactPdf2Component() {
 
               {_Products?.slice(0, 8).map((item: _SingleProductType) => (
                 <View key={item.id} style={_styles.row}>
-                  <Text style={[_styles.cell, { width: "45%" }]}>{(item.price * 100000).toLocaleString("fa-IR")} تومان</Text>
-                  <Text style={[_styles.cell, { width: "10%" }]}>{Math.floor(Math.random() * 10) + 1}</Text>
+                  <Text style={[_styles.cell, { width: "45%" }]}>
+                    {(item.price * 100000).toLocaleString("fa-IR")} تومان
+                  </Text>
+                  <Text style={[_styles.cell, { width: "10%" }]}>
+                    {Math.floor(Math.random() * 10) + 1}
+                  </Text>
                   <Text style={[_styles.cell, { width: "45%" }]}>{item.title.slice(0, 20)}</Text>
                 </View>
               ))}

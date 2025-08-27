@@ -11,9 +11,12 @@ export type SingleProductType = {
   rating: { rate: number; count: number };
 };
 
-const ProductsFetcher = () => axios.get("https://fakestoreapi.com/products").then((res) => res.data);
+const ProductsFetcher = () =>
+  axios.get("https://fakestoreapi.com/products").then((res) => res.data);
 const useProductsFetch = () => {
-  const { data, error, isLoading } = useSWR("https://fakestoreapi.com/products", ProductsFetcher, { refreshInterval: 5000 });
+  const { data, error, isLoading } = useSWR("https://fakestoreapi.com/products", ProductsFetcher, {
+    refreshInterval: 5000,
+  });
 
   return { data: data as SingleProductType[], error, isLoading };
 };

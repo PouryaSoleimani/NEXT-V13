@@ -5,7 +5,15 @@ import { toast } from "react-hot-toast";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import Logger from "@/hooks/Logger";
 
@@ -32,7 +40,10 @@ export default function InputOTPForm() {
   return (
     <div className="screen center">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="bg-neutral-800 border-2 p-10 rounded-xl w-fit space-y-6 center flex-col">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="bg-neutral-800 border-2 p-10 rounded-xl w-fit space-y-6 center flex-col"
+        >
           <FormField
             control={form.control}
             name="pin"
@@ -51,7 +62,9 @@ export default function InputOTPForm() {
                     </InputOTPGroup>
                   </InputOTP>
                 </FormControl>
-                <FormDescription>Please enter the one-time password sent to your phone.</FormDescription>
+                <FormDescription>
+                  Please enter the one-time password sent to your phone.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}

@@ -21,7 +21,10 @@ function PdfPreview() {
   // SWR
   const { data: Products } = useSWR("https://fakestoreapi.com/products", _productsFetcher);
 
-  const total = Products?.reduce((acc: number, product: SingleProductType) => acc + product.price, 0);
+  const total = Products?.reduce(
+    (acc: number, product: SingleProductType) => acc + product.price,
+    0
+  );
 
   // RETURN =======================================================================================================================
   return (
@@ -57,16 +60,29 @@ function PdfPreview() {
           {/* TABLE ROWS --> FAKE STORE API */}
           {Products?.slice(0, 8).map((product: SingleProductType) => (
             <View key={product.id} style={styles.row}>
-              <Text style={[styles.cell, { width: "45%" }]}>{(product.price * 100000).toLocaleString("fa-IR")} تومان</Text>
-              <Text style={[styles.cell, { width: "10%" }]}>{Math.floor(Math.random() * 10) + 1}</Text>
+              <Text style={[styles.cell, { width: "45%" }]}>
+                {(product.price * 100000).toLocaleString("fa-IR")} تومان
+              </Text>
+              <Text style={[styles.cell, { width: "10%" }]}>
+                {Math.floor(Math.random() * 10) + 1}
+              </Text>
               <Text style={[styles.cell, { width: "45%" }]}>{product.title.slice(0, 20)}</Text>
             </View>
           ))}
 
           {/* TOTAL PRICE ROW */}
           <View style={[styles.row, { backgroundColor: "#ddd", padding: 0, fontWeight: "bold" }]}>
-            <Text style={[styles.cell, { width: "75%", fontWeight: "bold" }]}>{(total * 100000).toLocaleString("fa-IR")} تومان</Text>
-            <Text style={[styles.cell, { width: "25%", fontWeight: "bold", backgroundColor: "#d84040", color: "white" }]}>جمع کل</Text>
+            <Text style={[styles.cell, { width: "75%", fontWeight: "bold" }]}>
+              {(total * 100000).toLocaleString("fa-IR")} تومان
+            </Text>
+            <Text
+              style={[
+                styles.cell,
+                { width: "25%", fontWeight: "bold", backgroundColor: "#d84040", color: "white" },
+              ]}
+            >
+              جمع کل
+            </Text>
           </View>
         </View>
       </Page>

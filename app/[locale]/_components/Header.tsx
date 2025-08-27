@@ -7,7 +7,10 @@ function Header() {
 
   return (
     <div className="px-5 w-screen">
-      <div id="BUTTONS" className="mt-4 flex items-center mx-10 justify-between gap-4 bg-black p-5 rounded-lg">
+      <div
+        id="BUTTONS"
+        className="mt-4 flex items-center mx-10 justify-between gap-4 bg-black p-5 rounded-lg"
+      >
         <div>LOGO</div>
         <div className="flex gap-3">
           <button className="hover:scale-110 duration-300" onClick={() => changeLocale("fa")}>

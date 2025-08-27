@@ -14,7 +14,9 @@ export default function PasswordInput() {
         placeholder="password"
         className={cn(formState.isValid ? "border-2 border-green-500" : "border-2 border-red-600")}
       />
-      {formState.errors.password && <p className="text-red-800 text-xs pl-1 m-0">{formState.errors?.password.message as any}</p>}
+      {formState.errors.password && (
+        <p className="text-red-800 text-xs pl-1 m-0">{formState.errors?.password.message as any}</p>
+      )}
       {<p className="text-xs pl-1">{formState.isValid ? "TRUE" : "FALSE"}</p>}
     </>
   );

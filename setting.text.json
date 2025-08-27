@@ -530,7 +530,10 @@
           }
         },
         {
-          "scope": ["entity.other.attribute-name.pseudo-element.css", "support.function.gradient.css"],
+          "scope": [
+            "entity.other.attribute-name.pseudo-element.css",
+            "support.function.gradient.css"
+          ],
           "settings": {
             "foreground": "#b392f0"
           }
@@ -638,7 +641,9 @@
           }
         },
         {
-          "scope": ["source.tsx meta.var.expr.tsx meta.objectliteral.tsx meta.object.member.tsx meta.brace.round.tsx"],
+          "scope": [
+            "source.tsx meta.var.expr.tsx meta.objectliteral.tsx meta.object.member.tsx meta.brace.round.tsx"
+          ],
           "settings": {
             "foreground": "#e6e6e6"
           }
@@ -688,7 +693,13 @@
   "editor.inlineSuggest.suppressSuggestions": true,
   "git.enableSmartCommit": true,
 
-  "RainbowBrackets.consecutivePairColors": ["()", "[]", "{}", ["#ffdf20", "#ed6aff", "#51a2ff"], "Revioletd"],
+  "RainbowBrackets.consecutivePairColors": [
+    "()",
+    "[]",
+    "{}",
+    ["#ffdf20", "#ed6aff", "#51a2ff"],
+    "Revioletd"
+  ],
   "prettier.bracketSameLine": true,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "git.autofetch": true,

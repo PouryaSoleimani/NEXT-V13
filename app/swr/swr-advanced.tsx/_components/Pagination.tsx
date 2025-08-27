@@ -9,8 +9,12 @@ function PaginationSwr() {
   const [page, setPage] = useState(1);
   const [isValid, setIsValid] = useState<boolean>(false);
 
-  const SingleProductFetcher = () => axios.get(`https://fakestoreapi.com/products/${page}`).then((res) => res.data);
-  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${page}`, SingleProductFetcher);
+  const SingleProductFetcher = () =>
+    axios.get(`https://fakestoreapi.com/products/${page}`).then((res) => res.data);
+  const { data, isLoading, error } = useSWR(
+    `https://fakestoreapi.com/products/${page}`,
+    SingleProductFetcher
+  );
 
   useEffect(() => {
     if (page == 1) {
@@ -34,7 +38,10 @@ function PaginationSwr() {
         <h2 className="flex items-center gap-2 text-red-900 bg-black p-3 rounded-xl">
           <FileQuestionMark /> ERROR
         </h2>
-        <button onClick={() => setPage(1)} className="bg-blue-900 size-12 rounded-full flex items-center justify-center">
+        <button
+          onClick={() => setPage(1)}
+          className="bg-blue-900 size-12 rounded-full flex items-center justify-center"
+        >
           <RotateCcw />
         </button>
       </div>

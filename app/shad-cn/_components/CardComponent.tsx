@@ -1,5 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ShoppingBasket, Truck } from "lucide-react";
 import Image from "next/image";
 import toast from "react-hot-toast";
@@ -19,7 +27,14 @@ import { HiCash } from "react-icons/hi";
 
 export default function CardComponent() {
   function buyHandler() {
-    toast.success("Item Added To Cart 🛒", { style: { backgroundColor: "black", color: "white", border: "2px solid #505050", fontWeight: "bold" } });
+    toast.success("Item Added To Cart 🛒", {
+      style: {
+        backgroundColor: "black",
+        color: "white",
+        border: "2px solid #505050",
+        fontWeight: "bold",
+      },
+    });
   }
   return (
     <Card className="w-full max-w-sm mx-1">

@@ -23,13 +23,22 @@ function UseFieldArrayPage() {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit((data) => submitHandler(data))} className="bg-zinc-800 w-1/2 flex flex-col mx-auto my-20">
+      <form
+        onSubmit={handleSubmit((data) => submitHandler(data))}
+        className="bg-zinc-800 w-1/2 flex flex-col mx-auto my-20"
+      >
         <ul>
           {fields.map((item, index) => (
             <li key={item.id} className="flex gap-2 p-2 m-1.5 rounded-md bg-black">
-              <Input {...register(`user.${index}.firstName`)} className="w-1/2" placeholder="firstname" />
+              <Input
+                {...register(`user.${index}.firstName`)}
+                className="w-1/2"
+                placeholder="firstname"
+              />
               <Controller
-                render={({ field }) => <Input {...field} className="w-1/2" placeholder="lastname" />}
+                render={({ field }) => (
+                  <Input {...field} className="w-1/2" placeholder="lastname" />
+                )}
                 name={`user.${index}.lastName`}
                 control={control}
               />
@@ -43,7 +52,12 @@ function UseFieldArrayPage() {
           <Button type="submit" variant={"success"} className="w-32">
             SUBMIT
           </Button>
-          <Button type="button" variant={"blue"} onClick={() => append({ firstName: "", lastName: "" })} className="w-32">
+          <Button
+            type="button"
+            variant={"blue"}
+            onClick={() => append({ firstName: "", lastName: "" })}
+            className="w-32"
+          >
             {" "}
             append{" "}
           </Button>

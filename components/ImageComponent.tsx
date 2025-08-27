@@ -10,7 +10,13 @@ export default function ImageComponent() {
       </div>
 
       <div className="flex items-center justify-center h-fit py-10">
-        <Image src="/images/cartoonNature.avif" width={1500} height={1000} className="w-[50rem] h-[20rem] rounded-xl" alt="Cartoon Nature Image" />
+        <Image
+          src="/images/cartoonNature.avif"
+          width={1500}
+          height={1000}
+          className="w-[50rem] h-[20rem] rounded-xl"
+          alt="Cartoon Nature Image"
+        />
       </div>
     </>
   );

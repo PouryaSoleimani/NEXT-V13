@@ -2,7 +2,16 @@
 import React from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { Button } from "@/components/ui/button";
-import { Description, Field, Fieldset, Input, Label, Legend, Select, Textarea } from "@headlessui/react";
+import {
+  Description,
+  Field,
+  Fieldset,
+  Input,
+  Label,
+  Legend,
+  Select,
+  Textarea,
+} from "@headlessui/react";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
 import { ChevronDownIcon } from "lucide-react";
@@ -22,9 +31,16 @@ function HeadlessUi() {
         <MenuButton>
           <span>MENU</span>
         </MenuButton>
-        <MenuItems anchor="bottom" className="border p-10 grid grid-cols-2 gap-4 mt-2 rounded-xl bg-zinc-900">
+        <MenuItems
+          anchor="bottom"
+          className="border p-10 grid grid-cols-2 gap-4 mt-2 rounded-xl bg-zinc-900"
+        >
           <MenuItem>
-            <Button variant={"success"} onClick={showSettingsDialog} className="block w-full text-left">
+            <Button
+              variant={"success"}
+              onClick={showSettingsDialog}
+              className="block w-full text-left"
+            >
               Settings
             </Button>
           </MenuItem>
@@ -62,7 +78,9 @@ function HeadlessUi() {
           </Field>
           <Field>
             <Label className="text-sm/6 font-medium text-white">Country</Label>
-            <Description className="text-sm/6 text-white/50">We currently only ship to North America.</Description>
+            <Description className="text-sm/6 text-white/50">
+              We currently only ship to North America.
+            </Description>
             <div className="relative">
               <Select
                 className={clsx(
@@ -76,12 +94,17 @@ function HeadlessUi() {
                 <option>Mexico</option>
                 <option>United States</option>
               </Select>
-              <ChevronDownIcon className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60" aria-hidden="true" />
+              <ChevronDownIcon
+                className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"
+                aria-hidden="true"
+              />
             </div>
           </Field>
           <Field>
             <Label className="text-sm/6 font-medium text-white">Delivery notes</Label>
-            <Description className="text-sm/6 text-white/50">If you have a tiger, we'd like to know about it.</Description>
+            <Description className="text-sm/6 text-white/50">
+              If you have a tiger, we'd like to know about it.
+            </Description>
             <Textarea
               className={clsx(
                 "mt-3 block w-full resize-none rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white",

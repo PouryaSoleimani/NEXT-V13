@@ -3,7 +3,9 @@ import CustomPageButton from "@/components/CustomPageButton";
 import React, { Suspense } from "react";
 
 const DynamicProductPage = async ({ params }: any) => {
-  const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, { cache: "force-cache" });
+  const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, {
+    cache: "force-cache",
+  });
   const product = await req.then((res) => res.json());
 
   return (

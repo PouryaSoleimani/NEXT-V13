@@ -1,33 +1,59 @@
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
-  root: true,
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    project: "./tsconfig.json",
-    tsconfigRootDir: __dirname, // خیلی مهم برای ویندوز
+/* eslint-disable import/no-unresolved */
+import tseslint from "typescript-eslint";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import importPlugin from "eslint-plugin-import";
+import prettier from "eslint-plugin-prettier";
+import nextPlugin from "@next/eslint-plugin-next";
+
+/** @type {import("eslint").Linter.FlatConfig[]} */
+export default [
+  {
+    ignores: ["node_modules", ".next", "out", "dist"],
   },
-  plugins: ["@typescript-eslint", "react", "react-hooks", "jsx-a11y", "import"],
-  extends: [
-    "next/core-web-vitals", // کانفیگ Next.js
-    "plugin:@typescript-eslint/recommended", // قوانین تایپ‌اسکریپت
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "prettier", // اگه Prettier داری
-  ],
-  rules: {
-    // قوانین دلخواه (میتونی تغییر بدی)
-    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    "react/react-in-jsx-scope": "off", // نیازی به import React نیست توی Next.js
-    "react/prop-types": "off", // چون TS داریم
-    "import/order": [
-      "warn",
-      {
-        groups: ["builtin", "external", "internal", ["parent", "sibling", "index"]],
-        "newlines-between": "always",
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: import.meta.dirname, // مهم برای ویندوز
       },
-    ],
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      react,
+      "react-hooks": reactHooks,
+      "jsx-a11y": jsxA11y,
+      import: importPlugin,
+      prettier,
+      "@next/next": nextPlugin,
+    },
+    rules: {
+      ...tseslint.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...jsxA11y.configs.recommended.rules,
+      ...importPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+
+      // قوانین شخصی
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "import/order": [
+        "warn",
+        {
+          groups: ["builtin", "external", "internal", ["parent", "sibling", "index"]],
+          "newlines-between": "always",
+        },
+      ],
+      "prettier/prettier": "warn",
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
   },
-};
+];

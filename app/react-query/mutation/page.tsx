@@ -55,7 +55,10 @@ const Mutation = () => {
         ) : (
           <Card className="w-[90%] grid grid-cols-6 m-3 px-2">
             {data?.map((item: any) => (
-              <h2 key={item.id} className="center mx-auto bg-black place-items-stretch gap-5 px-4 py-2 rounded-lg ">
+              <h2
+                key={item.id}
+                className="center mx-auto bg-black place-items-stretch gap-5 px-4 py-2 rounded-lg "
+              >
                 {item.title} {item.isDone == true ? "✅" : "❌"}
               </h2>
             ))}

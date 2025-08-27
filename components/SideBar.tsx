@@ -36,7 +36,9 @@ export function AppSidebar() {
       <Sidebar className={`${open ? "w-80" : "w-16"} transition-all duration-300 overflow-hidden`}>
         <SidebarContent className="!bg-zinc-900 !text-white h-screen">
           <SidebarGroup>
-            <SidebarGroupLabel className="text-white text-xl my-4 tracking-tighter">{open && "NEXT.JS"}</SidebarGroupLabel>
+            <SidebarGroupLabel className="text-white text-xl my-4 tracking-tighter">
+              {open && "NEXT.JS"}
+            </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {items.map((item) => (

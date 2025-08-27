@@ -3,7 +3,8 @@ import { useQuery, keepPreviousData } from "@tanstack/react-query";
 const useFetchUsers = (page: number) => {
   return useQuery({
     queryKey: ["repoData", page],
-    queryFn: () => fetch(`http://localhost:5000/users?_page=${page}&_per_page=3`).then((res) => res.json()),
+    queryFn: () =>
+      fetch(`http://localhost:5000/users?_page=${page}&_per_page=3`).then((res) => res.json()),
     // staleTime: 5000,
     // refetchOnMount: true,
     // refetchOnWindowFocus: true,

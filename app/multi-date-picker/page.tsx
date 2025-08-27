@@ -15,7 +15,8 @@ function MultiDatePicker() {
     <div className="section flex flex-col gap-10 items-center justify-center">
       <div className="bg-black p-6 rounded-xl shadow">
         <h2 className="my-4 text-center flex items-center gap-2">
-          تاریخ تولد خود را انتخاب کنید <span className="text-yellow-500 text-2xl translate-y-1">* </span>
+          تاریخ تولد خود را انتخاب کنید{" "}
+          <span className="text-yellow-500 text-2xl translate-y-1">* </span>
         </h2>
         <DatePicker
           calendar={persian}
@@ -50,13 +51,22 @@ function MultiDatePicker() {
             return props;
           }}
           renderButton={(direction: any, handleClick: any) => (
-            <button onClick={handleClick} className="text-black hover:bg-yellow-500 rounded-sm mx-2 p-1">
-              {direction === "right" ? <ArrowBigLeft className="size-5" /> : <ArrowBigRight className="size-5" />}
+            <button
+              onClick={handleClick}
+              className="text-black hover:bg-yellow-500 rounded-sm mx-2 p-1"
+            >
+              {direction === "right" ? (
+                <ArrowBigLeft className="size-5" />
+              ) : (
+                <ArrowBigRight className="size-5" />
+              )}
             </button>
           )}
         />
       </div>
-      <p className="bg-black p-3 rounded-xl border-b-4 border-b-yellow-500 tracking-wide text-xl">{value?.toDate?.().toLocaleString("fa-IR")}</p>
+      <p className="bg-black p-3 rounded-xl border-b-4 border-b-yellow-500 tracking-wide text-xl">
+        {value?.toDate?.().toLocaleString("fa-IR")}
+      </p>
     </div>
   );
 }

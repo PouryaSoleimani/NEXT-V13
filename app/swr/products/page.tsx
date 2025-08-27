@@ -1,6 +1,15 @@
 "use client";
 import axios from "axios";
-import { DessertIcon, DollarSign, LoaderCircle, Lock, Mail, Notebook, Phone, ShoppingBag } from "lucide-react";
+import {
+  DessertIcon,
+  DollarSign,
+  LoaderCircle,
+  Lock,
+  Mail,
+  Notebook,
+  Phone,
+  ShoppingBag,
+} from "lucide-react";
 import React from "react";
 import useSWR, { mutate } from "swr";
 import useProductsFetch, { SingleProductType } from "../_hooks/useProductsFetch";
@@ -21,7 +30,9 @@ function ProductsPage() {
 
   return (
     <div className="bg-black p-4 rounded-md my-6 w-[90%] mx-auto shadow">
-      <h1 className="w-full px-4 text-start bg-orange-600/50 text-2xl font-bold border-b-4 border-white  py-4 rounded-md">Posts</h1>
+      <h1 className="w-full px-4 text-start bg-orange-600/50 text-2xl font-bold border-b-4 border-white  py-4 rounded-md">
+        Posts
+      </h1>
       <div className="grid grid-cols-4 p-3">
         {products?.slice(0, 10)?.map((product: SingleProductType) => (
           <div

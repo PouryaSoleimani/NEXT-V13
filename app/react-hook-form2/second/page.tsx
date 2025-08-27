@@ -4,7 +4,15 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import toast from "react-hot-toast";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -17,7 +25,13 @@ import { Calendar, CalendarHijri } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
-const ToastStyles = { fontSize: "12px", fontWeight: 900, backgroundColor: "#2c2c2c", color: "white", border: "1px solid #ccc" };
+const ToastStyles = {
+  fontSize: "12px",
+  fontWeight: 900,
+  backgroundColor: "#2c2c2c",
+  color: "white",
+  border: "1px solid #ccc",
+};
 
 const formSchema = z.object({
   username: z.string().nonempty({ error: "USERNAME IS REQUIRED" }),
@@ -60,7 +74,10 @@ function ReactHookFromSecond() {
     <div className="w-screen max-w-screen h-screen flex flex-col gap-2 items-center justify-center-safe bg-black !overflow-hidden">
       <h2 className="bg-neutral-100 border-2 w-96 p-3 rounded-lg text-center text-black">LOGIN</h2>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(OnSubmit)} className="space-y-8 bg-neutral-900 p-5 rounded-xl border-2 w-96">
+        <form
+          onSubmit={form.handleSubmit(OnSubmit)}
+          className="space-y-8 bg-neutral-900 p-5 rounded-xl border-2 w-96"
+        >
           <FormField
             control={form.control}
             name="username"
@@ -68,7 +85,12 @@ function ReactHookFromSecond() {
               <FormItem>
                 <FormLabel className="font-black">Username</FormLabel>
                 <FormControl>
-                  <Input type="text" className="!bg-black focus:ring" placeholder="Username" {...field} />
+                  <Input
+                    type="text"
+                    className="!bg-black focus:ring"
+                    placeholder="Username"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage role="alert" className="text-xxs text-red-900" />
               </FormItem>
@@ -82,7 +104,12 @@ function ReactHookFromSecond() {
               <FormItem>
                 <FormLabel className="font-black">Password</FormLabel>
                 <FormControl>
-                  <Input type="password" className="!bg-black focus:ring" placeholder="Password" {...field} />
+                  <Input
+                    type="password"
+                    className="!bg-black focus:ring"
+                    placeholder="Password"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage className="text-xxs text-red-900" />
               </FormItem>
@@ -96,7 +123,13 @@ function ReactHookFromSecond() {
               <FormItem>
                 <FormLabel className="font-black">Age</FormLabel>
                 <FormControl>
-                  <Input type="number" className="!bg-black focus:ring" placeholder="Age" {...field} value={field.value ?? ""} />
+                  <Input
+                    type="number"
+                    className="!bg-black focus:ring"
+                    placeholder="Age"
+                    {...field}
+                    value={field.value ?? ""}
+                  />
                 </FormControl>
                 <FormMessage className="text-xxs text-red-900" />
               </FormItem>
@@ -109,13 +142,20 @@ function ReactHookFromSecond() {
             render={({ field }) => (
               <FormItem>
                 <div className="flex gap-2">
-                  <Checkbox checked={!!field.value} onCheckedChange={field.onChange} onBlur={field.onBlur} name={field.name} ref={field.ref} />
+                  <Checkbox
+                    checked={!!field.value}
+                    onCheckedChange={field.onChange}
+                    onBlur={field.onBlur}
+                    name={field.name}
+                    ref={field.ref}
+                  />
                   <FormLabel className="font-black" htmlFor="check">
                     I Accept the Terms and Conditions
                   </FormLabel>
                 </div>
                 <FormDescription className="text-[12px] pl-1">
-                  Please Accept the <span className="text-sky-600">Terms and Conditions</span> To Continue
+                  Please Accept the <span className="text-sky-600">Terms and Conditions</span> To
+                  Continue
                 </FormDescription>
 
                 <FormMessage className="text-xxs text-red-900" />
@@ -133,7 +173,10 @@ function ReactHookFromSecond() {
                     <FormControl>
                       <Button
                         variant={"outline"}
-                        className={cn("w-[240px] pl-3 text-left font-normal font-[VAZIR]", !field.value && "text-muted-foreground")}
+                        className={cn(
+                          "w-[240px] pl-3 text-left font-normal font-[VAZIR]",
+                          !field.value && "text-muted-foreground"
+                        )}
                       >
                         {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
                         <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
@@ -159,7 +202,11 @@ function ReactHookFromSecond() {
           <Button
             type="submit"
             className="block w-full"
-            disabled={!!form.formState.errors.isAccepted || !!form.formState.errors.username || !!form.formState.errors.password}
+            disabled={
+              !!form.formState.errors.isAccepted ||
+              !!form.formState.errors.username ||
+              !!form.formState.errors.password
+            }
           >
             Submit
           </Button>

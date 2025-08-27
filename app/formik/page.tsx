@@ -30,7 +30,12 @@ const FormikPage = () => {
           <Form className="flex flex-col border-4 border-zinc-600 w-fit mx-auto my-16 gap-3 p-10 rounded-xl">
             <Field type="text" name="name" placeholder="name" />
             <Field type="password" name="password" placeholder="password" />
-            <button disabled={isSubmitting} type="submit" onClick={() => console.info(isSubmitting)} className="!bg-emerald-700">
+            <button
+              disabled={isSubmitting}
+              type="submit"
+              onClick={() => console.info(isSubmitting)}
+              className="!bg-emerald-700"
+            >
               {isSubmitting == true ? "LOADING" : "SEND"}
             </button>
           </Form>

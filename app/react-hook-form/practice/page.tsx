@@ -1,7 +1,14 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
@@ -11,7 +18,12 @@ import { useForm, UseControllerProps } from "react-hook-form";
 import toast from "react-hot-toast";
 import z from "zod";
 
-const toastStyles = { backgroundColor: "black", color: "white", border: "4px solid white", fontWeight: "900" };
+const toastStyles = {
+  backgroundColor: "black",
+  color: "white",
+  border: "4px solid white",
+  fontWeight: "900",
+};
 
 const Schema = z.object({
   name: z.string().min(3, { error: "MIN LENGTH IS 3" }).nonempty({ error: "CANT BE EMPTY" }),
@@ -58,7 +70,12 @@ function ReactHookFormPractice(props: UseControllerProps<typeof Schema>) {
                         {showSkeleton ? (
                           <Skeleton className="h-9 w-[11.6rem] border rounded-md" />
                         ) : (
-                          <Input type="text" placeholder="Username" {...field} value={field.value || ""} />
+                          <Input
+                            type="text"
+                            placeholder="Username"
+                            {...field}
+                            value={field.value || ""}
+                          />
                         )}
                       </FormControl>
                       <FormMessage className="text-xxs text-red-900 pl-1 -translate-y-1" />
@@ -77,7 +94,12 @@ function ReactHookFormPractice(props: UseControllerProps<typeof Schema>) {
                       {!field.value && isEdit ? (
                         <Skeleton className="h-9 w-[11.6rem] border rounded-md" />
                       ) : (
-                        <Input type="text" placeholder="Password" {...field} value={field.value || ""} />
+                        <Input
+                          type="text"
+                          placeholder="Password"
+                          {...field}
+                          value={field.value || ""}
+                        />
                       )}
                     </FormControl>
                     <FormMessage className="text-xxs text-red-900 pl-1 -translate-y-1" />

@@ -1,7 +1,13 @@
 // app/error.tsx
 "use client";
 
-export default function ErrorBoundary({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function ErrorBoundary({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   console.log("🟥🟥🟥 ERROR", error);
 
   return (

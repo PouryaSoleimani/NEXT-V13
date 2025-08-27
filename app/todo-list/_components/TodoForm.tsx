@@ -27,18 +27,34 @@ const TodoForm = () => {
           onChange={(e) => setInputValue(e.target.value)}
           className="py-6 rounded-lg w-5/6 outline-none font-bold border-2 border-zinc-900 bg-black text-white"
         />
-        <Button type="submit" size={"lg"} className="text-xl p-6 px-10 w-1/6 font-semibold bg-zinc-950 hover:bg-black hover:border">
+        <Button
+          type="submit"
+          size={"lg"}
+          className="text-xl p-6 px-10 w-1/6 font-semibold bg-zinc-950 hover:bg-black hover:border"
+        >
           Add
         </Button>
       </form>
       <div className="flex flex-col xl:flex-row gap-3 items-center">
-        <Button className="mt-4 w-full xl:basis-1/3 font-semibold text-xl pb-3" variant={"destructive"} onClick={() => removeAllTodos()}>
+        <Button
+          className="mt-4 w-full xl:basis-1/3 font-semibold text-xl pb-3"
+          variant={"destructive"}
+          onClick={() => removeAllTodos()}
+        >
           Delete All Todos
         </Button>
-        <Button className="mt-4 w-full xl:basis-1/3 font-semibold text-xl pb-3" variant={"secondary"} onClick={() => toggleAllTodosComplete()}>
+        <Button
+          className="mt-4 w-full xl:basis-1/3 font-semibold text-xl pb-3"
+          variant={"secondary"}
+          onClick={() => toggleAllTodosComplete()}
+        >
           Complete All Todos
         </Button>
-        <Button className="mt-4 w-full xl:basis-1/3 font-semibold text-xl pb-3" variant={"blue"} onClick={() => makeRandomTodo()}>
+        <Button
+          className="mt-4 w-full xl:basis-1/3 font-semibold text-xl pb-3"
+          variant={"blue"}
+          onClick={() => makeRandomTodo()}
+        >
           Make a Random Toto
         </Button>
       </div>

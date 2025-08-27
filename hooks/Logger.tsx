@@ -3,7 +3,15 @@ function Logger(text: string, type: "log" | "info" | "error" | "success" | "warn
     `%c ${text} `,
     `
 background-color : ${
-      type === "log" ? "white" : type === "info" ? "cornflowerblue" : type === "warning" ? "#ffdd00" : type === "error" ? "#c10007" : "#497d00"
+      type === "log"
+        ? "white"
+        : type === "info"
+          ? "cornflowerblue"
+          : type === "warning"
+            ? "#ffdd00"
+            : type === "error"
+              ? "#c10007"
+              : "#497d00"
     } ;
     font-weight : 900;
     font-size : 12px;

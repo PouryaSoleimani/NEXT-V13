@@ -21,7 +21,10 @@ const InfiniteLoading = () => {
       <button onClick={() => setIndex(index + 1)} className="btn m-10">
         Load More
       </button>
-      <Link href={"/swr/swr-advanced.tsx"} className="underline hover:text-blue-600 transition-all duration-300">
+      <Link
+        href={"/swr/swr-advanced.tsx"}
+        className="underline hover:text-blue-600 transition-all duration-300"
+      >
         ADVANCED PAGE
       </Link>
     </div>

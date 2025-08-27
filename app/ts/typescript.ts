@@ -182,7 +182,12 @@ interface SimpleCarInterface {
   passengers: number;
 }
 interface CarInterface {
-  basicInfo: { model: string; color: string; brand: string; vehicleType: "SUV" | "SEDAN" | "SPORT" };
+  basicInfo: {
+    model: string;
+    color: string;
+    brand: string;
+    vehicleType: "SUV" | "SEDAN" | "SPORT";
+  };
   powerInfos: { hp: number; type: "RWD" | "FWD" | "AWD"; cylinderCount: 4 | 6 | 8 };
   optionsInfos: { isCoupe: boolean; isConvertible: boolean; doorsCount: 2 | 4 };
 }
@@ -195,7 +200,11 @@ export const newCar2: CarInterface = {
 
 interface KeyboardInterface {
   basicInfos: { name: string; size: "MINI" | "MEDIUM" | "FULL-SIZE"; color: "BLACK" | "WHITE" };
-  additionalOptions: { hasRGB: boolean; isMechanical: boolean; switchColor: "RED" | "BLUE" | "BROWN" };
+  additionalOptions: {
+    hasRGB: boolean;
+    isMechanical: boolean;
+    switchColor: "RED" | "BLUE" | "BROWN";
+  };
 }
 export const newKeyboard: KeyboardInterface = {
   basicInfos: { name: "RAZER", color: "BLACK", size: "MINI" },
@@ -325,7 +334,9 @@ async function fetchData<T>(url: string) {
   return res;
 }
 
-export const fetchResult: UserData = await fetchData<UserData>("https://jsonplaceholder.typicode.com/users/1");
+export const fetchResult: UserData = await fetchData<UserData>(
+  "https://jsonplaceholder.typicode.com/users/1"
+);
 
 // GENERICS vs UNION TYPES
 class List<T extends number | string> {

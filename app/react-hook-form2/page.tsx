@@ -2,13 +2,29 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 type Inputs = { email: string; password: string };
 
@@ -37,7 +53,15 @@ function ReactHookFormPage() {
       `LOGIN INFO  
       email : ${data.email}
       Password :$${data.password}`,
-      { style: { fontWeight: "bold", fontSize: "11px", border: "5px solid cornflowerblue", padding: "5px", whiteSpace: "pre-line" } }
+      {
+        style: {
+          fontWeight: "bold",
+          fontSize: "11px",
+          border: "5px solid cornflowerblue",
+          padding: "5px",
+          whiteSpace: "pre-line",
+        },
+      }
     );
   };
 
@@ -75,12 +99,19 @@ function ReactHookFormPage() {
                     )}
                   />
                   {<p className="pl-1 text-xss">{emailData}</p>}
-                  {form.formState.errors.email && <p className="text-red-800 text-xs pl-1">{form.formState.errors.root?.message}</p>}
+                  {form.formState.errors.email && (
+                    <p className="text-red-800 text-xs pl-1">
+                      {form.formState.errors.root?.message}
+                    </p>
+                  )}
                 </div>
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline">
+                    <a
+                      href="#"
+                      className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                    >
                       Forgot your password?
                     </a>
                   </div>
@@ -89,10 +120,15 @@ function ReactHookFormPage() {
                     type="password"
                     {...form.register("password", {
                       required: { value: true, message: "Password is required" },
-                      validate: (value) => value.length >= 6 || "Password must be at least 6 characters long",
+                      validate: (value) =>
+                        value.length >= 6 || "Password must be at least 6 characters long",
                     })}
                   />
-                  {form.formState.errors.password && <p className="text-red-800 text-xs pl-1">{form.formState.errors.password.message}</p>}
+                  {form.formState.errors.password && (
+                    <p className="text-red-800 text-xs pl-1">
+                      {form.formState.errors.password.message}
+                    </p>
+                  )}
                 </div>
               </div>
             </CardContent>
@@ -101,7 +137,10 @@ function ReactHookFormPage() {
               <Button
                 type="submit"
                 className="w-full mt-5"
-                disabled={!!form.formState.errors.email?.message && !!form.formState.errors.password?.message}
+                disabled={
+                  !!form.formState.errors.email?.message &&
+                  !!form.formState.errors.password?.message
+                }
               >
                 Login
               </Button>
