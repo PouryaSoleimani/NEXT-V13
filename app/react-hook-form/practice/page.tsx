@@ -1,23 +1,14 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
-import { useForm, UseControllerProps } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import z from "zod";
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
 
 const toastStyles = {
   backgroundColor: "black",
@@ -31,10 +22,10 @@ const Schema = z.object({
   password: z.string().min(3, { error: "MIN LENGTH IS 3" }),
 });
 
-function ReactHookFormPractice(props: UseControllerProps<typeof Schema>) {
+function ReactHookFormPractice() {
   const [isEdit, setIsEdit] = useState(false);
 
-  const form = useForm<z.infer<typeof Schema>>({
+  const form = useForm({
     resolver: zodResolver(Schema),
     defaultValues: async () => {
       const req = await fetch("https://jsonplaceholder.typicode.com/users/1");
@@ -62,7 +53,7 @@ function ReactHookFormPractice(props: UseControllerProps<typeof Schema>) {
               <FormField
                 control={form?.control}
                 name="name"
-                render={({ field, fieldState }: { field: any; fieldState: any }) => {
+                render={({ field }: { field: any; fieldState: any }) => {
                   const showSkeleton = !field.value && isEdit;
                   return (
                     <FormItem>
@@ -71,12 +62,7 @@ function ReactHookFormPractice(props: UseControllerProps<typeof Schema>) {
                         {showSkeleton ? (
                           <Skeleton className="h-9 w-[11.6rem] border rounded-md" />
                         ) : (
-                          <Input
-                            type="text"
-                            placeholder="Username"
-                            {...field}
-                            value={field.value || ""}
-                          />
+                          <Input type="text" placeholder="Username" {...field} value={field.value || ""} />
                         )}
                       </FormControl>
                       <FormMessage className="text-xxs text-red-900 pl-1 -translate-y-1" />
@@ -88,29 +74,21 @@ function ReactHookFormPractice(props: UseControllerProps<typeof Schema>) {
               <FormField
                 control={form?.control}
                 name="password"
-                render={({ field, fieldState }: { field: any; fieldState: any }) => (
+                render={({ field }: { field: any; fieldState: any }) => (
                   <FormItem>
                     <FormLabel className="font-semibold font-mono m-0 pl-1">Password</FormLabel>
                     <FormControl>
                       {!field.value && isEdit ? (
                         <Skeleton className="h-9 w-[11.6rem] border rounded-md" />
                       ) : (
-                        <Input
-                          type="text"
-                          placeholder="Password"
-                          {...field}
-                          value={field.value || ""}
-                        />
+                        <Input type="text" placeholder="Password" {...field} value={field.value || ""} />
                       )}
                     </FormControl>
                     <FormMessage className="text-xxs text-red-900 pl-1 -translate-y-1" />
                   </FormItem>
                 )}
               />
-
-              <Button className="mt-3" type="submit">
-                SUBMIT
-              </Button>
+              <Button className="mt-3" type="submit"> SUBMIT </Button>
             </form>
           </Form>
         </CardContent>
