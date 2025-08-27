@@ -1,18 +1,8 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 
-import {
-  LoginFunction,
-  newKeyboard,
-  newSimpleCar,
-  ReturnProductStatus,
-  listResult,
-  fetchResult,
-  _ApiResponse,
-  newCar2,
-} from "./typescript";
-
-import Logger from "@/hooks/Logger";
+import { LoginFunction, _ApiResponse } from "./typescript";
 
 const TsTrainingPage = () => {
   // console.info('RESULT =>', listResult)
@@ -114,7 +104,7 @@ const TsTrainingPage = () => {
       <h1 className="text-4xl font-bold bg-blue-700 py-5 text-center w-fit px-4 rounded-lg mx-auto my-5 border-b-4 border-white">
         TypeScript Training
       </h1>
-      <a href="/about"></a>
+      <Link href="/about"></Link>
     </div>
   );
 };

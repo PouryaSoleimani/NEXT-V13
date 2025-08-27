@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -42,8 +41,8 @@ export default [
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
       "no-unused-vars": "off",
+      "import/no-unresolved": "off",
       "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/import/no-unresolved": "off",
       "import/order": [
         "warn",
         {

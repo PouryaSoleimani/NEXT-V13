@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 "use client";
 
 import * as React from "react";

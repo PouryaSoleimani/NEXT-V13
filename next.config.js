@@ -4,6 +4,6 @@ const withPWA = require("next-pwa")({
   skipWaiting: true,
 });
 
-module.exports = withPWA({
+export default withPWA({
   reactStrictMode: true,
 });
