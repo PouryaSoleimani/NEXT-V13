@@ -1,8 +1,7 @@
 //* FORM PAGE IN SERVER COMPONENT
 import React from "react";
-type FormProps = { id: number; name: string; username: string };
 
-const Form = (response: FormProps) => {
+const Form = (response: any) => {
   return (
     <div className="text-xl p-2 font-semibold ">
       <h1>

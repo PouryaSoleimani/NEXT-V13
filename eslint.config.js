@@ -53,4 +53,13 @@ export default [
       },
     },
   },
+  {
+    files: ["next.config.js", "*.config.js", "*.config.ts"], // فایل‌های config
+    languageOptions: {
+      parser: require("@typescript-eslint/parser"), // بدون project
+    },
+    rules: {
+      "import/no-unresolved": "off",
+    },
+  },
 ];
