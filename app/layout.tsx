@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Rajdhani } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import { cookies } from "next/headers";
+import { ReactElement } from "react";
+
 import { Header } from "@/components/Header";
 import { NavigationMenu } from "@/components/ui/navigation-menu";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/SideBar";
-import { cookies } from "next/headers";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { ReactElement } from "react";
 
 // FONTS
 const rajdhani = Rajdhani({ weight: ["400", "700"], style: ["normal"], subsets: ["latin"] });

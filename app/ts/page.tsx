@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+
 import {
   LoginFunction,
   newKeyboard,
@@ -7,12 +8,11 @@ import {
   ReturnProductStatus,
   listResult,
   fetchResult,
+  _ApiResponse,
+  newCar2,
 } from "./typescript";
+
 import Logger from "@/hooks/Logger";
-import { _ApiResponse } from "./typescript";
-import "./typescript";
-import { newCar2 } from "./typescript";
-import "./typescript";
 
 const TsTrainingPage = () => {
   // console.info('RESULT =>', listResult)

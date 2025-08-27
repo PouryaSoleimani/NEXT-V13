@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import useTodoStore from "@/app/zustand-training/useTodoStore";
 import { toast } from "react-hot-toast";
+
+import useTodoStore from "@/app/zustand-training/useTodoStore";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 

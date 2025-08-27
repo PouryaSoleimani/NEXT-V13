@@ -1,7 +1,8 @@
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import React from "react";
 import { useFormContext } from "react-hook-form";
+
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 export default function PasswordInput() {
   const { register, formState, watch } = useFormContext();

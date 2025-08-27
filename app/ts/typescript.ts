@@ -1,5 +1,6 @@
-import axios from "axios";
 import { url } from "inspector";
+
+import axios from "axios";
 import { Type } from "lucide-react";
 
 // TUPLE TYPE

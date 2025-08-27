@@ -1,4 +1,5 @@
 import React from "react";
+
 import { AllTypes } from "./Translate.types";
 
 const Translate = ({ toTranslate }: AllTypes) => {

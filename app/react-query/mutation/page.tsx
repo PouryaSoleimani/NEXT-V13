@@ -1,10 +1,11 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { SquareCheckBig } from "lucide-react";
 import React from "react";
+
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Mutation = () => {
   const newTodo = { title: "LEARN NEST___JS", isDone: false };

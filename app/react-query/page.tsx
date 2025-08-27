@@ -1,9 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, LoaderCircle } from "lucide-react";
 import { BiError } from "react-icons/bi";
+import toast from "react-hot-toast";
+
 import useFetchUsers from "./_hooks/useFetchUsers";
+
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   Pagination,
@@ -12,7 +15,6 @@ import {
   PaginationItem,
 } from "@/components/ui/pagination";
 import { Badge } from "@/components/ui/badge";
-import toast from "react-hot-toast";
 
 const ReactQuery = () => {
   const [page, setPage] = useState(1);

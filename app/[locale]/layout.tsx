@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+
 import { I18nProviderClient } from "@/locales/client";
 type localType = "en" | "fa" | "ar";
 

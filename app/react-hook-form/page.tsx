@@ -1,4 +1,10 @@
+import { register } from "module";
+
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +17,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -21,9 +26,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { z } from "zod";
-import { register } from "module";
-import { useForm } from "react-hook-form";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Username must be at least 2 characters." }),

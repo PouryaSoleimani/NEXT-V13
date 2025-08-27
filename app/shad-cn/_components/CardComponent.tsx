@@ -1,3 +1,8 @@
+import { ShoppingBasket, Truck } from "lucide-react";
+import Image from "next/image";
+import toast from "react-hot-toast";
+import { HiCash } from "react-icons/hi";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,9 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ShoppingBasket, Truck } from "lucide-react";
-import Image from "next/image";
-import toast from "react-hot-toast";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -23,7 +25,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
-import { HiCash } from "react-icons/hi";
 
 export default function CardComponent() {
   function buyHandler() {

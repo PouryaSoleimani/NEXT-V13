@@ -1,5 +1,6 @@
 //^ SERVER COMPONENT
 import React from "react";
+
 import Form from "./form/page";
 
 type FormProps = { id: number; name: string; username: string };

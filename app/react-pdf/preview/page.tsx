@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
 import { Document, Page, Text, View, Font, Image } from "@react-pdf/renderer";
-import { Texts } from "../data/db"; // FAKE DB
-import { styles } from "./../styles/styles";
 import axios from "axios";
 import useSWR from "swr";
+
+import { Texts } from "../data/db"; // FAKE DB
+import { styles } from "./../styles/styles";
 
 type SingleProductType = { id: number; title: string; price: number; category: string };
 

@@ -1,11 +1,11 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import useSWR from "swr";
-import { mutate } from "swr";
+import useSWR, { mutate } from "swr";
+
+import { cn } from "@/lib/utils";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 function Users() {
   const _fetcher = () => axios.get("http://localhost:5000/jojos/all").then((res) => res.data);
 

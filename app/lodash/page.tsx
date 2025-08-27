@@ -1,8 +1,9 @@
 import React from "react";
 import * as _ from "lodash";
 import { StarIcon } from "lucide-react";
-import { array, users, products, falsyIncludedArray, array2, unpulledArray } from "./db";
 import { take } from "lodash";
+
+import { array, users, products, falsyIncludedArray, array2, unpulledArray } from "./db";
 
 // COMPONENT ===============================================================================================================================================================================================================
 function LodashPage() {

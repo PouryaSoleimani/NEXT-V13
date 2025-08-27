@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
+
 import useData from "../_hooks/useData";
+
 import { Card } from "@/components/ui/card";
 
 function AllDatas() {

@@ -1,14 +1,16 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import React, { useEffect } from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import CustomInput from "./_components/CustomInput";
 import EmailInput from "./_components/EmailInput";
 import PasswordInput from "./_components/PasswordInput";
-import z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const schema = z.object({
   name: z.string(),

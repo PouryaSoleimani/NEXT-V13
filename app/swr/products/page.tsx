@@ -12,8 +12,9 @@ import {
 } from "lucide-react";
 import React from "react";
 import useSWR, { mutate } from "swr";
-import useProductsFetch, { SingleProductType } from "../_hooks/useProductsFetch";
 import { BiBasket, BiCategory } from "react-icons/bi";
+
+import useProductsFetch, { SingleProductType } from "../_hooks/useProductsFetch";
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 

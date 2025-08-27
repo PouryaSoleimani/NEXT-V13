@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Calendar, Home, Inbox, Search, Settings, Menu } from "lucide-react";
 import Link from "next/link";
+
 import {
   Sidebar,
   SidebarContent,

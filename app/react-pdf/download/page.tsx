@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { PDFViewer } from "@react-pdf/renderer";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import PdfPreview from "../preview/page";
+import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import { HiDocumentDownload } from "react-icons/hi";
+
+import PdfPreview from "../preview/page";
 
 // COMPONENT =======================================================================================================================
 function PdfDownloadPage() {

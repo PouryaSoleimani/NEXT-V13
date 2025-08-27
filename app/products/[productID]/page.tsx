@@ -1,6 +1,7 @@
+import React, { Suspense } from "react";
+
 import BackButton from "@/components/BackButton";
 import CustomPageButton from "@/components/CustomPageButton";
-import React, { Suspense } from "react";
 
 const DynamicProductPage = async ({ params }: any) => {
   const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, {

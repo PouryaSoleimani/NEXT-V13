@@ -11,6 +11,11 @@ import {
   LogInIcon,
   User2,
 } from "lucide-react";
+import { HiBackspace } from "react-icons/hi";
+import Image from "next/image";
+
+import { SidebarTrigger } from "./ui/sidebar";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -20,9 +25,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { HiBackspace } from "react-icons/hi";
-import Image from "next/image";
-import { SidebarTrigger } from "./ui/sidebar";
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Alert Dialog",

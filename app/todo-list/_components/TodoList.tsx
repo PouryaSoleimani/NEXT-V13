@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
-import Todo from "./Todo";
-import useTodoStore from "@/app/zustand-training/useTodoStore";
 import { Check, ClipboardPlus } from "lucide-react";
+
+import Todo from "./Todo";
+
+import useTodoStore from "@/app/zustand-training/useTodoStore";
 
 const TodoList = () => {
   const { todos } = useTodoStore();

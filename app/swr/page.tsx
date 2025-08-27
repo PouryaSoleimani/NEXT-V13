@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import useFetchUsers, { SingleUserType } from "./_hooks/useFetchUsers";
 import { LoaderCircle, Lock, Mail, Phone, User } from "lucide-react";
+
+import useFetchUsers, { SingleUserType } from "./_hooks/useFetchUsers";
 function SwrPage() {
   const { data: users, error, isLoading } = useFetchUsers();
 

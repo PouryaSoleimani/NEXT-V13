@@ -1,6 +1,7 @@
 "use client";
-import useCounterStore from "@/zustand/store";
 import React from "react";
+
+import useCounterStore from "@/zustand/store";
 
 const ZustandPage2 = () => {
   const { count } = useCounterStore() as any;

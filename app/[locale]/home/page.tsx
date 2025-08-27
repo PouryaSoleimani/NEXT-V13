@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
-import { useI18n, useScopedI18n, useChangeLocale } from "@/locales/client";
+
 import Header from "../_components/Header";
+
+import { useI18n, useScopedI18n, useChangeLocale } from "@/locales/client";
 
 function NextInternationalPage() {
   const t = useI18n();

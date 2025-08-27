@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
 import { BiTrash } from "react-icons/bi";
-import { TodoType } from "../types/Todos.types";
-import useTodoStore from "@/app/zustand-training/useTodoStore";
 import toast from "react-hot-toast";
+
+import { TodoType } from "../types/Todos.types";
+
+import useTodoStore from "@/app/zustand-training/useTodoStore";
 
 const Todo = ({ id, text, completed }: TodoType) => {
   const { removeTodo, toggleCompleted } = useTodoStore();

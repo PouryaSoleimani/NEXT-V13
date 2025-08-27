@@ -1,4 +1,7 @@
 import React from "react";
+import Link from "next/link";
+import { Home, Menu } from "lucide-react";
+
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -14,8 +17,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Link from "next/link";
-import { Home, Menu } from "lucide-react";
 
 const BreadCrumbComponent = () => {
   return (

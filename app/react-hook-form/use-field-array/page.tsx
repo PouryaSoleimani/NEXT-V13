@@ -1,10 +1,11 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Trash } from "lucide-react";
 import React from "react";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 const toastStyles: React.CSSProperties = { fontWeight: "bold", border: "6px solid #fabb14" };
 
 function UseFieldArrayPage() {

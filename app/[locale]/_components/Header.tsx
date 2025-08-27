@@ -1,6 +1,7 @@
-import { useChangeLocale } from "@/locales/client";
 import Image from "next/image";
 import React from "react";
+
+import { useChangeLocale } from "@/locales/client";
 
 function Header() {
   const changeLocale = useChangeLocale();

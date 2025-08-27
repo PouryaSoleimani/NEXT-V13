@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+
 import { SonPropsType } from "./Father";
 
 const Son: React.FC<SonPropsType> = ({ title, availables, isBlack, theme }) => {

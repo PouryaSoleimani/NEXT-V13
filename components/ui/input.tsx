@@ -1,7 +1,7 @@
 import * as React from "react";
+import { useController } from "react-hook-form";
 
 import { cn } from "@/lib/utils";
-import { useController } from "react-hook-form";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (

@@ -1,4 +1,7 @@
 import React from "react";
+import toast from "react-hot-toast";
+import Image from "next/image";
+
 import {
   Card,
   CardContent,
@@ -10,9 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 function TabsComponent() {
   return (

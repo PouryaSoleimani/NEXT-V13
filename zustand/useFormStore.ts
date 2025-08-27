@@ -5,7 +5,7 @@ type useFormStoreType = {
   addDatas: (state: [], datas: {} | []) => void;
 };
 
-const useFormStore = create()(
+export const useFormStore = create()(
   persist(
     (_set) => ({
       datas: [],
@@ -15,7 +15,7 @@ const useFormStore = create()(
     }),
     {
       name: "___FORM_STORE",
-      storage: () => createJSONStorage(localStorage),
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );

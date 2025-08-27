@@ -1,7 +1,8 @@
 "use client";
-import { Card } from "@/components/ui/card";
 import React from "react";
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
+
+import { Card } from "@/components/ui/card";
 const RechartsPage = () => {
   const data = [
     { year: "2016", angular: "24", vue: "32", react: "37" },

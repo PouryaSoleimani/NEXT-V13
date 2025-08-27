@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import { Page, Text, View, Document, PDFViewer, Font, Image } from "@react-pdf/renderer";
-import { _styles } from "./styles";
 import axios from "axios";
 import useSWR from "swr";
 import _ from "lodash";
+
+import { _styles } from "./styles";
 
 // FONT
 Font.register({ family: "vazir", src: "/fonts/Vazir-Bold-UI.ttf", fontWeight: 700 });

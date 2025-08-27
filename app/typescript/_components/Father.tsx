@@ -1,4 +1,5 @@
 import React from "react";
+
 import Son from "./Son";
 import { SonsProps } from "../fakeDatas";
 export interface SonPropsType {

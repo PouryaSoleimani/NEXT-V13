@@ -1,7 +1,8 @@
 import React from "react";
 import * as __ from "remeda";
-import { products, users } from "../lodash/db";
 import { indexOf } from "lodash";
+
+import { products, users } from "../lodash/db";
 
 function Remeda() {
   const sorted = __.sort(products, (item) => item.price).reverse();

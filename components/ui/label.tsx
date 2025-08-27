@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 "use client";
 
 import * as React from "react";

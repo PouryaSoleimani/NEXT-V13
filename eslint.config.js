@@ -41,6 +41,9 @@ export default [
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/import/no-unresolved": "off",
       "import/order": [
         "warn",
         {

@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import PageComponent from "./Page.";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+
+import PageComponent from "./Page.";
 
 const InfiniteLoading = () => {
   const [index, setIndex] = useState(1);
