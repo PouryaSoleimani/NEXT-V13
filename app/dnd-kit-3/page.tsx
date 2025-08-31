@@ -51,7 +51,10 @@ const DndKit3Page = () => {
   );
   return (
     <DndContext collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
-      <div className="flex items-center justify-center screen">
+      <div className="flex flex-col gap-3 items-center justify-start pt-[10%] screen">
+        <h2 className="text-2xl bg-white text-black w-[300px] py-2 rounded-md text-center">
+          TODOS
+        </h2>
         <ColumnComponent tasks={tasks} />
       </div>
     </DndContext>
