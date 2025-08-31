@@ -22,15 +22,21 @@ function DndKit2Page() {
 
 
   function handleDragEnd(event: any) {
+
     const { active, over } = event;
+
     if (active.id === over.id) return;
+
     const originalPos = getTaskPosition(active.id);
     const newPos = getTaskPosition(over.id);
+
     setTasks((tasks: { id: number; title: string }[]) => {
       return arrayMove(tasks, originalPos, newPos);
     });
+
     Logger('POSITION', 'info', newPos + 1)
     Logger('ID', 'log', active.id)
+
   }
 
   const sensors = useSensors(
@@ -42,7 +48,7 @@ function DndKit2Page() {
   );
 
   return (
-    <div className="screen flex-col gap-3  center p-3 bg-neutral-800">
+    <div className="screen flex-col gap-3 center p-3 bg-stone-400">
       <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <CustomInput onSubmit={addTask} />
         <Column tasks={tasks} />

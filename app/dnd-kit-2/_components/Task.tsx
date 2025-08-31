@@ -12,7 +12,7 @@ function Task({ id, title }: { id: number, title: string }) {
   }
   return (
     <>
-      <div style={style} ref={setNodeRef} {...attributes} {...listeners} className='bg-black shadow-xs shadow-neutral-600 text-lg p-3 rounded-md flex items-center gap-3 cursor-pointer touch-none hover:bg-neutral-700 '>
+      <div style={style} ref={setNodeRef} {...attributes} {...listeners} className='bg-white text-black font-mono font-black tracking-tight shadow-xs shadow-neutral-600 text-lg p-3 rounded-md flex items-center gap-3 cursor-pointer touch-none hover:border-2 '>
         {title}
       </div>
     </>
