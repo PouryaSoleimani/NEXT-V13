@@ -20,4 +20,4 @@ function DndKit2Page() {
   )
 }
 
-export default DndKit2Page
+export default DndKit2Page  
