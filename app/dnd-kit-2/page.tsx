@@ -20,7 +20,6 @@ function DndKit2Page() {
     setTasks(tasks => [...tasks, { id: tasks.length + 1, title }])
   }
 
-
   function handleDragEnd(event: any) {
 
     const { active, over } = event;
@@ -51,7 +50,7 @@ function DndKit2Page() {
     <div className="screen flex-col gap-3 center p-3 bg-stone-400">
       <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <CustomInput onSubmit={addTask} />
-        <Column tasks={tasks} />
+        <Column tasks={tasks}  />
       </DndContext>
     </div>
   );
