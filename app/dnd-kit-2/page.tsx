@@ -4,6 +4,7 @@ import { closestCenter, closestCorners, DndContext, KeyboardSensor, PointerSenso
 import Column from "./_components/Column";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import CustomInput from "./_components/Input";
+import Logger from "@/hooks/Logger";
 
 function DndKit2Page() {
 
@@ -23,11 +24,13 @@ function DndKit2Page() {
   function handleDragEnd(event: any) {
     const { active, over } = event;
     if (active.id === over.id) return;
+    const originalPos = getTaskPosition(active.id);
+    const newPos = getTaskPosition(over.id);
     setTasks((tasks: { id: number; title: string }[]) => {
-      const originalPos = getTaskPosition(active.id);
-      const newPos = getTaskPosition(over.id);
       return arrayMove(tasks, originalPos, newPos);
     });
+    Logger('POSITION', 'info', newPos + 1)
+    Logger('ID', 'log', active.id)
   }
 
   const sensors = useSensors(
