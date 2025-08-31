@@ -13,7 +13,7 @@ const Task = ({ id, title, icon }: { id: number; title: string; icon: string }) 
 
   return (
     <div
-      className="text-black group flex items-center justify-between bg-white my-2 p-3 rounded-md shadow-sm shadow-stone-400 hover:shadow-md cursor-pointer hover:cursor-grab touch-none"
+      className="text-black group flex items-center justify-between bg-white my-2 p-3 rounded-md shadow-sm shadow-stone-400 hover:shadow-md cursor-n-resize touch-none"
       style={style}
       ref={setNodeRef}
       {...attributes}
