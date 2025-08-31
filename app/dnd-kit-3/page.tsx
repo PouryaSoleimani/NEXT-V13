@@ -50,7 +50,7 @@ const DndKit3Page = () => {
     })
   );
   return (
-    <DndContext collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
+    <DndContext sensors={sensors} collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
       <div className="flex flex-col gap-3 items-center justify-start pt-[10%] screen">
         <h2 className="text-2xl font-black bg-white text-black w-[320px] p-4 rounded-md text-center">
           TODOS
