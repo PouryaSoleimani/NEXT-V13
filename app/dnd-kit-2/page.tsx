@@ -39,7 +39,7 @@ function DndKit2Page() {
   );
 
   return (
-    <div className="screen center p-3 bg-neutral-950">
+    <div className="screen flex-col gap-3  center p-3 bg-neutral-800">
       <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <CustomInput onSubmit={addTask} />
         <Column tasks={tasks} />

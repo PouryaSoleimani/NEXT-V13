@@ -12,7 +12,7 @@ function Task({ id, title }: { id: number, title: string }) {
   }
   return (
     <>
-      <div style={style} ref={setNodeRef} {...attributes} {...listeners} className='bg-neutral-900 text-lg p-3 rounded-md shadow-sm flex items-center gap-3 cursor-pointer touch-none hover:bg-neutral-700 duration-200'>
+      <div style={style} ref={setNodeRef} {...attributes} {...listeners} className='bg-black text-lg p-3 rounded-md shadow-sm flex items-center gap-3 cursor-pointer touch-none hover:bg-neutral-700 duration-200'>
         <input className='size-5 rounded-full accent-emerald-500' type="checkbox" />
         {title}
       </div>
