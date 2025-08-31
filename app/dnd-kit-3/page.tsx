@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import ColumnComponent from './_components/Column'
 
 const DndKit3Page = () => {
+
   const [tasks, setTasks] = useState([
     { id: 1, title: 'LEARN JS' },
     { id: 2, title: 'LEARN TS' },

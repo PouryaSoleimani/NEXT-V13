@@ -1,13 +1,21 @@
 "use client";
 import React, { useState } from "react";
-import { closestCenter, closestCorners, DndContext, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors, } from "@dnd-kit/core";
+import {
+  closestCenter,
+  closestCorners,
+  DndContext,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import Column from "./_components/Column";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import CustomInput from "./_components/Input";
 import Logger from "@/hooks/Logger";
 
 function DndKit2Page() {
-
   const [tasks, setTasks] = useState([
     { id: 1, title: "Go to Gym" },
     { id: 2, title: "Shopping Grocceries" },
@@ -17,11 +25,10 @@ function DndKit2Page() {
   const getTaskPosition = (id: any) => tasks.findIndex((task) => task.id === id);
 
   function addTask(title: string) {
-    setTasks(tasks => [...tasks, { id: tasks.length + 1, title }])
+    setTasks((tasks) => [...tasks, { id: tasks.length + 1, title }]);
   }
 
   function handleDragEnd(event: any) {
-
     const { active, over } = event;
 
     if (active.id === over.id) return;
@@ -33,9 +40,8 @@ function DndKit2Page() {
       return arrayMove(tasks, originalPos, newPos);
     });
 
-    Logger('POSITION', 'info', newPos + 1)
-    Logger('ID', 'log', active.id)
-
+    Logger("POSITION", "info", newPos + 1);
+    Logger("ID", "log", active.id);
   }
 
   const sensors = useSensors(
