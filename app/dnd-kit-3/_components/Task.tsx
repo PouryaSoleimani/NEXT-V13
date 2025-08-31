@@ -2,7 +2,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import React from "react";
 
-const Task = ({ id, title }: { id: number; title: string }) => {
+const Task = ({ id, title, icon }: { id: number; title: string; icon: string }) => {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   const style = {
@@ -18,7 +18,7 @@ const Task = ({ id, title }: { id: number; title: string }) => {
       {...attributes}
       {...listeners}
     >
-      {title}
+      {icon} {title}
     </div>
   );
 };
