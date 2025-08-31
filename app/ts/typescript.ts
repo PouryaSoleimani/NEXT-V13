@@ -71,7 +71,7 @@ class Person {
   constructor(
     public name: string,
     public age: number
-  ) {}
+  ) { }
 
   setAge(age: number) {
     this.age = age;
@@ -84,7 +84,7 @@ class PersonExtended {
   constructor(
     private password: string,
     readonly username: string
-  ) {}
+  ) { }
   get getPassword() {
     return this.password;
   }
@@ -124,7 +124,7 @@ export const _ApiResponse: ApiResponseInterface = {
 };
 
 class CarClass {
-  constructor(public name: string) {}
+  constructor(public name: string) { }
   drive() {
     console.info("RUN");
   }
@@ -223,7 +223,7 @@ class CarClass2 implements SimpleCarInterface {
     public type: string,
     public color: string,
     public passengers: number
-  ) {}
+  ) { }
 }
 
 export const newSimpleCar = new CarClass2("BENZ", "C350", "SEDAN", "BLACK", 4);
@@ -342,7 +342,7 @@ class List<T extends number | string> {
   constructor(
     public name: string,
     public age: number
-  ) {}
+  ) { }
   setItems(newItem: T) {
     this.Items.push(newItem);
   }
