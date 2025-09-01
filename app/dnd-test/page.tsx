@@ -1,3 +1,4 @@
+//^ DND__TEST__PAGE
 'use client'
 import React, { CSSProperties } from 'react'
 import './index.css'
@@ -10,16 +11,14 @@ import { arrayMove, SortableContext, verticalListSortingStrategy, } from '@dnd-k
 // needed for row & cell level scope DnD setup
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import { GripHorizontal } from 'lucide-react'
 
 // Cell Component
 const RowDragHandleCell = ({ rowId }: { rowId: string }) => {
-  const { attributes, listeners } = useSortable({
-    id: rowId,
-  })
+  const { attributes, listeners } = useSortable({ id: rowId, })
   return (
-    // Alternatively, you could set these attributes on the rows themselves
     <button {...attributes} {...listeners}>
-      🟰
+      <GripHorizontal />
     </button>
   )
 }
@@ -31,14 +30,14 @@ const DraggableRow = ({ row }: { row: Row<Person> }) => {
   })
 
   const style: CSSProperties = {
-    transform: CSS.Transform.toString(transform), //let dnd-kit do its thing
+    transform: CSS.Transform.toString(transform),
     transition: transition,
     opacity: isDragging ? 0.8 : 1,
     zIndex: isDragging ? 1 : 0,
     position: 'relative',
   }
+
   return (
-    // connect row ref to dnd-kit, apply important styles
     <tr ref={setNodeRef} style={style}>
       {row.getVisibleCells().map(cell => (
         <td key={cell.id} style={{ width: cell.column.getSize() }}>
@@ -51,12 +50,13 @@ const DraggableRow = ({ row }: { row: Row<Person> }) => {
 
 // Table Component
 export default function DndTestPage() {
+
   const columns = React.useMemo<ColumnDef<Person>[]>(
     () => [
       // Create a dedicated drag handle column. Alternatively, you could just set up dnd events on the rows themselves.
       {
         id: 'drag-handle',
-        header: 'Move',
+        header: 'ترتیب',
         cell: ({ row }) => <RowDragHandleCell rowId={row.id} />,
         size: 60,
       },
@@ -134,7 +134,7 @@ export default function DndTestPage() {
       onDragEnd={handleDragEnd}
       sensors={sensors}
     >
-      <div className="p-2 text-black *:text-black">
+      <div className="p-2 bg-white text-black *:text-black">
         <div className="h-4" />
         <div className="flex flex-wrap gap-2">
           <button onClick={() => rerender()} className="border p-1">
