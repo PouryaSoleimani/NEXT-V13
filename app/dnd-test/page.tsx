@@ -5,17 +5,7 @@ import "./index.css";
 import { ColumnDef, Row, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { makeData, Person } from "./makedata";
 // needed for table body level scope DnD setup
-import {
-  DndContext,
-  KeyboardSensor,
-  MouseSensor,
-  TouchSensor,
-  closestCenter,
-  type DragEndEvent,
-  type UniqueIdentifier,
-  useSensor,
-  useSensors,
-} from "@dnd-kit/core";
+import { DndContext, KeyboardSensor, MouseSensor, TouchSensor, closestCenter, type DragEndEvent, type UniqueIdentifier, useSensor, useSensors, } from "@dnd-kit/core";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 // needed for row & cell level scope DnD setup
@@ -36,9 +26,7 @@ const RowDragHandleCell = ({ rowId }: { rowId: string }) => {
 
 // Row Component
 const DraggableRow = ({ row }: { row: Row<Person> }) => {
-  const { transform, transition, setNodeRef, isDragging } = useSortable({
-    id: row.original.userId,
-  });
+  const { transform, transition, setNodeRef, isDragging } = useSortable({ id: row.original.userId, });
 
   const style: CSSProperties = {
     transform: CSS.Transform.toString(transform),
@@ -158,9 +146,7 @@ export default function DndTestPage() {
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th key={header.id} colSpan={header.colSpan}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(header.column.columnDef.header, header.getContext())}
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </th>
                 ))}
               </tr>
