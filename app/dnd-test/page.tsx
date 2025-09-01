@@ -1,122 +1,132 @@
 //^ DND__TEST__PAGE
-'use client'
-import React, { CSSProperties } from 'react'
-import './index.css'
-import { ColumnDef, Row, flexRender, getCoreRowModel, useReactTable, } from '@tanstack/react-table'
-import { makeData, Person } from './makedata'
+"use client";
+import React, { CSSProperties } from "react";
+import "./index.css";
+import { ColumnDef, Row, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { makeData, Person } from "./makedata";
 // needed for table body level scope DnD setup
-import { DndContext, KeyboardSensor, MouseSensor, TouchSensor, closestCenter, type DragEndEvent, type UniqueIdentifier, useSensor, useSensors, } from '@dnd-kit/core'
-import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
-import { arrayMove, SortableContext, verticalListSortingStrategy, } from '@dnd-kit/sortable'
+import {
+  DndContext,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  closestCenter,
+  type DragEndEvent,
+  type UniqueIdentifier,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 // needed for row & cell level scope DnD setup
-import { useSortable } from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
-import { GripHorizontal } from 'lucide-react'
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { GripHorizontal } from "lucide-react";
+
 
 // Cell Component
 const RowDragHandleCell = ({ rowId }: { rowId: string }) => {
-  const { attributes, listeners } = useSortable({ id: rowId, })
+  const { attributes, listeners } = useSortable({ id: rowId });
   return (
     <button {...attributes} {...listeners}>
       <GripHorizontal />
     </button>
-  )
-}
+  );
+};
 
 // Row Component
 const DraggableRow = ({ row }: { row: Row<Person> }) => {
   const { transform, transition, setNodeRef, isDragging } = useSortable({
     id: row.original.userId,
-  })
+  });
 
   const style: CSSProperties = {
     transform: CSS.Transform.toString(transform),
     transition: transition,
     opacity: isDragging ? 0.8 : 1,
     zIndex: isDragging ? 1 : 0,
-    position: 'relative',
-  }
+    position: "relative",
+  };
 
   return (
     <tr ref={setNodeRef} style={style}>
-      {row.getVisibleCells().map(cell => (
+      {row.getVisibleCells().map((cell) => (
         <td key={cell.id} style={{ width: cell.column.getSize() }}>
           {flexRender(cell.column.columnDef.cell, cell.getContext())}
         </td>
       ))}
     </tr>
-  )
-}
+  );
+};
 
 // Table Component
 export default function DndTestPage() {
-
   const columns = React.useMemo<ColumnDef<Person>[]>(
     () => [
       // Create a dedicated drag handle column. Alternatively, you could just set up dnd events on the rows themselves.
       {
-        id: 'drag-handle',
-        header: 'ترتیب',
+        id: "drag-handle",
+        header: "ترتیب",
         cell: ({ row }) => <RowDragHandleCell rowId={row.id} />,
         size: 60,
       },
       {
-        accessorKey: 'firstName',
-        cell: info => info.getValue(),
+        accessorKey: "firstName",
+        cell: (info) => info.getValue(),
       },
       {
-        accessorFn: row => row.lastName,
-        id: 'lastName',
-        cell: info => info.getValue(),
+        accessorFn: (row) => row.lastName,
+        id: "lastName",
+        cell: (info) => info.getValue(),
         header: () => <span>Last Name</span>,
       },
       {
-        accessorKey: 'age',
-        header: () => 'Age',
+        accessorKey: "age",
+        header: () => "Age",
       },
       {
-        accessorKey: 'visits',
+        accessorKey: "visits",
         header: () => <span>Visits</span>,
       },
       {
-        accessorKey: 'status',
-        header: 'Status',
+        accessorKey: "status",
+        header: "Status",
       },
       {
-        accessorKey: 'progress',
-        header: 'Profile Progress',
+        accessorKey: "progress",
+        header: "Profile Progress",
       },
     ],
     []
-  )
-  const [data, setData] = React.useState(() => makeData(20))
+  );
+  const [data, setData] = React.useState(() => makeData(20));
 
   const dataIds = React.useMemo<UniqueIdentifier[]>(
     () => data?.map(({ userId }) => userId),
     [data]
-  )
+  );
 
-  const rerender = () => setData(() => makeData(20))
+  const rerender = () => setData(() => makeData(20));
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getRowId: row => row.userId, //required because row indexes will change
+    getRowId: (row) => row.userId, //required because row indexes will change
     debugTable: true,
     debugHeaders: true,
     debugColumns: true,
-  })
+  });
 
   // reorder rows after drag & drop
   function handleDragEnd(event: DragEndEvent) {
-    const { active, over } = event
+    const { active, over } = event;
     if (active && over && active.id !== over.id) {
-      setData(data => {
-        const oldIndex = dataIds.indexOf(active.id)
-        const newIndex = dataIds.indexOf(over.id)
-        return arrayMove(data, oldIndex, newIndex) //this is just a splice util
-      })
+      setData((data) => {
+        const oldIndex = dataIds.indexOf(active.id);
+        const newIndex = dataIds.indexOf(over.id);
+        return arrayMove(data, oldIndex, newIndex); //this is just a splice util
+      });
     }
   }
 
@@ -124,7 +134,7 @@ export default function DndTestPage() {
     useSensor(MouseSensor, {}),
     useSensor(TouchSensor, {}),
     useSensor(KeyboardSensor, {})
-  )
+  );
 
   return (
     // NOTE: This provider creates div elements, so don't nest inside of <table> elements
@@ -144,27 +154,21 @@ export default function DndTestPage() {
         <div className="h-4" />
         <table>
           <thead>
-            {table?.getHeaderGroups().map(headerGroup => (
+            {table?.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
-                {headerGroup.headers.map(header => (
+                {headerGroup.headers.map((header) => (
                   <th key={header.id} colSpan={header.colSpan}>
                     {header.isPlaceholder
                       ? null
-                      : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
+                      : flexRender(header.column.columnDef.header, header.getContext())}
                   </th>
                 ))}
               </tr>
             ))}
           </thead>
           <tbody>
-            <SortableContext
-              items={dataIds}
-              strategy={verticalListSortingStrategy}
-            >
-              {table.getRowModel().rows.map(row => (
+            <SortableContext items={dataIds} strategy={verticalListSortingStrategy}>
+              {table.getRowModel().rows.map((row) => (
                 <DraggableRow key={row.id} row={row} />
               ))}
             </SortableContext>
@@ -173,6 +177,5 @@ export default function DndTestPage() {
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
     </DndContext>
-  )
+  );
 }
-
