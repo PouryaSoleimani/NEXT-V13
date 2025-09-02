@@ -18,9 +18,11 @@ const DndKit4Page = () => {
   //TASKS
   const [tasks, setTasks] = useState([
     { id: 1, title: "LEARN JS", icon: "🟨" },
-    { id: 2, title: "LEARN TS", icon: "🟨" },
-    { id: 3, title: "LEARN REACT", icon: "🟨" },
-    { id: 4, title: "LEARN NEXT", icon: "🟨" },
+    { id: 2, title: "LEARN TS", icon: "🟦" },
+    { id: 3, title: "LEARN REACT", icon: "🟦" },
+    { id: 4, title: "LEARN NEXT", icon: "⬛" },
+    { id: 5, title: "LEARN NEST", icon: "🟥" },
+    { id: 6, title: "LEARN PRISMA", icon: "🟩" },
   ]);
 
   // GET ROW POSITION
