@@ -57,6 +57,7 @@ const DndKit3Page = () => {
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
+
   return (
     <DndContext sensors={sensors} collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
       <div className="flex flex-col gap-3 items-center justify-start pt-[10%] screen">
