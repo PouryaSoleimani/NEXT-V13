@@ -1,6 +1,6 @@
 //^ DND__TEST__PAGE
 'use client'
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, useState } from 'react'
 import './index.css'
 import { ColumnDef, Row, flexRender, getCoreRowModel, useReactTable, } from '@tanstack/react-table'
 import { makeData, Person } from './makedata'
