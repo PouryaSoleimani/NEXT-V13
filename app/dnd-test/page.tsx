@@ -100,7 +100,7 @@ export default function DndTestPage() {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getRowId: (row) => row.userId, //required because row indexes will change
+    getRowId: (row) => row.userId,
     debugTable: true,
     debugHeaders: true,
     debugColumns: true,
