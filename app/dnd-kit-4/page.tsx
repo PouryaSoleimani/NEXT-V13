@@ -13,7 +13,6 @@ import React, { useState } from "react";
 import Column from "./_components/Column";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
-import { Metadata } from "next";
 
 const DndKit4Page = () => {
   //TASKS
@@ -66,5 +65,3 @@ const DndKit4Page = () => {
 };
 
 export default DndKit4Page;
-
-
