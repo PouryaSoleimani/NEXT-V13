@@ -1,16 +1,7 @@
 
 "use client";
 import React, { useState } from "react";
-import {
-  closestCenter,
-  closestCorners,
-  DndContext,
-  KeyboardSensor,
-  PointerSensor,
-  TouchSensor,
-  useSensor,
-  useSensors,
-} from "@dnd-kit/core";
+import { closestCenter, closestCorners, DndContext, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors, } from "@dnd-kit/core";
 import Column from "./_components/Column";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import CustomInput from "./_components/Input";

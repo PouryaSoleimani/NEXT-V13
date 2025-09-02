@@ -1,18 +1,17 @@
 //^ DND__TEST__PAGE
-"use client";
-import React, { CSSProperties } from "react";
-import "./index.css";
-import { ColumnDef, Row, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import { makeData, Person } from "./makedata";
-// needed for table body level scope DnD setup
-import { DndContext, KeyboardSensor, MouseSensor, TouchSensor, closestCenter, type DragEndEvent, type UniqueIdentifier, useSensor, useSensors, } from "@dnd-kit/core";
-import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
-import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
-// needed for row & cell level scope DnD setup
-import { useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { GripHorizontal } from "lucide-react";
-
+'use client'
+import React, { CSSProperties } from 'react'
+import './index.css'
+import { ColumnDef, Row, flexRender, getCoreRowModel, useReactTable, } from '@tanstack/react-table'
+import { makeData, Person } from './makedata'
+import { GripHorizontal } from 'lucide-react'
+// DND-KIT
+import { DndContext, KeyboardSensor, MouseSensor, TouchSensor, closestCenter, type DragEndEvent, type UniqueIdentifier, useSensor, useSensors, } from '@dnd-kit/core'
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
+import { arrayMove, SortableContext, verticalListSortingStrategy, } from '@dnd-kit/sortable'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import Logger from '@/hooks/Logger'
 
 // Cell Component
 const RowDragHandleCell = ({ rowId }: { rowId: string }) => {
@@ -86,8 +85,9 @@ export default function DndTestPage() {
       },
     ],
     []
-  );
-  const [data, setData] = React.useState(() => makeData(20));
+  )
+
+  const [data, setData] = React.useState(() => makeData(20))
 
   const dataIds = React.useMemo<UniqueIdentifier[]>(
     () => data?.map(({ userId }) => userId),
@@ -110,11 +110,15 @@ export default function DndTestPage() {
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
     if (active && over && active.id !== over.id) {
-      setData((data) => {
-        const oldIndex = dataIds.indexOf(active.id);
-        const newIndex = dataIds.indexOf(over.id);
-        return arrayMove(data, oldIndex, newIndex); //this is just a splice util
-      });
+      setData(data => {
+        const oldIndex = dataIds.indexOf(active.id)
+        const newIndex = dataIds.indexOf(over.id)
+        Logger('OLD', 'pink', oldIndex)
+        Logger('NEW', 'yellow', newIndex)
+
+        return arrayMove(data, oldIndex, newIndex)
+      })
+
     }
   }
 
