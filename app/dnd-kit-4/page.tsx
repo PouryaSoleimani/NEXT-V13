@@ -1,6 +1,7 @@
 "use client";
 import {
   closestCenter,
+  closestCorners,
   DndContext,
   KeyboardSensor,
   PointerSensor,
@@ -50,7 +51,7 @@ const DndKit4Page = () => {
   return (
     <DndContext
       sensors={sensors}
-      collisionDetection={closestCenter}
+      collisionDetection={closestCorners}
       modifiers={[restrictToVerticalAxis]}
       onDragEnd={handleDragEnd}
     >

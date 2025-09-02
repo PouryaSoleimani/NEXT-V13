@@ -1,15 +1,21 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import React from "react";
+import React, { CSSProperties } from "react";
 
 const Task = ({ id, title }: { id: number; title: string }) => {
   // USE SORTABLE
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id,
+  });
 
   // STYLE
-  const style = {
+  const style: CSSProperties = {
     transition,
     transform: CSS.Transform.toString(transform),
+    backgroundColor: isDragging ? "black" : "white",
+    color: isDragging ? "white" : "black",
+    position: isDragging ? "relative" : "static",
+    zIndex: isDragging ? 50 : 0,
   };
 
   return (
