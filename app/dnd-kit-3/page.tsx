@@ -15,6 +15,7 @@ import Logger from "@/hooks/Logger";
 import CustomInput from "../dnd-kit-2/_components/Input";
 
 const DndKit3Page = () => {
+  // TASKS
   const [tasks, setTasks] = useState([
     { id: 1, title: "LEARN JS", icon: "🟨" },
     { id: 2, title: "LEARN TS", icon: "🟦" },
@@ -48,6 +49,7 @@ const DndKit3Page = () => {
     Logger("ID", "log", active.id);
   }
 
+  // SENSORS
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(TouchSensor),
