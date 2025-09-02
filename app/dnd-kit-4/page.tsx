@@ -17,10 +17,10 @@ import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 const DndKit4Page = () => {
   //TASKS
   const [tasks, setTasks] = useState([
-    { id: 1, title: "LEARN JS" },
-    { id: 2, title: "LEARN TS" },
-    { id: 3, title: "LEARN REACT" },
-    { id: 4, title: "LEARN NEXT" },
+    { id: 1, title: "LEARN JS", icon: "🟨" },
+    { id: 2, title: "LEARN TS", icon: "🟨" },
+    { id: 3, title: "LEARN REACT", icon: "🟨" },
+    { id: 4, title: "LEARN NEXT", icon: "🟨" },
   ]);
 
   // GET ROW POSITION
@@ -36,7 +36,7 @@ const DndKit4Page = () => {
     const originalPos = getRowPosition(active.id);
     const newPos = getRowPosition(over.id);
 
-    setTasks((tasks: { id: number; title: string }[]) => {
+    setTasks((tasks: { id: number; title: string; icon: string }[]) => {
       return arrayMove(tasks, originalPos, newPos);
     });
   }
