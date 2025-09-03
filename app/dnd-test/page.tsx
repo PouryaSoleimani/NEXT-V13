@@ -59,7 +59,6 @@ const DraggableRow = ({ row }: { row: Row<Person> }) => {
 export default function DndTestPage() {
    const columns = React.useMemo<ColumnDef<Person>[]>(
       () => [
-         // Create a dedicated drag handle column. Alternatively, you could just set up dnd events on the rows themselves.
          {
             id: "drag-handle",
             header: "ترتیب",
