@@ -1,9 +1,9 @@
 "use client";
 import { closestCenter, DndContext, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
-import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
+import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import React, { useState } from "react";
 import Column from "./_components/Column";
-
+type SingleTaskType = { id: number; title: string };
 const DndKitPage5 = () => {
    const [tasks, setTasks] = useState([
       { id: 1, title: "LEARN__JS" },
@@ -19,9 +19,22 @@ const DndKitPage5 = () => {
       useSensor(TouchSensor)
    );
 
+   function getRowPosition(id: number) {
+      return tasks.findIndex((item: SingleTaskType) => item.id === id);
+   }
+
+   function handleDragEnd(event: any) {
+      const { active, over } = event;
+      if (active.id === over.id) return;
+      const originalPos = getRowPosition(active.id);
+      const newPos = getRowPosition(over.id);
+      setTasks((tasks: SingleTaskType[]) => {
+         return arrayMove(tasks, originalPos, newPos);
+      });
+   }
    return (
-      <div className="screen center">
-         <DndContext sensors={sensors} collisionDetection={closestCenter}>
+      <div className="screen center bg-stone-600">
+         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <Column tasks={tasks} />
          </DndContext>
       </div>
