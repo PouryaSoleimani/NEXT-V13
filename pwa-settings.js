@@ -37,7 +37,5 @@ module.exports = withPWA({
       { protocol: "https", hostname: "core.4siz.ir", pathname: "/**" },
     ],
   },
-  env: {
-    NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
-  },
+  env: { NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL },
 });
