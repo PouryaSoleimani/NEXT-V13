@@ -4,7 +4,9 @@ import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import React, { useState } from "react";
 import Column from "./_components/Column";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+
 type SingleTaskType = { id: number; title: string };
+
 const DndKitPage5 = () => {
    const [tasks, setTasks] = useState([
       { id: 1, title: "LEARN__JS" },
@@ -34,6 +36,7 @@ const DndKitPage5 = () => {
          return arrayMove(tasks, originalPos, newPos);
       });
    }
+
    return (
       <div className="screen center bg-stone-600">
          <DndContext sensors={sensors} collisionDetection={closestCenter} modifiers={[restrictToVerticalAxis]} onDragEnd={handleDragEnd}>
