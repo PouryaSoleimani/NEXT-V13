@@ -1,9 +1,8 @@
 //^ DND__TEST__PAGE
 'use client'
 import React, { CSSProperties, useState } from 'react'
-import './index.css'
 import { ColumnDef, Row, flexRender, getCoreRowModel, useReactTable, } from '@tanstack/react-table'
-import { makeData, Person } from './makedata'
+import { makeData, Person } from './_components/makedata'
 import { GripHorizontal } from 'lucide-react'
 // DND-KIT
 import { DndContext, KeyboardSensor, MouseSensor, TouchSensor, closestCenter, type DragEndEvent, type UniqueIdentifier, useSensor, useSensors, } from '@dnd-kit/core'
