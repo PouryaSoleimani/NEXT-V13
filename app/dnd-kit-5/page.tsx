@@ -3,6 +3,7 @@ import { closestCenter, DndContext, KeyboardSensor, PointerSensor, TouchSensor, 
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import React, { useState } from "react";
 import Column from "./_components/Column";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 type SingleTaskType = { id: number; title: string };
 const DndKitPage5 = () => {
    const [tasks, setTasks] = useState([
@@ -28,13 +29,14 @@ const DndKitPage5 = () => {
       if (active.id === over.id) return;
       const originalPos = getRowPosition(active.id);
       const newPos = getRowPosition(over.id);
+
       setTasks((tasks: SingleTaskType[]) => {
          return arrayMove(tasks, originalPos, newPos);
       });
    }
    return (
       <div className="screen center bg-stone-600">
-         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+         <DndContext sensors={sensors} collisionDetection={closestCenter} modifiers={[restrictToVerticalAxis]} onDragEnd={handleDragEnd}>
             <Column tasks={tasks} />
          </DndContext>
       </div>
