@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require("path");
+
 const withPWA = require("next-pwa")({
   dest: "public",
   register: true,
@@ -17,21 +19,39 @@ const withPWA = require("next-pwa")({
   //       expiration: { maxEntries: 64, maxAgeSeconds: 24 * 60 * 60 },
   //     },
   //   },
-  // {
-  //   urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
-  //   handler: "CacheFirst",
-  //   options: {
-  //     cacheName: "google-fonts",
-  //     expiration: { maxEntries: 4, maxAgeSeconds: 365 * 24 * 60 * 60 },
+  //   {
+  //     urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
+  //     handler: "CacheFirst",
+  //     options: {
+  //       cacheName: "google-fonts",
+  //       expiration: { maxEntries: 4, maxAgeSeconds: 365 * 24 * 60 * 60 },
+  //     },
   //   },
-  // },
   // ],
 });
 
 module.exports = withPWA({
   reactStrictMode: true,
+  webpack: (config) => {
+    config.module.rules.forEach((rule) => {
+      if (rule.oneOf) {
+        rule.oneOf.forEach((one) => {
+          if (one.use) {
+            // اطمینان از اینکه همیشه آرایه باشه
+            const uses = Array.isArray(one.use) ? one.use : [one.use];
+            uses.forEach((u) => {
+              if (u.loader && u.loader.includes("css-loader")) {
+                u.options = { ...u.options, url: false };
+              }
+            });
+          }
+        });
+      }
+    });
+    return config;
+  },
+
   images: {
     remotePatterns: [],
   },
-  // env: { NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL },
 });
