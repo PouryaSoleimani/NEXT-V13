@@ -5,10 +5,7 @@ const withPWA = require("next-pwa")({
   skipWaiting: true,
   disable: process.env.NODE_ENV === "development",
   buildExcludes: [/middleware-manifest\.json$/],
-  fallbacks: {
-    image: "/offline.png",
-    document: "/offline.html",
-  },
+  fallbacks: { image: "/offline.png", document: "/offline.html" },
   cacheStartUrl: false,
   runtimeCaching: [
     {
@@ -17,10 +14,7 @@ const withPWA = require("next-pwa")({
       method: "GET",
       options: {
         cacheName: "todoApp-api",
-        expiration: {
-          maxEntries: 64,
-          maxAgeSeconds: 24 * 60 * 60, // 24 hours
-        },
+        expiration: { maxEntries: 64, maxAgeSeconds: 24 * 60 * 60 },
       },
     },
     {
@@ -28,10 +22,7 @@ const withPWA = require("next-pwa")({
       handler: "CacheFirst",
       options: {
         cacheName: "google-fonts",
-        expiration: {
-          maxEntries: 4,
-          maxAgeSeconds: 365 * 24 * 60 * 60, // 1 year
-        },
+        expiration: { maxEntries: 4, maxAgeSeconds: 365 * 24 * 60 * 60 },
       },
     },
   ],
