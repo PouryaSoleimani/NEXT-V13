@@ -10,19 +10,13 @@ const FormikPage = () => {
         initialValues={{ name: "", password: "" }}
         validate={(values) => {
           const errors = {} as any;
-          if (values.name.trim() == "") {
-            errors.name! = "REQUIRED";
-          }
-          if (values.password.trim() == "") {
-            errors.password! = "REQUIRED";
-          }
+          if (values.name.trim() == "") { errors.name! = "REQUIRED"; }
+          if (values.password.trim() == "") { errors.password! = "REQUIRED"; }
           return errors;
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           console.log(values);
-          setTimeout(() => {
-            setSubmitting(false);
-          }, 3000);
+          setTimeout(() => { setSubmitting(false); }, 3000);
           resetForm();
         }}
       >
