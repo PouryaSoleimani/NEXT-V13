@@ -56,7 +56,7 @@ const ReviewPage: NextPage<PropsType> = () => {
 
   // RETURN 
   return (
-    <section className='w-screen py-6 bg-stone-900 center flex-col gap-6 relative'>
+    <section className='w-screen py-6 bg-[#141414] center flex-col gap-6 relative'>
 
       {/* ACCORDION */}
       <Accordion type="single" collapsible className='border-2 border-stone-800 rounded-xl px-4 min-w-86 gap-y-2 transition-all duration-300'>
@@ -76,7 +76,7 @@ const ReviewPage: NextPage<PropsType> = () => {
 
       {/* ALERT DIALOG */}
       <AlertDialog>
-        <AlertDialogTrigger className='border-2 border-stone-800 px-6 py-3 rounded-xl hover:bg-stone-200 hover:text-stone-800 hover:border-stone-400 transition-all duration-300 cursor-pointer'>Open</AlertDialogTrigger>
+        <AlertDialogTrigger className='border-2 border-stone-800 px-6 py-3 rounded-xl hover:bg-stone-200 hover:text-stone-800 hover:border-stone-400 transition-all duration-300 bg-black cursor-pointer'>Open</AlertDialogTrigger>
         <AlertDialogContent className='bg-stone-900 border-stone-700'>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -258,7 +258,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       {/* DRAWER */}
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="outline">Open Drawer</Button>
+          <Button variant="outline" className='bg-black cursor-pointer hover:bg-stone-900 transition-all duration-300'>Open Drawer</Button>
         </DrawerTrigger>
         <DrawerContent className='bg-black'>
           <div className="mx-auto w-full max-w-sm ">
@@ -324,7 +324,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       </Drawer>
 
       {/* FIELD */}
-      <div className="w-full max-w-md border-2 border-stone-600 p-6 my-6 shadow-sm rounded-xl">
+      <div className="w-full max-w-md border-2 border-stone-600 p-6 my-6 shadow-sm rounded-xl bg-black">
         <form>
           <FieldGroup>
             <FieldSet>
@@ -456,7 +456,7 @@ const ReviewPage: NextPage<PropsType> = () => {
             <MenubarSeparator />
             <MenubarSub>
               <MenubarSubTrigger>Share</MenubarSubTrigger>
-              <MenubarSubContent>
+              <MenubarSubContent className='bg-black'>
                 <MenubarItem>Email link</MenubarItem>
                 <MenubarItem>Messages</MenubarItem>
                 <MenubarItem>Notes</MenubarItem>

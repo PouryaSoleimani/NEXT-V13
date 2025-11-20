@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50  font-bold",
         link: "text-primary underline-offset-4 hover:underline  font-bold",
         blue: "bg-blue-900 hover:bg-blue-800  font-bold",
-        black: "bg-black hover:bg-stone-950  font-bold",
+        black: "bg-black hover:bg-stone-900 font-bold",
         success: "bg-lime-600 text-black shadow-xs hover:bg-lime-500/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60  font-bold",
         red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300 ",
         lime: "bg-lime-600 hover:bg-lime-400 transition-colors ease-out duration-300 text-black font-sans font-black",
