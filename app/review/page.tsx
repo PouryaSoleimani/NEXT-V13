@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import React, { useState } from 'react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
-import { CheckCircle2Icon } from "lucide-react"
+import { CheckCircle2Icon, Eye, FileIcon, Pencil, User } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle, } from "@/components/ui/alert"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import Image from 'next/image'
@@ -23,6 +23,8 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from '@/components/ui/checkbox'
+import { Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, } from "@/components/ui/menubar"
+import { Separator } from '@/components/ui/separator'
 // TYPES ========================================================================================================================================================================================================================
 interface PropsType {
   data?: any
@@ -435,7 +437,108 @@ const ReviewPage: NextPage<PropsType> = () => {
       </div>
 
       {/* MENU BAR */}
-      
+      <Menubar className='shadow-md shadow-zinc-600'>
+        <MenubarMenu>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+            <FileIcon className='size-4' />
+            File
+          </MenubarTrigger>
+          <Separator orientation='vertical' className='bg-zinc-600 my-1 h-3/4' />
+          <MenubarContent className='bg-black'>
+            <MenubarItem>
+              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem>
+              New Window <MenubarShortcut>⌘N</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem disabled>New Incognito Window</MenubarItem>
+            <MenubarSeparator />
+            <MenubarSub>
+              <MenubarSubTrigger>Share</MenubarSubTrigger>
+              <MenubarSubContent>
+                <MenubarItem>Email link</MenubarItem>
+                <MenubarItem>Messages</MenubarItem>
+                <MenubarItem>Notes</MenubarItem>
+              </MenubarSubContent>
+            </MenubarSub>
+            <MenubarSeparator />
+            <MenubarItem>
+              Print... <MenubarShortcut>⌘P</MenubarShortcut>
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+            <Pencil className='size-4' />
+            Edit
+          </MenubarTrigger>
+          <Separator orientation='vertical' className='bg-zinc-600 my-1 h-3/4' />
+          <MenubarContent className='bg-black'>
+            <MenubarItem>
+              Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem>
+              Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+            </MenubarItem>
+            <MenubarSeparator />
+            <MenubarSub>
+              <MenubarSubTrigger>Find</MenubarSubTrigger>
+              <MenubarSubContent className='bg-black'>
+                <MenubarItem>Search the web</MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>Find...</MenubarItem>
+                <MenubarItem>Find Next</MenubarItem>
+                <MenubarItem>Find Previous</MenubarItem>
+              </MenubarSubContent>
+            </MenubarSub>
+            <MenubarSeparator />
+            <MenubarItem>Cut</MenubarItem>
+            <MenubarItem>Copy</MenubarItem>
+            <MenubarItem>Paste</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+            <Eye className='size-4' />
+            View
+          </MenubarTrigger>
+          <Separator orientation='vertical' className='bg-zinc-600 my-1 h-3/4' />
+          <MenubarContent className='bg-black'>
+            <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
+            <MenubarCheckboxItem checked>
+              Always Show Full URLs
+            </MenubarCheckboxItem>
+            <MenubarSeparator />
+            <MenubarItem inset>
+              Reload <MenubarShortcut>⌘R</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem disabled inset>
+              Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
+            </MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem inset>Toggle Fullscreen</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem inset>Hide Sidebar</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+            <User className='size-4' />
+            Profiles
+          </MenubarTrigger>
+          <MenubarContent className='bg-black'>
+            <MenubarRadioGroup value="benoit">
+              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+            </MenubarRadioGroup>
+            <MenubarSeparator />
+            <MenubarItem inset>Edit...</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem inset>Add Profile...</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
 
     </section>
   )
