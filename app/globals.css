@@ -3,6 +3,7 @@ html {
    scroll-behavior: smooth !important;
    --motion-safe: all;
 }
+
 :root {
    --foreground-rgb: 0, 0, 0;
    --background-start-rgb: 214, 219, 220;
@@ -58,6 +59,7 @@ html {
       text-wrap: balance;
    }
 }
+
 .section {
    width: 90vw;
    height: auto;
@@ -79,6 +81,7 @@ html {
    justify-content: center;
    gap: 5px;
 }
+
 .btn {
    width: 160px;
    padding: 0.5rem 1rem;
@@ -125,11 +128,13 @@ html {
    font-family: "VAZIR";
    src: url("/fonts/Vazir-Bold-UI.ttf") format("truetype");
 }
+
 body {
    background-color: #111111;
    color: white;
    font-family: "VAZIR";
 }
+
 .rmdp-week-day {
    color: black !important;
    background-color: #0d1015;
@@ -150,10 +155,12 @@ body {
       cursor: pointer;
    }
 }
+
 .text-subtitle:hover {
    color: #000;
    cursor: pointer;
 }
+
 .text-xxs {
    font-size: 10px;
 }
@@ -178,6 +185,7 @@ input[type="number"] {
    align-items: center;
    justify-content: center;
 }
+
 html {
    font-family: sans-serif;
    font-size: 14px;
@@ -221,6 +229,9 @@ tfoot th {
 }
 
 @layer utilities {
+   .slide-in-from-right {
+      animation: sheet-in 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+   }
    .sheet-open {
       animation: sheet-in 0.28s cubic-bezier(0.16, 1, 0.3, 1);
    }
@@ -230,7 +241,7 @@ tfoot th {
 
    @keyframes sheet-in {
       from {
-         transform: translateX(var(--sheet-offset));
+         transform: translateX(10%);
       }
       to {
          transform: translateX(0);
