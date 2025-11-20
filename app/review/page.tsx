@@ -321,7 +321,6 @@ const ReviewPage: NextPage<PropsType> = () => {
       </Drawer>
 
       {/* FIELD */}
-
       <div className="w-full max-w-md border-2 border-zinc-600 p-6 my-6 shadow-sm rounded-xl">
         <form>
           <FieldGroup>
@@ -335,21 +334,13 @@ const ReviewPage: NextPage<PropsType> = () => {
                   <FieldLabel htmlFor="checkout-7j9-card-name-43j">
                     Name on Card
                   </FieldLabel>
-                  <Input
-                    id="checkout-7j9-card-name-43j"
-                    placeholder="Evil Rabbit"
-                    required
-                  />
+                  <Input id="checkout-7j9-card-name-43j" placeholder="Evil Rabbit" required />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="checkout-7j9-card-number-uw1">
                     Card Number
                   </FieldLabel>
-                  <Input
-                    id="checkout-7j9-card-number-uw1"
-                    placeholder="1234 5678 9012 3456"
-                    required
-                  />
+                  <Input id="checkout-7j9-card-number-uw1" placeholder="1234 5678 9012 3456" required />
                   <FieldDescription>
                     Enter your 16-digit card number
                   </FieldDescription>
@@ -363,7 +354,7 @@ const ReviewPage: NextPage<PropsType> = () => {
                       <SelectTrigger id="checkout-exp-month-ts6">
                         <SelectValue placeholder="MM" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className='bg-black'>
                         <SelectItem value="01">01</SelectItem>
                         <SelectItem value="02">02</SelectItem>
                         <SelectItem value="03">03</SelectItem>
@@ -387,7 +378,7 @@ const ReviewPage: NextPage<PropsType> = () => {
                       <SelectTrigger id="checkout-7j9-exp-year-f59">
                         <SelectValue placeholder="YYYY" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className='bg-black'>
                         <SelectItem value="2024">2024</SelectItem>
                         <SelectItem value="2025">2025</SelectItem>
                         <SelectItem value="2026">2026</SelectItem>
@@ -412,14 +403,8 @@ const ReviewPage: NextPage<PropsType> = () => {
               </FieldDescription>
               <FieldGroup>
                 <Field orientation="horizontal">
-                  <Checkbox
-                    id="checkout-7j9-same-as-shipping-wgm"
-                    defaultChecked
-                  />
-                  <FieldLabel
-                    htmlFor="checkout-7j9-same-as-shipping-wgm"
-                    className="font-normal"
-                  >
+                  <Checkbox id="checkout-7j9-same-as-shipping-wgm" defaultChecked />
+                  <FieldLabel htmlFor="checkout-7j9-same-as-shipping-wgm" className="font-normal" >
                     Same as shipping address
                   </FieldLabel>
                 </Field>
@@ -448,6 +433,8 @@ const ReviewPage: NextPage<PropsType> = () => {
           </FieldGroup>
         </form>
       </div>
+
+      
     </section>
   )
 }
