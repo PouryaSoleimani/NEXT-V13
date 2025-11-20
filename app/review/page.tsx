@@ -41,6 +41,7 @@ const ReviewPage: NextPage<PropsType> = () => {
   // RETURN 
   return (
     <section className='w-screen py-6 center flex-col gap-6 relative'>
+
       {/* ACCORDION */}
       <Accordion type="single" collapsible className='border-2 border-zinc-800 rounded-xl px-4 min-w-82 gap-y-2 transition-all duration-300'>
         <AccordionItem value="item-1">
@@ -56,6 +57,7 @@ const ReviewPage: NextPage<PropsType> = () => {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+
       {/* ALERT DIALOG */}
       <AlertDialog>
         <AlertDialogTrigger className='border-2 border-zinc-800 px-6 py-3 rounded-xl hover:bg-zinc-200 hover:text-zinc-800 hover:border-zinc-400 transition-all duration-300 cursor-pointer'>Open</AlertDialogTrigger>
@@ -73,6 +75,7 @@ const ReviewPage: NextPage<PropsType> = () => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
       {/* ALERT */}
       {isShowAlert &&
         <Alert className='absolute right-10 bottom-30  w-fit bg-emerald-900/30 border-emerald-900 text-zinc-200 leading-8'>
@@ -133,8 +136,16 @@ const ReviewPage: NextPage<PropsType> = () => {
         onSelect={setDate}
         className="rounded-lg border shadow-sm bg-black"
       />
+
       {/* CARD */}
-      <Button variant={'black'} className='my-3 border border-zinc-700 hover:bg-zinc-800 transition-all duration-200' onClick={() => setIsShowCard(p => !p)}>TOGGLE CARD</Button>
+      <Button
+        variant={'black'}
+        className='my-3 border border-zinc-700 hover:bg-zinc-800 transition-all duration-200'
+        onClick={() => setIsShowCard(p => !p)}
+      >
+        TOGGLE CARD
+      </Button>
+
       {isShowCard &&
         <Card className="w-full max-w-sm">
           <CardHeader>
@@ -184,7 +195,6 @@ const ReviewPage: NextPage<PropsType> = () => {
         </Card>
       }
 
-
       {/* CONTEXT MENU */}
       <ContextMenu>
         <ContextMenuTrigger className="flex h-[150px] w-[300px] mb-10 items-center justify-center rounded-md border border-dashed text-sm">
@@ -230,6 +240,8 @@ const ReviewPage: NextPage<PropsType> = () => {
           </ContextMenuRadioGroup>
         </ContextMenuContent>
       </ContextMenu>
+
+
     </section>
   )
 }
