@@ -10,6 +10,7 @@ import Image from 'next/image'
 import { Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from "@/components/ui/breadcrumb"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 import Link from 'next/link'
+import { Calendar } from '@/components/ui/calendar'
 
 // TYPES ========================================================================================================================================================================================================================
 interface PropsType {
@@ -21,6 +22,8 @@ interface PropsType {
 const ReviewPage: NextPage<PropsType> = () => {
   // STATES
   const [isShowAlert, setIsShowAlert] = useState(false)
+  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12))
+
   // FUNCTIONS
   function alertShowHandler() {
     setIsShowAlert(true)
@@ -30,7 +33,7 @@ const ReviewPage: NextPage<PropsType> = () => {
   }
   // RETURN 
   return (
-    <section className='w-screen h-screen center flex-col gap-4 relative'>
+    <section className='w-screen py-4 center flex-col gap-6 relative'>
       {/* ACCORDION */}
       <Accordion type="single" collapsible className='border-2 border-zinc-800 rounded-xl px-4 min-w-82 gap-y-2 transition-all duration-300'>
         <AccordionItem value="item-1">
@@ -114,6 +117,16 @@ const ReviewPage: NextPage<PropsType> = () => {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+
+      {/* CALENDAR */}
+      <Calendar
+        mode="single"
+        defaultMonth={date}
+        selected={date}
+        onSelect={setDate}
+        className="rounded-lg border shadow-sm bg-black"
+      />
+
 
 
     </section>

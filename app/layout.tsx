@@ -4,11 +4,8 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { cookies } from "next/headers";
 import { ReactElement } from "react";
-
 import { Header } from "@/components/Header";
-import { NavigationMenu } from "@/components/ui/navigation-menu";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/SideBar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 
 // FONTS
@@ -25,7 +22,7 @@ export default async function RootLayout({ children }: { children: ReactElement 
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
   return (
-    <html suppressHydrationWarning className="overflow-hidden">
+    <html suppressHydrationWarning className="overflow-x-hidden">
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2c2c2c" />

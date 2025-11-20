@@ -176,28 +176,28 @@ html {
   font-size: 14px;
 }
 
-table {
+/* table {
   border: 1px solid lightgray;
-}
+} */
 
 tbody {
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
 }
 
 th {
-  border-bottom: 1px solid lightgray;
-  border-right: 1px solid lightgray;
-  padding: 2px 4px;
+  /* border-bottom: 1px solid lightgray; */
+  /* border-right: 1px solid lightgray; */
+  /* padding: 2px 4px; */
 }
 
 td {
-  border-right: 1px solid lightgray;
+  /* border-right: 1px solid lightgray; */
   padding: 2px 4px;
   background-color: white;
 }
 
 td button {
-  padding: 1px 1rem;
+  /* padding: 1px 1rem; */
   cursor: grab;
 }
 
@@ -212,3 +212,4 @@ tfoot {
 tfoot th {
   font-weight: normal;
 }
+

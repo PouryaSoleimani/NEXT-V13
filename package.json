@@ -55,7 +55,7 @@
       "primereact": "^10.9.6",
       "radash": "^12.1.1",
       "react": "18.2.0",
-      "react-day-picker": "^9.9.0",
+      "react-day-picker": "^9.11.1",
       "react-dom": "18.2.0",
       "react-hook-form": "^7.45.1",
       "react-hot-toast": "^2.6.0",
