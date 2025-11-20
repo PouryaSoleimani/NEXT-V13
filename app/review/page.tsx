@@ -441,7 +441,7 @@ const ReviewPage: NextPage<PropsType> = () => {
             </FieldSet>
             <Field orientation="horizontal">
               <Button type="submit" variant={'success'}>Submit</Button>
-              <Button variant="outline" type="button">
+              <Button variant="destructive" type="button">
                 Cancel
               </Button>
             </Field>
