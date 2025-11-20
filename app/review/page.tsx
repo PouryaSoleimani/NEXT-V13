@@ -26,7 +26,8 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, } from "@/components/ui/menubar"
 import { Separator } from '@/components/ui/separator'
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, } from "@/components/ui/sheet"
-
+import { BookmarkIcon, HeartIcon, StarIcon } from "lucide-react"
+import { ToggleGroup, ToggleGroupItem, } from "@/components/ui/toggle-group"
 
 // TYPES ========================================================================================================================================================================================================================
 interface PropsType {
@@ -573,6 +574,34 @@ const ReviewPage: NextPage<PropsType> = () => {
           </SheetFooter>
         </SheetContent>
       </Sheet>
+
+      {/* TOGGLE GROUP */}
+      <ToggleGroup type="multiple" variant="outline" spacing={2} size="sm" className='my-6 bg-stone-700 p-6 rounded-xl border-2'>
+        <ToggleGroupItem
+          value="star"
+          aria-label="Toggle star"
+          className="data-[state=on]:bg-bg-black bg-black data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500"
+        >
+          <StarIcon />
+          Star
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value="heart"
+          aria-label="Toggle heart"
+          className="data-[state=on]:bg-black bg-black  data-[state=on]:*:[svg]:fill-red-500 data-[state=on]:*:[svg]:stroke-red-500"
+        >
+          <HeartIcon />
+          Heart
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value="bookmark"
+          aria-label="Toggle bookmark"
+          className="data-[state=on]:bg-black bg-black  data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500"
+        >
+          <BookmarkIcon />
+          Bookmark
+        </ToggleGroupItem>
+      </ToggleGroup>
 
     </section>
   )
