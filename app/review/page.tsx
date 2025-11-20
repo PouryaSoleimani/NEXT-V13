@@ -5,7 +5,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, } from "@/components/ui/alert-dialog"
 import { CheckCircle2Icon } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle, } from "@/components/ui/alert"
-
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import Image from 'next/image'
 // TYPES ========================================================================================================================================================================================================================
 interface PropsType {
   data?: any
@@ -68,6 +69,15 @@ const ReviewPage: NextPage<PropsType> = () => {
           </AlertDescription>
         </Alert>
       }
+      {/* ASPECT RATIO */}
+      <div className='w-48 h-32'>
+        <AspectRatio ratio={16 / 9} className='w-fit h-fit'>
+          <Image src="/ScreenShot-Tool-20250808130504.png" alt="Image" className="rounded-md" width={200} height={200} />
+        </AspectRatio>
+      </div>
+
+
+
     </section>
   )
 }
