@@ -1,5 +1,8 @@
 @import "tailwindcss";
-
+html {
+   scroll-behavior: smooth !important;
+   --motion-safe: all;
+}
 :root {
    --foreground-rgb: 0, 0, 0;
    --background-start-rgb: 214, 219, 220;
@@ -216,58 +219,36 @@ tfoot {
 tfoot th {
    font-weight: normal;
 }
+
 @layer utilities {
-   /* Sheet - Open */
-   .sheet-open-left {
-      animation: sheet-left-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+   .sheet-open {
+      animation: sheet-in 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+   }
+   .sheet-close {
+      animation: sheet-out 0.24s ease forwards;
    }
 
-   .sheet-open-right {
-      animation: sheet-right-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-   }
-
-   /* Sheet - Close */
-   .sheet-close-left {
-      animation: sheet-left-out 0.25s ease forwards;
-   }
-
-   .sheet-close-right {
-      animation: sheet-right-out 0.25s ease forwards;
-   }
-
-   @keyframes sheet-left-in {
+   @keyframes sheet-in {
       from {
-         transform: translateX(-100%);
+         transform: translateX(var(--sheet-offset));
       }
       to {
          transform: translateX(0);
       }
    }
 
-   @keyframes sheet-left-out {
+   @keyframes sheet-out {
       from {
          transform: translateX(0);
       }
       to {
-         transform: translateX(-100%);
+         transform: translateX(var(--sheet-offset));
       }
    }
+}
 
-   @keyframes sheet-right-in {
-      from {
-         transform: translateX(100%);
-      }
-      to {
-         transform: translateX(0);
-      }
-   }
-
-   @keyframes sheet-right-out {
-      from {
-         transform: translateX(0);
-      }
-      to {
-         transform: translateX(100%);
-      }
+@media (prefers-reduced-motion: reduce) {
+   :root {
+      --motion-safe: "";
    }
 }

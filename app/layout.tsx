@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: { children: ReactElement 
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange >
           <Toaster position="top-right" reverseOrder={false} />
           <SidebarProvider defaultOpen={defaultOpen}>
             <main className="w-full min-h-screen font-bold">

@@ -548,7 +548,7 @@ const ReviewPage: NextPage<PropsType> = () => {
         <SheetTrigger asChild>
           <Button variant="outline">Open</Button>
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent side={'right'}>
           <SheetHeader>
             <SheetTitle>Edit profile</SheetTitle>
             <SheetDescription>
