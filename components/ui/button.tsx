@@ -9,19 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-zinc-900 text-white shadow-xs hover:bg-zinc-700 font-bold border-zinc-500",
-        destructive:
-          "bg-red-600 text-white shadow-xs hover:bg-red-500/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60  font-bold",
-        outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50  font-bold border-zinc-500",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80  font-bold",
+        default: "bg-stone-900 text-white shadow-xs hover:bg-stone-700 font-bold border-stone-500",
+        destructive: "bg-red-600 text-white shadow-xs hover:bg-red-500/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60  font-bold",
+        outline: "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50  font-bold border-stone-500",
+        secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80  font-bold",
         ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50  font-bold",
         link: "text-primary underline-offset-4 hover:underline  font-bold",
         blue: "bg-blue-900 hover:bg-blue-800  font-bold",
-        black: "bg-black hover:bg-zinc-950  font-bold",
-        success:
-          "bg-lime-600 text-white shadow-xs hover:bg-lime-500/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60  font-bold",
+        black: "bg-black hover:bg-stone-950  font-bold",
+        success: "bg-lime-600 text-black shadow-xs hover:bg-lime-500/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60  font-bold",
         red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300 ",
         lime: "bg-lime-600 hover:bg-lime-400 transition-colors ease-out duration-300 text-black font-sans font-black",
       },

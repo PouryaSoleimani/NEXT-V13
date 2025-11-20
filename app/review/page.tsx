@@ -56,10 +56,10 @@ const ReviewPage: NextPage<PropsType> = () => {
 
   // RETURN 
   return (
-    <section className='w-screen py-6 center flex-col gap-6 relative'>
+    <section className='w-screen py-6 bg-stone-900 center flex-col gap-6 relative'>
 
       {/* ACCORDION */}
-      <Accordion type="single" collapsible className='border-2 border-zinc-800 rounded-xl px-4 min-w-82 gap-y-2 transition-all duration-300'>
+      <Accordion type="single" collapsible className='border-2 border-stone-800 rounded-xl px-4 min-w-86 gap-y-2 transition-all duration-300'>
         <AccordionItem value="item-1">
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
           <AccordionContent>
@@ -76,8 +76,8 @@ const ReviewPage: NextPage<PropsType> = () => {
 
       {/* ALERT DIALOG */}
       <AlertDialog>
-        <AlertDialogTrigger className='border-2 border-zinc-800 px-6 py-3 rounded-xl hover:bg-zinc-200 hover:text-zinc-800 hover:border-zinc-400 transition-all duration-300 cursor-pointer'>Open</AlertDialogTrigger>
-        <AlertDialogContent className='bg-zinc-900 border-zinc-700'>
+        <AlertDialogTrigger className='border-2 border-stone-800 px-6 py-3 rounded-xl hover:bg-stone-200 hover:text-stone-800 hover:border-stone-400 transition-all duration-300 cursor-pointer'>Open</AlertDialogTrigger>
+        <AlertDialogContent className='bg-stone-900 border-stone-700'>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
@@ -87,14 +87,14 @@ const ReviewPage: NextPage<PropsType> = () => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel className='bg-red-900 border-red-950 cursor-pointer'>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={alertShowHandler} className='bg-zinc-200 border-zinc-400 text-zinc-900 hover:text-white hover:bg-emerald-900 cursor-pointer'>Continue</AlertDialogAction>
+            <AlertDialogAction onClick={alertShowHandler} className='bg-stone-200 border-stone-400 text-stone-900 hover:text-white hover:bg-emerald-900 cursor-pointer'>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
 
       {/* ALERT */}
       {isShowAlert &&
-        <Alert className='absolute right-10 bottom-30  w-fit bg-emerald-900/30 border-emerald-900 text-zinc-200 leading-8'>
+        <Alert className='absolute right-10 bottom-30  w-fit bg-emerald-900/30 border-emerald-900 text-stone-200 leading-8'>
           <CheckCircle2Icon className='!size-7 -translate-x-2 !translate-y-3.5' />
           <AlertTitle>Success! Your changes have been saved</AlertTitle>
           <AlertDescription>
@@ -110,7 +110,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       </div>
 
       {/* BREADCRUMB */}
-      <Breadcrumb className='p-4 border-b-2 border-zinc-800'>
+      <Breadcrumb className='p-4 border-b-2 border-stone-800'>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
@@ -156,21 +156,21 @@ const ReviewPage: NextPage<PropsType> = () => {
       {/* CARD */}
       <Button
         variant={'black'}
-        className='my-3 border border-zinc-700 hover:bg-zinc-800 transition-all duration-200'
+        className='my-3 border border-stone-700 hover:bg-stone-800 transition-all duration-200'
         onClick={() => setIsShowCard(p => !p)}
       >
         TOGGLE CARD
       </Button>
 
       {isShowCard &&
-        <Card className="w-full max-w-sm">
+        <Card className="w-full max-w-sm my-10 bg-black">
           <CardHeader>
             <CardTitle>Login to your account</CardTitle>
             <CardDescription>
               Enter your email below to login to your account
             </CardDescription>
             <CardAction>
-              <Button variant="link">Sign Up</Button>
+              <Button variant="blue">Sign Up</Button>
             </CardAction>
           </CardHeader>
           <CardContent>
@@ -188,10 +188,7 @@ const ReviewPage: NextPage<PropsType> = () => {
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    <a
-                      href="#"
-                      className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                    >
+                    <a href="#" className="ml-auto inline-block text-sm underline-offset-4 hover:underline" >
                       Forgot your password?
                     </a>
                   </div>
@@ -201,7 +198,7 @@ const ReviewPage: NextPage<PropsType> = () => {
             </form>
           </CardContent>
           <CardFooter className="flex-col gap-2">
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" variant={'blue'}>
               Login
             </Button>
             <Button variant="outline" className="w-full">
@@ -327,7 +324,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       </Drawer>
 
       {/* FIELD */}
-      <div className="w-full max-w-md border-2 border-zinc-600 p-6 my-6 shadow-sm rounded-xl">
+      <div className="w-full max-w-md border-2 border-stone-600 p-6 my-6 shadow-sm rounded-xl">
         <form>
           <FieldGroup>
             <FieldSet>
@@ -441,13 +438,13 @@ const ReviewPage: NextPage<PropsType> = () => {
       </div>
 
       {/* MENU BAR */}
-      <Menubar className='shadow-md shadow-zinc-600'>
+      <Menubar className='shadow-md shadow-stone-600'>
         <MenubarMenu>
-          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
             <FileIcon className='size-4' />
             File
           </MenubarTrigger>
-          <Separator orientation='vertical' className='bg-zinc-600 my-1 h-3/4' />
+          <Separator orientation='vertical' className='bg-stone-600 my-1 h-3/4' />
           <MenubarContent className='bg-black'>
             <MenubarItem>
               New Tab <MenubarShortcut>⌘T</MenubarShortcut>
@@ -472,11 +469,11 @@ const ReviewPage: NextPage<PropsType> = () => {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
             <Pencil className='size-4' />
             Edit
           </MenubarTrigger>
-          <Separator orientation='vertical' className='bg-zinc-600 my-1 h-3/4' />
+          <Separator orientation='vertical' className='bg-stone-600 my-1 h-3/4' />
           <MenubarContent className='bg-black'>
             <MenubarItem>
               Undo <MenubarShortcut>⌘Z</MenubarShortcut>
@@ -502,11 +499,11 @@ const ReviewPage: NextPage<PropsType> = () => {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
             <Eye className='size-4' />
             View
           </MenubarTrigger>
-          <Separator orientation='vertical' className='bg-zinc-600 my-1 h-3/4' />
+          <Separator orientation='vertical' className='bg-stone-600 my-1 h-3/4' />
           <MenubarContent className='bg-black'>
             <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
             <MenubarCheckboxItem checked>
@@ -526,7 +523,7 @@ const ReviewPage: NextPage<PropsType> = () => {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger className='flex items-center gap-1 hover:bg-zinc-800 transition-all duration-300'>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
             <User className='size-4' />
             Profiles
           </MenubarTrigger>
@@ -547,7 +544,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       {/* SHEET */}
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline">Open</Button>
+          <Button variant="outline" className='my-6'>Open</Button>
         </SheetTrigger>
         <SheetContent side={'right'}>
           <SheetHeader>
@@ -566,7 +563,7 @@ const ReviewPage: NextPage<PropsType> = () => {
               <Input id="sheet-demo-username" defaultValue="@peduarte" />
             </div>
           </div>
-          <SheetFooter>
+          <SheetFooter className='mt-6'>
             <Button type="submit">Save changes</Button>
             <SheetClose asChild>
               <Button variant="outline">Close</Button>
@@ -576,7 +573,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       </Sheet>
 
       {/* TOGGLE GROUP */}
-      <ToggleGroup type="multiple" variant="outline" spacing={2} size="sm" className='my-6 bg-stone-700 p-6 rounded-xl border-2'>
+      <ToggleGroup type="multiple" variant="outline" spacing={2} size="sm" className='my-6 bg-stone-900 p-6 rounded-xl border-2'>
         <ToggleGroupItem
           value="star"
           aria-label="Toggle star"
