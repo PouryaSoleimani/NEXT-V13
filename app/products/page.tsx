@@ -1,55 +1,36 @@
+"use client";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+type SingleProductType = { id: number; title: string; price: number; isAvailable: boolean };
 
 const AllProductsPage = () => {
-  return (
-    <div>
-      <ul className="flex items-center justify-center gap-4">
-        <Link
-          className="text-2xl font-bold bg-red-800 rounded-full my-3 size-12 hover:bg-zinc-800 duration-200 flex items-center justify-center "
-          href="/products/1"
-        >
-          1
-        </Link>
-        <Link
-          className="text-2xl font-bold bg-red-800 rounded-full my-3 size-12 hover:bg-zinc-800 duration-200 flex items-center justify-center "
-          href="/products/2"
-        >
-          2
-        </Link>
-        <Link
-          className="text-2xl font-bold bg-red-800 rounded-full my-3 size-12 hover:bg-zinc-800 duration-200 flex items-center justify-center "
-          href="/products/3"
-        >
-          3
-        </Link>
-        <Link
-          className="text-2xl font-bold bg-red-800 rounded-full my-3 size-12 hover:bg-zinc-800 duration-200 flex items-center justify-center "
-          href="/products/4"
-        >
-          4
-        </Link>
-        <Link
-          className="text-2xl font-bold bg-red-800 rounded-full my-3 size-12 hover:bg-zinc-800 duration-200 flex items-center justify-center "
-          href="/products/5"
-        >
-          5
-        </Link>
-        <Link
-          className="text-2xl font-bold bg-red-800 rounded-full my-3 size-12 hover:bg-zinc-800 duration-200 flex items-center justify-center "
-          href="/products/6"
-        >
-          6
-        </Link>
-        <Link
-          className="text-2xl font-bold bg-red-800 rounded-full my-3 size-12 hover:bg-zinc-800 duration-200 flex items-center justify-center "
-          href="/products/7"
-        >
-          7
-        </Link>
-      </ul>
-    </div>
-  );
+   const [AllProducts, setAllProducts] = useState<SingleProductType[]>([]);
+
+   useEffect(() => {
+      axios
+         .get("http://localhost:3000/api/products")
+         .then((res) => setAllProducts(res.data.allProducts))
+         .catch((err) => toast.error(err.message));
+      return;
+   }, []);
+
+   return (
+      <div className="grid grid-cols-6 gap-5 py-32 px-10">
+         {AllProducts.length &&
+            AllProducts.map((item: SingleProductType) => (
+               <div key={item.id} className="bg-zinc-900 p-5 rounded flex flex-col items-center justify-center">
+                  <h2 className="text-2xl font-medium">
+                     {item.title} : $ {item.price}
+                  </h2>
+                  <span>
+                     {item.isAvailable ? <span className="text-emerald-600">AVAILABLE</span> : <span className="text-rose-600">UNAVAILABLE</span>}
+                  </span>
+               </div>
+            ))}
+      </div>
+   );
 };
 
 export default AllProductsPage;
