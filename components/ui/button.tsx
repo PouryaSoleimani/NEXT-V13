@@ -20,8 +20,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline  font-bold",
         blue: "bg-blue-900 hover:bg-blue-800  font-bold",
         black: "bg-black hover:bg-zinc-950  font-bold",
-        success: "bg-emerald-700 hover:bg-emerald-500 text-white  font-bold",
-        red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300",
+        success: "bg-lime-600 hover:bg-lime-500 text-black font-bold border border-zinc-100",
+        red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300 ",
         lime: "bg-lime-600 hover:bg-lime-400 transition-colors ease-out duration-300 text-black font-sans font-black",
       },
       size: {
