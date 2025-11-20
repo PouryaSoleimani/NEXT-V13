@@ -434,6 +434,8 @@ const ReviewPage: NextPage<PropsType> = () => {
         </form>
       </div>
 
+      {/* MENU BAR */}
+      
 
     </section>
   )
