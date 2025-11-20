@@ -15,6 +15,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, } from "@/components/ui/context-menu"
+
 
 // TYPES ========================================================================================================================================================================================================================
 interface PropsType {
@@ -184,7 +186,50 @@ const ReviewPage: NextPage<PropsType> = () => {
 
 
       {/* CONTEXT MENU */}
-
+      <ContextMenu>
+        <ContextMenuTrigger className="flex h-[150px] w-[300px] mb-10 items-center justify-center rounded-md border border-dashed text-sm">
+          Right click here
+        </ContextMenuTrigger>
+        <ContextMenuContent className="w-52 bg-black mb-10">
+          <ContextMenuItem inset>
+            Back
+            <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuItem inset disabled>
+            Forward
+            <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuItem inset>
+            Reload
+            <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuSub>
+            <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
+            <ContextMenuSubContent className="w-44 bg-black translate-x-4">
+              <ContextMenuItem>Save Page...</ContextMenuItem>
+              <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+              <ContextMenuItem>Name Window...</ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuItem>Developer Tools</ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
+            </ContextMenuSubContent>
+          </ContextMenuSub>
+          <ContextMenuSeparator />
+          <ContextMenuCheckboxItem checked>
+            Show Bookmarks
+          </ContextMenuCheckboxItem>
+          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
+          <ContextMenuSeparator />
+          <ContextMenuRadioGroup value="pedro">
+            <ContextMenuLabel inset>People</ContextMenuLabel>
+            <ContextMenuRadioItem value="pedro">
+              Pedro Duarte
+            </ContextMenuRadioItem>
+            <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
+          </ContextMenuRadioGroup>
+        </ContextMenuContent>
+      </ContextMenu>
     </section>
   )
 }
