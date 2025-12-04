@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import useSWR from "swr";
-
+1
 export type SingleUserType = {
    id: string | number;
    email: string;
