@@ -1,6 +1,5 @@
 "use client";
 import axios from "axios";
-import React from "react";
 import useSWR from "swr";
 
 export type SingleUserType = {
