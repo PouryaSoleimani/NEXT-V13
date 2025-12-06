@@ -35,9 +35,9 @@ const { data: users, isLoading, error } = useSWR( 'https://jsonplaceholder.typic
     await mutate(
       'https://jsonplaceholder.typicode.com/users', 
       async () => {
-      const optimistic = [...users, newUser]
+        const optimistic = [...users, newUser]
       await axios.post('https://jsonplaceholder.typicode.com/users', newUser)
-      return optimistic
+        return optimistic
     }, {
       optimisticData: [...users, newUser],
         rollbackOnError: true,
