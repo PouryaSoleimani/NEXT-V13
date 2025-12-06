@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import useSWR, { mutate } from "swr";
 import axios from "axios";
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+
 function SwrPage() {
    // const { data: users, error, isLoading } = useFetchUsers();
 
@@ -22,7 +23,7 @@ function SwrPage() {
    const addUser = async () => {
       const newUser = {
          id: Date.now(), // موقت
-         email: "NEW USER (Optimistic)",
+         email: "NEW USER (Optimistic)", 
          username: "NEW USER (Optimistic)",
          password: "1312312312",
          body: "LOREM IPSUM ",
@@ -63,7 +64,7 @@ function SwrPage() {
                      <User className="size-5" />
                      {user.username}
                   </h3>
-                  <p className="text-blue-700 flex items-center gap-3">
+                  <p className="text-blue-700 flex items-center gap-3"> 
                      <Mail className="size-5" />
                      {user.email}
                   </p>
