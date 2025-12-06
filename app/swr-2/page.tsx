@@ -1,26 +1,58 @@
 'use client'
+import { Button } from '@/components/ui/button'
 import axios from 'axios'
-import React from 'react'
-import useSWR from 'swr'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { HiUserAdd } from 'react-icons/hi'
+import useSWR, { mutate } from 'swr'
+
+type SingleUserType = {
+  id : number,
+  name : string ,
+  username?: string,
+  email?: string,
+  address?: { street: string, suite: string, city: string }
+  phone?: string,
+  website?: string
+  company?: { name: string, catchPhrase: string, bs: string }
+}
+
 const fetcher = () => axios.get('https://jsonplaceholder.typicode.com/users').then(res => res.data)
 
-
 function Swr2Page() {
-  const { data, isLoading, error } = useSWR('https://jsonplaceholder.typicode.com/users', fetcher)
 
-  if(isLoading){
-    return <div>IS LOADING</div>
+const { data: users, isLoading, error } = useSWR( 'https://jsonplaceholder.typicode.com/users', fetcher )
+
+  if (isLoading) { return <div>IS LOADING</div> }
+  if (error) { return <div>ERROR</div> }
+
+  async function addNewUser() {
+    const newUser = {
+      id: Date.now(),
+      name: "POURYA",
+      phone: '09321831231'
+    } 
+    // mutate('https://jsonplaceholder.typicode.com/users', [...users, newUser], false)
+    await mutate(
+      'https://jsonplaceholder.typicode.com/users', 
+      async () => {
+      const optimistic = [...users, newUser]
+      await axios.post('https://jsonplaceholder.typicode.com/users', newUser)
+      return optimistic
+    }, {
+      optimisticData: [...users, newUser],
+        rollbackOnError: true,
+        revalidate: true
+    })
   }
 
-  if(error){
-    return <div>ERROR</div>
-  }
-
-  if (data) {
-    console.info('DATA ===>',data)
-  }
   return (
-    <div>{data && data.map((item: any) => <p>{item.name}</p>)}</div>
+    <>
+      <div className='grid grid-cols-4 gap-6 p-10'>{users.length > 0 && users?.map((user: SingleUserType) => <p className='bg-zinc-300 p-6 rounded-lg text-black'>{user.name}</p>)}</div>
+      <div className='grid place-items-center border-t-4 border-zinc-600 pt-9'>
+        <Button onClick={addNewUser} className='mx-auto'><HiUserAdd /> ADD NEW USER</Button>
+      </div>
+    </>
+
   )
 }
 

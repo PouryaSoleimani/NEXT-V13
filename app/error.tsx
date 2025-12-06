@@ -1,5 +1,7 @@
 // app/error.tsx
 "use client";
+import { Button } from "@/components/ui/button";
+import { AlertTriangle, RefreshCw } from "lucide-react";
 
 export default function ErrorBoundary({
   error,
@@ -7,16 +9,18 @@ export default function ErrorBoundary({
 }: {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+  }) {
   console.log("🟥🟥🟥 ERROR", error);
 
   return (
-    <div className="bg-zinc-800 p-10 rounded-xl mx-auto my-10 w-fit space-y-8">
-      <h2>Something went wrong!</h2>
-      <p className="bg-black/50 text-2xl font-black tracking-tight text-red-800">{error.message}</p>
-      <button onClick={() => reset()} className="bg-indigo-700 px-4 py-2 font-black rounded-xl">
-        Try again
-      </button>
+    <div className="w-screen h-screen flex items-center justify-center">
+      <div className="bg-zinc-800/300 flex flex-col font-medium justify-center items-center gap-3 w-200 h-100 backdrop-blur-2xl rounded-lg border border-zinc-800 shadow-md shadow-black">
+        <p className="text-red-500/70 bg-black p-3 rounded-lg flex items-center-safe gap-3"><AlertTriangle className="text-red-500/70 text-3xl" />{error.name}</p>
+        <p className="text-stone-200 text-2xl font-thin">{error.message}</p>
+        <Button onClick={() => reset()} className="w-fit my-6">
+          <RefreshCw />Try again
+        </Button>
+      </div>
     </div>
   );
 }
