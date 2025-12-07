@@ -31,7 +31,10 @@ function Swr2Page() {
       name: "POURYA",
       phone: '09321831231'
     }
+    //^ UPDATING UI WITHOUT REQUEST TO API ____ FAKE UPDATE 
     // mutate('https://jsonplaceholder.typicode.com/users', [...users, newUser], false)
+
+    //^ OPTIMISTIC UI FEATURE
     await mutate(
       'https://jsonplaceholder.typicode.com/users',
       async () => {
