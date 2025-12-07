@@ -6,8 +6,8 @@ import { HiUserAdd } from 'react-icons/hi'
 import useSWR, { mutate } from 'swr'
 
 type SingleUserType = {
-  id : number,
-  name : string ,
+  id: number,
+  name: string,
   username?: string,
   email?: string,
   address?: { street: string, suite: string, city: string }
@@ -20,7 +20,7 @@ const fetcher = () => axios.get('https://jsonplaceholder.typicode.com/users').th
 
 function Swr2Page() {
 
-const { data: users, isLoading, error } = useSWR( 'https://jsonplaceholder.typicode.com/users', fetcher )
+  const { data: users, isLoading, error } = useSWR('https://jsonplaceholder.typicode.com/users', fetcher)
 
   if (isLoading) { return <div>IS LOADING</div> }
   if (error) { return <div>ERROR</div> }
@@ -30,18 +30,18 @@ const { data: users, isLoading, error } = useSWR( 'https://jsonplaceholder.typic
       id: Date.now(),
       name: "POURYA",
       phone: '09321831231'
-    } 
+    }
     // mutate('https://jsonplaceholder.typicode.com/users', [...users, newUser], false)
     await mutate(
-      'https://jsonplaceholder.typicode.com/users', 
+      'https://jsonplaceholder.typicode.com/users',
       async () => {
         const optimistic = [...users, newUser]
-      await axios.post('https://jsonplaceholder.typicode.com/users', newUser)
+        await axios.post('https://jsonplaceholder.typicode.com/users', newUser)
         return optimistic
-    }, {
+      }, {
       optimisticData: [...users, newUser],
-        rollbackOnError: true,
-        revalidate: true
+      rollbackOnError: true,
+      revalidate: true
     })
   }
 
