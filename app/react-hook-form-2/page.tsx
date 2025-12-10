@@ -12,10 +12,9 @@ const ReactHookForm = () => {
          setError("EMAIL IS REQUIRED");
          return;
       }
-      if (!error) {
-         setEmail("");
-         alert(`EMAIL SUBMITTED : ${email}`);
-      }
+      setError("");
+      alert(`EMAIL SUBMITTED : ${email}`);
+      setEmail("");
    }
    return (
       <form className="bg-zinc-700 w-fit p-6 rounded-xl mx-auto my-32 flex flex-col gap-2" onSubmit={handleSubmit}>
