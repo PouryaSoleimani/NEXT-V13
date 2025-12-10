@@ -16,11 +16,11 @@ const FormSchema = z
       confirmPassword: z.string().min(6, "Confirm Your Password"),
    })
    .refine((data) => data.password === data.confirmPassword, {
-      message: "Passwords don't match",
+      message: "Passwords don't Match ...",
       path: ["confirmPassword"],
    });
 
-type FormValuesType = z.infer<typeof FormSchema>;
+type FormValuesType = z.infer<typeof FormSchema>; 
 
 const ReactHookFormPage = () => {
    const [type, setType] = useState<"password" | "text">("password");
