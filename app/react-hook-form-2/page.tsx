@@ -9,14 +9,14 @@ const FormSchema = z.object({
    email: z.email("Email is Invalid ").min(1, "Email is Required"),
 });
 
-type FormValues = z.infer<typeof FormSchema>;
+type FormValuesType = z.infer<typeof FormSchema>;
 
 const ReactHookFormPage = () => {
-   const { register, handleSubmit, watch, formState, reset } = useForm<FormValues>({
+   const { register, handleSubmit, formState, reset } = useForm<FormValuesType>({
       resolver: zodResolver(FormSchema),
    });
 
-   function onSubmit(data: FormValues, e: any) {
+   function onSubmit(data: FormValuesType, e: any) {
       console.log("DATAS => ", data);
       alert(`FORM VALUES => EMAIL : ${data.email}`);
       reset();
