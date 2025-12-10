@@ -17,9 +17,10 @@ const FormSchema = z
       confirmPassword: z.string().min(6, "Confirm Your Password"),
       hasPhone: z.boolean(),
       phonenumber: z
-         .number("Phone number Must be a Number")
-         .min(7, "Phone Number must be at least 7 characters")
-         .nullable(),
+         .string()
+         .regex(/^\d+$/, "Phone must be only digits")
+         .min(7, "Phone number must be at least 7 digits")
+         .optional(),
    })
    .refine((data) => data.password === data.confirmPassword, {
       message: "Passwords don't Match ...",
