@@ -57,7 +57,10 @@ function Swr2Page() {
    return (
       <>
          <div className="grid grid-cols-4 gap-6 p-10">
-            {users.length > 0 && users?.map((user: SingleUserType) => <p className="bg-zinc-300 p-6 rounded-lg text-black">{user.name}</p>)}
+            {users.length > 0 &&
+               users?.map((user: SingleUserType) => (
+                  <p className="bg-zinc-300 p-6 rounded-lg text-black">{user.name}</p>
+               ))}
          </div>
          <div className="grid place-items-center border-t-4 border-zinc-600 pt-9">
             <Button onClick={addNewUser} className="mx-auto">
