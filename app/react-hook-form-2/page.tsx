@@ -8,6 +8,7 @@ import z from "zod";
 const FormSchema = z.object({
    email: z.email("Email is Invalid ").min(1, "Email is Required"),
 });
+
 type FormValues = z.infer<typeof FormSchema>;
 
 const ReactHookFormPage = () => {
