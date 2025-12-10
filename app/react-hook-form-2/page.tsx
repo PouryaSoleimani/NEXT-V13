@@ -1,28 +1,27 @@
-"use client";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 
-const ReactHookForm = () => {
-   const [email, setEmail] = useState("");
-   const [error, setError] = useState("");
+type FormValuesType = {
+   email: string;
+};
 
-   function handleSubmit(e: any) {
-      e.preventDefault();
-      if (!email) {
-         setError("EMAIL IS REQUIRED");
-         return;
-      }
-      setError("");
-      alert(`EMAIL SUBMITTED : ${email}`);
-      setEmail("");
+const ReactHookFormPage = () => {
+   const { register, handleSubmit, watch, formState, reset, getValues } = useForm<FormValuesType>();
+
+   function onSubmit(data: FormValuesType, e: any) {
+      console.log("DATAS => ", data);
+      alert(`FORM VALUES => EMAIL : ${data.email}`);
+      reset();
    }
+
    return (
-      <form className="bg-zinc-700 w-fit p-6 rounded-xl mx-auto my-32 flex flex-col gap-2" onSubmit={handleSubmit}>
-         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="EMAIL ..." className="border border-black p-1 rounded-lg" />
-         {error && <p className="text-sm text-red-700 font-sans">{error}</p>}
-         <Button>SUBMIT</Button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+         <input type="email" placeholder="EMAIL ..." {...register("email")} className="p-1 border border-black rounded-lg" />
+         {formState.errors.email && <p>{formState.errors.email.message}</p>}
+         <Button type="submit">SUBMIT</Button>
       </form>
    );
 };
 
-export default ReactHookForm;
+export default ReactHookFormPage;
