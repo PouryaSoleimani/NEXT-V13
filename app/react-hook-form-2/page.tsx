@@ -22,7 +22,7 @@ const ReactHookFormPage = () => {
       resolver: zodResolver(FormSchema),
    });
 
-   function onSubmit(data: FormValuesType, e: any) {
+   function onSubmit(data: FormValuesType) {
       console.info("DATAS => ", data);
       alert(`FORM VALUES => EMAIL : ${data.email}`);
       reset();
