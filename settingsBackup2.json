@@ -1,8 +1,8 @@
 {
-   "editor.fontFamily": "Noto Sans Mono , Estedad",
+   "editor.fontFamily": "Roboto Mono,Estedad",
    "editor.fontWeight": "600",
-   "editor.letterSpacing": 0,
-   "editor.lineHeight": 22,
+   "editor.letterSpacing": -0.1,
+   "editor.lineHeight": 21,
    "editor.fontSize": 11,
    "editor.bracketPairColorization.enabled": false,
    "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
@@ -393,13 +393,25 @@
          "textMateRules": [
             {
                "name": "TYPES",
-               "scope": ["support.type.primitive.tsx", "support.type.primitive.jsx", "support.type.primitive.js", "support.type.primitive.ts", "entity.name.type"],
+               "scope": [
+                  "support.type.primitive.tsx",
+                  "support.type.primitive.jsx",
+                  "support.type.primitive.js",
+                  "support.type.primitive.ts",
+                  "entity.name.type"
+               ],
                "settings": {
                   "foreground": "#D19A66"
                }
             },
             {
-               "scope": ["variable.other.object", "variable.other.object", "variable.other.constant.object", "variable.other.property", "variable.other.constant"],
+               "scope": [
+                  "variable.other.object",
+                  "variable.other.object",
+                  "variable.other.constant.object",
+                  "variable.other.property",
+                  "variable.other.constant"
+               ],
                "settings": {
                   "foreground": "#E06C75"
                }
@@ -411,7 +423,12 @@
                }
             },
             {
-               "scope": ["variable.other.object.property", "support.variable.property", "variable.other.property", "variable.other.constant.property"],
+               "scope": [
+                  "variable.other.object.property",
+                  "support.variable.property",
+                  "variable.other.property",
+                  "variable.other.constant.property"
+               ],
                "settings": {
                   "foreground": "#E5C07B"
                }
@@ -632,7 +649,13 @@
          "textMateRules": [
             {
                "name": "TYPES",
-               "scope": ["support.type.primitive.tsx", "support.type.primitive.jsx", "support.type.primitive.js", "support.type.primitive.ts", "entity.name.type"],
+               "scope": [
+                  "support.type.primitive.tsx",
+                  "support.type.primitive.jsx",
+                  "support.type.primitive.js",
+                  "support.type.primitive.ts",
+                  "entity.name.type"
+               ],
                "settings": {
                   "foreground": "#D19A66"
                }
@@ -641,12 +664,6 @@
                "scope": ["string.quoted", "string.template", "string", "source.ini"],
                "settings": {
                   "foreground": "#41B883"
-               }
-            },
-            {
-               "scope": ["variable.other.object.property", "support.variable.property", "variable.other.property", "variable.other.constant.property"],
-               "settings": {
-                  "foreground": "#E5C07B"
                }
             },
             {
@@ -738,7 +755,7 @@
    "terminal.integrated.defaultProfile.windows": "Git Bash",
    "git.autofetch": true,
    "git.confirmSync": false,
-   "tailwind-fold.autoFold": true,
+   "tailwind-fold.autoFold": false,
    "tailwind-fold.foldedText": " ... ",
    "editor.fontLigatures": true,
    "gitlens.ai.model": "gitkraken",
