@@ -130,7 +130,7 @@ const ReactHookFormPage = () => {
             <Label className="mt-0.5">Has PhoneNumber ?</Label>
             <p>{watch("hasPhone")?.toString()}</p>
          </div>
-         {watch("hasPhone")?.toString() == "true" && (
+         {watch("hasPhone") && (
             <div className="relative inset-0 mt-2">
                <Label>Phone Number</Label>
                <input
