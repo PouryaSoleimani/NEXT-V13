@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
-import z, { email } from "zod";
+import z from "zod";
 
 const FormSchema = z.object({
    email: z.email("Email is Invalid ").min(1, "Email is Required"),
