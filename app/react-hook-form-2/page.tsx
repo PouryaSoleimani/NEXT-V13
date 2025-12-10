@@ -1,24 +1,31 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 
-const FormSchema = z.object({
-   email: z.email("Email is Invalid").min(1, "Email is Required"),
-   name: z.string().min(2, "Name Must be at least 2 Characters"),
-   password: z.string().min(6, "Password must be at least 6 characters"),
-});
+const FormSchema = z
+   .object({
+      email: z.email("Email is Invalid").min(1, "Email is Required"),
+      name: z.string().min(2, "Name Must be at least 2 Characters"),
+      password: z.string().min(6, "Password must be at least 6 characters"),
+      confirmPassword: z.string().min(6, "Confirm Your Password"),
+   })
+   .refine((data) => data.password === data.confirmPassword, {
+      message: "Passwords don't match",
+      path: ["confirmPassword"],
+   });
 
 type FormValuesType = z.infer<typeof FormSchema>;
 
 const ReactHookFormPage = () => {
    const [type, setType] = useState<"password" | "text">("password");
 
-   const { register, handleSubmit, formState, reset, setError } = useForm<FormValuesType>({
+   const { register, handleSubmit, formState, reset } = useForm<FormValuesType>({
       resolver: zodResolver(FormSchema),
    });
 
@@ -75,7 +82,24 @@ const ReactHookFormPage = () => {
                {formState.errors.password.message}
             </p>
          )}
-
+         <div className="relative inset-0 mt-2">
+            <Label>Confirm Password</Label>
+            <input
+               type={type == "password" ? "password" : "text"}
+               placeholder="Confirm Password ..."
+               {...register("confirmPassword")}
+               className="p-2 border border-black rounded-lg mt-2 font-thin w-full"
+            />
+            {formState.errors.confirmPassword && (
+               <p className="text-xs tracking-wide text-red-300 font-sans pt-1">
+                  {formState.errors.confirmPassword.message}
+               </p>
+            )}
+            <Eye
+               onClick={switchShowPassword}
+               className={cn("absolute bottom-2 right-3 text-zinc-300", formState.errors.confirmPassword && "bottom-7")}
+            />
+         </div>
          <Button type="submit" variant={"success"} className="mt-3 font-thin">
             SUBMIT
          </Button>
