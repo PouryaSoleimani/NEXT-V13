@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,7 +11,7 @@ import z from "zod";
 const FormSchema = z
    .object({
       email: z.email("Email is Invalid").min(1, "Email is Required"),
-      name: z.string().min(2, "Name Must be at least 2 Characters"),
+      username: z.string().min(2, "Name Must be at least 2 Characters"),
       password: z.string().min(6, "Password must be at least 6 characters"),
       confirmPassword: z.string().min(6, "Confirm Your Password"),
       hasPhone: z.boolean(),
@@ -66,6 +65,7 @@ const ReactHookFormPage = () => {
       <form
          className="bg-zinc-700/50 backdrop-blur-2xl border shadow-sm shadow-zinc-500 border-zinc-500 w-100  p-6 rounded-xl mx-auto my-32 flex flex-col gap-2"
          onSubmit={handleSubmit(onSubmit)}>
+         {/* EMAIL */}
          <Label>Email</Label>
          <input
             type="email"
@@ -76,16 +76,19 @@ const ReactHookFormPage = () => {
          {formState.errors.email && (
             <p className="text-xs tracking-wide text-red-300 font-sans">{formState.errors.email.message}</p>
          )}
-         <Label className="mt-2">Name</Label>
+         {/* NAME */}
+         <Label className="mt-2">Username</Label>
          <input
             type="text"
-            placeholder="Name ..."
+            placeholder="Username ..."
             className="p-2 border border-black rounded-lg font-thin"
-            {...register("name")}
+            {...register("username")}
          />
-         {formState.errors.name && (
-            <p className="text-xs tracking-wide text-red-300 font-sans pt-1">{formState.errors.name.message}</p>
+         {formState.errors.username && (
+            <p className="text-xs tracking-wide text-red-300 font-sans pt-1">{formState.errors.username.message}</p>
          )}
+
+         {/* PASSWORD */}
          <div className="relative inset-0 mt-2">
             <Label className="pb-2">Password</Label>
             <input
@@ -101,6 +104,7 @@ const ReactHookFormPage = () => {
                {formState.errors.password.message}
             </p>
          )}
+         {/* CONFIRM PASSWORD */}
          <div className="relative inset-0 mt-2">
             <Label>Confirm Password</Label>
             <input
@@ -120,6 +124,7 @@ const ReactHookFormPage = () => {
             />
          </div>
 
+         {/* HAS PHONE NUMBER */}
          <div className="flex  items-center-safe gap-3  border-t-2 border-zinc-600 pt-3">
             <input type="checkbox" {...register("hasPhone")} />
             <Label className="mt-0.5">Has PhoneNumber ?</Label>
