@@ -25,7 +25,19 @@ const FormSchema = z
    .refine((data) => data.password === data.confirmPassword, {
       message: "Passwords don't Match ...",
       path: ["confirmPassword"],
-   });
+   })
+   .refine(
+      (data) => {
+         if (data.hasPhone) {
+            return !!data.phonenumber;
+         }
+         return true;
+      },
+      {
+         message: "Phone Number is Required",
+         path: ["phonenumber"],
+      }
+   );
 
 type FormValuesType = z.infer<typeof FormSchema>; 
 
