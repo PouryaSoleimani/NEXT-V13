@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 
@@ -21,12 +21,11 @@ const ReactHookFormPage = () => {
    });
 
    function onSubmit(data: FormValuesType, e: any) {
-      console.log("DATAS => ", data);
+      console.info("DATAS => ", data);
       alert(`FORM VALUES => EMAIL : ${data.email}`);
       setError("email", { message: "" });
       reset();
    }
-   const passwordRef = useRef<any>(null);
 
    function switchShowPassword() {
       if (type == "password") {
@@ -35,6 +34,7 @@ const ReactHookFormPage = () => {
          setType("password");
       }
    }
+
    return (
       <form
          className="bg-zinc-700 w-fit p-6 rounded-xl mx-auto my-32 flex flex-col gap-2"
@@ -46,7 +46,7 @@ const ReactHookFormPage = () => {
             className="p-2 border border-black rounded-lg font-thin"
          />
          {formState.isDirty && formState.errors.email && (
-            <p className="text-sm text-red-700 font-sans">{formState.errors.email.message}</p>
+            <p className="text-xs tracking-wide text-red-300 font-sans">{formState.errors.email.message}</p>
          )}
          <input
             type="text"
@@ -55,7 +55,7 @@ const ReactHookFormPage = () => {
             {...register("name", { required: "Name is Required" })}
          />
          {formState.errors.name && (
-            <p className="text-xs text-red-700 font-sans pt-1">{formState.errors.name.message}</p>
+            <p className="text-xs tracking-wide text-red-300 font-sans pt-1">{formState.errors.name.message}</p>
          )}
          <div className="relative inset-0">
             <input
@@ -67,7 +67,9 @@ const ReactHookFormPage = () => {
             <Eye onClick={switchShowPassword} className="absolute bottom-2 right-3 text-zinc-300" />
          </div>
          {formState.errors.password && (
-            <p className="text-xs text-red-700 font-sans pt-1 max-w-sm">{formState.errors.password.message}</p>
+            <p className="text-xs tracking-wide text-red-300 font-sans pt-1 max-w-sm">
+               {formState.errors.password.message}
+            </p>
          )}
 
          <Button type="submit">SUBMIT</Button>
