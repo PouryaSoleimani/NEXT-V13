@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,6 +15,11 @@ const FormSchema = z
       name: z.string().min(2, "Name Must be at least 2 Characters"),
       password: z.string().min(6, "Password must be at least 6 characters"),
       confirmPassword: z.string().min(6, "Confirm Your Password"),
+      hasPhone: z.boolean(),
+      phonenumber: z
+         .number("Phone number Must be a Number")
+         .min(7, "Phone Number must be at least 7 characters")
+         .nullable(),
    })
    .refine((data) => data.password === data.confirmPassword, {
       message: "Passwords don't Match ...",
@@ -25,7 +31,7 @@ type FormValuesType = z.infer<typeof FormSchema>;
 const ReactHookFormPage = () => {
    const [type, setType] = useState<"password" | "text">("password");
 
-   const { register, handleSubmit, formState, reset } = useForm<FormValuesType>({
+   const { register, handleSubmit, formState, reset, watch } = useForm<FormValuesType>({
       resolver: zodResolver(FormSchema),
    });
 
@@ -100,6 +106,29 @@ const ReactHookFormPage = () => {
                className={cn("absolute bottom-2 right-3 text-zinc-300", formState.errors.confirmPassword && "bottom-7")}
             />
          </div>
+
+         <div className="flex  items-center-safe gap-3  border-t-2 border-zinc-600 pt-3">
+            <input type="checkbox" {...register("hasPhone")} />
+            <Label className="mt-0.5">Has PhoneNumber ?</Label>
+            <p>{watch("hasPhone")?.toString()}</p>
+         </div>
+         {watch("hasPhone")?.toString() == "true" && (
+            <div className="relative inset-0 mt-2">
+               <Label>Phone Number</Label>
+               <input
+                  type="number"
+                  placeholder="PhoneNumber"
+                  {...register("phonenumber")}
+                  className="p-2 border border-black rounded-lg mt-2 font-thin w-full"
+               />
+               {formState.errors.phonenumber && (
+                  <p className="text-xs tracking-wide text-red-300 font-sans pt-1">
+                     {formState.errors.phonenumber.message}
+                  </p>
+               )}
+            </div>
+         )}
+
          <Button type="submit" variant={"success"} className="mt-3 font-thin">
             SUBMIT
          </Button>
