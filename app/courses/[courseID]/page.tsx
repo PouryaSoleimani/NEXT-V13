@@ -3,14 +3,14 @@ import React from "react";
 type SingleCoursePageParams = { params: { courseID: string } };
 
 const SingleCoursePage = (params: any) => {
-  console.info(params);
-  return (
-    <div>
-      <h2 className="p-10 text-2xl font-bold w-fit mx-auto my-10 bg-white text-black rounded-2xl">
-        {params.courseID.toUpperCase()} COURSE
-      </h2>
-    </div>
-  );
+   console.info(params);
+   return (
+      <div>
+         <h2 className="p-10 text-2xl font-bold w-fit mx-auto my-10 bg-white text-black rounded-2xl">
+            {params.courseID.toUpperCase()} COURSE
+         </h2>
+      </div>
+   );
 };
 
 export default SingleCoursePage;
