@@ -38,7 +38,7 @@ const FormSchema = z
       }
    );
 
-type FormValuesType = z.infer<typeof FormSchema>; 
+type FormValuesType = z.infer<typeof FormSchema>;
 
 const ReactHookFormPage = () => {
    const [type, setType] = useState<"password" | "text">("password");
