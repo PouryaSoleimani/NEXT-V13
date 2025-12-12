@@ -35,8 +35,8 @@ const FormSchema = z
 
       hasAccept: z.boolean(),
       gender: z.enum([GENDER.male, GENDER.female], "Please Select a Gender "),
-      password: z.string().min(3, "Password must be at least 3 letters"),
-      confirmPassword: z.string().min(3, "Password must be at least 3 letters"),
+      password: z.string("Please Set a Password").min(3, "Password must be at least 3 letters"),
+      confirmPassword: z.string("Please Confirm Your Password").min(3, "Password must be at least 3 letters"),
    })
    .refine((data) => {
       if (!data.hasAccept) {
@@ -64,6 +64,8 @@ const ReactHookForm3 = () => {
          username: "",
          hasAccept: false,
          gender: GENDER.male,
+         password: "",
+         confirmPassword: "",
       },
    });
 
@@ -189,9 +191,14 @@ const ReactHookForm3 = () => {
                   )}
                />
                <Eye
-                  className="size-5 text-neutral-300 absolute right-2 top-1/2"
+                  className={cn("size-5 text-neutral-300 absolute right-2 top-1/2",formState.errors.password && 'top-7.5')}
                   onClick={switchTypeHandler}
                />
+               {formState.errors.password && (
+                  <p className="text-xs bg-red-400/30 text-red-100 font-semibold p-1 rounded-sm">
+                     {formState.errors.password.message}
+                  </p>
+               )}
             </div>
 
             <div id="CONFIRM___PASSWORD" className="flex flex-col gap-2 relative inset-0">
@@ -208,9 +215,14 @@ const ReactHookForm3 = () => {
                   )}
                />
                <Eye
-                  className="size-5 text-neutral-300 absolute right-2 top-1/2"
+                  className={cn("size-5 text-neutral-300 absolute right-2 top-1/2",formState.errors.confirmPassword && 'top-7.5')}
                   onClick={switchTypeHandler2}
                />
+               {formState.errors.confirmPassword && (
+                  <p className="text-xs bg-red-400/30 text-red-100 font-semibold p-1 rounded-sm">
+                     {formState.errors.confirmPassword.message}
+                  </p>
+               )}
             </div>
 
             <div id="GENDER" className="flex flex-col gap-3">
