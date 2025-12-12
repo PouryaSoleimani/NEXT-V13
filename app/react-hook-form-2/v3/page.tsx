@@ -9,7 +9,8 @@ import toast from 'react-hot-toast';
 import z from 'zod';
 
 const FormSchema = z.object({
-   email: z.email("Email Invalid").min(1 , "Email can't be Empty"),
+   email: z.email("Email Invalid").min(1, "Email can't be Empty"),
+   username: z.string().min(1, "Username Can't be Empty"),
 });
 
 const ReactHookForm3 = () => {
@@ -33,22 +34,41 @@ const ReactHookForm3 = () => {
    }
    return (
       <section className="w-screen h-screen bg-black center ">
-         <form className="border-4 border-neutral-700 bg-neutral-900 p-5 rounded-lg flex flex-col gap-3" onSubmit={handleSubmit(submitHandler)}>
+         <form
+            className="border-4 border-neutral-700 bg-neutral-900 p-5 rounded-lg flex flex-col gap-5"
+            onSubmit={handleSubmit(submitHandler)}>
             <h2 className="text-center border-b-2 border-blue-900 pb-2">LOGIN</h2>
-            <div id="EMAIL" className="flex flex-col gap-1">
-               <Label className="text-blue-100 mb-2">Email</Label>
+            <div id="EMAIL" className="flex flex-col gap-2">
+               <Label>Email</Label>
                <Controller
                   name="email"
                   control={control}
-                  render={({ field }) => <Input placeholder="Email ..." value={field.value} onChange={field.onChange} />}
+                  render={({ field }) => (
+                     <Input placeholder="Email ..." value={field.value} onChange={field.onChange} />
+                  )}
                />
                {formState.errors.email && (
-                  <p className="text-xs bg-red-400/30 text-red-100 font-semibold p-1 rounded-sm">{formState.errors.email.message}</p>
+                  <p className="text-xs bg-red-400/30 text-red-100 font-semibold p-1 rounded-sm">
+                     {formState.errors.email.message}
+                  </p>
                )}
             </div>
 
+            <div className="flex flex-col gap-2">
+               <Label>Username</Label>
+               <Controller
+                  name="username"
+                  control={control}
+                  render={({ field }) => (
+                     <Input value={field.value} onChange={field.onChange} placeholder="Username ..." />
+                  )}
+               />
+            </div>
+
             <div id="SUBMIT___BUTTON" className="w-full border-t-2 border-neutral-700 pt-4">
-               <Button className="w-full bg-blue-950 hover:bg-blue-900 transition-all duration-300">Submit</Button>
+               <Button className="w-full bg-blue-950 hover:bg-blue-900 transition-all duration-300">
+                  Submit
+               </Button>
             </div>
          </form>
       </section>
