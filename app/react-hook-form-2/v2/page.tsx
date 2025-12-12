@@ -84,7 +84,6 @@ const ReactHookFormV2 = () => {
          <form
             onSubmit={handleSubmit(submitHandler)}
             className="bg-neutral-800 border p-4 rounded-lg w-100  flex flex-col gap-5 border-neutral-500">
-               
             <div id="USER__NAME" className="flex flex-col gap-2">
                <Label>Username</Label>
                <input
