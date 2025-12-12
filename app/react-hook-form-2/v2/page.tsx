@@ -6,6 +6,8 @@ import { Eye } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue, } from "@/components/ui/select";
+
 
 const FormSchema = z
    .object({
@@ -158,7 +160,19 @@ const ReactHookFormV2 = () => {
                   )}
                </div>
             )}
-
+            <div>
+               <Select>
+                  <SelectTrigger className="w-full">
+                     <SelectValue placeholder="Gender" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-black">
+                     <SelectGroup>
+                        <SelectItem className="hover:bg-neutral-700 transition-all duration-250" value="male">Male</SelectItem>
+                        <SelectItem className="hover:bg-neutral-700 transition-all duration-250" value="female">Female</SelectItem>
+                     </SelectGroup>
+                  </SelectContent>
+               </Select>
+            </div>
             <div className="border-t-2 border-neutral-700 pt-2 mt-2">
                <Button type="submit" className="w-full">
                   Submit
