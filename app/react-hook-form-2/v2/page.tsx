@@ -61,7 +61,7 @@ const ReactHookFormV2 = () => {
 
    type FormTypes = z.infer<typeof FormSchema>;
 
-   const { register, formState, handleSubmit, watch } = useForm<FormTypes>({
+   const { register, formState, handleSubmit, watch, trigger } = useForm<FormTypes>({
       resolver: zodResolver(FormSchema),
    });
 
@@ -80,6 +80,7 @@ const ReactHookFormV2 = () => {
                   {...register("username")}
                   placeholder="username"
                   type="text"
+                  onChange={() => trigger("username")}
                   className="border-neutral-700 px-2 py-1.5 rounded-lg ring-neutral-700 bg-neutral-400 text-black"
                />
                {formState.errors.username && (
