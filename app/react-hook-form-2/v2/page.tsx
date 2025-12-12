@@ -58,7 +58,7 @@ const ReactHookFormV2 = () => {
          setType2("password");
       }
    }
-   
+
    type FormTypes = z.infer<typeof FormSchema>;
 
    const { register, formState, handleSubmit, watch } = useForm<FormTypes>({
