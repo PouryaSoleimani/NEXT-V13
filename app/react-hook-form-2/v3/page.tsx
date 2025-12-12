@@ -100,7 +100,7 @@ const ReactHookForm3 = () => {
          <form
             className={cn(
                "border-4 border-blue-950 w-80 bg-neutral-900 p-5 rounded-lg flex flex-col gap-5",
-               Object.keys(formState.errors).length !== 0 && "border-red-950"
+               Object.keys(formState.errors).length !== 0 && "border-neutral-800 shadow-md shadow-red-900"
             )}
             onSubmit={handleSubmit(submitHandler)}>
             <h2 className="text-center border-b-2 border-blue-900 pb-2">LOGIN</h2>
@@ -187,11 +187,15 @@ const ReactHookForm3 = () => {
                         value={field.value}
                         onChange={field.onChange}
                         type={type === "password" ? "password" : "text"}
+                        placeholder="Password"
                      />
                   )}
                />
                <Eye
-                  className={cn("size-5 text-neutral-300 absolute right-2 top-1/2",formState.errors.password && 'top-7.5')}
+                  className={cn(
+                     "size-5 text-neutral-300 absolute right-2 top-1/2",
+                     formState.errors.password && "top-7.5"
+                  )}
                   onClick={switchTypeHandler}
                />
                {formState.errors.password && (
@@ -208,6 +212,7 @@ const ReactHookForm3 = () => {
                   name="confirmPassword"
                   render={({ field }) => (
                      <Input
+                        placeholder="Confirm Password"
                         value={field.value}
                         onChange={field.onChange}
                         type={type2 === "password" ? "password" : "text"}
@@ -215,7 +220,10 @@ const ReactHookForm3 = () => {
                   )}
                />
                <Eye
-                  className={cn("size-5 text-neutral-300 absolute right-2 top-1/2",formState.errors.confirmPassword && 'top-7.5')}
+                  className={cn(
+                     "size-5 text-neutral-300 absolute right-2 top-1/2",
+                     formState.errors.confirmPassword && "top-7.5"
+                  )}
                   onClick={switchTypeHandler2}
                />
                {formState.errors.confirmPassword && (
