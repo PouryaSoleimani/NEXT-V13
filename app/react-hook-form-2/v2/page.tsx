@@ -8,7 +8,11 @@ import { Controller, useForm } from "react-hook-form";
 import z from "zod";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import toast from "react-hot-toast";
-enum GENDER {male ='MALE' , female ='FEMALE'}
+enum GENDER {
+   male = "MALE",
+   female = "FEMALE",
+   other = "OTHER",
+}
 
 const FormSchema = z
    .object({
@@ -22,7 +26,7 @@ const FormSchema = z
          .regex(/^\d+$/, "Phonenumber must be only Digits")
          .min(7, "phonenumber must be at least 7 letters")
          .optional(),
-      gender: z.enum(GENDER, "Please Select a Gender "),
+      gender: z.enum([GENDER.female, GENDER.male, GENDER.other], "Please Select a Gender "),
    })
    .refine((data) => data.password === data.confirmPassword, {
       message: "Passwords don't Match ...",
@@ -179,7 +183,7 @@ const ReactHookFormV2 = () => {
                   name="gender"
                   control={control}
                   render={({ field }) => (
-                     <Select onValueChange={field.onChange} defaultValue={field.value}>
+                     <Select onValueChange={field.onChange} value={field.value}>
                         <SelectTrigger className="w-full bg-black">
                            <SelectValue placeholder="Select Gender" />
                         </SelectTrigger>
@@ -194,6 +198,11 @@ const ReactHookFormV2 = () => {
                                  className="hover:bg-neutral-700 transition-all duration-250"
                                  value="FEMALE">
                                  Female
+                              </SelectItem>
+                              <SelectItem
+                                 className="hover:bg-neutral-700 transition-all duration-250"
+                                 value="OTHER">
+                                 Other
                               </SelectItem>
                            </SelectGroup>
                         </SelectContent>
