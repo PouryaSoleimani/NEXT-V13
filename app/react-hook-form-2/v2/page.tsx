@@ -78,6 +78,7 @@ const ReactHookFormV2 = () => {
                   </p>
                )}
             </div>
+
             <div className="flex flex-col gap-2">
                <Label>Email</Label>
                <input
@@ -92,6 +93,7 @@ const ReactHookFormV2 = () => {
                   </p>
                )}
             </div>
+
             <div className="flex flex-col gap-2 relative inset-0">
                <Label>Password</Label>
                <input
@@ -107,6 +109,7 @@ const ReactHookFormV2 = () => {
                )}
                <Eye className="absolute top-7.5 right-2 size-5 text-neutral-400" onClick={switchShowPassword} />
             </div>
+
             <div className="flex flex-col gap-2 relative inset-0">
                <Label>Confirm Password</Label>
                <input
@@ -122,10 +125,12 @@ const ReactHookFormV2 = () => {
                )}
                <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword} />
             </div>
+
             <div className="flex items-center-safe gap-2">
                <input type="checkbox" {...register("hasPhone")} />
                <Label>Has Phonenumber</Label>
             </div>
+
             {watch("hasPhone") && (
                <div className="flex flex-col gap-2 relative inset-0">
                   <Label>Phonenumber</Label>
@@ -143,6 +148,7 @@ const ReactHookFormV2 = () => {
                   <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword} />
                </div>
             )}
+
             <div className="border-t-2 border-neutral-700 pt-2 mt-2">
                <Button type="submit" className="w-full">
                   Submit
