@@ -48,7 +48,7 @@ const ReactHookForm3 = () => {
          phonenumber: "",
          username: "",
          hasAccept: false,
-         
+         gender: GENDER.male,
       },
    });
 
@@ -145,7 +145,7 @@ const ReactHookForm3 = () => {
                )}
             </div>
 
-            <div id="GENDER" className="flex flex-col gap-2">
+            <div id="GENDER" className="flex flex-col gap-3">
                <Label>Gender</Label>
                <Controller
                   control={control}
@@ -188,7 +188,7 @@ const ReactHookForm3 = () => {
                         <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                      )}
                   />
-                  <Label className="font-thin font-sans whitespace-nowrap">
+                  <Label className="font-medium tracking-tight font-sans whitespace-nowrap">
                      I Accept the terms and Privacy Conditions
                   </Label>
                </div>
