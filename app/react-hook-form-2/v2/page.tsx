@@ -41,6 +41,7 @@ const FormSchema = z
 // ^ COMPONENT ==================================================================================================================================================================
 const ReactHookFormV2 = () => {
    const [type, setType] = useState<"password" | "text">("password");
+   const [type2, setType2] = useState<"password" | "text">("password");
 
    function switchShowPassword() {
       if (type == "password") {
@@ -49,6 +50,15 @@ const ReactHookFormV2 = () => {
          setType("password");
       }
    }
+
+   function switchShowPassword2() {
+      if (type2 == "password") {
+         setType2("text");
+      } else {
+         setType2("password");
+      }
+   }
+   
    type FormTypes = z.infer<typeof FormSchema>;
 
    const { register, formState, handleSubmit, watch } = useForm<FormTypes>({
@@ -107,7 +117,7 @@ const ReactHookFormV2 = () => {
                      {formState.errors.password.message}
                   </p>
                )}
-               <Eye className="absolute top-7.5 right-2 size-5 text-neutral-400" onClick={switchShowPassword} />
+               <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword} />
             </div>
 
             <div className="flex flex-col gap-2 relative inset-0">
@@ -115,7 +125,7 @@ const ReactHookFormV2 = () => {
                <input
                   {...register("confirmPassword")}
                   placeholder="Confirm Password"
-                  type={type == "password" ? "password" : "text"}
+                  type={type2 == "password" ? "password" : "text"}
                   className="border-neutral-700 px-2 py-1.5 rounded-lg ring-neutral-700 bg-neutral-400 text-black"
                />
                {formState.errors.confirmPassword && (
@@ -123,7 +133,7 @@ const ReactHookFormV2 = () => {
                      {formState.errors.confirmPassword.message}
                   </p>
                )}
-               <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword} />
+               <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword2} />
             </div>
 
             <div className="flex items-center-safe gap-2">
@@ -145,7 +155,6 @@ const ReactHookFormV2 = () => {
                         {formState.errors.phoneNumber.message}
                      </p>
                   )}
-                  <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword} />
                </div>
             )}
 
