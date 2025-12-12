@@ -8,6 +8,7 @@ import { Controller, useForm } from "react-hook-form";
 import z from "zod";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import toast from "react-hot-toast";
+
 enum GENDER {
    male = "MALE",
    female = "FEMALE",
@@ -21,11 +22,7 @@ const FormSchema = z
       password: z.string().min(8, "Password must be atleast 8 letters"),
       confirmPassword: z.string().min(8, "Password must be atleast 8 letters"),
       hasPhone: z.boolean(),
-      phoneNumber: z
-         .string()
-         .regex(/^\d+$/, "Phonenumber must be only Digits")
-         .min(7, "phonenumber must be at least 7 letters")
-         .optional(),
+      phoneNumber: z.string().regex(/^\d+$/, "Phonenumber must be only Digits").min(7, "phonenumber must be at least 7 letters").optional(),
       gender: z.enum([GENDER.female, GENDER.male, GENDER.other], "Please Select a Gender "),
    })
    .refine((data) => data.password === data.confirmPassword, {
@@ -85,9 +82,7 @@ const ReactHookFormV2 = () => {
 
    return (
       <div className="w-screen h-screen center bg-black">
-         <form
-            onSubmit={handleSubmit(submitHandler)}
-            className="bg-neutral-800 border p-4 rounded-lg w-100  flex flex-col gap-5 border-neutral-500">
+         <form onSubmit={handleSubmit(submitHandler)} className="bg-neutral-800 border p-4 rounded-lg w-100  flex flex-col gap-5 border-neutral-500">
             <div id="USER__NAME" className="flex flex-col gap-2">
                <Label>Username</Label>
                <input
@@ -97,9 +92,7 @@ const ReactHookFormV2 = () => {
                   className="border-neutral-700 px-2 py-1.5 rounded-lg ring-neutral-700 bg-neutral-400 text-black"
                />
                {formState.errors.username && (
-                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">
-                     {formState.errors.username.message}
-                  </p>
+                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">{formState.errors.username.message}</p>
                )}
             </div>
 
@@ -112,9 +105,7 @@ const ReactHookFormV2 = () => {
                   className="border-neutral-700 px-2 py-1.5 rounded-lg ring-neutral-700 bg-neutral-400 text-black"
                />
                {formState.errors.email && (
-                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">
-                     {formState.errors.email.message}
-                  </p>
+                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">{formState.errors.email.message}</p>
                )}
             </div>
 
@@ -127,14 +118,9 @@ const ReactHookFormV2 = () => {
                   className="border-neutral-700 px-2 py-1.5 rounded-lg ring-neutral-700 bg-neutral-400 text-black"
                />
                {formState.errors.password && (
-                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">
-                     {formState.errors.password.message}
-                  </p>
+                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">{formState.errors.password.message}</p>
                )}
-               <Eye
-                  className="absolute top-7.5 right-2 size-5 text-neutral-800"
-                  onClick={switchShowPassword}
-               />
+               <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword} />
             </div>
 
             <div id="CONFIRM__PASSWORD" className="flex flex-col gap-2 relative inset-0">
@@ -146,14 +132,9 @@ const ReactHookFormV2 = () => {
                   className="border-neutral-700 px-2 py-1.5 rounded-lg ring-neutral-700 bg-neutral-400 text-black"
                />
                {formState.errors.confirmPassword && (
-                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">
-                     {formState.errors.confirmPassword.message}
-                  </p>
+                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">{formState.errors.confirmPassword.message}</p>
                )}
-               <Eye
-                  className="absolute top-7.5 right-2 size-5 text-neutral-800"
-                  onClick={switchShowPassword2}
-               />
+               <Eye className="absolute top-7.5 right-2 size-5 text-neutral-800" onClick={switchShowPassword2} />
             </div>
 
             <div id="HAS__PHONE__NUMBER" className="flex items-center-safe gap-2">
@@ -171,9 +152,7 @@ const ReactHookFormV2 = () => {
                      className="border-neutral-700 px-2 py-1.5 rounded-lg ring-neutral-700 bg-neutral-400 text-black"
                   />
                   {formState.errors.phoneNumber && (
-                     <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">
-                        {formState.errors.phoneNumber.message}
-                     </p>
+                     <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">{formState.errors.phoneNumber.message}</p>
                   )}
                </div>
             )}
@@ -189,19 +168,13 @@ const ReactHookFormV2 = () => {
                         </SelectTrigger>
                         <SelectContent className="bg-black">
                            <SelectGroup>
-                              <SelectItem
-                                 className="hover:bg-neutral-700 transition-all duration-250"
-                                 value="MALE">
+                              <SelectItem className="hover:bg-neutral-700 transition-all duration-250" value="MALE">
                                  Male
                               </SelectItem>
-                              <SelectItem
-                                 className="hover:bg-neutral-700 transition-all duration-250"
-                                 value="FEMALE">
+                              <SelectItem className="hover:bg-neutral-700 transition-all duration-250" value="FEMALE">
                                  Female
                               </SelectItem>
-                              <SelectItem
-                                 className="hover:bg-neutral-700 transition-all duration-250"
-                                 value="OTHER">
+                              <SelectItem className="hover:bg-neutral-700 transition-all duration-250" value="OTHER">
                                  Other
                               </SelectItem>
                            </SelectGroup>
@@ -210,9 +183,7 @@ const ReactHookFormV2 = () => {
                   )}
                />
                {formState.errors.gender && (
-                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">
-                     {formState.errors.gender.message}
-                  </p>
+                  <p className=" bg-red-800/20 text-xs text-neutral-300 p-1.5 rounded-sm">{formState.errors.gender.message}</p>
                )}
             </div>
 
