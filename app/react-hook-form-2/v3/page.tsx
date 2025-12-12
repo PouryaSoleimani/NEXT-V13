@@ -1,25 +1,48 @@
 'use client'
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from "@/components/ui/input";
 import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
+import fa from '@/locales/fa';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { watch } from 'fs';
+import { Mail, Phone, User } from 'lucide-react';
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import z from 'zod';
 
-const FormSchema = z.object({
-   email: z.email("Email Invalid").min(1, "Email can't be Empty"),
-   username: z.string().min(1, "Username Can't be Empty"),
-});
+const FormSchema = z
+   .object({
+      email: z.email("Email Invalid").min(1, "Email can't be Empty"),
+      username: z.string("Username cant be empty").min(1, "Username Can't be Empty"),
+      phonenumber: z
+         .string("phonenumber cant be empty")
+         .regex(/^\d+$/, "Phonenumber must be only Digits")
+         .min(7, "phonenumber must be at least 7 letters"),
+
+      hasAccept: z.boolean(),
+   })
+   .refine((data) => {
+      if(!data.hasAccept){
+            toast.error("Please Accept the terms to Continue", { position: "top-center" });
+            return false;
+      } else {
+         return true;
+      }
+   });
 
 const ReactHookForm3 = () => {
    type FormSchemaType = z.infer<typeof FormSchema>;
 
-   const { control, handleSubmit, formState, reset } = useForm<FormSchemaType>({
+   const { control, handleSubmit, formState, reset, watch } = useForm<FormSchemaType>({
       resolver: zodResolver(FormSchema),
       defaultValues: {
          email: "",
+         phonenumber: "",
+         username: "",
+         hasAccept: false,
       },
    });
 
@@ -27,24 +50,38 @@ const ReactHookForm3 = () => {
       console.info("DATA =>", data);
       toast.loading("SUBMITTING FORM ...", { position: "top-center" });
       setTimeout(() => {
-        toast.dismiss()
-        toast.success("FORM SUBMITTED SUCCESFULLY ... ", { position: "top-center" });
+         toast.dismiss();
+         toast.success("FORM SUBMITTED SUCCESFULLY ... ", { position: "top-center" });
       }, 1000);
       reset();
    }
+
+
    return (
       <section className="w-screen h-screen bg-black center ">
          <form
-            className="border-4 border-neutral-700 bg-neutral-900 p-5 rounded-lg flex flex-col gap-5"
+            className={cn(
+               "border-4 border-blue-950 w-80 bg-neutral-900 p-5 rounded-lg flex flex-col gap-5",
+               Object.keys(formState.errors).length !== 0 && "border-red-950"
+            )}
             onSubmit={handleSubmit(submitHandler)}>
             <h2 className="text-center border-b-2 border-blue-900 pb-2">LOGIN</h2>
+
             <div id="EMAIL" className="flex flex-col gap-2">
-               <Label>Email</Label>
+               <Label>
+                  <Mail className="size-4 text-neutral-300" />
+                  Email
+               </Label>
                <Controller
                   name="email"
                   control={control}
                   render={({ field }) => (
-                     <Input placeholder="Email ..." value={field.value} onChange={field.onChange} />
+                     <Input
+                        type="email"
+                        placeholder="Email ..."
+                        value={field.value}
+                        onChange={field.onChange}
+                     />
                   )}
                />
                {formState.errors.email && (
@@ -54,19 +91,78 @@ const ReactHookForm3 = () => {
                )}
             </div>
 
-            <div className="flex flex-col gap-2">
-               <Label>Username</Label>
+            <div id="USER__NAME" className="flex flex-col gap-2">
+               <Label>
+                  <User className="size-4 text-neutral-300" />
+                  Username
+               </Label>
                <Controller
                   name="username"
                   control={control}
                   render={({ field }) => (
-                     <Input value={field.value} onChange={field.onChange} placeholder="Username ..." />
+                     <Input
+                        type="text"
+                        value={field.value}
+                        onChange={field.onChange}
+                        placeholder="Username ..."
+                     />
                   )}
                />
+               {formState.errors.username && (
+                  <p className="text-xs bg-red-400/30 text-red-100 font-semibold p-1 rounded-sm">
+                     {formState.errors.username.message}
+                  </p>
+               )}
+            </div>
+
+            <div id="PHONE___NUMBER" className="flex flex-col gap-2">
+               <Label>
+                  <Phone className="size-4 text-neutral-300" />
+                  PhoneNumber
+               </Label>
+               <Controller
+                  name="phonenumber"
+                  control={control}
+                  render={({ field }) => (
+                     <Input
+                        type="text"
+                        value={field.value}
+                        onChange={field.onChange}
+                        placeholder="PhoneNumber"
+                     />
+                  )}
+               />
+               {formState.errors.phonenumber && (
+                  <p className="text-xs bg-red-400/30 text-red-100 font-semibold p-1 rounded-sm">
+                     {formState.errors.phonenumber.message}
+                  </p>
+               )}
+            </div>
+
+            <div id="HAS__ACCEPT" className="flex flex-col  gap-2">
+               <div className="flex items-center gap-2">
+                  <Controller
+                     control={control}
+                     name="hasAccept"
+                     render={({ field }) => (
+                        <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                     )}
+                  />
+                  <Label className="font-thin font-sans whitespace-nowrap">
+                     I Accept the terms and Privacy Conditions
+                  </Label>
+               </div>
+               {formState.errors.hasAccept && (
+                  <p className="text-xs bg-red-400/30 text-red-100 font-semibold p-1 rounded-sm">
+                     {formState.errors.hasAccept.message}
+                  </p>
+               )}
             </div>
 
             <div id="SUBMIT___BUTTON" className="w-full border-t-2 border-neutral-700 pt-4">
-               <Button className="w-full bg-blue-950 hover:bg-blue-900 transition-all duration-300">
+               <Button
+                  disabled={Object.keys(formState.errors).length !== 0 || watch("hasAccept") == false}
+                  className="w-full bg-blue-950 hover:bg-blue-900 transition-all duration-300">
                   Submit
                </Button>
             </div>
