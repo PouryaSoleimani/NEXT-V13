@@ -23,7 +23,11 @@ const FormSchema = z
       password: z.string().min(8, "Password must be atleast 8 letters"),
       confirmPassword: z.string().min(8, "Password must be atleast 8 letters"),
       hasPhone: z.boolean(),
-      phoneNumber: z.string().regex(/^\d+$/, "Phonenumber must be only Digits").min(7, "phonenumber must be at least 7 letters").optional(),
+      phoneNumber: z
+         .string()
+         .regex(/^\d+$/, "Phonenumber must be only Digits")
+         .min(7, "phonenumber must be at least 7 letters")
+         .optional(),
       gender: z.enum([GENDER.female, GENDER.male, GENDER.other], "Please Select a Gender "),
    })
    .refine((data) => data.password === data.confirmPassword, {

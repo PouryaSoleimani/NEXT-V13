@@ -27,17 +27,17 @@ enum GENDER {
 
 const FormSchema = z
    .object({
-      email: z.email("Email Invalid").min(1, "Email can't be Empty"),
       username: z.string("Username cant be empty").min(1, "Username Can't be Empty"),
+      email: z.email("Email Invalid").min(1, "Email can't be Empty"),
+      password: z.string("Please Set a Password").min(3, "Password must be at least 3 letters"),
+      confirmPassword: z.string("Please Confirm Your Password").min(3, "Password must be at least 3 letters"),
+      hasAccept: z.boolean(),
       phonenumber: z
          .string("phonenumber cant be empty")
          .regex(/^\d+$/, "Phonenumber must be only Digits")
          .min(7, "phonenumber must be at least 7 letters"),
 
-      hasAccept: z.boolean(),
       gender: z.enum([GENDER.male, GENDER.female], "Please Select a Gender "),
-      password: z.string("Please Set a Password").min(3, "Password must be at least 3 letters"),
-      confirmPassword: z.string("Please Confirm Your Password").min(3, "Password must be at least 3 letters"),
    })
    .refine((data) => {
       if (!data.hasAccept) {
