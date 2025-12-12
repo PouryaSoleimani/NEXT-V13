@@ -88,6 +88,7 @@ const ReactHookForm3 = () => {
          setType("password");
       }
    }
+
    function switchTypeHandler2() {
       if (type2 === "password") {
          setType2("text");
