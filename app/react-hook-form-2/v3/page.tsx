@@ -1,4 +1,5 @@
 "use client";
+//^ REACT-HOOK-FORM V3 ________________________________________________________________________________________________________________________________________________________
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -55,7 +56,7 @@ const ReactHookForm3 = () => {
    const [type, setType] = useState<"password" | "text">("password");
    const [type2, setType2] = useState<"password" | "text">("password");
    type FormSchemaType = z.infer<typeof FormSchema>;
-   
+
    const { control, handleSubmit, formState, reset, watch } = useForm<FormSchemaType>({
       resolver: zodResolver(FormSchema),
       defaultValues: {
@@ -80,20 +81,20 @@ const ReactHookForm3 = () => {
       reset();
    }
 
-   function switchTypeHandler(){
-      if(type === 'password') {
+   function switchTypeHandler() {
+      if (type === "password") {
          setType("text");
       } else {
          setType("password");
       }
-   }  
-   function switchTypeHandler2(){
+   }
+   function switchTypeHandler2() {
       if (type2 === "password") {
          setType2("text");
       } else {
          setType2("password");
       }
-   }  
+   }
 
    return (
       <section className="w-screen h-screen bg-black center ">
