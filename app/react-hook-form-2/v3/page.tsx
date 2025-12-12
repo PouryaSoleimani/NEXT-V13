@@ -1,16 +1,23 @@
-'use client'
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
+"use client";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Label } from '@/components/ui/label';
-import { cn } from '@/lib/utils';
+import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Phone, User } from 'lucide-react';
-import React from 'react'
-import { Controller, useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
-import z from 'zod';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Eye, Mail, Phone, User } from "lucide-react";
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import z from "zod";
+import {
+   Select,
+   SelectContent,
+   SelectGroup,
+   SelectItem,
+   SelectTrigger,
+   SelectValue,
+} from "@/components/ui/select";
 
 enum GENDER {
    male = "MALE",
@@ -28,6 +35,8 @@ const FormSchema = z
 
       hasAccept: z.boolean(),
       gender: z.enum([GENDER.male, GENDER.female], "Please Select a Gender "),
+      password: z.string().min(3, "Password must be at least 3 letters"),
+      confirmPassword: z.string().min(3, "Password must be at least 3 letters"),
    })
    .refine((data) => {
       if (!data.hasAccept) {
@@ -36,11 +45,17 @@ const FormSchema = z
       } else {
          return true;
       }
+   })
+   .refine((data) => data.password === data.confirmPassword, {
+      message: "Passwords don't match !",
+      path: ["confirmPassword"],
    });
 
 const ReactHookForm3 = () => {
+   const [type, setType] = useState<"password" | "text">("password");
+   const [type2, setType2] = useState<"password" | "text">("password");
    type FormSchemaType = z.infer<typeof FormSchema>;
-
+   
    const { control, handleSubmit, formState, reset, watch } = useForm<FormSchemaType>({
       resolver: zodResolver(FormSchema),
       defaultValues: {
@@ -52,6 +67,7 @@ const ReactHookForm3 = () => {
       },
    });
 
+   // FUNCTIONS =========================================================================================================================================================================================================
    function submitHandler(data: FormSchemaType) {
       console.info("DATA =>", data);
       toast.loading("SUBMITTING FORM ...", { position: "top-center" });
@@ -62,6 +78,20 @@ const ReactHookForm3 = () => {
       reset();
    }
 
+   function switchTypeHandler(){
+      if(type === 'password') {
+         setType("text");
+      } else {
+         setType("password");
+      }
+   }  
+   function switchTypeHandler2(){
+      if (type2 === "password") {
+         setType2("text");
+      } else {
+         setType2("password");
+      }
+   }  
 
    return (
       <section className="w-screen h-screen bg-black center ">
@@ -145,6 +175,44 @@ const ReactHookForm3 = () => {
                )}
             </div>
 
+            <div id="PASSWORD" className="flex flex-col gap-2 relative inset-0">
+               <Label>Password</Label>
+               <Controller
+                  control={control}
+                  name="password"
+                  render={({ field }) => (
+                     <Input
+                        value={field.value}
+                        onChange={field.onChange}
+                        type={type === "password" ? "password" : "text"}
+                     />
+                  )}
+               />
+               <Eye
+                  className="size-5 text-neutral-300 absolute right-2 top-1/2"
+                  onClick={switchTypeHandler}
+               />
+            </div>
+
+            <div id="CONFIRM___PASSWORD" className="flex flex-col gap-2 relative inset-0">
+               <Label>Confirm Password</Label>
+               <Controller
+                  control={control}
+                  name="confirmPassword"
+                  render={({ field }) => (
+                     <Input
+                        value={field.value}
+                        onChange={field.onChange}
+                        type={type2 === "password" ? "password" : "text"}
+                     />
+                  )}
+               />
+               <Eye
+                  className="size-5 text-neutral-300 absolute right-2 top-1/2"
+                  onClick={switchTypeHandler2}
+               />
+            </div>
+
             <div id="GENDER" className="flex flex-col gap-3">
                <Label>Gender</Label>
                <Controller
@@ -209,6 +277,6 @@ const ReactHookForm3 = () => {
          </form>
       </section>
    );
-}
+};
 
 export default ReactHookForm3;
