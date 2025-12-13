@@ -11,14 +11,7 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import z from "zod";
-import {
-   Select,
-   SelectContent,
-   SelectGroup,
-   SelectItem,
-   SelectTrigger,
-   SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 
 enum GENDER {
    male = "MALE",
