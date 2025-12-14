@@ -28,7 +28,8 @@ const FormSchema = z
       phonenumber: z
          .string("phonenumber cant be empty")
          .regex(/^\d+$/, "Phonenumber must be only Digits")
-         .min(7, "phonenumber must be at least 7 letters"),
+         .min(7, "phonenumber must be at least 7 letters")
+         .optional(),
       gender: z.enum([GENDER.male, GENDER.female], "Please Select a Gender "),
    })
    .refine((data) => {
@@ -94,7 +95,7 @@ const ReactHookForm3 = () => {
          <form
             className={cn(
                "border-4 border-blue-950 w-80 bg-neutral-900 p-5 rounded-lg flex flex-col gap-5",
-               Object.keys(formState.errors).length !== 0 && "border-neutral-800 shadow-md shadow-red-900"
+               Object.keys(formState.errors).length !== 0 && "border-rose-950"
             )}
             onSubmit={handleSubmit(submitHandler)}>
             <h2 className="text-center border-b-2 border-blue-900 pb-2">LOGIN</h2>
