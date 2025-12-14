@@ -29,7 +29,6 @@ const FormSchema = z
          .string("phonenumber cant be empty")
          .regex(/^\d+$/, "Phonenumber must be only Digits")
          .min(7, "phonenumber must be at least 7 letters"),
-
       gender: z.enum([GENDER.male, GENDER.female], "Please Select a Gender "),
    })
    .refine((data) => {
