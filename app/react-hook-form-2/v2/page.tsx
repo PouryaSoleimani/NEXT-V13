@@ -78,7 +78,7 @@ const ReactHookFormV2 = () => {
    function submitHandler(data: FormTypes) {
       console.info(data);
       toast.loading("SUBMITTING FORM");
-      setTimeout(() => {
+     setTimeout(() => {
          toast.dismiss();
          toast.success("FORM SUBMITTED SUCCESFULLY", { position: "top-center" });
          reset();
