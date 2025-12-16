@@ -19,6 +19,7 @@ const FormSchema = z.object({
 });
 type FormTypes = z.infer<typeof FormSchema>;
 
+// COMPONENT ______________________________________________________________________________________________________________________________________
 const ReactHookFormV4 = () => {
    // ^ USE FORM
    const { control, register, handleSubmit, formState, reset } = useForm<FormTypes>({
