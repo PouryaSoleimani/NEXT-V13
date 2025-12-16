@@ -6,6 +6,7 @@ import { useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import z from "zod";
 
+//^ FORM SCHEMA
 const FormSchema = z.object({
    items: z
       .array(
@@ -19,6 +20,7 @@ const FormSchema = z.object({
 type FormTypes = z.infer<typeof FormSchema>;
 
 const ReactHookFormV4 = () => {
+   // ^ USE FORM
    const { control, register, handleSubmit, formState, reset } = useForm<FormTypes>({
       resolver: zodResolver(FormSchema),
       defaultValues: {
@@ -32,6 +34,7 @@ const ReactHookFormV4 = () => {
       name: "items",
    });
 
+   //^ SUBMIT HANDLER
    function submitHandler(data: FormTypes) {
       console.log("DATA => ", data);
       reset();
@@ -40,6 +43,7 @@ const ReactHookFormV4 = () => {
 
    console.log(formState.errors);
 
+   //^ RETURN
    return (
       <section className="w-screen h-screen bg-black center flex-col gap-3">
          <h2 className="border-b-2 pb-1 border-sky-900">LENGTH : {fields.length} Items </h2>
