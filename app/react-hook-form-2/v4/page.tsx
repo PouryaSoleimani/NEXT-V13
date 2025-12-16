@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Trash } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import z from "zod";
 
 const FormSchema = z.object({
@@ -31,17 +32,18 @@ const ReactHookFormV4 = () => {
       name: "items",
    });
 
-   function submitHandler(data : FormTypes){
+   function submitHandler(data: FormTypes) {
       console.log("DATA => ", data);
-      reset
+      reset();
+      toast.success("FORM SUBMITTED", { position: "top-center" });
    }
 
-   console.log(formState.errors)
-   
+   console.log(formState.errors);
+
    return (
       <section className="w-screen h-screen bg-black center flex-col gap-3">
          <h2 className="border-b-2 pb-1 border-sky-900">LENGTH : {fields.length} Items </h2>
-         <form onSubmit={handleSubmit(submitHandler)}>
+         <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col gap-2">
             {fields.map((field, index) => (
                <div
                   key={field.id}
