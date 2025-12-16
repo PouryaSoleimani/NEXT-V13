@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -10,7 +14,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "experimentalDecorators": true,
     "plugins": [
@@ -20,8 +24,12 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["*"],
-      "@/modules/*": ["components/modules/*"]
+      "@/*": [
+        "*"
+      ],
+      "@/modules/*": [
+        "components/modules/*"
+      ]
     },
     "target": "ES2017"
   },
@@ -31,7 +39,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "hooks/useToggle.js",
-    "eslint.config.js"
+    "eslint.config.js",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
