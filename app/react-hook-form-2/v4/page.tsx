@@ -1,6 +1,8 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Trash } from "lucide-react";
+import { useFieldArray, useForm } from "react-hook-form";
 import z from "zod";
 
 const FormSchema = z.object({
@@ -8,7 +10,7 @@ const FormSchema = z.object({
       .array(
          z.object({
             title: z.string().min(1, "Title is Required"),
-            price: z.string().min(1, "Title Must be > 0"),
+            price: z.number().min(1, "Title Must be > 0"),
          })
       )
       .min(1, "At Least One Item is Required"),
@@ -16,13 +18,47 @@ const FormSchema = z.object({
 type FormTypes = z.infer<typeof FormSchema>;
 
 const ReactHookFormV4 = () => {
-   const { control } = useForm<FormTypes>({
+   const { control, register, handleSubmit, formState } = useForm<FormTypes>({
       resolver: zodResolver(FormSchema),
       defaultValues: {
-         items: [],
+         items: [{ title: '', price: 0 }],
       },
    });
-   return <section className="w-screen h-screen bg-black center"></section>;
+
+   //^ USEFIELD ARRAY
+   const { fields, append, remove } = useFieldArray({
+      control: control,
+      name: 'items'
+   })
+   return (
+      <section className="w-screen h-screen bg-black center flex-col gap-3">
+         <h2 className="border-b-2 pb-1 border-sky-900">LENGTH : {fields.length} Items </h2>
+         {fields.map((field, index) => (
+            <div
+               key={field.id}
+               className="flex items-center border border-zinc-800 bg-zinc-900 p-3 rounded-lg">
+               <input
+                  {...register(`items.${index}.title`)}
+                  type="text"
+                  placeholder="title"
+                  className="border bg-black p-2.5 border-zinc-800 rounded-lg m-2 "
+               />
+               <input
+                  type="number"
+                  placeholder="price"
+                  {...register(`items.${index}.price`, { valueAsNumber: true })}
+                  className="border bg-black p-2.5 border-zinc-800 rounded-lg m-1 ml-0 mr-2 "
+               />
+               <Button variant={"destructive"} className="size-10" onClick={() => remove(index)}>
+                  <Trash className="size-6" />
+               </Button>
+            </div>
+         ))}
+         <Button variant={"blue"} className="w-50 mt-3" onClick={() => append({ title: "NEW", price: 20 })}>
+            ADD
+         </Button>
+      </section>
+   );
 };
 
 export default ReactHookFormV4;
