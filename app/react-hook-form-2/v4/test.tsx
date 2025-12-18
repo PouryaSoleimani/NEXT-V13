@@ -30,7 +30,16 @@ const TestPage = () => {
    });
 
 
-  return <div className=""></div>;
+  return (
+     <div className="">
+        {fields.map((field, index) => (
+           <div key={field.id}>
+              <input type="text" {...register(`items.${index}.title`)} placeholder="title" />
+              <input type="text" {...register(`items.${index}.level`)} placeholder="level" />
+           </div>
+        ))}
+     </div>
+  );
 }
 
 export default TestPage
