@@ -9,8 +9,8 @@ const FORMSCHEMA = z.object({
    items: z
       .array(
          z.object({
-            title: z.string().min(1, "Title must be at least 1 character"),
-            level: z.number().min(1, "Level (percentage) must be > 0"),
+            title: z.string("Title is Required").min(1, "Title must be at least 1 character"),
+            level: z.number().min(1, "Level Must Be > 0").max(5, "Level Can't be > 5"),
          })
       )
       .min(1, "Skills must have at least 1 items"),
