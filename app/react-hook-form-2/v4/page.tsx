@@ -58,7 +58,7 @@ const ReactHookFormV4 = () => {
          <h2 className="border-b-2 pb-1 border-sky-900 mb-4">SKILLS LENGTH : {fields.length} Items </h2>
          <form
             onSubmit={handleSubmit(submitHandler)}
-            className="flex flex-col gap-2 border p-5 rounded-lg border-zinc-700 shado">
+            className="flex flex-col gap-2 border p-5 rounded-lg border-zinc-700 shadow">
             <h3 className="p-1">Please Add Your Skills here : </h3>
             {fields.map((field, index) => (
                <div
