@@ -50,7 +50,6 @@ html {
    }
 }
 
-
 @layer utilities {
    .text-balance {
       text-wrap: balance;
@@ -97,6 +96,7 @@ html {
       border: 3px solid white;
    }
 }
+
 @layer base {
    :root {
       --sidebar: oklch(0.985 0 0);
@@ -177,6 +177,7 @@ input[type="number"] {
    width: 100vw;
    height: 100vh;
 }
+
 .center {
    display: flex;
    align-items: center;
@@ -245,4 +246,14 @@ tfoot th {
    :root {
       --motion-safe: "";
    }
+}
+
+
+.section {
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
