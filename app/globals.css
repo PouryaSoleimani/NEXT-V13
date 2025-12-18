@@ -55,7 +55,6 @@ html {
       text-wrap: balance;
    }
 }
-
 .section {
    width: 90vw;
    height: auto;
@@ -79,7 +78,7 @@ html {
 }
 
 .btn {
-   width: 160px;
+   width: 100px;
    padding: 0.5rem 1rem;
    white-space: nowrap;
    border-radius: 5px;
@@ -87,14 +86,17 @@ html {
    background-color: black;
    color: white;
    font-family: monospace;
-   font-weight: 900;
-   font-size: 16px;
+   font-weight: 700;
+   font-size: 11px;
    box-sizing: border-box;
-   cursor: pointer;
    transition: all 150ms linear;
-   &:hover {
-      border: 3px solid white;
-   }
+   border : 1px solid #2f2e2e;
+   background-color: #181818;
+   cursor: pointer;
+   &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      }
 }
 
 @layer base {

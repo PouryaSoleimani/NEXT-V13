@@ -42,14 +42,13 @@ const ReactHookFormV4 = () => {
       console.log("DATA => ", data);
       reset();
       toast.success("FORM SUBMITTED", { position: "top-center" });
-   }  
+   }
 
    useEffect(() => {
       if (fields.length == 5) {
          toast.error('Skills List Can"t be more than 5 items !');
       }
    }, [fields.length]);
-   
 
    console.log(formState.errors);
 
