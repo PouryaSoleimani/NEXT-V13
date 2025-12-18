@@ -1,6 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Trash2Icon, TrashIcon } from "lucide-react";
+import { TrashIcon } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import z from "zod";
