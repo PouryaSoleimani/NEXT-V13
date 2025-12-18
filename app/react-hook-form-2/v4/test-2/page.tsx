@@ -1,4 +1,5 @@
 "use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TrashIcon } from "lucide-react";
 import { useFieldArray, useForm } from "react-hook-form";
@@ -18,16 +19,15 @@ const FORMSCHEMA = z.object({
 
 type FormTypes = z.infer<typeof FORMSCHEMA>;
 
-const TestPage = () => {
-   // USE FORM
-   const { control, register, handleSubmit, formState, reset } = useForm<FormTypes>({
+const Test2Page = () => {
+   const { control, register, formState, reset, handleSubmit } = useForm<FormTypes>({
       resolver: zodResolver(FORMSCHEMA),
       defaultValues: {
-         items: [{ title: "", level: 1 }],
+         items: [{ title: "", level: 0 }],
       },
    });
 
-   const { fields, append, remove } = useFieldArray({
+   const { fields, remove, append } = useFieldArray({
       control: control,
       name: "items",
    });
@@ -39,34 +39,31 @@ const TestPage = () => {
    }
 
    return (
-      <div className="bg-black section">
-         <p className="bg-white text-black p-2 rounded-md tracking-wide font-sans"> TEST PAGE </p>
-         {fields.length === 0 && <h2 className="py-3">Start Adding Fields ...</h2>}
-         <form
-            onSubmit={handleSubmit(submitHandler)}
-            className="p-8 pb-2 border-neutral-700 flex flex-col gap-y-2 rounded-lg">
+      <div className="section bg-black border border-neutral-700 ">
+         <h3>TEST 2 PAGE</h3>
+         <form onSubmit={handleSubmit(submitHandler)} className="p-8  pb-5 flex flex-col gap-y-2 rounded-lg">
             {fields.map((field, index) => (
-               <div key={field.id} className="flex gap-3 pb-3">
+               <div key={field.id} className="flex gap-2">
                   <div className="flex flex-col gap-1">
                      <input
                         className="border border-neutral-800 bg-neutral-900 uppercase shadow rounded-md p-2"
                         type="text"
                         {...register(`items.${index}.title`)}
-                        placeholder="title"
+                        placeholder="Title"
                      />
-                     {formState?.errors?.items?.[index]?.title && (
-                        <p className="text-xs text-red-900">{formState.errors.items[index].title.message}</p>
+                     {formState.errors.items?.[index]?.title && (
+                        <p>{formState.errors.items[index].title.message}</p>
                      )}
                   </div>
                   <div className="flex flex-col gap-1">
                      <input
                         className="border border-neutral-800 bg-neutral-900 uppercase shadow rounded-md p-2"
                         type="text"
-                        {...register(`items.${index}.level`, { valueAsNumber: true })}
-                        placeholder="level"
+                        {...register(`items.${index}.level`)}
+                        placeholder="Level"
                      />
                      {formState?.errors?.items?.[index]?.level && (
-                        <p className="text-xs text-red-900">{formState.errors.items[index].level.message}</p>
+                        <p>{formState.errors.items[index].level?.message}</p>
                      )}
                   </div>
                   <div>
@@ -79,21 +76,21 @@ const TestPage = () => {
                   </div>
                </div>
             ))}
-            <div className="flex items-center border-t-2 border-neutral-800 justify-center gap-3 p-5">
-               <button
-                  type="button"
-                  disabled={fields.length >= 5}
-                  onClick={() => append({ title: "", level: 1 })}
-                  className="btn">
-                  ADD FIELD
-               </button>
-               <button type="submit" className="btn">
-                  SUBMIT FORM
-               </button>
-            </div>
          </form>
+         <div className="flex items-center border-t-2 border-neutral-800 justify-center gap-3 p-5">
+            <button
+               type="button"
+               disabled={fields.length >= 5}
+               onClick={() => append({ title: "", level: 1 })}
+               className="btn">
+               ADD FIELD
+            </button>
+            <button type="submit" className="btn">
+               SUBMIT FORM
+            </button>
+         </div>
       </div>
    );
 };
 
-export default TestPage;
+export default Test2Page;
