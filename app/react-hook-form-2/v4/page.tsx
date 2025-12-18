@@ -26,7 +26,7 @@ const ReactHookFormV4 = () => {
    const { control, register, handleSubmit, formState, reset } = useForm<FormTypes>({
       resolver: zodResolver(FormSchema),
       defaultValues: {
-         items: [{ title: "", level: 0 }],
+         items: [{ title: "", level: 1 }],
       },
    });
 
@@ -95,7 +95,7 @@ const ReactHookFormV4 = () => {
                   variant={"blue"}
                   className="w-50"
                   disabled={fields.length >= 5}
-                  onClick={() => append({ title: "", level: 0 })}>
+                  onClick={() => append({ title: "", level: 1 })}>
                   ADD FIELD
                </Button>
                <Button
