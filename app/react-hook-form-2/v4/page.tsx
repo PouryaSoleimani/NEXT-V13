@@ -29,7 +29,7 @@ const ReactHookFormV4 = () => {
       defaultValues: {
          items: [{ title: "", level: 1 }],
       },
-   });
+   });                              
 
    //^ USEFIELD ARRAY
    const { fields, append, remove } = useFieldArray({
