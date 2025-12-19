@@ -61,9 +61,7 @@ const ReactHookFormV4 = () => {
             className="flex flex-col gap-2 border p-5 rounded-lg border-zinc-700 shadow">
             <h3 className="p-1">Please Add Your Skills here : </h3>
             {fields.map((field, index) => (
-               <div
-                  key={field.id}
-                  className="flex items-center border border-zinc-800 bg-zinc-900 p-3 rounded-lg">
+               <div key={field.id} className="flex items-center border border-zinc-800 bg-zinc-900 p-3 rounded-lg">
                   <input
                      {...register(`items.${index}.title`)}
                      type="text"
@@ -71,9 +69,7 @@ const ReactHookFormV4 = () => {
                      className="border bg-black p-2.5 border-zinc-800 rounded-lg m-2 "
                   />
                   {formState.errors.items?.[index]?.title && (
-                     <p className="text-red-900 text-xs py-0.5">
-                        {formState.errors.items[index]?.title?.message}
-                     </p>
+                     <p className="text-red-900 text-xs py-0.5">{formState.errors.items[index]?.title?.message}</p>
                   )}
                   <input
                      type="number"
@@ -81,9 +77,7 @@ const ReactHookFormV4 = () => {
                      {...register(`items.${index}.level`, { valueAsNumber: true })}
                      className="border bg-black p-2.5 border-zinc-800 rounded-lg m-1 ml-0 mr-2 "
                   />
-                  {formState.errors?.items?.[index]?.level && (
-                     <p>{formState?.errors.items[index]?.level?.message}</p>
-                  )}
+                  {formState.errors?.items?.[index]?.level && <p>{formState?.errors.items[index]?.level?.message}</p>}
                   <Button variant={"destructive"} className="size-10.5" onClick={() => remove(index)}>
                      <Trash className="size-5" />
                   </Button>
@@ -98,11 +92,7 @@ const ReactHookFormV4 = () => {
                   onClick={() => append({ title: "", level: 1 })}>
                   ADD FIELD
                </Button>
-               <Button
-                  disabled={fields.length >= 5}
-                  variant={"success"}
-                  type="submit"
-                  className="w-50 text-white">
+               <Button disabled={fields.length >= 5} variant={"success"} type="submit" className="w-50 text-white">
                   SUBMIT FORM
                </Button>
             </div>

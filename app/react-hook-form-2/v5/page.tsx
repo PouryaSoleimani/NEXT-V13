@@ -1,4 +1,4 @@
-import React from 'react'
+
 import z from 'zod';
 
 const FORMSCHEMA = z.object({
@@ -16,9 +16,7 @@ const FORMSCHEMA = z.object({
    ),
 });
 const ReactHookFormV5 = () => {
-   return <div className="section">
-
-   </div>;
+   return <div className="section"></div>;
 };
 
 export default ReactHookFormV5;
