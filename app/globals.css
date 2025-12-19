@@ -78,7 +78,7 @@ html {
 }
 
 .btn {
-   width: 100px;
+   width: fit-content;
    padding: 0.5rem 1rem;
    white-space: nowrap;
    border-radius: 5px;
