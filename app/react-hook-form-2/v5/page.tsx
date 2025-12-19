@@ -42,7 +42,7 @@ const ReactHookFormV5 = () => {
       control: control,
       name: "skills",
    });
-   function SubmitHandler(data :FormTypes) {
+   function SubmitHandler(data: FormTypes) {
       console.info("DATA => ", data);
    }
    return (
