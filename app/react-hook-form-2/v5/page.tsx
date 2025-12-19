@@ -83,6 +83,12 @@ const ReactHookFormV5 = () => {
                   <button className="btn" type="button" onClick={() => addExp({ company: "", years: 1 })}>
                      Add Experience
                   </button>
+                  <button
+                     className="btn"
+                     type="button"
+                     onClick={() => skillAppend({ title: "", level: 1, experiences: [{ company: "", years: 1 }] })}>
+                     Add Skill
+                  </button>
                   <button className="btn" type="button" onClick={() => removeSkill(skillIndex)}>
                      Remove Skill
                   </button>
