@@ -4,8 +4,7 @@ import { useFieldArray, useForm } from "react-hook-form";
 import z from "zod";
 //^ FORM SCHEMA
 const FORMSCHEMA = z.object({
-   skills: z
-      .array(
+   skills: z.array(
          z.object({
             title: z.string().min(1),
             level: z.number().min(1).max(5),
@@ -14,10 +13,10 @@ const FORMSCHEMA = z.object({
                      company: z.string().min(1),
                      years: z.number().min(1),
                   })
-               )
+            )
                .min(1),
          })
-   )
+   )                                                           
       .min(1),
 });
 
