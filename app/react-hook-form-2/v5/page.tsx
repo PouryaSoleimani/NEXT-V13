@@ -1,3 +1,6 @@
+'use client'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useFieldArray, useForm } from "react-hook-form";
 import z from "zod";
 //^ FORM SCHEMA
 const FORMSCHEMA = z.object({
@@ -14,11 +17,28 @@ const FORMSCHEMA = z.object({
                )
                .min(1),
          })
-      )
+   )
       .min(1),
 });
 
+type FormTypes = z.infer<typeof FORMSCHEMA>
+
 const NestedFilledArray = () => {
+   const { control } = useForm<FormTypes>({
+      resolver: zodResolver(FORMSCHEMA),
+      defaultValues: {
+         skills : [
+            { title: '', level: 1, experiences: [{ company: '', years: 1 }] }
+         ]
+      }
+   })
+
+   const { fields: skillFields, append: addSkill, remove: removeSkill } = useFieldArray({
+   control : control,
+      name: 'skills'
+})
+
+
    return (
       <div className="section bg-neutral-950">
          <form>FORM</form>
