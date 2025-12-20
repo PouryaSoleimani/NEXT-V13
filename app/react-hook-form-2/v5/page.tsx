@@ -5,6 +5,7 @@ import z from "zod";
 import SkillItem from "./_components/SkillItem";
 import toast from "react-hot-toast";
 import { PlusCircle, TriangleAlert } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const FORMSCHEMA = z.object({
    skills: z.array(
@@ -61,7 +62,7 @@ const ReactHookFormV5 = () => {
                   <h3>NO SKILLS TO SHOW</h3>
                   <button type="button" onClick={() => SkillAppend({ title: '', level: 1, experiences: [{ company: '', years: 0 }] })} className="btn flex items-center-safe gap-3">
                      <PlusCircle className="size-4" />
-                     ADD SKILL
+                     ADD FIRST SKILL
                   </button>
                </div>
             )}
@@ -75,9 +76,16 @@ const ReactHookFormV5 = () => {
                   formState={formState}
                />
             ))}
-            <div className="flex items-center-safe justify-center py-5">
-               <button className=" p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">
+            <div className={cn("flex gap-3 w-[50%] mx-auto  py-5", SkillFields.length === 0 && 'w-full')}>
+               <button className=" basis-1/2 text-sm p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">
                   SUBMIT FORM
+               </button>
+               <button
+                  onClick={() => SkillAppend({ title: '', level: 1, experiences: [{ company: '', years: 0 }] })}
+                  type="button"
+                  className="basis-1/2 text-sm p-3 rounded-lg border border-sky-950 shadow-inner shadow-white/10  mx-auto bg-sky-900 hover:bg-sky-800 transition-all duration-300 "
+               >
+                  ADD SKILL
                </button>
             </div>
          </form>

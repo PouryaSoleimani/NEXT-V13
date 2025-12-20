@@ -18,7 +18,7 @@ const SkillItem = (props: SkillItemPropsType) => {
 
    // RETURN
    return (
-      <div className="border border-zinc-800 rounded-lg shadow-inner shadow-white/30  p-3">
+      <div className="border my-3 border-zinc-800 rounded-lg shadow-inner shadow-white/30  p-3">
          <div className="flex gap-3">
             <div>
                <input
