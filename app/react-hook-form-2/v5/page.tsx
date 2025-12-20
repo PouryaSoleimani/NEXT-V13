@@ -8,7 +8,7 @@ const FORMSCHEMA = z.object({
    skills: z.array(
       z.object({
          title: z.string().min(1, 'Title is Required'),
-         level: z.number().nullable(),
+         level: z.number().min(1, 'Years Is Required').nullable(),
          experiences: z.array(
             z.object({
                company: z.string().min(1, 'Company is Required'),

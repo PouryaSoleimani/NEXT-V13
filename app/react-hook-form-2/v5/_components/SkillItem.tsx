@@ -31,7 +31,6 @@ const SkillItem = (props: SkillItemPropsType) => {
                )}
             </div>
             <div>
-
                <input
                   placeholder="Level"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
@@ -39,7 +38,7 @@ const SkillItem = (props: SkillItemPropsType) => {
                   {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
                />
                {props?.formState?.errors?.skills?.[props.index]?.level && (
-                  <p>{props.formState.errros.skills[props.index]?.level.message}</p>
+                  <p>{props?.formState?.errros?.skills?.[props.index]?.level?.message}</p>
                )}
             </div>
          </div>
