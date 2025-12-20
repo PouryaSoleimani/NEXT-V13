@@ -1,9 +1,10 @@
+'use client'
 import { PlusCircle, Trash2Icon } from 'lucide-react';
 import { useFieldArray } from 'react-hook-form';
 interface SkillItemPropsType {
    control: any;
    register: any;
-   index: number | string;
+   index: number;
    removeSkill: any;
    formState: any;
 }
@@ -44,7 +45,7 @@ const SkillItem = (props: SkillItemPropsType) => {
                   {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
                />
                {props?.formState?.errors?.skills?.[props.index]?.level && (
-                  <p>{props?.formState?.errros?.skills?.[props.index]?.level?.message}</p>
+                  <p>{props?.formState?.erros?.skills?.[props.index]?.level?.message}</p>
                )}
             </div>
          </div>

@@ -41,10 +41,14 @@ const ReactHookFormV5 = () => {
       },
    });
 
-const { fields: SkillFields, append: SkillAppend, remove: SkillRemove, } = useFieldArray({
-   control: control,
-   name: "skills",
-});
+   const {
+      fields: SkillFields,
+      append: SkillAppend,
+      remove: SkillRemove,
+   } = useFieldArray({
+      control: control,
+      name: "skills",
+   });
 
    function SubmitHandler(data: FormTypes) {
       console.info("DATA => ", data);
@@ -82,7 +86,9 @@ const { fields: SkillFields, append: SkillAppend, remove: SkillRemove, } = useFi
                />
             ))}
 
-            <div id="BUTTONS" className={cn("flex gap-3 w-[50%] mx-auto  py-5", SkillFields.length === 0 && "w-full")}>
+            <div
+               id="BUTTONS__CONTAINER"
+               className={cn("flex gap-3 w-[50%] mx-auto  py-5", SkillFields.length === 0 && "w-full")}>
                <button className=" basis-1/2 text-sm p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">
                   SUBMIT FORM
                </button>
