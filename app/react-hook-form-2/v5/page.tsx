@@ -17,7 +17,7 @@ const FORMSCHEMA = z.object({
                company: z.string().min(1, 'Company is Required'),
                years: z.number().nullable(),
             })
-         ),
+         ).min(1, 'At Least 1 Experience Field is Required'),
       })
    ),
 });
@@ -66,6 +66,7 @@ const ReactHookFormV5 = () => {
                   </button>
                </div>
             )}
+
             {SkillFields.map((skill, index) => (
                <SkillItem
                   key={skill.id}
@@ -76,7 +77,8 @@ const ReactHookFormV5 = () => {
                   formState={formState}
                />
             ))}
-            <div className={cn("flex gap-3 w-[50%] mx-auto  py-5", SkillFields.length === 0 && 'w-full')}>
+
+            <div id="BUTTONS" className={cn("flex gap-3 w-[50%] mx-auto  py-5", SkillFields.length === 0 && 'w-full')}>
                <button className=" basis-1/2 text-sm p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">
                   SUBMIT FORM
                </button>
