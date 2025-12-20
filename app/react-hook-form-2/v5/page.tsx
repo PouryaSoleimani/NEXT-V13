@@ -101,7 +101,7 @@ const ReactHookFormV5 = () => {
                   SUBMIT FORM
                </button>
                <button
-                  onClick={() => appendSkill({ title: "", level: 1, experiences: [{ company: "", years: 0 }] })}
+                  onClick={() => appendSkill({ title: "", level: 1, experiences: [{ company: "", years: null }] })}
                   type="button"
                   className="basis-1/2 text-sm p-3 rounded-lg border border-sky-950 shadow-inner shadow-white/10  mx-auto bg-sky-900 hover:bg-sky-800 transition-all duration-300 ">
                   ADD SKILL

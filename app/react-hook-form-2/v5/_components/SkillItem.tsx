@@ -14,11 +14,11 @@ const SkillItem = (props: SkillItemPropsType) => {
    // USE FIELD ARRAY
    const {
       fields: expFields,
-      append : appendExp,
-      remove : removeExp,
+      append: appendExp,
+      remove: removeExp,
    } = useFieldArray({
       control: props.control,
-      name: `skills.${props.index}.experiences`,
+      name: `skills.${props.index}.experiences` as const,
    });
 
    // RETURN
@@ -28,7 +28,7 @@ const SkillItem = (props: SkillItemPropsType) => {
             <div>
                <input
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
-                  placeholder="Skill"
+                  placeholder="Skill ( Like React , ...)"
                   type="text"
                   {...props.register(`skills.${props.index}.title`)}
                />
@@ -40,7 +40,7 @@ const SkillItem = (props: SkillItemPropsType) => {
             </div>
             <div>
                <input
-                  placeholder="Level"
+                  placeholder="Level ( 1 to 5 )"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                   type="number"
                   {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
@@ -71,10 +71,11 @@ const SkillItem = (props: SkillItemPropsType) => {
                   {...props.register(`skills.${props.index}.experiences.${expIndex}.years`, { valueAsNumber: true })}
                />
                <button
-                  className="btn flex items-center gap-2 bg-rose-900!"
+                  className="btn rounded-full size-10 flex items-center gap-2 bg-rose-900!"
                   type="button"
-                  onClick={() => removeExp(expIndex)}>
-                  <Trash2Icon className="size-4" /> Remove Exp
+                  onClick={() => removeExp(expIndex)}
+                  disabled={expFields.length === 1}>
+                  <Trash2Icon className="size-4" />
                </button>
             </div>
          ))}
