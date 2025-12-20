@@ -74,7 +74,11 @@ const ReactHookFormV5 = () => {
                   <button
                      type="button"
                      onClick={() =>
-                        appendSkill({ title: "", level: null, experiences: [{ company: "", years: null }] })
+                        appendSkill({
+                           title: "",
+                           level: null,
+                           experiences: [{ company: "", years: null }],
+                        })
                      }
                      className="btn flex items-center-safe gap-3">
                      <PlusCircle className="size-4" />
@@ -96,12 +100,21 @@ const ReactHookFormV5 = () => {
 
             <div
                id="BUTTONS__CONTAINER"
-               className={cn("flex gap-3 w-[50%] mx-auto  py-5", skillFields.length === 0 && "w-full")}>
+               className={cn(
+                  "flex gap-3 w-[50%] mx-auto  py-5",
+                  skillFields.length === 0 && "w-full"
+               )}>
                <button className=" basis-1/2 text-sm p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">
                   SUBMIT FORM
                </button>
                <button
-                  onClick={() => appendSkill({ title: "", level: 1, experiences: [{ company: "", years: null }] })}
+                  onClick={() =>
+                     appendSkill({
+                        title: "",
+                        level: 1,
+                        experiences: [{ company: "", years: null }],
+                     })
+                  }
                   type="button"
                   className="basis-1/2 text-sm p-3 rounded-lg border border-sky-950 shadow-inner shadow-white/10  mx-auto bg-sky-900 hover:bg-sky-800 transition-all duration-300 ">
                   ADD SKILL
