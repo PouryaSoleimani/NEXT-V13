@@ -7,11 +7,11 @@ import SkillItem from "./_components/SkillItem";
 const FORMSCHEMA = z.object({
    skills: z.array(
       z.object({
-         title: z.string(),
+         title: z.string().min(1, 'Title is Required'),
          level: z.number().nullable(),
          experiences: z.array(
             z.object({
-               company: z.string(),
+               company: z.string().min(1, 'Company is Required'),
                years: z.number().nullable(),
             })
          ),
@@ -22,7 +22,7 @@ const FORMSCHEMA = z.object({
 type FormTypes = z.infer<typeof FORMSCHEMA>;
 
 const ReactHookFormV5 = () => {
-   const { control, register, handleSubmit } = useForm<FormTypes>({
+   const { control, register, handleSubmit, formState } = useForm<FormTypes>({
       resolver: zodResolver(FORMSCHEMA),
       defaultValues: {
          skills: [
@@ -49,7 +49,14 @@ const ReactHookFormV5 = () => {
       <div className="section bg-black">
          <form onSubmit={handleSubmit(SubmitHandler)}>
             {SkillFields.map((skill, index) => (
-               <SkillItem key={skill.id} control={control} register={register} index={index} removeSkill={SkillRemove} />
+               <SkillItem
+                  key={skill.id}
+                  control={control}
+                  register={register}
+                  index={index}
+                  removeSkill={SkillRemove}
+                  formState={formState}
+               />
             ))}
             <div className="flex items-center-safe justify-center py-5">
                <button className=" p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">

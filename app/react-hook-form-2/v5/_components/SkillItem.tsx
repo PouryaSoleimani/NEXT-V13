@@ -5,6 +5,7 @@ interface SkillItemPropsType {
    register: any;
    index: number | string;
    removeSkill: any;
+   formState: any
 }
 const SkillItem = (props: SkillItemPropsType) => {
    const {
@@ -18,26 +19,42 @@ const SkillItem = (props: SkillItemPropsType) => {
    return (
       <div className="border p-3">
          <div className="flex gap-3">
-            <input
-               className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
-               placeholder="Skill"
-               type="text"
-               {...props.register(`skills.${props.index}.title`)}
-            />
-            <input
-               placeholder="Level"
-               className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
-               type="number"
-               {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
-            />
+            <div>
+               <input
+                  className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
+                  placeholder="Skill"
+                  type="text"
+                  {...props.register(`skills.${props.index}.title`)}
+               />
+               {props?.formState?.errors?.skills?.[props.index]?.title && (
+                  <p className='text-xs p-1 text-rose-900'>{props.formState.errors.skills[props.index].title.message}</p>
+               )}
+            </div>
+            <div>
+
+               <input
+                  placeholder="Level"
+                  className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
+                  type="number"
+                  {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
+               />
+               {props?.formState?.errors?.skills?.[props.index]?.level && (
+                  <p>{props.formState.errros.skills[props.index]?.level.message}</p>
+               )}
+            </div>
          </div>
          {expFields.map((exp, expIndex) => (
             <div key={exp.id} className="flex py-3 items-center-safe justify-center gap-3">
-               <input
-                  placeholder="Company"
-                  className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
-                  {...props.register(`skills.${props.index}.experiences.${expIndex}.company`)}
-               />
+               <div className='flex flex-col'>
+                  <input
+                     placeholder="Company"
+                     className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
+                     {...props.register(`skills.${props.index}.experiences.${expIndex}.company`)}
+                  />
+                  {props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company && (
+                     <p className='p-1 text-xs text-rose-900'>{props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}</p>
+                  )}
+               </div>
                <input
                   placeholder="Years"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
