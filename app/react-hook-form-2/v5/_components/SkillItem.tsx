@@ -43,7 +43,9 @@ const SkillItem = (props: SkillItemPropsType) => {
                   placeholder="Level ( 1 to 5 )"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                   type="number"
-                  {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
+                  {...props.register(`skills.${props.index}.level`, {
+                     valueAsNumber: true,
+                  })}
                />
                {props?.errors?.skills?.[props.index]?.level && (
                   <p>{props?.errors?.skills?.[props.index]?.level?.message}</p>
@@ -51,16 +53,24 @@ const SkillItem = (props: SkillItemPropsType) => {
             </div>
          </div>
          {expFields.map((exp, expIndex) => (
-            <div key={exp.id} className="flex py-3 items-center-safe justify-center gap-3">
+            <div
+               key={exp.id}
+               className="flex py-3 items-center-safe justify-center gap-3">
                <div className="flex flex-col">
                   <input
                      placeholder="Company"
                      className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
-                     {...props.register(`skills.${props.index}.experiences.${expIndex}.company`)}
+                     {...props.register(
+                        `skills.${props.index}.experiences.${expIndex}.company`
+                     )}
                   />
-                  {props?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company && (
+                  {props?.errors?.skills?.[props.index]?.experiences?.[expIndex]
+                     ?.company && (
                      <p className="p-1 text-xs text-rose-900 bg-black translate-y-2.5 mx-2 rounded-sm absolute">
-                        {props?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}
+                        {
+                           props?.errors?.skills?.[props.index]?.experiences?.[expIndex]
+                              ?.company?.message
+                        }
                      </p>
                   )}
                </div>
@@ -68,7 +78,10 @@ const SkillItem = (props: SkillItemPropsType) => {
                   placeholder="Years"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
                   type="number"
-                  {...props.register(`skills.${props.index}.experiences.${expIndex}.years`, { valueAsNumber: true })}
+                  {...props.register(
+                     `skills.${props.index}.experiences.${expIndex}.years`,
+                     { valueAsNumber: true }
+                  )}
                />
                <button
                   className="btn rounded-full size-10 flex items-center gap-2 bg-rose-900!"
