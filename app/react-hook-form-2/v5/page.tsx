@@ -8,27 +8,35 @@ import { PlusCircle, TriangleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const FORMSCHEMA = z.object({
-   skills: z.array(
-      z.object({
-         title: z.string().min(1, "Title is Required"),
-         level: z.number().min(1, "Years Is Required").nullable(),
-         experiences: z
-            .array(
-               z.object({
-                  company: z.string().min(1, "Company is Required"),
-                  years: z.number().nullable(),
-               })
-            )
-            .min(1, "At Least 1 Experience Field is Required"),
-      })
-   ),
+   skills: z
+      .array(
+         z.object({
+            title: z.string().min(1, "Title is Required"),
+            level: z.number().min(1, "Years Is Required").nullable(),
+            experiences: z
+               .array(
+                  z.object({
+                     company: z.string().min(1, "Company is Required"),
+                     years: z.number().nullable(),
+                  })
+               )
+               .min(1, "At Least 1 Experience Field is Required"),
+         })
+      )
+      .min(1, "At least one skill required"),
 });
 
-type FormTypes = z.infer<typeof FORMSCHEMA>;
+export type FormTypes = z.infer<typeof FORMSCHEMA>;
 
 const ReactHookFormV5 = () => {
    // USE FORM
-   const { control, register, handleSubmit, formState, reset } = useForm<FormTypes>({
+   const {
+      control,
+      register,
+      handleSubmit,
+      formState: { errors },
+      reset,
+   } = useForm<FormTypes>({
       resolver: zodResolver(FORMSCHEMA),
       defaultValues: {
          skills: [
@@ -42,9 +50,9 @@ const ReactHookFormV5 = () => {
    });
 
    const {
-      fields: SkillFields,
-      append: SkillAppend,
-      remove: SkillRemove,
+      fields: skillFields,
+      append: appendSkill,
+      remove: removeSkill,
    } = useFieldArray({
       control: control,
       name: "skills",
@@ -61,13 +69,13 @@ const ReactHookFormV5 = () => {
    return (
       <div className="section bg-black">
          <form onSubmit={handleSubmit(SubmitHandler)}>
-            {SkillFields.length === 0 && (
+            {skillFields.length === 0 && (
                <div className="flex flex-col items-center gap-3 bg-zinc-800 p-3 rounded-lg shadow-inner shadow-white/30 text-rose-900 w-86">
                   <TriangleAlert />
                   <h3>NO SKILLS TO SHOW</h3>
                   <button
                      type="button"
-                     onClick={() => SkillAppend({ title: "", level: 1, experiences: [{ company: "", years: 0 }] })}
+                     onClick={() => appendSkill({ title: "", level: 1, experiences: [{ company: "", years: 0 }] })}
                      className="btn flex items-center-safe gap-3">
                      <PlusCircle className="size-4" />
                      ADD FIRST SKILL
@@ -75,25 +83,25 @@ const ReactHookFormV5 = () => {
                </div>
             )}
 
-            {SkillFields.map((skill, index) => (
+            {skillFields.map((skill, index) => (
                <SkillItem
                   key={skill.id}
                   control={control}
                   register={register}
                   index={index}
-                  removeSkill={SkillRemove}
-                  formState={formState}
+                  removeSkill={removeSkill}
+                  errors={errors}
                />
             ))}
 
             <div
                id="BUTTONS__CONTAINER"
-               className={cn("flex gap-3 w-[50%] mx-auto  py-5", SkillFields.length === 0 && "w-full")}>
+               className={cn("flex gap-3 w-[50%] mx-auto  py-5", skillFields.length === 0 && "w-full")}>
                <button className=" basis-1/2 text-sm p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">
                   SUBMIT FORM
                </button>
                <button
-                  onClick={() => SkillAppend({ title: "", level: 1, experiences: [{ company: "", years: 0 }] })}
+                  onClick={() => appendSkill({ title: "", level: 1, experiences: [{ company: "", years: 0 }] })}
                   type="button"
                   className="basis-1/2 text-sm p-3 rounded-lg border border-sky-950 shadow-inner shadow-white/10  mx-auto bg-sky-900 hover:bg-sky-800 transition-all duration-300 ">
                   ADD SKILL

@@ -1,12 +1,13 @@
 'use client'
 import { PlusCircle, Trash2Icon } from 'lucide-react';
-import { useFieldArray } from 'react-hook-form';
+import { Control, FieldErrors, useFieldArray, UseFormRegister } from 'react-hook-form';
+import { FormTypes } from '../page';
 interface SkillItemPropsType {
-   control: any;
-   register: any;
+   control: Control<FormTypes>;
+   register: UseFormRegister<FormTypes>;
    index: number;
-   removeSkill: any;
-   formState: any;
+   removeSkill: (index: number) => void;
+   errors: FieldErrors<FormTypes>;
 }
 
 const SkillItem = (props: SkillItemPropsType) => {
@@ -31,9 +32,9 @@ const SkillItem = (props: SkillItemPropsType) => {
                   type="text"
                   {...props.register(`skills.${props.index}.title`)}
                />
-               {props?.formState?.errors?.skills?.[props.index]?.title && (
+               {props?.errors?.skills?.[props.index]?.title && (
                   <p className="text-xs p-1 text-rose-900 bg-black absolute -translate-y-8 mx-2  rounded-sm">
-                     {props.formState.errors.skills[props.index].title.message}
+                     {props?.errors?.skills?.[props.index]?.title?.message}
                   </p>
                )}
             </div>
@@ -44,8 +45,8 @@ const SkillItem = (props: SkillItemPropsType) => {
                   type="number"
                   {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
                />
-               {props?.formState?.errors?.skills?.[props.index]?.level && (
-                  <p>{props?.formState?.erros?.skills?.[props.index]?.level?.message}</p>
+               {props?.errors?.skills?.[props.index]?.level && (
+                  <p>{props?.errors?.skills?.[props.index]?.level?.message}</p>
                )}
             </div>
          </div>
@@ -57,9 +58,9 @@ const SkillItem = (props: SkillItemPropsType) => {
                      className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                      {...props.register(`skills.${props.index}.experiences.${expIndex}.company`)}
                   />
-                  {props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company && (
+                  {props?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company && (
                      <p className="p-1 text-xs text-rose-900 bg-black translate-y-2.5 mx-2 rounded-sm absolute">
-                        {props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}
+                        {props?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}
                      </p>
                   )}
                </div>
@@ -69,7 +70,10 @@ const SkillItem = (props: SkillItemPropsType) => {
                   type="number"
                   {...props.register(`skills.${props.index}.experiences.${expIndex}.years`, { valueAsNumber: true })}
                />
-               <button className="btn flex items-center gap-2 bg-rose-900!" type="button" onClick={() => remove(expIndex)}>
+               <button
+                  className="btn flex items-center gap-2 bg-rose-900!"
+                  type="button"
+                  onClick={() => remove(expIndex)}>
                   <Trash2Icon className="size-4" /> Remove Exp
                </button>
             </div>
