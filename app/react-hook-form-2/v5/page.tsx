@@ -41,14 +41,10 @@ const ReactHookFormV5 = () => {
       },
    });
 
-   const {
-      fields: SkillFields,
-      append: SkillAppend,
-      remove: SkillRemove,
-   } = useFieldArray({
-      control: control,
-      name: "skills",
-   });
+const { fields: SkillFields, append: SkillAppend, remove: SkillRemove, } = useFieldArray({
+   control: control,
+   name: "skills",
+});
 
    function SubmitHandler(data: FormTypes) {
       console.info("DATA => ", data);

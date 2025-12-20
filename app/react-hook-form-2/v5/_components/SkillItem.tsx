@@ -10,7 +10,11 @@ interface SkillItemPropsType {
 
 const SkillItem = (props: SkillItemPropsType) => {
    // USE FIELD ARRAY
-   const { fields: expFields, append, remove, } = useFieldArray({
+   const {
+      fields: expFields,
+      append,
+      remove,
+   } = useFieldArray({
       control: props.control,
       name: `skills.${props.index}.experiences`,
    });
