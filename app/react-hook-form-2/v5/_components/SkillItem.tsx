@@ -14,8 +14,8 @@ const SkillItem = (props: SkillItemPropsType) => {
    // USE FIELD ARRAY
    const {
       fields: expFields,
-      append,
-      remove,
+      append : appendExp,
+      remove : removeExp,
    } = useFieldArray({
       control: props.control,
       name: `skills.${props.index}.experiences`,
@@ -73,7 +73,7 @@ const SkillItem = (props: SkillItemPropsType) => {
                <button
                   className="btn flex items-center gap-2 bg-rose-900!"
                   type="button"
-                  onClick={() => remove(expIndex)}>
+                  onClick={() => removeExp(expIndex)}>
                   <Trash2Icon className="size-4" /> Remove Exp
                </button>
             </div>
@@ -82,7 +82,7 @@ const SkillItem = (props: SkillItemPropsType) => {
             <button
                className="btn bg-blue-900! flex items-center-safe justify-center gap-2"
                type="button"
-               onClick={() => append({ company: "", years: 1 })}>
+               onClick={() => appendExp({ company: "", years: 1 })}>
                <PlusCircle className="size-4" /> Add Experience
             </button>
 

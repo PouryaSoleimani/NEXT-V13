@@ -61,21 +61,21 @@ const ReactHookFormV5 = () => {
    function SubmitHandler(data: FormTypes) {
       console.info("DATA => ", data);
       toast.success("FORM SUBMITTED", { position: "top-center" });
-      reset({
-         skills: [{ title: "", level: null, experiences: [{ company: "", years: null }] }],
-      });
+      reset();
    }
 
    return (
-      <div className="section bg-black">
-         <form onSubmit={handleSubmit(SubmitHandler)}>
+      <div className="section bg-black min-h-screen p-8">
+         <form onSubmit={handleSubmit(SubmitHandler)} className="max-w-4xl mx-auto">
             {skillFields.length === 0 && (
-               <div className="flex flex-col items-center gap-3 bg-zinc-800 p-3 rounded-lg shadow-inner shadow-white/30 text-rose-900 w-86">
+               <div className="flex flex-col items-center gap-3 bg-zinc-800 p-3 rounded-lg shadow-inner shadow-white/30 text-rose-400 w-86">
                   <TriangleAlert />
                   <h3>NO SKILLS TO SHOW</h3>
                   <button
                      type="button"
-                     onClick={() => appendSkill({ title: "", level: 1, experiences: [{ company: "", years: 0 }] })}
+                     onClick={() =>
+                        appendSkill({ title: "", level: null, experiences: [{ company: "", years: null }] })
+                     }
                      className="btn flex items-center-safe gap-3">
                      <PlusCircle className="size-4" />
                      ADD FIRST SKILL
@@ -88,9 +88,9 @@ const ReactHookFormV5 = () => {
                   key={skill.id}
                   control={control}
                   register={register}
+                  errors={errors}
                   index={index}
                   removeSkill={removeSkill}
-                  errors={errors}
                />
             ))}
 
