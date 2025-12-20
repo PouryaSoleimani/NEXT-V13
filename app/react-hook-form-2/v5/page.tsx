@@ -24,6 +24,7 @@ const FORMSCHEMA = z.object({
 type FormTypes = z.infer<typeof FORMSCHEMA>;
 
 const ReactHookFormV5 = () => {
+   // USE FORM
    const { control, register, handleSubmit, formState, reset } = useForm<FormTypes>({
       resolver: zodResolver(FORMSCHEMA),
       defaultValues: {
@@ -36,11 +37,8 @@ const ReactHookFormV5 = () => {
          ],
       },
    });
-   const {
-      fields: SkillFields,
-      append: SkillAppend,
-      remove: SkillRemove,
-   } = useFieldArray({
+
+   const { fields: SkillFields, append: SkillAppend, remove: SkillRemove, } = useFieldArray({
       control: control,
       name: "skills",
    });
@@ -50,11 +48,7 @@ const ReactHookFormV5 = () => {
       toast.success('FORM SUBMITTED', { position: 'top-center' })
       reset({
          skills: [
-            {
-               title: "",
-               level: null,
-               experiences: [{ company: "", years: null }],
-            },
+            { title: "", level: null, experiences: [{ company: "", years: null }], },
          ],
       })
    }

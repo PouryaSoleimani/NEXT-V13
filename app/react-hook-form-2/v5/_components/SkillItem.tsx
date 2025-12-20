@@ -8,15 +8,15 @@ interface SkillItemPropsType {
    removeSkill: any;
    formState: any
 }
+
 const SkillItem = (props: SkillItemPropsType) => {
-   const {
-      fields: expFields,
-      append,
-      remove,
-   } = useFieldArray({
+   // USE FIELD ARRAY
+   const { fields: expFields, append, remove, } = useFieldArray({
       control: props.control,
       name: `skills.${props.index}.experiences`,
    });
+
+   // RETURN
    return (
       <div className="border border-zinc-800 rounded-lg shadow-inner shadow-white/30  p-3">
          <div className="flex gap-3">
