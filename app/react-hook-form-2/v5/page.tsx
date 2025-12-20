@@ -4,6 +4,7 @@ import { useFieldArray, useForm } from "react-hook-form";
 import z from "zod";
 import SkillItem from "./_components/SkillItem";
 import toast from "react-hot-toast";
+import { PlusCircle, TriangleAlert } from "lucide-react";
 
 const FORMSCHEMA = z.object({
    skills: z.array(
@@ -60,6 +61,16 @@ const ReactHookFormV5 = () => {
    return (
       <div className="section bg-black">
          <form onSubmit={handleSubmit(SubmitHandler)}>
+            {SkillFields.length === 0 && (
+               <div className="flex flex-col items-center gap-3 bg-zinc-800 p-3 rounded-lg shadow-inner shadow-white/30 text-rose-900">
+                  <TriangleAlert />
+                  <h3>NO SKILLS TO SHOW</h3>
+                  <button type="button" onClick={() => SkillAppend({ title: '', level: 1, experiences: [{ company: '', years: 0 }] })} className="btn flex items-center-safe gap-3">
+                     <PlusCircle className="size-4" />
+                     ADD SKILL
+                  </button>
+               </div>
+            )}
             {SkillFields.map((skill, index) => (
                <SkillItem
                   key={skill.id}
