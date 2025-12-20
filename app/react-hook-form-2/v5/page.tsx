@@ -57,7 +57,7 @@ const ReactHookFormV5 = () => {
       <div className="section bg-black">
          <form onSubmit={handleSubmit(SubmitHandler)}>
             {SkillFields.length === 0 && (
-               <div className="flex flex-col items-center gap-3 bg-zinc-800 p-3 rounded-lg shadow-inner shadow-white/30 text-rose-900">
+               <div className="flex flex-col items-center gap-3 bg-zinc-800 p-3 rounded-lg shadow-inner shadow-white/30 text-rose-900 w-86">
                   <TriangleAlert />
                   <h3>NO SKILLS TO SHOW</h3>
                   <button type="button" onClick={() => SkillAppend({ title: '', level: 1, experiences: [{ company: '', years: 0 }] })} className="btn flex items-center-safe gap-3">
