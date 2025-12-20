@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
 import z from "zod";
 import SkillItem from "./_components/SkillItem";
+import toast from "react-hot-toast";
 
 const FORMSCHEMA = z.object({
    skills: z.array(
@@ -22,7 +23,7 @@ const FORMSCHEMA = z.object({
 type FormTypes = z.infer<typeof FORMSCHEMA>;
 
 const ReactHookFormV5 = () => {
-   const { control, register, handleSubmit, formState } = useForm<FormTypes>({
+   const { control, register, handleSubmit, formState, reset } = useForm<FormTypes>({
       resolver: zodResolver(FORMSCHEMA),
       defaultValues: {
          skills: [
@@ -42,8 +43,19 @@ const ReactHookFormV5 = () => {
       control: control,
       name: "skills",
    });
+
    function SubmitHandler(data: FormTypes) {
       console.info("DATA => ", data);
+      toast.success('FORM SUBMITTED', { position: 'top-center' })
+      reset({
+         skills: [
+            {
+               title: "",
+               level: null,
+               experiences: [{ company: "", years: null }],
+            },
+         ],
+      })
    }
    return (
       <div className="section bg-black">
