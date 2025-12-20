@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { PlusCircle, TriangleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const FORMSCHEMA = z.object({
+export const FORMSCHEMA = z.object({
    skills: z
       .array(
          z.object({
@@ -17,7 +17,7 @@ const FORMSCHEMA = z.object({
                .array(
                   z.object({
                      company: z.string().min(1, "Company is Required"),
-                     years: z.number().nullable(),
+                     years: z.number().min(0, "Year Must be at least 0").nullable(),
                   })
                )
                .min(1, "At Least 1 Experience Field is Required"),
