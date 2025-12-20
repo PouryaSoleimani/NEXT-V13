@@ -21,19 +21,19 @@ const SkillItem = (props: SkillItemPropsType) => {
          <div className="flex gap-3">
             <div>
                <input
-                  className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
+                  className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                   placeholder="Skill"
                   type="text"
                   {...props.register(`skills.${props.index}.title`)}
                />
                {props?.formState?.errors?.skills?.[props.index]?.title && (
-                  <p className='text-xs p-1 text-rose-900'>{props.formState.errors.skills[props.index].title.message}</p>
+                  <p className='text-xs p-1 text-rose-900 bg-black absolute -translate-y-8 mx-2  rounded-sm'>{props.formState.errors.skills[props.index].title.message}</p>
                )}
             </div>
             <div>
                <input
                   placeholder="Level"
-                  className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
+                  className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                   type="number"
                   {...props.register(`skills.${props.index}.level`, { valueAsNumber: true })}
                />
@@ -47,11 +47,11 @@ const SkillItem = (props: SkillItemPropsType) => {
                <div className='flex flex-col'>
                   <input
                      placeholder="Company"
-                     className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
+                     className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                      {...props.register(`skills.${props.index}.experiences.${expIndex}.company`)}
                   />
                   {props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company && (
-                     <p className='p-1 text-xs text-rose-900'>{props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}</p>
+                     <p className='p-1 text-xs text-rose-900 bg-black translate-y-2.5 mx-2 rounded-sm absolute'>{props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}</p>
                   )}
                </div>
                <input
