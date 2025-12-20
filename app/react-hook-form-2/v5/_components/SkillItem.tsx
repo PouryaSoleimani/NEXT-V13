@@ -1,12 +1,11 @@
-import { Plus, PlusCircle, Trash2Icon } from 'lucide-react';
-import React from 'react'
+import { PlusCircle, Trash2Icon } from 'lucide-react';
 import { useFieldArray } from 'react-hook-form';
 interface SkillItemPropsType {
    control: any;
    register: any;
    index: number | string;
    removeSkill: any;
-   formState: any
+   formState: any;
 }
 
 const SkillItem = (props: SkillItemPropsType) => {
@@ -28,7 +27,9 @@ const SkillItem = (props: SkillItemPropsType) => {
                   {...props.register(`skills.${props.index}.title`)}
                />
                {props?.formState?.errors?.skills?.[props.index]?.title && (
-                  <p className='text-xs p-1 text-rose-900 bg-black absolute -translate-y-8 mx-2  rounded-sm'>{props.formState.errors.skills[props.index].title.message}</p>
+                  <p className="text-xs p-1 text-rose-900 bg-black absolute -translate-y-8 mx-2  rounded-sm">
+                     {props.formState.errors.skills[props.index].title.message}
+                  </p>
                )}
             </div>
             <div>
@@ -45,14 +46,16 @@ const SkillItem = (props: SkillItemPropsType) => {
          </div>
          {expFields.map((exp, expIndex) => (
             <div key={exp.id} className="flex py-3 items-center-safe justify-center gap-3">
-               <div className='flex flex-col'>
+               <div className="flex flex-col">
                   <input
                      placeholder="Company"
                      className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                      {...props.register(`skills.${props.index}.experiences.${expIndex}.company`)}
                   />
                   {props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company && (
-                     <p className='p-1 text-xs text-rose-900 bg-black translate-y-2.5 mx-2 rounded-sm absolute'>{props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}</p>
+                     <p className="p-1 text-xs text-rose-900 bg-black translate-y-2.5 mx-2 rounded-sm absolute">
+                        {props?.formState?.errors?.skills?.[props.index]?.experiences?.[expIndex]?.company?.message}
+                     </p>
                   )}
                </div>
                <input
@@ -62,17 +65,23 @@ const SkillItem = (props: SkillItemPropsType) => {
                   {...props.register(`skills.${props.index}.experiences.${expIndex}.years`, { valueAsNumber: true })}
                />
                <button className="btn flex items-center gap-2 bg-rose-900!" type="button" onClick={() => remove(expIndex)}>
-                  <Trash2Icon className='size-4' /> Remove Exp
+                  <Trash2Icon className="size-4" /> Remove Exp
                </button>
             </div>
          ))}
          <div className="flex items-center justify-center-safe py-3 gap-3">
-            <button className="btn bg-blue-900! flex items-center-safe justify-center gap-2" type="button" onClick={() => append({ company: "", years: 1 })}>
-               <PlusCircle className='size-4' />   Add Experience
+            <button
+               className="btn bg-blue-900! flex items-center-safe justify-center gap-2"
+               type="button"
+               onClick={() => append({ company: "", years: 1 })}>
+               <PlusCircle className="size-4" /> Add Experience
             </button>
 
-            <button className="btn flex items-center gap-2 bg-rose-900!" type="button" onClick={() => props.removeSkill(props.index)}>
-               <Trash2Icon className='size-4' /> Remove SKILL
+            <button
+               className="btn flex items-center gap-2 bg-rose-900!"
+               type="button"
+               onClick={() => props.removeSkill(props.index)}>
+               <Trash2Icon className="size-4" /> Remove SKILL
             </button>
          </div>
       </div>
