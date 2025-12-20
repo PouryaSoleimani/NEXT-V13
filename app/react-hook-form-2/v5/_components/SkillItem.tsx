@@ -1,3 +1,4 @@
+import { Plus, PlusCircle, Trash2Icon } from 'lucide-react';
 import React from 'react'
 import { useFieldArray } from 'react-hook-form';
 interface SkillItemPropsType {
@@ -60,18 +61,18 @@ const SkillItem = (props: SkillItemPropsType) => {
                   type="number"
                   {...props.register(`skills.${props.index}.experiences.${expIndex}.years`, { valueAsNumber: true })}
                />
-               <button className="btn" type="button" onClick={() => remove(expIndex)}>
-                  Remove Exp
+               <button className="btn flex items-center gap-2 bg-rose-900!" type="button" onClick={() => remove(expIndex)}>
+                  <Trash2Icon className='size-4' /> Remove Exp
                </button>
             </div>
          ))}
          <div className="flex items-center justify-center-safe py-3 gap-3">
-            <button className="btn" type="button" onClick={() => append({ company: "", years: 1 })}>
-               Add Experience
+            <button className="btn bg-blue-900! flex items-center-safe justify-center gap-2" type="button" onClick={() => append({ company: "", years: 1 })}>
+               <PlusCircle className='size-4' />   Add Experience
             </button>
 
-            <button className="btn" type="button" onClick={() => props.removeSkill(props.index)}>
-               Remove Skill
+            <button className="btn flex items-center gap-2 bg-rose-900!" type="button" onClick={() => props.removeSkill(props.index)}>
+               <Trash2Icon className='size-4' /> Remove SKILL
             </button>
          </div>
       </div>
