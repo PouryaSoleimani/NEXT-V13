@@ -1,6 +1,5 @@
 "use client";
 import axios from "axios";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 type SingleProductType = { id: number; title: string; price: number; isAvailable: boolean };
@@ -25,7 +24,11 @@ const AllProductsPage = () => {
                      {item.title} : $ {item.price}
                   </h2>
                   <span>
-                     {item.isAvailable ? <span className="text-emerald-600">AVAILABLE</span> : <span className="text-rose-600">UNAVAILABLE</span>}
+                     {item.isAvailable ? (
+                        <span className="text-emerald-600">AVAILABLE</span>
+                     ) : (
+                        <span className="text-rose-600">UNAVAILABLE</span>
+                     )}
                   </span>
                </div>
             ))}
