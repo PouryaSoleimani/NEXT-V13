@@ -1,3 +1,4 @@
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Resolver, useForm } from "react-hook-form";
 import z from "zod";
@@ -27,7 +28,7 @@ export const FORMSCHEMAS = z.object({
       )
       .min(1, "At least 1 Skill is Required"),
 });
-type FormTypes = z.infer<typeof FORMSCHEMAS>
+type FormTypes = z.infer<typeof FORMSCHEMAS>;
 
 const ReactHookFormV6 = () => {
    const { control } = useForm<FormTypes>({
@@ -37,7 +38,7 @@ const ReactHookFormV6 = () => {
       },
       mode: "onBlur",
    });
-   return <div>ReactHookFormV6</div>;
+   return <div className="section bg-black"></div>;
 };
 
 export default ReactHookFormV6;
