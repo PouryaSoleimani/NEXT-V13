@@ -1,7 +1,8 @@
 'use client'
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Resolver, useForm } from "react-hook-form";
+import { Resolver, useFieldArray, useForm } from "react-hook-form";
 import z from "zod";
+import SkillItemV2 from "./_components/SkillItem";
 
 export const FORMSCHEMA = z.object({
    skills: z
@@ -35,7 +36,32 @@ const ReactHookFormV6 = () => {
          skills: [{ title: "", level: 1, experiences: [{ company: "", years: 1 }] }],
       },
    });
-   return <div>ReactHookFormV6</div>;
+   const {
+      fields: skillFields,
+      append: skillAppend,
+      remove: skillRemove,
+   } = useFieldArray({
+      control: control,
+      name: "skills",
+   });
+   return (
+      <div>
+         <form>
+            {skillFields.map((skill, index) => (
+               <div key={skill.id}>
+                  <SkillItemV2
+                     title={skill.title}
+                     level={skill.level}
+                     experiences={skill.experiences}
+                     fields={skillFields}
+                     append={skillAppend}
+                     remove={skillRemove}
+                  />
+               </div>
+            ))}
+         </form>
+      </div>
+   );
 };
 
 export default ReactHookFormV6;
