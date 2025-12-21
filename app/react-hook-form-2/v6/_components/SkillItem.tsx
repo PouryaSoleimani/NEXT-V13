@@ -3,6 +3,7 @@ import { FieldArrayWithId, UseFieldArrayAppend, UseFieldArrayRemove } from "reac
 
 // TYPES
 type SingleExperienceType = { company: string; years: number };
+
 type SingleSkillType = {
    title: string;
    level: number;
@@ -27,10 +28,11 @@ interface SkillItemV2Props {
    remove: UseFieldArrayRemove;
 }
 
-
+// COMPONENT __________________________________________________________________________________________________________________________________________
 const SkillItemV2 = (props: SkillItemV2Props) => {
    console.info("PROPS FROM SKILL ITEM V2", props);
    return <div>SkillItem</div>;
 };
 
 export default SkillItemV2;
+1
