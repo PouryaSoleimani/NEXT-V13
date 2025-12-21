@@ -35,4 +35,3 @@ const SkillItemV2 = (props: SkillItemV2Props) => {
 };
 
 export default SkillItemV2;
-1
