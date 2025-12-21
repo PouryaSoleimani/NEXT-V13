@@ -5,9 +5,9 @@ import { FormTypes } from '../page';
 interface SkillItemPropsType {
    control: Control<FormTypes>;
    register: UseFormRegister<FormTypes>;
+   errors: FieldErrors<FormTypes>;
    index: number;
    removeSkill: (index: number) => void;
-   errors: FieldErrors<FormTypes>;
 }
 
 const SkillItem = (props: SkillItemPropsType) => {

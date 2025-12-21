@@ -27,11 +27,15 @@ export const FORMSCHEMA = z.object({
       .min(1, "At least 1 Skill is Required"),
 });
 
-type FormTypes = z.infer<typeof FORMSCHEMA>;
+export type FormTypesV6 = z.infer<typeof FORMSCHEMA>;
 
 const ReactHookFormV6 = () => {
-   const { control } = useForm<FormTypes>({
-      resolver: zodResolver(FORMSCHEMA) as Resolver<FormTypes>,
+   const {
+      control,
+      register,
+      formState: { errors },
+   } = useForm<FormTypesV6>({
+      resolver: zodResolver(FORMSCHEMA) as Resolver<FormTypesV6>,
       defaultValues: {
          skills: [{ title: "", level: 1, experiences: [{ company: "", years: 1 }] }],
       },
@@ -48,16 +52,19 @@ const ReactHookFormV6 = () => {
       <div>
          <form>
             {skillFields.map((skill, index) => (
-               <div key={skill.id}>
-                  <SkillItemV2
-                     title={skill.title}
-                     level={skill.level}
-                     experiences={skill.experiences}
-                     fields={skillFields}
-                     append={skillAppend}
-                     remove={skillRemove}
-                  />
-               </div>
+               <SkillItemV2
+                  control={control}
+                  register={register}
+                  key={skill.id}
+                  title={skill.title}
+                  level={skill.level}
+                  experiences={skill.experiences}
+                  fields={skillFields}
+                  append={skillAppend}
+                  remove={skillRemove}
+                  errors={errors}
+                  index={index}
+               />
             ))}
          </form>
       </div>

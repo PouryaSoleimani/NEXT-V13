@@ -1,5 +1,6 @@
 "use client";
-import { FieldArrayWithId, UseFieldArrayAppend, UseFieldArrayRemove } from "react-hook-form";
+import { Control, FieldArrayWithId, FieldErrors, UseFieldArrayAppend, UseFieldArrayRemove, UseFormRegister } from "react-hook-form";
+import { FormTypesV6 } from "../page";
 
 // TYPES
 type SingleExperienceType = { company: string; years: number };
@@ -13,6 +14,7 @@ type SingleSkillType = {
 interface SkillItemV2Props {
    title: string;
    level: number;
+   control: Control<FormTypesV6>;
    experiences: Array<SingleExperienceType>;
    fields: FieldArrayWithId<{ skills: Array<SingleSkillType> }, "skills", "id">[];
    append: UseFieldArrayAppend<
@@ -26,6 +28,9 @@ interface SkillItemV2Props {
       "skills"
    >;
    remove: UseFieldArrayRemove;
+   register: UseFormRegister<FormTypesV6>;
+   errors: FieldErrors<FormTypesV6>;
+   index: number;
 }
 
 // COMPONENT __________________________________________________________________________________________________________________________________________
