@@ -2,6 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, Resolver, useFieldArray, useForm } from "react-hook-form";
 import z from "zod";
+import SkillItemV6 from "./_components/SkillItem";
 
 export const FORMSCHEMAV6 = z.object({
    skills: z
@@ -63,7 +64,7 @@ function submitHandler(data:FormTypesV6) {
          <FormProvider {...methods}>
             <form onSubmit={handleSubmit(submitHandler)}>
                {skillFields.map((skill, index) => (
-                  <div key={skill.id}>{index}</div>
+                  <SkillItemV6 key={skill.id} {...methods} />
                ))}
             </form>
          </FormProvider>
