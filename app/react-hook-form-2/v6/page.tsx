@@ -69,7 +69,7 @@ const ReactHookFormV6 = () => {
       name: `skills`,
    });
 
-   console.info("LENGTH =>", _skills.length);
+   console.log("LENGTH =>", _skills.length);
 
    return (
       <div className="section bg-black">
@@ -114,8 +114,8 @@ const ReactHookFormV6 = () => {
                   <button
                      type="button"
                      onClick={() => reset()}
-                     className="btn rounded-full! bg-yellow-400 text-black!">
-                     ⟳ RESET
+                     className="btn rounded-full! bg-yellow-400 text-black! font-['JetBrains Mono']">
+                     ⟳ RESET FORM
                   </button>
                </div>
             </form>
