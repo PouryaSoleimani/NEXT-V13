@@ -4,7 +4,7 @@ import { FormProvider, Resolver, useFieldArray, useForm, useWatch } from "react-
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
-import { RefreshCcw, RefreshCcwDot } from "lucide-react";
+import { RefreshCcw } from "lucide-react";
 import { useEffect } from "react";
 
 export const FORMSCHEMAV6 = z.object({
