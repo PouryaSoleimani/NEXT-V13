@@ -267,3 +267,12 @@ tfoot th {
    background-color:  #181818;
    text-transform: capitalize;
 }
+.form-error{
+   color : crimson;
+   font-size: x-small;
+   padding: 6px;
+   background-color: #ffffff30;
+   border-radius: 10px;
+   margin: 5px 1px;
+   width: fit-content;
+}

@@ -69,6 +69,7 @@ function submitHandler(data:FormTypesV6) {
                      {...methods}
                      index={index}
                      skillRemove={skillRemove}
+                     errors={errors}
                   />
                ))}
             </form>
