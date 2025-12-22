@@ -31,14 +31,18 @@ export type FormTypes = z.infer<typeof FORMSCHEMA>;
 const ReactHookFormV5 = () => {
    // USE FORM
    const {
-       control,
-       register,
-       handleSubmit,
-       formState: { errors },
-       reset,
+      control,
+      register,
+      handleSubmit,
+      formState: { errors },
+      reset,
    } = useForm<FormTypes>({
-       resolver: zodResolver(FORMSCHEMA),
-       defaultValues: { skills: [{ title: "", level: null, experiences: [{ company: "", years: null }] }] },
+      resolver: zodResolver(FORMSCHEMA),
+      defaultValues: {
+         skills: [
+            { title: "", level: null, experiences: [{ company: "", years: null }] },
+         ],
+      },
    });
 
    const {
