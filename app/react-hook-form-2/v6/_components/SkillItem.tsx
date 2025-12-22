@@ -1,3 +1,4 @@
+
 import { FieldErrors, useFieldArray, UseFieldArrayRemove, useFormContext } from "react-hook-form";
 interface SkillItemV6Props {
    index: number;
@@ -8,12 +9,14 @@ interface SkillItemV6Props {
          level: number | null;
          experiences: { company: string; years: number | null }[];
       }[];
+      submitHandler: (data: any) => void;
    }>;
    [key: string]: any;
 }
 const SkillItemV6 = (props: SkillItemV6Props) => {
    console.info("PROPS", props);
-   const { control, reset, register, formState, getValues } = useFormContext();
+
+   const { control, register } = useFormContext();
 
    const {
       fields: expFields,
@@ -24,13 +27,13 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
       name: `skills.${props.index}.experiences` as const,
    });
 
-   console.info(getValues(`skills.${props.index}.level`));
+   console.info(props.errors);
 
    return (
-      <div>
+      <div className="grid gap-3 border border-zinc-700 shadow-inner shadow-zinc-300/20 p-6 rounded-lg">
          <div>
             <input
-               className="input"
+               className="input relative inset-0"
                type="text"
                {...register(`skills.${props.index}.title`)}
                placeholder="title"
@@ -40,6 +43,80 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                   {props?.errors?.skills?.[props.index]?.title?.message}
                </p>
             )}
+         </div>
+
+         <div>
+            <input
+               className="input"
+               type="text"
+               {...register(`skills.${props.index}.level`)}
+               placeholder="level"
+            />
+            {props.errors?.skills?.[props.index]?.level && (
+               <p className="form-error">
+                  {props?.errors?.skills?.[props.index]?.level?.message}
+               </p>
+            )}
+         </div>
+
+         {expFields.map((exp, index) => (
+            <div key={exp.id} className="flex flex-col gap-3">
+               <div>
+                  <input
+                     className="input"
+                     type="text"
+                     {...register(`skills.${props.index}.experiences.${index}.company`)}
+                     placeholder="Company"
+                  />
+                  {props.errors?.skills?.[props.index]?.experiences?.[index]?.company && (
+                     <p className="form-error">
+                        {
+                           props?.errors?.skills?.[props.index]?.experiences?.[index]
+                              ?.company?.message
+                        }
+                     </p>
+                  )}
+               </div>
+               <div>
+                  <input
+                     className="input"
+                     type="text"
+                     {...register(`skills.${props.index}.experiences.${index}.years`, {
+                        valueAsNumber: true,
+                     })}
+                     placeholder="Years"
+                  />
+                  {props.errors?.skills?.[props.index]?.experiences?.[index]?.years && (
+                     <p className="form-error">
+                        {
+                           props?.errors?.skills?.[props.index]?.experiences?.[index]
+                              ?.years?.message
+                        }
+                     </p>
+                  )}
+               </div>
+            </div>
+         ))}
+
+         <div className="flex items-center-safe justify-center w-full">
+            <button
+               onClick={() => props.skillRemove(props.index)}
+               type="button"
+               className="btn bg-rose-900!">
+               Remove Skill
+            </button>
+            <button
+               onClick={() => props.skillRemove(props.index)}
+               type="button"
+               className="btn bg-rose-900!">
+               Remove Skill
+            </button>
+            <button
+               onClick={() => props.skillRemove(props.index)}
+               type="button"
+               className="btn bg-rose-900!">
+               Remove Skill
+            </button>
          </div>
       </div>
    );
