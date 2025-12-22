@@ -4,6 +4,7 @@ import { FormProvider, Resolver, useFieldArray, useForm, useWatch } from "react-
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
+import { RefreshCcw, RefreshCcwDot } from "lucide-react";
 
 export const FORMSCHEMAV6 = z.object({
    skills: z
@@ -63,7 +64,7 @@ const ReactHookFormV6 = () => {
       toast.success("FORM SUBMITTED SUCCESSFULLY", { position: "top-center" });
       reset();
    }
-   
+
    const _skills = useWatch({
       control: control,
       name: `skills`,
@@ -114,8 +115,8 @@ const ReactHookFormV6 = () => {
                   <button
                      type="button"
                      onClick={() => reset()}
-                     className="btn rounded-full! bg-yellow-400 text-black! font-['JetBrains Mono']">
-                     ⟳ RESET FORM
+                     className="btn flex items-center gap-1 rounded-full! bg-yellow-400 text-black! font-['JetBrains Mono']">
+                     <RefreshCcw size={12} /> RESET FORM
                   </button>
                </div>
             </form>
