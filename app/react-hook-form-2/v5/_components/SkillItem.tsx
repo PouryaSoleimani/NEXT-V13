@@ -1,23 +1,30 @@
 'use client'
 import { PlusCircle, Trash2Icon } from 'lucide-react';
-import { Control, FieldErrors, useFieldArray, UseFormRegister } from 'react-hook-form';
+import { Control, FieldErrors, useFieldArray, useFormContext, UseFormRegister } from 'react-hook-form';
 import { FormTypes } from '../page';
-interface SkillItemPropsType {
-   control: Control<FormTypes>;
-   register: UseFormRegister<FormTypes>;
-   errors: FieldErrors<FormTypes>;
-   index: number;
-   removeSkill: (index: number) => void;
-}
+// interface SkillItemPropsType {
+//    control: Control<FormTypes>;
+//    register: UseFormRegister<FormTypes>;
+//    errors: FieldErrors<FormTypes>;
+//    index: number;
+//    removeSkill: (index: number) => void;
+// }
 
-const SkillItem = (props: SkillItemPropsType) => {
+const SkillItem = (props: any) => {
+   const {
+      register,
+      control,
+      formState: { errors },
+   } = useFormContext();
+
+
    // USE FIELD ARRAY
    const {
       fields: expFields,
       append: appendExp,
       remove: removeExp,
    } = useFieldArray({
-      control: props.control,
+      control: control,
       name: `skills.${props.index}.experiences` as const,
    });
 
@@ -30,7 +37,7 @@ const SkillItem = (props: SkillItemPropsType) => {
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                   placeholder="Skill ( Like React , ...)"
                   type="text"
-                  {...props.register(`skills.${props.index}.title`)}
+                  {...register(`skills.${props.index}.title`)}
                />
                {props?.errors?.skills?.[props.index]?.title && (
                   <p className="text-xs p-1 text-rose-900 bg-black absolute -translate-y-8 mx-2  rounded-sm">
@@ -43,7 +50,7 @@ const SkillItem = (props: SkillItemPropsType) => {
                   placeholder="Level ( 1 to 5 )"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
                   type="number"
-                  {...props.register(`skills.${props.index}.level`, {
+                  {...register(`skills.${props.index}.level`, {
                      valueAsNumber: true,
                   })}
                />
@@ -60,7 +67,7 @@ const SkillItem = (props: SkillItemPropsType) => {
                   <input
                      placeholder="Company"
                      className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md relative inset-0"
-                     {...props.register(
+                     {...register(
                         `skills.${props.index}.experiences.${expIndex}.company`
                      )}
                   />
@@ -78,7 +85,7 @@ const SkillItem = (props: SkillItemPropsType) => {
                   placeholder="Years"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
                   type="number"
-                  {...props.register(
+                  {...register(
                      `skills.${props.index}.experiences.${expIndex}.years`,
                      { valueAsNumber: true }
                   )}
