@@ -51,9 +51,9 @@ const ReactHookFormV5 = () => {
    });
 
    function SubmitHandler(data: FormTypes) {
-       console.info("DATA => ", data);
-       toast.success("FORM SUBMITTED", { position: "top-center" });
-       reset();
+      console.info("DATA => ", data);
+      toast.success("FORM SUBMITTED", { position: "top-center" });
+      reset();
    }
 
    return (
