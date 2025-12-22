@@ -1,6 +1,8 @@
 
 import { Trash } from "lucide-react";
-import { FieldErrors, useFieldArray, UseFieldArrayRemove, useFormContext } from "react-hook-form";
+import { useEffect } from "react";
+import { FieldErrors, useFieldArray, UseFieldArrayRemove, useFormContext, useWatch } from "react-hook-form";
+import toast from "react-hot-toast";
 interface SkillItemV6Props {
    index: number;
    skillRemove: UseFieldArrayRemove;
@@ -19,7 +21,22 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
 
    const { control, register } = useFormContext();
 
+   const _experiences = useWatch({
+      control: control,
+      name: `skills.${props.index}.experiences`,
+   });
 
+   console.info("EXP LENGTH", _experiences.length);
+
+   useEffect(() => {
+      if (_experiences.length >= 3) {
+         toast.error("NO MORE EXP ALLOWED", {
+            position: "top-center",
+            style: { fontWeight: "bold" },
+         });
+      }
+   }, [_experiences.length]);
+   
    const {
       fields: expFields,
       append: appendExp,
@@ -104,7 +121,8 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                   <button
                      onClick={() => appendExp(index)}
                      type="button"
-                     className="btn bg-sky-900">
+                     className="btn bg-sky-900"
+                     disabled={_experiences.length >= 3}>
                      + Add Exp
                   </button>
                   <button
@@ -124,7 +142,6 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                </div>
             </div>
          ))}
-     
       </div>
    );
 };
