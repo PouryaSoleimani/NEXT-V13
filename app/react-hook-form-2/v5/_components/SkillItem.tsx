@@ -85,10 +85,9 @@ const SkillItem = (props: any) => {
                   placeholder="Years"
                   className="border-2 bg-zinc-900 border-zinc-800 p-2 rounded-md"
                   type="number"
-                  {...register(
-                     `skills.${props.index}.experiences.${expIndex}.years`,
-                     { valueAsNumber: true }
-                  )}
+                  {...register(`skills.${props.index}.experiences.${expIndex}.years`, {
+                     valueAsNumber: true,
+                  })}
                />
                <button
                   className="btn rounded-full size-10 flex items-center gap-2 bg-rose-900!"
