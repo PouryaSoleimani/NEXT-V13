@@ -8,22 +8,22 @@ import { PlusCircle, TriangleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const FORMSCHEMA = z.object({
-    skills: z
-        .array(
-            z.object({
-                title: z.string().min(1, "Title is Required"),
-                level: z.number().min(1, "Years Is Required").nullable(),
-                experiences: z
-                    .array(
-                        z.object({
-                            company: z.string().min(1, "Company is Required"),
-                            years: z.number().min(0, "Year Must be at least 0").nullable(),
-                        })
-                    )
-                    .min(1, "At Least 1 Experience Field is Required"),
-            })
-        )
-        .min(1, "At least one skill required"),
+   skills: z
+      .array(
+         z.object({
+            title: z.string().min(1, "Title is Required"),
+            level: z.number().min(1, "Years Is Required").nullable(),
+            experiences: z
+               .array(
+                  z.object({
+                     company: z.string().min(1, "Company is Required"),
+                     years: z.number().min(0, "Year Must be at least 0").nullable(),
+                  })
+               )
+               .min(1, "At Least 1 Experience Field is Required"),
+         })
+      )
+      .min(1, "At least one skill required"),
 });
 
 export type FormTypes = z.infer<typeof FORMSCHEMA>;
@@ -40,7 +40,11 @@ const ReactHookFormV5 = () => {
       resolver: zodResolver(FORMSCHEMA),
       defaultValues: {
          skills: [
-            { title: "", level: null, experiences: [{ company: "", years: null }] },
+            {
+               title: "",
+               level: null,
+               experiences: [{ company: "", years: null }],
+            },
          ],
       },
    });
