@@ -1,6 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, Resolver, useFieldArray, useForm } from "react-hook-form";
+import { FormProvider, Resolver, useFieldArray, useForm, useWatch } from "react-hook-form";
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
@@ -41,7 +41,7 @@ const ReactHookFormV6 = () => {
          ],
       },
    });
- 
+
    const {
       control,
       formState: { errors },
@@ -57,13 +57,20 @@ const ReactHookFormV6 = () => {
       control: control,
       name: "skills",
    });
-  
+
    function submitHandler(data: FormTypesV6) {
       console.info("FORM DATA =>", data);
       toast.success("FORM SUBMITTED SUCCESSFULLY", { position: "top-center" });
       reset();
    }
-  
+   
+   const _skills = useWatch({
+      control: control,
+      name: `skills`,
+   });
+
+   console.info("LENGTH =>", _skills.length);
+
    return (
       <div className="section bg-black">
          <FormProvider {...methods}>
@@ -96,12 +103,19 @@ const ReactHookFormV6 = () => {
                            experiences: [{ company: "", years: null }],
                         })
                      }
+                     disabled={_skills.length >= 4}
                      type="button"
                      className="btn rounded-full! bg-emerald-900!">
                      + ADD SKILL
                   </button>
                   <button type="submit" className="btn rounded-full! bg-blue-900!">
                      ✔ SUBMIT
+                  </button>
+                  <button
+                     type="button"
+                     onClick={() => reset()}
+                     className="btn rounded-full! bg-yellow-400 text-black!">
+                     ⟳ RESET
                   </button>
                </div>
             </form>

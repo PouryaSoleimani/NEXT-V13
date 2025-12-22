@@ -14,10 +14,11 @@ interface SkillItemV6Props {
    }>;
    [key: string]: any;
 }
+
 const SkillItemV6 = (props: SkillItemV6Props) => {
-   console.info("PROPS", props);
 
    const { control, register } = useFormContext();
+
 
    const {
       fields: expFields,
@@ -60,6 +61,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
             )}
          </div>
 
+         {/* EXPERIENCES */}
          {expFields.map((exp, index) => (
             <div key={exp.id} className="flex flex-col gap-3">
                <div>
@@ -122,6 +124,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                </div>
             </div>
          ))}
+     
       </div>
    );
 };
