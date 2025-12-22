@@ -41,6 +41,7 @@ const ReactHookFormV6 = () => {
          ],
       },
    });
+ 
    const {
       control,
       formState: { errors },
@@ -56,11 +57,13 @@ const ReactHookFormV6 = () => {
       control: control,
       name: "skills",
    });
+  
    function submitHandler(data: FormTypesV6) {
       console.info("FORM DATA =>", data);
       toast.success("FORM SUBMITTED SUCCESSFULLY", { position: "top-center" });
       reset();
    }
+  
    return (
       <div className="section bg-black">
          <FormProvider {...methods}>
