@@ -29,8 +29,8 @@ export const FORMSCHEMA = z.object({
 export type FormTypes = z.infer<typeof FORMSCHEMA>;
 
 const ReactHookFormV5 = () => {
-   // USE FORM
-const methods = useForm<FormTypes>({
+
+   const methods = useForm<FormTypes>({
    resolver: zodResolver(FORMSCHEMA),
    defaultValues: {
       skills: [
@@ -97,7 +97,7 @@ const methods = useForm<FormTypes>({
                <div
                   id="BUTTONS__CONTAINER"
                   className={cn(
-                     "flex gap-3 w-[50%] mx-auto  py-5",
+                     "flex gap-3 w-[50%] mx-auto py-5",
                      skillFields.length === 0 && "w-full"
                   )}>
                   <button className=" basis-1/2 text-sm p-3 rounded-lg border border-emerald-950 shadow-inner shadow-white/10  mx-auto bg-emerald-900 hover:bg-emerald-800 transition-all duration-300 ">

@@ -64,7 +64,12 @@ function submitHandler(data:FormTypesV6) {
          <FormProvider {...methods}>
             <form onSubmit={handleSubmit(submitHandler)}>
                {skillFields.map((skill, index) => (
-                  <SkillItemV6 key={skill.id} {...methods} />
+                  <SkillItemV6
+                     key={skill.id}
+                     {...methods}
+                     index={index}
+                     skillRemove={skillRemove}
+                  />
                ))}
             </form>
          </FormProvider>

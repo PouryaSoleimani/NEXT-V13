@@ -259,3 +259,11 @@ tfoot th {
    align-items: center;
    justify-content: center;
 }
+
+.input {
+   border: 1px solid #222222;
+   padding : 6px;
+   border-radius: 15px;
+   background-color:  #181818;
+   text-transform: capitalize;
+}
