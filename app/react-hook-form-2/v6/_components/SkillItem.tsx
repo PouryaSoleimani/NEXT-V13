@@ -1,4 +1,5 @@
 
+import { Trash } from "lucide-react";
 import { FieldErrors, useFieldArray, UseFieldArrayRemove, useFormContext } from "react-hook-form";
 interface SkillItemV6Props {
    index: number;
@@ -77,6 +78,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                      </p>
                   )}
                </div>
+
                <div>
                   <input
                      className="input"
@@ -95,29 +97,31 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                      </p>
                   )}
                </div>
+
+               <div className="center gap-2 w-full">
+                  <button
+                     onClick={() => appendExp(index)}
+                     type="button"
+                     className="btn bg-sky-900">
+                     + Add Exp
+                  </button>
+                  <button
+                     onClick={() => removeExp(index)}
+                     type="button"
+                     disabled={expFields.length <= 1}
+                     className="btn bg-red-900 flex items-start justify-center gap-1">
+                     <Trash size={12} />
+                     Remove Exp
+                  </button>
+                  <button
+                     onClick={() => props.skillRemove(props.index)}
+                     type="button"
+                     className="btn bg-red-900 flex items-start justify-center gap-1">
+                     <Trash size={12} /> Remove Skill
+                  </button>
+               </div>
             </div>
          ))}
-
-         <div className="flex items-center-safe justify-center w-full">
-            <button
-               onClick={() => props.skillRemove(props.index)}
-               type="button"
-               className="btn bg-rose-900!">
-               Remove Skill
-            </button>
-            <button
-               onClick={() => props.skillRemove(props.index)}
-               type="button"
-               className="btn bg-rose-900!">
-               Remove Skill
-            </button>
-            <button
-               onClick={() => props.skillRemove(props.index)}
-               type="button"
-               className="btn bg-rose-900!">
-               Remove Skill
-            </button>
-         </div>
       </div>
    );
 };

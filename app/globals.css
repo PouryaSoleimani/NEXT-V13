@@ -72,14 +72,14 @@ html {
 
 .center {
    display: flex;
-   align-items: center;
+   align-items: safe;
    justify-content: center;
    gap: 5px;
 }
 
 .btn {
    width: fit-content;
-   padding: 0.5rem ;
+   padding: 0.5rem;
    white-space: nowrap;
    border-radius: 5px;
    box-sizing: border-box;
@@ -90,7 +90,6 @@ html {
    box-sizing: border-box;
    transition: all 150ms linear;
    border : 1px solid #2f2e2e;
-   background-color: #181818;
    cursor: pointer;
    &:disabled {
       opacity: 0.5;
