@@ -7,30 +7,44 @@ import toast from "react-hot-toast";
 import { RefreshCcw } from "lucide-react";
 import { useEffect } from "react";
 
-export const FORMSCHEMAV6 = z.object({
-   skills: z
-      .array(
-         z.object({
-            title: z.string().min(1, "Title is Required"),
-            level: z.coerce
-               .number("Level must be a Number")
-               .min(1, "Level Must be Between 1 to 5")
-               .max(5, "Level Must be between 1 to 5")
-               .int()
-               .nullable(),
+export const FORMSCHEMAV6 = z
+   .object({
+      skills: z
+         .array(
+            z.object({
+               title: z.string().min(1, "Title is Required"),
+               level: z.coerce
+                  .number("Level must be a Number")
+                  .min(1, "Level Must be Between 1 to 5")
+                  .max(5, "Level Must be between 1 to 5")
+                  .int()
+                  .nullable(),
 
-            experiences: z
-               .array(
-                  z.object({
-                     company: z.string().min(1, "Company is Required"),
-                     years: z.coerce.number("Years must be a Number").min(0).nullable(),
-                  })
-               )
-               .min(1, "At least 1 experience is Required"),
-         })
-      )
-      .min(1, "At least 1 Skill is Required"),
-});
+               experiences: z
+                  .array(
+                     z.object({
+                        company: z.string().min(1, "Company is Required"),
+                        years: z.coerce
+                           .number("Years must be a Number")
+                           .min(0)
+                           .nullable(),
+                     })
+                  )
+                  .min(1, "At least 1 experience is Required"),
+            })
+         )
+         .min(1, "At least 1 Skill is Required"),
+   })
+   .refine(
+      (data) => {
+         return data.skills.some((s) => s.level && s.level >= 3);
+      },
+      {
+         error: "At least one Skill must have level 3 or higher",
+         path: ['skills'],
+      }
+   );
+
 
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
@@ -77,11 +91,18 @@ const ReactHookFormV6 = () => {
       if (_skills.length >= 4) {
          toast.error("NO MORE SKILLS ALLOWED");
       }
-   }, [_skills.length]);
+   }, [_skills.length]);   
    
+   console.info("errors", errors);
+
    return (
       <div className="section bg-black">
          <FormProvider {...methods}>
+            {errors.skills && (
+               <p className="form-error text-lg font-semibold">
+                  {errors.skills.root?.message}
+               </p>
+            )}
             <form onSubmit={handleSubmit(submitHandler)} className="grid gap-3">
                {/* FALLBACK */}
                {!skillFields.length && (
@@ -89,6 +110,7 @@ const ReactHookFormV6 = () => {
                      No Skills ...
                   </div>
                )}
+
                <div className="grid grid-cols-4 gap-3">
                   {skillFields.map((skill, index) => (
                      <SkillItemV6

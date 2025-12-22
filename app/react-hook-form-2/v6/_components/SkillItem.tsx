@@ -46,7 +46,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
       name: `skills.${props.index}.experiences` as const,
    });
 
-   console.info(props.errors);
+
 
    return (
       <div className="grid gap-3 border border-zinc-700 shadow-inner shadow-zinc-300/20 p-6 rounded-lg">
