@@ -41,7 +41,7 @@ export const FORMSCHEMAV6 = z
       },
       {
          error: "At least one Skill must have level 3 or higher",
-         path: ['skills'],
+         path: ["skills"],
       }
    );
 
@@ -98,9 +98,9 @@ const ReactHookFormV6 = () => {
    return (
       <div className="section bg-black">
          <FormProvider {...methods}>
-            {errors.skills && (
+            {errors?.skills?.root && (
                <p className="form-error text-lg font-semibold">
-                  {errors.skills.root?.message}
+                  {errors.skills?.root?.message}
                </p>
             )}
             <form onSubmit={handleSubmit(submitHandler)} className="grid gap-3">
