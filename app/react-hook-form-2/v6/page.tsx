@@ -44,17 +44,20 @@ export const FORMSCHEMAV6 = z
          path: ["skills"],
       }
    )
-   .refine((data) => {
-      data.skills.every((skill) => {
-         if (skill.level && skill.level >= 4) {
-            return skill.experiences.some((exp) => exp.years && exp.years >= 4);
-         }
-         return true;
-      })
-   }, {
-      error: "High-level Skills must have at least one experience with 2+ years",
-      path: ["skills"],
-   });
+   .refine(
+      (data) => {
+         data.skills.every((skill) => {
+            if (skill.level && skill.level >= 4) {
+               return skill.experiences.some((exp) => exp.years && exp.years >= 4);
+            }
+            return true;
+         });
+      },
+      {
+         error: "High-level Skills must have at least one experience with 2+ years",
+         path: ["skills"],
+      }
+   );
 
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
