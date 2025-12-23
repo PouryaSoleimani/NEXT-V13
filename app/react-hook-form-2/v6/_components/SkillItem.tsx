@@ -26,7 +26,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
       name: `skills.${props.index}.experiences`,
    });
 
-   console.info("EXP LENGTH", _experiences.length);
+   // console.info("EXP LENGTH", _experiences.length);
 
    useEffect(() => {
       if (_experiences.length >= 3) {

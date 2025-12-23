@@ -48,7 +48,7 @@ export const FORMSCHEMAV6 = z
       (data) => {
          data.skills.every((skill) => {
             if (skill.level && skill.level >= 4) {
-               return skill.experiences.some((exp) => exp.years && exp.years >= 4);
+               return skill.experiences.some((exp) => exp.years && exp.years >= 2);
             }
             return true;
          });
@@ -57,7 +57,18 @@ export const FORMSCHEMAV6 = z
          error: "High-level Skills must have at least one experience with 2+ years",
          path: ["skills"],
       }
-   );
+   )
+   .superRefine((data , ctx) => {
+      data.skills.forEach((skill, index) => {
+         if (skill.level && skill.level >= 4 && skill.experiences.length === 0) {
+            ctx.addIssue({
+               code: "custom",
+               message: "This Skill Needs Experience",
+               path: ["skills", index, "experiences"],
+            });
+         }
+      });
+   });
 
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
@@ -98,9 +109,24 @@ const ReactHookFormV6 = () => {
       name: `skills`,
    });
 
-   console.info("ROOT ERRORS =>", methods.formState.errors.skills?.message);
+   // console.info("ROOT ERRORS =>", methods.formState.errors.skills?.message);
 
-   console.log("LENGTH =>", _skills.length);
+   // console.log("LENGTH =>", _skills.length);
+
+   const array = ["mamad", "reza", "ali", "mohsen", 3, 4];
+
+   // useEffect(() => {
+   //    array?.forEach((item: string | number) => {
+   //       if (typeof item == "number") {
+   //          console.info("NUMBER");
+   //       } else {
+   //          console.info("STRING");
+   //       }
+   //    });
+   //    return;
+   // }, []);
+
+   // console.info("result =>", result);
 
    useEffect(() => {
       if (_skills.length >= 4) {
@@ -108,7 +134,7 @@ const ReactHookFormV6 = () => {
       }
    }, [_skills.length]);
 
-   console.info("errors", errors);
+   // console.info("errors", errors);
 
    return (
       <div className="section bg-black">
