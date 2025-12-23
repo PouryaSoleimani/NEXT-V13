@@ -2,6 +2,7 @@
 import { PlusCircle, Trash2Icon } from 'lucide-react';
 import { Control, FieldErrors, useFieldArray, useFormContext, UseFormRegister } from 'react-hook-form';
 import { FormTypes } from '../page';
+
 // interface SkillItemPropsType {
 //    control: Control<FormTypes>;
 //    register: UseFormRegister<FormTypes>;
