@@ -43,8 +43,18 @@ export const FORMSCHEMAV6 = z
          error: "At least one Skill must have level 3 or higher",
          path: ["skills"],
       }
-   );
-
+   )
+   .refine((data) => {
+      data.skills.every((skill) => {
+         if (skill.level && skill.level >= 4) {
+            return skill.experiences.some((exp) => exp.years && exp.years >= 4);
+         }
+         return true;
+      })
+   }, {
+      error: "High-level Skills must have at least one experience with 2+ years",
+      path: ["skills"],
+   });
 
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
@@ -85,14 +95,16 @@ const ReactHookFormV6 = () => {
       name: `skills`,
    });
 
+   console.info("ROOT ERRORS =>", methods.formState.errors.skills?.message);
+
    console.log("LENGTH =>", _skills.length);
 
    useEffect(() => {
       if (_skills.length >= 4) {
          toast.error("NO MORE SKILLS ALLOWED");
       }
-   }, [_skills.length]);   
-   
+   }, [_skills.length]);
+
    console.info("errors", errors);
 
    return (
