@@ -58,7 +58,7 @@ export const FORMSCHEMAV6 = z
          path: ["skills"],
       }
    )
-   .superRefine((data , ctx) => {
+   .superRefine((data, ctx) => {
       data.skills.forEach((skill, index) => {
          if (skill.level && skill.level >= 4 && skill.experiences.length === 0) {
             ctx.addIssue({
