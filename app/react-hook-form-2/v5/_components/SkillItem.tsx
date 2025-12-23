@@ -73,13 +73,13 @@ const SkillItem = (props: any) => {
                   />
                   {props?.errors?.skills?.[props.index]?.experiences?.[expIndex]
                      ?.company && (
-                     <p className="p-1 text-xs text-rose-900 bg-black translate-y-2.5 mx-2 rounded-sm absolute">
-                        {
-                           props?.errors?.skills?.[props.index]?.experiences?.[expIndex]
-                              ?.company?.message
-                        }
-                     </p>
-                  )}
+                        <p className="p-1 text-xs text-rose-900 bg-black translate-y-2.5 mx-2 rounded-sm absolute">
+                           {
+                              props?.errors?.skills?.[props.index]?.experiences?.[expIndex]
+                                 ?.company?.message
+                           }
+                        </p>
+                     )}
                </div>
                <input
                   placeholder="Years"
