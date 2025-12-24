@@ -13,7 +13,10 @@ const FormSchema = z.object({
       .array(
          z.object({
             title: z.string().min(1, "Title Can't Be Empty"),
-            level: z.number().min(1, "Level Must be between 1 and 5").max(5, "Level Must be between 1 and 5"),
+            level: z
+               .number()
+               .min(1, "Level Must be between 1 and 5")
+               .max(5, "Level Must be between 1 and 5"),
          })
       )
       .min(1, "At Least One Item is Required"),

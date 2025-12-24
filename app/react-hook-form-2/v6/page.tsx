@@ -115,16 +115,16 @@ const ReactHookFormV6 = () => {
 
    const array = ["mamad", "reza", "ali", "mohsen", 3, 4];
 
-   // useEffect(() => {
-   //    array?.forEach((item: string | number) => {
-   //       if (typeof item == "number") {
-   //          console.info("NUMBER");
-   //       } else {
-   //          console.info("STRING");
-   //       }
-   //    });
-   //    return;
-   // }, []);
+   useEffect(() => {
+      array?.forEach((item: string | number) => {
+         if (typeof item == "number") {
+            console.info("NUMBER");
+         } else {
+            console.info("STRING");
+         }
+      });
+      return;
+   }, []);
 
    // console.info("result =>", result);
 

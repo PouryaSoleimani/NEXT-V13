@@ -18,7 +18,6 @@ interface SkillItemV6Props {
 }
 
 const SkillItemV6 = (props: SkillItemV6Props) => {
-
    const { control, register } = useFormContext();
 
    const _experiences = useWatch({
@@ -36,7 +35,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
          });
       }
    }, [_experiences.length]);
-   
+
    const {
       fields: expFields,
       append: appendExp,
@@ -45,8 +44,6 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
       control: control,
       name: `skills.${props.index}.experiences` as const,
    });
-
-
 
    return (
       <div className="grid gap-3 border border-zinc-700 shadow-inner shadow-zinc-300/20 p-6 rounded-lg">
