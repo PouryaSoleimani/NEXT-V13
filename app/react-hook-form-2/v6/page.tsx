@@ -1,12 +1,17 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, Resolver, useFieldArray, useForm, useWatch } from "react-hook-form";
+import {
+   FormProvider,
+   Resolver,
+   useFieldArray,
+   useForm,
+   useWatch,
+} from "react-hook-form";
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
 import { RefreshCcw } from "lucide-react";
 import { useEffect } from "react";
-import { createTextChangeRange } from "typescript";
 
 export const FORMSCHEMAV6 = z
    .object({
@@ -70,30 +75,21 @@ export const FORMSCHEMAV6 = z
          }
       });
    })
-   // .superRefine((data , ctx) => {
-   //    if(data.hasPhoneNumber == true && data.phoneNumber.trim().toString() !== ''){
-   //       ctx.addIssue({
-   //          code: "custom",
-   //          message: "You Shouldn't Add Phone Number Now ...",
-   //          path: ["phoneNumber"],
-   //       });
-   //    }
-   // })
    .superRefine((data, ctx) => {
-  data.skills.forEach((skill , index) => {
-   if (skill?.experiences?.map((item : any) => item?.years).reduce((a : number, b : number) => a + b) < 6) {
-      ctx.addIssue({
-         code: "custom",
-         message: "NOT ENOUGH EXPERIENCE",
-         path: ["skills", index, "experiences"],
+      data.skills.forEach((skill, index) => {
+         if (
+            skill?.experiences
+               ?.map((item: any) => item?.years)
+               .reduce((a: number, b: number) => a + b) < 6
+         ) {
+            ctx.addIssue({
+               code: "custom",
+               message: "NOT ENOUGH EXPERIENCE",
+               path: ["skills", index, "experiences"],
+            });
+         }
       });
-   }
-  })
    });
-   ;
-
-
-
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
 const ReactHookFormV6 = () => {
@@ -122,16 +118,13 @@ const ReactHookFormV6 = () => {
       control: control,
       name: "skills",
    });
-   
-   
-       const result = skillFields
-          .map((item) => item.experiences)
-          .flat()
-          .reduce((a: any, b: any) => a?.years + b?.years);
 
-      console.info("result =>", result);
+   const result = skillFields
+      .map((item) => item.experiences)
+      .flat()
+      .reduce((a: any, b: any) => a?.years + b?.years);
 
-
+   console.info("result =>", result);
 
    function submitHandler(data: FormTypesV6) {
       console.info("FORM DATA =>", data);
