@@ -6,6 +6,7 @@ import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
 import { RefreshCcw } from "lucide-react";
 import { useEffect } from "react";
+import { createTextChangeRange } from "typescript";
 
 export const FORMSCHEMAV6 = z
    .object({
@@ -63,12 +64,35 @@ export const FORMSCHEMAV6 = z
          if (skill.level && skill.level >= 4 && skill.experiences.length === 0) {
             ctx.addIssue({
                code: "custom",
-               message: "This Skill Needs Experience",
+               message: "This skill needs Experience",
                path: ["skills", index, "experiences"],
             });
          }
       });
+   })
+   // .superRefine((data , ctx) => {
+   //    if(data.hasPhoneNumber == true && data.phoneNumber.trim().toString() !== ''){
+   //       ctx.addIssue({
+   //          code: "custom",
+   //          message: "You Shouldn't Add Phone Number Now ...",
+   //          path: ["phoneNumber"],
+   //       });
+   //    }
+   // })
+   .superRefine((data, ctx) => {
+  data.skills.forEach((skill , index) => {
+   if (skill?.experiences?.map((item : any) => item?.years).reduce((a : number, b : number) => a + b) < 6) {
+      ctx.addIssue({
+         code: "custom",
+         message: "NOT ENOUGH EXPERIENCE",
+         path: ["skills", index, "experiences"],
+      });
+   }
+  })
    });
+   ;
+
+
 
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
@@ -77,7 +101,8 @@ const ReactHookFormV6 = () => {
       resolver: zodResolver(FORMSCHEMAV6) as Resolver<FormTypesV6>,
       defaultValues: {
          skills: [
-            { title: "", level: null, experiences: [{ company: "", years: null }] },
+            { title: "", level: null, experiences: [{ company: "", years: 2 }] },
+            { title: "", level: null, experiences: [{ company: "", years: 3 }] },
          ],
       },
    });
@@ -97,6 +122,16 @@ const ReactHookFormV6 = () => {
       control: control,
       name: "skills",
    });
+   
+   
+       const result = skillFields
+          .map((item) => item.experiences)
+          .flat()
+          .reduce((a: any, b: any) => a?.years + b?.years);
+
+      console.info("result =>", result);
+
+
 
    function submitHandler(data: FormTypesV6) {
       console.info("FORM DATA =>", data);
@@ -112,6 +147,8 @@ const ReactHookFormV6 = () => {
    // console.info("ROOT ERRORS =>", methods.formState.errors.skills?.message);
 
    // console.log("LENGTH =>", _skills.length);
+
+   console.info(errors?.skills?.[0]?.experiences?.root?.message);
 
    const array = ["mamad", "reza", "ali", "mohsen", 3, 4];
 
@@ -142,6 +179,11 @@ const ReactHookFormV6 = () => {
             {errors?.skills?.root && (
                <p className="form-error text-lg font-semibold">
                   {errors.skills?.root?.message}
+               </p>
+            )}
+            {errors?.skills?.[0]?.experiences?.root && (
+               <p className="border-4 bg-red-200 text-red-900 my-4 border-red-900 p-3 rounded-full">
+                  {errors?.skills?.[0]?.experiences?.root?.message}
                </p>
             )}
             <form onSubmit={handleSubmit(submitHandler)} className="grid gap-3">
