@@ -78,6 +78,7 @@ export const FORMSCHEMAV6 = z
    .superRefine((data, ctx) => {
       data.skills.forEach((skill, index) => {
          if (
+            skill.experiences.length &&
             skill?.experiences
                ?.map((item: any) => item?.years)
                .reduce((a: number, b: number) => a + b) < 6
