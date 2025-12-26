@@ -77,8 +77,10 @@ export const FORMSCHEMAV6 = z
    })
    .superRefine((data, ctx) => {
       data.skills.forEach((skill, index) => {
-      const totalYears = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0);
-
+         const totalYears = skill.experiences.reduce(
+            (sum, exp) => sum + (exp.years ?? 0),
+            0
+         );
          if (totalYears < 6) {
             ctx.addIssue({
                code: "custom",
