@@ -90,6 +90,7 @@ export const FORMSCHEMAV6 = z
          }
       });
    });
+
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
 const ReactHookFormV6 = () => {
@@ -179,6 +180,7 @@ const ReactHookFormV6 = () => {
                   {errors?.skills?.[0]?.experiences?.root?.message}
                </p>
             )}
+
             <form onSubmit={handleSubmit(submitHandler)} className="grid gap-3">
                {/* FALLBACK */}
                {!skillFields.length && (
