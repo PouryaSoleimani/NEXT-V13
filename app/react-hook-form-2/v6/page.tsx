@@ -47,7 +47,7 @@ export const FORMSCHEMAV6 = z
    .refine(
       (data) => {
          data.skills.every((skill) => {
-            if (skill.level && skill.level >= 4) {
+            if (skill.level !== null && skill.level >= 4) {
                return skill.experiences.some((exp) => exp.years && exp.years >= 2);
             }
             return true;
@@ -97,12 +97,12 @@ export const FORMSCHEMAV6 = z
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
 const ReactHookFormV6 = () => {
+   
    const methods = useForm<FormTypesV6>({
       resolver: zodResolver(FORMSCHEMAV6) as Resolver<FormTypesV6>,
       defaultValues: {
          skills: [
-            { title: "", level: null, experiences: [{ company: "", years: 2 }] },
-            { title: "", level: null, experiences: [{ company: "", years: 3 }] },
+            { title: "", level: null, experiences: [{ company: "", years: 0 }] },
          ],
       },
    });
@@ -141,10 +141,6 @@ const ReactHookFormV6 = () => {
       name: `skills`,
    });
 
-   // console.info("ROOT ERRORS =>", methods.formState.errors.skills?.message);
-
-   // console.log("LENGTH =>", _skills.length);
-
    console.info(errors?.skills?.[0]?.experiences?.root?.message);
 
    const array = ["mamad", "reza", "ali", "mohsen", 3, 4];
@@ -168,7 +164,7 @@ const ReactHookFormV6 = () => {
       }
    }, [_skills.length]);
 
-   console.info("errors", errors?.skills);
+   console.info("errors", errors?.skills?.root);
 
    return (
       <div className="section bg-black">
