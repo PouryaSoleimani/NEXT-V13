@@ -1,12 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-   FormProvider,
-   Resolver,
-   useFieldArray,
-   useForm,
-   useWatch,
-} from "react-hook-form";
+import { FormProvider, Resolver, useFieldArray, useForm, useWatch, } from "react-hook-form";
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
