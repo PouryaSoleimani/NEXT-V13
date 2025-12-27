@@ -1,6 +1,12 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, Resolver, useFieldArray, useForm, useWatch, } from "react-hook-form";
+import {
+   FormProvider,
+   Resolver,
+   useFieldArray,
+   useForm,
+   useWatch,
+} from "react-hook-form";
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
@@ -43,21 +49,24 @@ export const FORMSCHEMAV6 = z
          error: "At least one Skill must have level 3 or higher",
          path: ["skills"],
       }
-)
-   .refine(
-      (data) => {
-         data.skills.every((skill) => {
-            if (skill.level !== null && skill.level >= 4) {
-               return skill.experiences.some((exp) => exp.years && exp.years >= 2);
-            }
-            return true;
-         });
-      },
-      {
-         error: "High-level Skills must have at least one experience with 2+ years",
-         path: ["skills"],
-      }
    )
+   .superRefine((data, ctx) => {
+      data.skills.forEach((skill) => {
+         if (skill.level != null && skill.level >= 4) {
+            const total = skill.experiences.reduce(
+               (sum, exp) => sum + (exp.years ?? 0),
+               0
+            );
+            if (total <= 2) {
+               ctx.addIssue({
+                  code: "custom",
+                  message: "MORE EXPERIENCE IS NEEDED",
+                  path: ["skills"],
+               });
+            }
+         }
+      });
+   })
    .superRefine((data, ctx) => {
       data.skills.forEach((skill, index) => {
          if (skill.level && skill.level >= 4 && skill.experiences.length === 0) {
@@ -71,7 +80,10 @@ export const FORMSCHEMAV6 = z
    })
    .superRefine((data, ctx) => {
       data.skills.forEach((skill, index) => {
-         const totalYears = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0);
+         const totalYears = skill.experiences.reduce(
+            (sum, exp) => sum + (exp.years ?? 0),
+            0
+         );
          if (totalYears < 6) {
             ctx.addIssue({
                code: "custom",
@@ -81,29 +93,29 @@ export const FORMSCHEMAV6 = z
          }
       });
    })
-   .superRefine((data , ctx) => {
+   .superRefine((data, ctx) => {
       data.skills.forEach((skill) => {
-         const totalYears = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0)
+         const totalYears = skill.experiences.reduce(
+            (sum, exp) => sum + (exp.years ?? 0),
+            0
+         );
          if (totalYears >= 30) {
             ctx.addIssue({
                code: "custom",
-               message: 'THE SUM OF ALL EXPERIENCES IS MORE THAN 30 YEARS',
-               path: ['skills']
-            })
+               message: "THE SUM OF ALL EXPERIENCES IS MORE THAN 30 YEARS",
+               path: ["skills"],
+            });
          }
       });
-   })
+   });
 
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
 const ReactHookFormV6 = () => {
-   
    const methods = useForm<FormTypesV6>({
       resolver: zodResolver(FORMSCHEMAV6) as Resolver<FormTypesV6>,
       defaultValues: {
-         skills: [
-            { title: "", level: null, experiences: [{ company: "", years: 0 }] },
-         ],
+         skills: [{ title: "", level: null, experiences: [{ company: "", years: 0 }] }],
       },
    });
 

@@ -47,7 +47,8 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
 
    return (
       <div className="grid gap-3 border border-zinc-700 shadow-inner shadow-zinc-300/20 p-6 rounded-lg">
-         <div>
+         <div className="flex flex-col gap-1">
+            <label>Title</label>
             <input
                className="input relative inset-0"
                type="text"
@@ -61,7 +62,8 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
             )}
          </div>
 
-         <div>
+         <div className="flex flex-col gap-1">
+            <label>Level</label>
             <input
                className="input"
                type="text"
@@ -78,7 +80,8 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
          {/* EXPERIENCES */}
          {expFields.map((exp, index) => (
             <div key={exp.id} className="flex flex-col gap-3">
-               <div>
+          <div className="flex flex-col gap-1">
+                  <label>Company</label>
                   <input
                      className="input"
                      type="text"
@@ -95,7 +98,8 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                   )}
                </div>
 
-               <div>
+             <div className="flex flex-col gap-1">
+                  <label>Years</label>
                   <input
                      className="input"
                      type="text"
