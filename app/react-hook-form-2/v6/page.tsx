@@ -71,10 +71,7 @@ export const FORMSCHEMAV6 = z
    })
    .superRefine((data, ctx) => {
       data.skills.forEach((skill, index) => {
-         const totalYears = skill.experiences.reduce(
-            (sum, exp) => sum + (exp.years ?? 0),
-            0
-         );
+         const totalYears = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0);
          if (totalYears < 6) {
             ctx.addIssue({
                code: "custom",
@@ -83,7 +80,19 @@ export const FORMSCHEMAV6 = z
             });
          }
       });
-   });
+   })
+   .superRefine((data , ctx) => {
+      data.skills.forEach((skill) => {
+         const totalYears = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0)
+         if (totalYears >= 30) {
+            ctx.addIssue({
+               code: "custom",
+               message: 'THE SUM OF ALL EXPERIENCES IS MORE THAN 30 YEARS',
+               path: ['skills']
+            })
+         }
+      });
+   })
 
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
@@ -159,7 +168,7 @@ const ReactHookFormV6 = () => {
       }
    }, [_skills.length]);
 
-   // console.info("errors", errors);
+   console.info("errors", errors?.skills);
 
    return (
       <div className="section bg-black">
@@ -172,6 +181,12 @@ const ReactHookFormV6 = () => {
             {errors?.skills?.[0]?.experiences?.root && (
                <p className="border-4 bg-red-200 text-red-900 my-4 border-red-900 p-3 rounded-full">
                   {errors?.skills?.[0]?.experiences?.root?.message}
+               </p>
+            )}
+
+            {errors?.skills?.root && (
+               <p className="border-4 bg-red-200 text-red-900 my-4 border-red-900 p-3 rounded-full">
+                  {errors?.skills?.root?.message}
                </p>
             )}
 
