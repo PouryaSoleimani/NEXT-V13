@@ -49,7 +49,7 @@ export const FORMSCHEMAV6 = z
          error: "At least one Skill must have level 3 or higher",
          path: ["skills"],
       }
-   )
+)
    .refine(
       (data) => {
          data.skills.every((skill) => {
