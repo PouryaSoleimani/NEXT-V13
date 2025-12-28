@@ -34,12 +34,12 @@ const ReactHookFormV7 = () => {
       name: "title",
       control: methods.control,
    });
-   
+
    useEffect(() => {
       if (titleValue !== "") {
          console.info("RERENDER");
       }
-   return ;
+   return;
    }, [titleValue])
    
    return (
@@ -56,7 +56,7 @@ const ReactHookFormV7 = () => {
                            onChange={field.onChange}
                            placeholder="Title"
                         />
-                        <FieldError name="title" />
+                        <FieldError name={field.name} />
                      </div>
                   )}
                />
