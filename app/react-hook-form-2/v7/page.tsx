@@ -13,7 +13,10 @@ const FORMSCHEMAV7 = z.object({
       .string()
       .min(1, "Title is Required")
       .max(5, "Maximum 5 Characters are allowed"),
-   price: z.coerce.number("Price must be a Number").min(1, 'Price Must be >= 1').nullable()
+   price: z
+      .string("Price is Required")
+      .regex(/^\d+$/, "Price must be only digits")
+      .min(1, 'Price Must be >= 1')
 });
 
 export type FormTypesv7 = z.infer<typeof FORMSCHEMAV7>;
@@ -24,7 +27,7 @@ const ReactHookFormV7 = () => {
       mode:'onBlur',
       defaultValues: {
          title: "",
-         price: null
+         price: ""
       },
    });
 
