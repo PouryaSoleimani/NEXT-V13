@@ -2,10 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm, useWatch } from "react-hook-form";
 import z from "zod";
 import FieldError from "./_components/FieldError";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const FORMSCHEMAV7 = z.object({
    title: z
@@ -29,6 +30,17 @@ const ReactHookFormV7 = () => {
       toast.success("FORM SUBMITTED", { position: "top-center" });
       methods.reset();
    }
+   const titleValue = useWatch({
+      name: "title",
+      control: methods.control,
+   });
+   
+   useEffect(() => {
+      if (titleValue !== "") {
+         console.info("RERENDER");
+      }
+   return ;
+   }, [titleValue])
    
    return (
       <div className="section bg-zinc-900">
