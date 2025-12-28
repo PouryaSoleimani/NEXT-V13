@@ -15,28 +15,29 @@ const FORMSCHEMAV7 = z.object({
       .max(5, "Maximum 5 Characters are allowed"),
    price: z
       .string("Price is Required")
+      .min(1, 'Price is Required')
       .regex(/^\d+$/, "Price must be only digits")
       .min(1, 'Price Must be >= 1')
 });
 
 export type FormTypesv7 = z.infer<typeof FORMSCHEMAV7>;
-
+ 
 const ReactHookFormV7 = () => { 
    const methods = useForm<FormTypesv7>({
       resolver: zodResolver(FORMSCHEMAV7) as Resolver<FormTypesv7>,
-      mode:'onBlur',
+      mode:'onBlur',    
       defaultValues: {
          title: "",
          price: ""
       },
    });
 
-   function submitHandler(data: FormTypesv7) {
+   function submitHandler(data: FormTypesv7) { 
       console.info("V7 DATA =>", data);
-      toast.success(`FORM SUBMITTED ||  ${data.title} : $${data.price}`, { position: "top-center" });
+      toast.success(`FORM SUBMITTED  =>  Title :${data.title} Price:$${data.price}`, { position: "top-center", style: { width: "500px" } });
       methods.reset();
    }
-  
+
    const titleValue = useWatch({
       name: "title",
       control: methods.control,
