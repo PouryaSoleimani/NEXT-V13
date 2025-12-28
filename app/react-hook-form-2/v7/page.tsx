@@ -8,7 +8,6 @@ import FieldError from "./_components/FieldError";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import axios from "axios";
-import { method } from "lodash";
 import { AlertTriangle } from "lucide-react";
 
 const FORMSCHEMAV7 = z.object({
@@ -29,12 +28,14 @@ const ReactHookFormV7 = () => {
    
    const methods = useForm<FormTypesv7>({
       resolver: zodResolver(FORMSCHEMAV7) as Resolver<FormTypesv7>,
-      mode: 'onBlur',
+      mode: 'onChange',
       defaultValues: {
          title: "",
          price: ""
       },
    });
+
+   const { isValid, isSubmitting } = methods.formState
 
    function submitApi() {
       axios.get('https://jsonplaceholder.typicode.com/todos/1')
@@ -49,9 +50,8 @@ const ReactHookFormV7 = () => {
    }
 
    useEffect(() => {
-         submitApi()
+      submitApi()
    }, [])
-
 
    function submitHandler(data: FormTypesv7) { 
       submitApi();
@@ -77,7 +77,7 @@ const ReactHookFormV7 = () => {
       return;
    }, [titleValue, priceValue])
 
-   console.info(methods.formState.errors)
+   console.info(Array(methods.formState.errors))
 
 
    return (
@@ -117,8 +117,10 @@ const ReactHookFormV7 = () => {
                      />
                <hr className="text-zinc-700" />
                <Button
+                  disabled={!isValid || isSubmitting}
+                  aria-disabled={!isValid || isSubmitting}
                   type="submit"
-                  className="my-1 bg-emerald-900 hover:bg-emerald-800 w-full">
+                  className="my-1 bg-emerald-900 hover:bg-emerald-800 w-full disabled:opacity-50 disabled:bg-zinc-500 disabled:pointer-events-none">
                   Submit
                </Button>
             </form>
