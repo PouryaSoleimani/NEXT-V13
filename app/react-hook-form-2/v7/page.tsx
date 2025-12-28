@@ -7,6 +7,9 @@ import z from "zod";
 import FieldError from "./_components/FieldError";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import axios from "axios";
+import { method } from "lodash";
+import { AlertTriangle } from "lucide-react";
 
 const FORMSCHEMAV7 = z.object({
    title: z
@@ -33,7 +36,25 @@ const ReactHookFormV7 = () => {
       },
    });
 
+   function submitApi() {
+      axios.get('https://jsonplaceholder.typicode.com/todos/1')
+         .then(res => res.data)
+         .catch(err => {
+            console.info('ERROR => ', err.message);
+            methods.setError('root', {
+               type: 'deps',
+               message: "Network Problem"
+            })
+         })
+   }
+
+   useEffect(() => {
+         submitApi()
+   }, [])
+
+
    function submitHandler(data: FormTypesv7) { 
+      submitApi();
       console.info("V7 DATA =>", data);
       toast.success(`FORM SUBMITTED  =>  Title :${data.title} Price:$${data.price}`, { position: "top-center", style: { width: "500px" } });
       methods.reset();
@@ -48,7 +69,7 @@ const ReactHookFormV7 = () => {
       control: methods.control,
       name: 'price'
    })
-
+ 
    useEffect(() => {
       if (titleValue !== "") {
          console.info("RERENDER");
@@ -56,10 +77,16 @@ const ReactHookFormV7 = () => {
       return;
    }, [titleValue, priceValue])
 
+   console.info(methods.formState.errors)
+
+
    return (
       <div className="section bg-zinc-900">
          <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(submitHandler)} className="flex flex-col gap-2">
+               {methods.formState.errors.root && (
+                  <p className="text-rose-900 bg-rose-300 p-1 text-xxs rounded-sm flex items-center gap-3"><AlertTriangle className="size-4" />{methods.formState.errors.root.message}</p>
+               )}
                <Controller
                   name="title"
                   control={methods.control}
