@@ -34,11 +34,12 @@ const ReactHookFormV7 = () => {
          price: ""
       },
    });
+   
    // FOR VALIDATING SUBMIT BUTTON
    const { isValid, isSubmitting } = methods.formState 
 
    function submitApi() {
-      axios.get('https://jsonplaceholder.typicode.com/todos/1')
+      axios.get('https://jsonplaceholder.typicode.com/todos/2')
          .then(res => res.data)
          .catch(err => {
             console.info('ERROR => ', err.message);
@@ -79,13 +80,12 @@ const ReactHookFormV7 = () => {
 
    console.info(Array(methods.formState.errors))
 
-
    return (
       <div className="section bg-zinc-900">
          <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(submitHandler)} className="flex flex-col gap-2">
                {methods.formState.errors.root && (
-                  <p className="text-rose-900 bg-rose-300 p-1 text-xxs rounded-sm flex items-center gap-3">
+                  <p className="text-rose-900 underline underline-offset-2 p-1 text-xxs rounded-sm flex items-center gap-3">
                      <AlertTriangle className="size-4" />
                      {methods.formState.errors.root.message}
                   </p>
