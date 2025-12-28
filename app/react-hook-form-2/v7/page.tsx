@@ -25,7 +25,7 @@ export type FormTypesv7 = z.infer<typeof FORMSCHEMAV7>;
 const ReactHookFormV7 = () => { 
    const methods = useForm<FormTypesv7>({
       resolver: zodResolver(FORMSCHEMAV7) as Resolver<FormTypesv7>,
-      mode:'onBlur',    
+      mode: 'onBlur',    
       defaultValues: {
          title: "",
          price: ""
