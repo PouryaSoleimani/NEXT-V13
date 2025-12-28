@@ -23,9 +23,10 @@ const FORMSCHEMAV7 = z.object({
 export type FormTypesv7 = z.infer<typeof FORMSCHEMAV7>;
  
 const ReactHookFormV7 = () => { 
+   
    const methods = useForm<FormTypesv7>({
       resolver: zodResolver(FORMSCHEMAV7) as Resolver<FormTypesv7>,
-      mode: 'onBlur',    
+      mode: 'onBlur',
       defaultValues: {
          title: "",
          price: ""
@@ -76,7 +77,7 @@ const ReactHookFormV7 = () => {
                <Controller 
                   name="price"
                   control={methods.control}
-                  render={({field}) => (
+                  render={({ field }) => (
                      <div className="flex flex-col gap-1">
                         <Input 
                            value={field.value ?? ''}
