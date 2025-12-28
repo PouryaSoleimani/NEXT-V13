@@ -1,12 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-   FormProvider,
-   Resolver,
-   useFieldArray,
-   useForm,
-   useWatch,
-} from "react-hook-form";
+import { FormProvider, Resolver, useFieldArray, useForm, useWatch, } from "react-hook-form";
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
@@ -180,6 +174,7 @@ const ReactHookFormV6 = () => {
 
    return (
       <div className="section bg-black">
+         {/* FORM PROVIDER */}
          <FormProvider {...methods}>
             {errors?.skills?.root && (
                <p className="form-error text-lg font-semibold">

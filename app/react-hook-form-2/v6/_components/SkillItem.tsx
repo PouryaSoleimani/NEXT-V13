@@ -18,6 +18,7 @@ interface SkillItemV6Props {
 }
 
 const SkillItemV6 = (props: SkillItemV6Props) => {
+   // USE FORM CONTEXT
    const { control, register } = useFormContext();
 
    const _experiences = useWatch({
