@@ -80,7 +80,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
          {/* EXPERIENCES */}
          {expFields.map((exp, index) => (
             <div key={exp.id} className="flex flex-col gap-3">
-          <div className="flex flex-col gap-1">
+               <div className="flex flex-col gap-1">
                   <label>Company</label>
                   <input
                      className="input"
@@ -98,7 +98,7 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
                   )}
                </div>
 
-             <div className="flex flex-col gap-1">
+               <div className="flex flex-col gap-1">
                   <label>Years</label>
                   <input
                      className="input"
