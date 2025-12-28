@@ -107,6 +107,7 @@ export const FORMSCHEMAV6 = z
 export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 
 const ReactHookFormV6 = () => {
+
    const methods = useForm<FormTypesV6>({
       resolver: zodResolver(FORMSCHEMAV6) as Resolver<FormTypesV6>,
       defaultValues: {
@@ -162,8 +163,6 @@ const ReactHookFormV6 = () => {
       });
       return;
    }, []);
-
-   // console.info("result =>", result);
 
    useEffect(() => {
       if (_skills.length >= 4) {

@@ -25,7 +25,7 @@ const FORMSCHEMAV7 = z.object({
 export type FormTypesv7 = z.infer<typeof FORMSCHEMAV7>;
  
 const ReactHookFormV7 = () => { 
-   
+
    const methods = useForm<FormTypesv7>({
       resolver: zodResolver(FORMSCHEMAV7) as Resolver<FormTypesv7>,
       mode: 'onChange',
@@ -35,7 +35,7 @@ const ReactHookFormV7 = () => {
       },
    });
 
-   // FOR VALIDATING SUBMIT BUTTON
+   //^ FOR VALIDATING SUBMIT BUTTON
    const { isValid, isSubmitting } = methods.formState 
 
    function submitApi() {
@@ -91,7 +91,7 @@ const ReactHookFormV7 = () => {
                   </p>
                )}
                <Controller
-                  name="title"
+                  name="title" 
                   control={methods.control}
                   render={({ field }) => (
                      <div className="flex flex-col gap-1">
