@@ -6,6 +6,7 @@ import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
 import { RefreshCcw } from "lucide-react";
 import { useEffect } from "react";
+import FieldError from "./_components/FieldError";
 
 export const FORMSCHEMAV6 = z
    .object({
@@ -182,9 +183,10 @@ const ReactHookFormV6 = () => {
                </p>
             )}
             {errors?.skills?.[0]?.experiences?.root && (
-               <p className="border-4 bg-red-200 text-red-900 my-4 border-red-900 p-3 rounded-full">
-                  {errors?.skills?.[0]?.experiences?.root?.message}
-               </p>
+               <FieldError name="skills.0.experiences" />
+               // <p className="border-4 bg-red-200 text-red-900 my-4 border-red-900 p-3 rounded-full">
+               //    {errors?.skills?.[0]?.experiences?.root?.message}
+               // </p>
             )}
 
             {errors?.skills?.root && (
