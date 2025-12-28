@@ -1,14 +1,15 @@
-import { get, Path, useFormState } from "react-hook-form"
-import { FormTypesv7 } from "../page"
+import React from 'react'
+import { get, Path, useFormState } from 'react-hook-form'
+import { FormTypesv7 } from '../page'
 
 const FieldError = ({ name }: { name: Path<FormTypesv7> }) => {
-   const { errors } = useFormState()
-   const error = get(errors , name)
-   if (!error) return null;
-
+  const { errors } = useFormState()
+  const error = get(errors, name)
+  
+  if (!error) return null;
   return (
-    <div className="text-xxs pl-0.5 text-rose-900 underline font-semibold font-sans">{error.message}</div>
+    <p className='text-xxs text-rose-900 pl-0.5 underline'>{error.message}</p>
   )
 }
 
-export default FieldError 
+export default FieldError
