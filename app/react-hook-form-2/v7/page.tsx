@@ -86,7 +86,7 @@ const ReactHookFormV7 = () => {
                         />
                         <FieldError name={field.name} />
                      </div>
-                  )}
+                  )}   
                      />
                <hr className="text-zinc-700" />
                <Button
