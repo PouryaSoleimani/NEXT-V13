@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye } from "lucide-react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import z from "zod";
 
 const FormSchema = z
@@ -43,7 +43,7 @@ type FormValuesType = z.infer<typeof FormSchema>;
 const ReactHookFormPage = () => {
    const [type, setType] = useState<"password" | "text">("password");
 
-   const { register, handleSubmit, formState, reset, watch } = useForm<FormValuesType>({
+   const { register, handleSubmit, formState, reset, watch, control } = useForm<FormValuesType>({
       resolver: zodResolver(FormSchema),
    });
 
@@ -60,6 +60,11 @@ const ReactHookFormPage = () => {
          setType("password");
       }
    }
+
+   const hasPhone = useWatch({
+      control: control,
+      name: 'hasPhone', 
+   })
 
    return (
       <div className="w-full h-full bg-black flex items-center justify-center">
@@ -132,9 +137,9 @@ const ReactHookFormPage = () => {
             <div className="flex  items-center-safe gap-3  border-t-2 border-zinc-600 pt-3">
                <input type="checkbox" {...register("hasPhone")} />
                <Label className="mt-0.5">Has PhoneNumber ?</Label>
-               <p>{watch("hasPhone")?.toString()}</p>
+               <p>{hasPhone?.toString()}</p>
             </div>
-            {watch("hasPhone") && (
+            {hasPhone && (
                <div className="relative inset-0 mt-2">
                   <Label>Phone Number</Label>
                   <input
