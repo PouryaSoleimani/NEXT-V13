@@ -34,7 +34,7 @@ const ReactHookFormV7 = () => {
          price: ""
       },
    });
-   
+
    // FOR VALIDATING SUBMIT BUTTON
    const { isValid, isSubmitting } = methods.formState 
 
