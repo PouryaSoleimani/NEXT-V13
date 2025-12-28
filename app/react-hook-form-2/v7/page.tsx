@@ -30,9 +30,10 @@ const ReactHookFormV7 = () => {
 
    function submitHandler(data: FormTypesv7) {
       console.info("V7 DATA =>", data);
-      toast.success("FORM SUBMITTED", { position: "top-center" });
+      toast.success(`FORM SUBMITTED ||  ${data.title} : $${data.price}`, { position: "top-center" });
       methods.reset();
    }
+  
    const titleValue = useWatch({
       name: "title",
       control: methods.control,
@@ -48,7 +49,7 @@ const ReactHookFormV7 = () => {
          console.info("RERENDER");
       }
       return;
-   }, [titleValue ,priceValue])
+   }, [titleValue, priceValue])
    
    return (
       <div className="section bg-zinc-900">
@@ -81,7 +82,7 @@ const ReactHookFormV7 = () => {
                         <FieldError name={field.name} />
                      </div>
                   )}
-                     />F
+                     />
                <hr className="text-zinc-700" />
                <Button
                   type="submit"
