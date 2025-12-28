@@ -34,8 +34,8 @@ const ReactHookFormV7 = () => {
          price: ""
       },
    });
-
-   const { isValid, isSubmitting } = methods.formState
+   // FOR VALIDATING SUBMIT BUTTON
+   const { isValid, isSubmitting } = methods.formState 
 
    function submitApi() {
       axios.get('https://jsonplaceholder.typicode.com/todos/1')
@@ -69,7 +69,7 @@ const ReactHookFormV7 = () => {
       control: methods.control,
       name: 'price'
    })
- 
+
    useEffect(() => {
       if (titleValue !== "") {
          console.info("RERENDER");
@@ -85,7 +85,10 @@ const ReactHookFormV7 = () => {
          <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(submitHandler)} className="flex flex-col gap-2">
                {methods.formState.errors.root && (
-                  <p className="text-rose-900 bg-rose-300 p-1 text-xxs rounded-sm flex items-center gap-3"><AlertTriangle className="size-4" />{methods.formState.errors.root.message}</p>
+                  <p className="text-rose-900 bg-rose-300 p-1 text-xxs rounded-sm flex items-center gap-3">
+                     <AlertTriangle className="size-4" />
+                     {methods.formState.errors.root.message}
+                  </p>
                )}
                <Controller
                   name="title"
@@ -114,7 +117,7 @@ const ReactHookFormV7 = () => {
                         <FieldError name={field.name} />
                      </div>
                   )}   
-                     />
+               />
                <hr className="text-zinc-700" />
                <Button
                   disabled={!isValid || isSubmitting}

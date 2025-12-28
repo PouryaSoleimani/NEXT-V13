@@ -6,6 +6,7 @@ const FieldError = ({ name }: { name: Path<FormTypesv7> }) => {
   const error = get(errors, name)
   
   if (!error) return null;
+  
   return (
     <p className='text-xxs text-rose-900 pl-0.5 underline'>{error.message}</p>
   )
