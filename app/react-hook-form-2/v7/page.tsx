@@ -89,9 +89,9 @@ const ReactHookFormV7 = () => {
                      <AlertTriangle className="size-4" />
                      {methods.formState.errors.root.message}
                   </p>
-               )}
+               )}    
                <Controller
-                  name="title" 
+                  name="title"
                   control={methods.control}
                   render={({ field }) => (
                      <div className="flex flex-col gap-1">
