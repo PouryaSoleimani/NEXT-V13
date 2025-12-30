@@ -19,17 +19,16 @@ import { cn } from "@/lib/utils"
  });
  const StepSchema2 = z.object({
    skills: z
-     .array(
-       z
-         .string("Skill name is Required")
-         .min(1, "Skill name is Required")
-     )
-     .min(1, "At least 1 skill is Required")
-     .default(["HTML"]),
+     .array(z.string("Skill name is Required").min(1, "Skill name is Required"))
+     .min(1, "At least 1 skill is Required"),
  });
  const StepSchema3 = z.object({ acceptTerms: z.literal(true) });
 
- const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
+ const schemaByStep = {
+   1: StepSchema1,
+   2: StepSchema2,
+   3: StepSchema3,
+ };
  
  export type FormTypesV8 = z.infer<typeof StepSchema1>;
 
@@ -37,13 +36,9 @@ import { cn } from "@/lib/utils"
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [inputType, setInputType] = useState<"password" | "text">("password");
   const methods = useForm<any>({
+    mode : 'onChange',
     resolver: zodResolver(schemaByStep[step]),
-    defaultValues:
-      step == 1
-        ? { email: "", password: "" }
-        : step == 2
-          ? { skills: ["HTML"] }
-          : { acceptTerms: false },
+    defaultValues: { title: "", password: "", skills: ["HTML"], acceptTerms: false },
   });
 
   const { isValid, isSubmitting } = methods.formState;
@@ -53,27 +48,33 @@ import { cn } from "@/lib/utils"
   }
 
   const { fields, append, remove } = useFieldArray({
-    control: methods.control as any,
+    control: methods.control,
     name: "skills",
   });
 
-  console.info('FIELDS =>' , fields)
+  console.info("FIELDS =>", fields);
+
+  async function onNextHandler(){
+    const isValid = await methods.trigger()
+    if(isValid){
+      setStep((s) => (s + 1) as any);
+    }
+  }
   return (
-    <div className="bg-slate-950 screen center">
+    <div className='bg-slate-950 screen center'>
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(sumbitHandler)}
-          className="border border-slate-800 rounded-lg p-4 bg-black flex flex-col gap-4">
+          className='border border-slate-800 rounded-lg p-4 bg-black flex flex-col gap-4'>
           {step == 1 && (
             <>
+              <h2 className='border-b-2 border-stone-700'>STEP 1</h2>
               <Controller
                 control={methods.control}
-                name="email"
+                name='email'
                 render={({ field }) => (
-                  <div className="flex flex-col gap-1">
-                    <Label className="mb-0.5">
-                      {field.name.toUpperCase()}
-                    </Label>
+                  <div className='flex flex-col gap-1'>
+                    <Label className='mb-0.5'>{field.name.toUpperCase()}</Label>
                     <Input
                       value={field.value}
                       onChange={field.onChange}
@@ -86,19 +87,15 @@ import { cn } from "@/lib/utils"
               />
               <Controller
                 control={methods.control}
-                name="password"
+                name='password'
                 render={({ field }) => (
-                  <div className="flex flex-col gap-1 relative inset-0">
-                    <Label className="mb-0.5">
-                      {field.name.toUpperCase()}
-                    </Label>
+                  <div className='flex flex-col gap-1 relative inset-0'>
+                    <Label className='mb-0.5'>{field.name.toUpperCase()}</Label>
                     <Input
                       type={inputType}
                       value={field.value}
                       onChange={field.onChange}
-                      aria-invalid={
-                        !!methods.formState.errors.password
-                      }
+                      aria-invalid={!!methods.formState.errors.password}
                       placeholder={field.name.toUpperCase()}
                     />
                     <button
@@ -111,7 +108,7 @@ import { cn } from "@/lib/utils"
                           ? setInputType("text")
                           : setInputType("password")
                       }>
-                      <Eye className="text-zinc-600 size-5" />
+                      <Eye className='text-zinc-600 size-5' />
                     </button>
                     <ErrorFieldV8 name={field.name} />
                   </div>
@@ -119,7 +116,7 @@ import { cn } from "@/lib/utils"
               />
               <Button
                 disabled={!isValid || isSubmitting}
-                onClick={() => setStep(2)}>
+                onClick={onNextHandler}>
                 Next Step →
               </Button>
             </>
@@ -136,7 +133,7 @@ import { cn } from "@/lib/utils"
                       <Input
                         value={field.value}
                         onChange={field.onChange}
-                        placeholder="Skill Name"
+                        placeholder='Skill Name'
                       />
                       <ErrorFieldV8 name={"skills[index]" as any} />
                     </div>
@@ -151,8 +148,8 @@ import { cn } from "@/lib/utils"
               <Button
                 disabled={!isValid || isSubmitting}
                 aria-disabled={!isValid || isSubmitting}
-                type="submit"
-                className="mx-auto my-3 w-full bg-emerald-950 hover:bg-emerald-800">
+                type='submit'
+                className='mx-auto my-3 w-full bg-emerald-950 hover:bg-emerald-800'>
                 SUBMIT
               </Button>
             </>
