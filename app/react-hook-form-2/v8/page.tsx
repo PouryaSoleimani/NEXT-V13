@@ -50,7 +50,7 @@ import toast from "react-hot-toast"
      methods.reset();
      setStep(1);
    }
-
+                                    
    const { fields, append, remove } = useFieldArray({
      control: methods.control,
      name: "skills",
