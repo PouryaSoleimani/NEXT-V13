@@ -27,7 +27,7 @@ import toast from "react-hot-toast"
      )
      .min(1, "At least 1 skill is Required"),
  });
-const StepSchema3 = z.object({ acceptTerms: z.literal(true) });
+ const StepSchema3 = z.object({ acceptTerms: z.literal(true) });
 
 const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
  
