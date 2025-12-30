@@ -7,8 +7,10 @@ import ErrorFieldV8 from "./_components/ErrorFieldV8"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { Eye } from "lucide-react"
+import { Eye, Trash2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Checkbox } from "@/components/ui/checkbox"
  
  const StepSchema1 = z.object({
    email: z.email("Email is Not Valid"),
@@ -19,16 +21,12 @@ import { cn } from "@/lib/utils"
  });
  const StepSchema2 = z.object({
    skills: z
-     .array(z.string("Skill name is Required").min(1, "Skill name is Required"))
+     .array(z.string("Skill title is Required").min(1, "Skill title is Required"))
      .min(1, "At least 1 skill is Required"),
  });
- const StepSchema3 = z.object({ acceptTerms: z.literal(true) });
+ const StepSchema3 = z.object({ acceptTerms: z.boolean() });
 
- const schemaByStep = {
-   1: StepSchema1,
-   2: StepSchema2,
-   3: StepSchema3,
- };
+ const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
  
  export type FormTypesV8 = z.infer<typeof StepSchema1>;
 
@@ -36,15 +34,16 @@ import { cn } from "@/lib/utils"
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [inputType, setInputType] = useState<"password" | "text">("password");
   const methods = useForm<any>({
-    mode : 'onChange',
+    mode: "onChange",
     resolver: zodResolver(schemaByStep[step]),
-    defaultValues: { title: "", password: "", skills: ["HTML"], acceptTerms: false },
+    defaultValues: { title: "", password: "", skills: [], acceptTerms: false },
   });
 
   const { isValid, isSubmitting } = methods.formState;
 
-  function sumbitHandler(data: FormTypesV8) {
-    console.log("DATA => ", data);
+  function sumbitHandler() {
+    const DTO = methods.getValues()
+    console.log("DATA => ", DTO);
   }
 
   const { fields, append, remove } = useFieldArray({
@@ -60,6 +59,9 @@ import { cn } from "@/lib/utils"
       setStep((s) => (s + 1) as any);
     }
   }
+
+  console.info("ERRROS =>", methods.formState.errors);
+  console.info("ACCEPT TERMS => ", methods.getValues("acceptTerms"));
   return (
     <div className='bg-slate-950 screen center'>
       <FormProvider {...methods}>
@@ -79,7 +81,7 @@ import { cn } from "@/lib/utils"
                       value={field.value}
                       onChange={field.onChange}
                       aria-invalid={!!methods.formState.errors.email}
-                      placeholder={field.name.toUpperCase()}
+                      placeholder={"Skill name"}
                     />
                     <ErrorFieldV8 name={field.name} />
                   </div>
@@ -123,28 +125,95 @@ import { cn } from "@/lib/utils"
           )}
           {step == 2 && (
             <div>
+              <h2 className='border-b-2 border-stone-700'>STEP 2</h2>
+              {fields.length == 0 && <p>No Skills , Try Add Skills Now ↓</p>}
               {fields?.map((item, index) => (
                 <Controller
                   key={item.id}
                   name={`skills.${index}`}
                   control={methods.control}
                   render={({ field }) => (
-                    <div>
-                      <Input
-                        value={field.value}
-                        onChange={field.onChange}
-                        placeholder='Skill Name'
-                      />
-                      <ErrorFieldV8 name={"skills[index]" as any} />
+                    <div className='flex items-center gap-2 my-2'>
+                      <div>
+                        <Input
+                          onChange={field.onChange}
+                          placeholder='Skill Name'
+                        />
+                        <ErrorFieldV8 name={"skills[index]" as any} />
+                      </div>
+                      <div className='flex items-center gap-1'>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              onClick={() => remove(index)}
+                              className='size-8'
+                              variant={"destructive"}>
+                              <Trash2 />
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent className='bg-stone-950 -translate-y-2 border border-stone-800'>
+                            Remove Skill
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
                     </div>
                   )}
                 />
               ))}
+              <div className='flex grow gap-2 items-center justify-center mt-3'>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      onClick={() => append({}, { shouldFocus: true })}
+                      className='size-8 w-1/2'
+                      variant={"blue"}>
+                      +
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side='bottom'
+                    className='bg-stone-950 border border-stone-800 shaadow shadow-white/50 translate-y-2'>
+                    Add skill
+                  </TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      onClick={onNextHandler}
+                      className='size-8 w-1/2'
+                      variant={"success"}>
+                      →
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side='bottom'
+                    className='bg-stone-950 border text-white border-stone-800 shaadow shadow-white/50 translate-y-2'>
+                    Next Step
+                  </TooltipContent>
+                </Tooltip>
+              </div>
             </div>
           )}
           {step == 3 && (
             <>
-              STEP 3
+              <h2 className='border-b-2 border-stone-700'>STEP 3</h2>
+              <Controller
+                name='acceptTerms'
+                control={methods.control}
+                render={({ field }) => (
+                  <div className='flex flex-col gap-1'>
+                    <div className='flex flex-row-reverse gap-2'>
+                      <Label>Accept Terms And Privacy and Policy Rules</Label>
+                      <Checkbox
+                        onCheckedChange={field.onChange}
+                        className='accent-cyan-500'
+                        value={field.value}
+                      />
+                    </div>
+                    <ErrorFieldV8 name={field.name as any} />
+                  </div>
+                )}
+              />
               <Button
                 disabled={!isValid || isSubmitting}
                 aria-disabled={!isValid || isSubmitting}
