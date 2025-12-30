@@ -60,7 +60,7 @@ import toast from "react-hot-toast"
   async function onNextHandler(){
     const isValid = await methods.trigger()
     if (isValid) {
-      setStep((s) => (s + 1) as any);
+      setStep((s) => (s + 1) as any); 
     }
   }
 
