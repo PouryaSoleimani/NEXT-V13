@@ -112,7 +112,7 @@ const ReactHookFormV8 = () => {
                     <button
                       type='button'
                       className={cn(
-                        "absolute right-1 top-1/2",
+                        "absolute cursor-pointer group right-1.5 top-1/2",
                         methods.formState.errors.password && "top-7"
                       )}
                       onClick={() =>
@@ -120,7 +120,7 @@ const ReactHookFormV8 = () => {
                           ? setInputType("text")
                           : setInputType("password")
                       }>
-                      <Eye className='text-zinc-600 size-5' />
+                      <Eye className='text-zinc-600 group-hover:text-zinc-400 transition duration-200 size-5' />
                     </button>
                     <ErrorFieldV8 name={field.name} />
                   </div>
