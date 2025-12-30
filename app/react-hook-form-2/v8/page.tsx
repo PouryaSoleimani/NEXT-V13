@@ -43,7 +43,7 @@ import toast from "react-hot-toast"
   const { isValid, isSubmitting } = methods.formState;
 
   function sumbitHandler() {
-    const DTO = methods.getValues()
+    const DTO = methods.getValues();
     console.log("DATA => ", DTO);
     toast.success("FORM SUBMITTED", { position: "top-center" });
     methods.reset();
