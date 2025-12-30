@@ -34,6 +34,7 @@ import toast from "react-hot-toast"
  const ReactHookFormV8 = () => {
    const [step, setStep] = useState<1 | 2 | 3>(1);
    const [inputType, setInputType] = useState<"password" | "text">("password");
+
    const methods = useForm<any>({
      mode: "onChange",
      resolver: zodResolver(schemaByStep[step]),
@@ -64,7 +65,10 @@ import toast from "react-hot-toast"
      }
    }
 
-   const hasAccepted = useWatch({ control: methods.control, name: "acceptTerms" });
+   const hasAccepted = useWatch({
+     control: methods.control,
+     name: "acceptTerms",
+   });
 
    console.info("ERRROS =>", methods.formState.errors);
    console.info("ACCEPT TERMS => ", methods.getValues("acceptTerms"));
@@ -82,7 +86,9 @@ import toast from "react-hot-toast"
                  name='email'
                  render={({ field }) => (
                    <div className='flex flex-col gap-1'>
-                     <Label className='mb-0.5'>{field.name.toUpperCase()}</Label>
+                     <Label className='mb-0.5'>
+                       {field.name.toUpperCase()}
+                     </Label>
                      <Input
                        value={field.value}
                        onChange={field.onChange}
@@ -98,7 +104,9 @@ import toast from "react-hot-toast"
                  name='password'
                  render={({ field }) => (
                    <div className='flex flex-col gap-1 relative inset-0'>
-                     <Label className='mb-0.5'>{field.name.toUpperCase()}</Label>
+                     <Label className='mb-0.5'>
+                       {field.name.toUpperCase()}
+                     </Label>
                      <Input
                        type={inputType}
                        value={field.value}
@@ -233,7 +241,9 @@ import toast from "react-hot-toast"
                />
                <Button
                  disabled={!isValid || isSubmitting || hasAccepted == false}
-                 aria-disabled={!isValid || isSubmitting || hasAccepted == false}
+                 aria-disabled={
+                   !isValid || isSubmitting || hasAccepted == false
+                 }
                  type='submit'
                  className='mx-auto w-full bg-emerald-950 hover:bg-emerald-800'>
                  SUBMIT
