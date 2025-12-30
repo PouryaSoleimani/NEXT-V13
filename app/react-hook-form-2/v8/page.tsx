@@ -7,7 +7,7 @@ import ErrorFieldV8 from "./_components/ErrorFieldV8"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { AlertTriangle, Eye, Info, Trash2 } from "lucide-react";
+import { Eye, Info, PlusCircle, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -139,8 +139,9 @@ const ReactHookFormV8 = () => {
               <h2 className='border-b-2 border-stone-700'>STEP 2</h2>
               {fields.length == 0 && (
                 <p className='text-stone-500 flex flex-col border-b-2 pb-4 border-stone-700 items-center-safe gap-3 my-3 text-sm'>
-                  <AlertTriangle className='size-5' />
-                  No Skills , Try Add Skills Now ↓
+                  <PlusCircle className='size-5' />
+                  No Skills , Try Add Skills Now{" "}
+                  <span className='animate-bounce text-xl'>↓</span>
                 </p>
               )}
               {fields?.map((item, index) => (
@@ -196,7 +197,7 @@ const ReactHookFormV8 = () => {
                   <TooltipTrigger asChild>
                     <Button
                       onClick={onNextHandler}
-                      className='size-8 w-1/2'
+                      className='size-8 w-1/2 text-white'
                       variant={"success"}>
                       →
                     </Button>
