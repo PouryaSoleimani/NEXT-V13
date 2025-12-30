@@ -64,7 +64,7 @@ const ReactHookFormV8 = () => {
       setStep((s) => (s + 1) as any);
     }
   }
-
+  
   const hasAccepted = useWatch({
     control: methods.control,
     name: "acceptTerms",
