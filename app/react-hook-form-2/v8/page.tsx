@@ -22,36 +22,37 @@ import toast from "react-hot-toast"
  });
  const StepSchema2 = z.object({
    skills: z
-     .array(z.string("Skill title is Required").min(1, "Skill title is Required"))
+     .array(
+       z.string("Skill title is Required").min(1, "Skill title is Required")
+     )
      .min(1, "At least 1 skill is Required"),
  });
- const StepSchema3 = z.object({ acceptTerms: z.boolean() });
+const StepSchema3 = z.object({ acceptTerms: z.boolean() });
 
 const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
  
- 
+export type FormTypesV8 = z.infer<typeof StepSchema1> | z.infer<typeof StepSchema2> | z.infer<typeof StepSchema3>;
+
 const ReactHookFormV8 = () => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  // Type cannot be dynamically inferred from state, so use a union:
-  type FormTypesV8 = z.infer<typeof StepSchema1> | z.infer<typeof StepSchema2> | z.infer<typeof StepSchema3>;
   const [inputType, setInputType] = useState<"password" | "text">("password");
 
   const methods = useForm<any>({
     mode: "onChange",
     resolver: zodResolver(schemaByStep[step]),
-     defaultValues: { email: "", password: "", skills: [], acceptTerms: false },
+    defaultValues: { email: "", password: "", skills: [], acceptTerms: false },
   });
 
    const { isValid, isSubmitting } = methods.formState;
 
   function sumbitHandler() {
-     const DTO = methods.getValues();
-     console.log("DATA => ", DTO);
-     toast.success("FORM SUBMITTED", { position: "top-center" });
-     methods.reset();
-     setStep(1);
-   }
-                                    
+    const DTO = methods.getValues();
+    console.log("DATA => ", DTO);
+    toast.success("FORM SUBMITTED", { position: "top-center" });
+    methods.reset();
+    setStep(1);
+  }
+
    const { fields, append, remove } = useFieldArray<any>({
      control: methods.control,
      name: "skills" as "skills",
@@ -73,6 +74,7 @@ const ReactHookFormV8 = () => {
 
    console.info("ERRROS =>", methods.formState.errors);
    console.info("ACCEPT TERMS => ", methods.getValues("acceptTerms"));
+
    return (
      <div className='bg-slate-950 screen center'>
        <FormProvider {...methods}>
