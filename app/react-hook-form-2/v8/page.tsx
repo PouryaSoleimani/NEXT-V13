@@ -118,6 +118,7 @@ const ReactHookFormV8 = () => {
                        placeholder={field.name.toUpperCase()}
                      />
                      <button
+                       type='button'
                        className={cn(
                          "absolute right-1 top-1/2",
                          methods.formState.errors.password && "top-7"
@@ -161,7 +162,7 @@ const ReactHookFormV8 = () => {
                            onChange={field.onChange}
                            placeholder='Skill Name'
                          />
-                         <ErrorFieldV8 name={"skills[index]" as any} />
+                         <ErrorFieldV8 name={`skills[${index}]` as any} />
                        </div>
                        <div className='flex items-center gap-1'>
                          <Tooltip>

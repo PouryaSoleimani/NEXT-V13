@@ -4,17 +4,17 @@ import { useEffect } from "react";
 import { FieldErrors, useFieldArray, UseFieldArrayRemove, useFormContext, useWatch } from "react-hook-form";
 import toast from "react-hot-toast";
 interface SkillItemV6Props {
-   index: number;
-   skillRemove: UseFieldArrayRemove;
-   errors: FieldErrors<{
-      skills: {
-         title: string;
-         level: number | null;
-         experiences: { company: string; years: number | null }[];
-      }[];
-      submitHandler: (data: any) => void;
-   }>;
-   [key: string]: any;
+  index: number;
+  skillRemove: UseFieldArrayRemove;
+  errors: FieldErrors<{
+    skills: {
+      title: string;
+      level: number | null;
+      experiences: { company: string; years: number | null }[];
+    }[];
+    submitHandler: (data: any) => void;
+  }>;
+  [key: string]: any;
 }
 
 const SkillItemV6 = (props: SkillItemV6Props) => {
@@ -37,14 +37,14 @@ const SkillItemV6 = (props: SkillItemV6Props) => {
       }
    }, [_experiences.length]);
 
-   const {
-      fields: expFields,
-      append: appendExp,
-      remove: removeExp,
-   } = useFieldArray({
-      control: control,
-      name: `skills.${props.index}.experiences` as const,
-   });
+ const {
+   fields: expFields,
+   append: appendExp,
+   remove: removeExp,
+ } = useFieldArray({
+   control: control,
+   name: `skills.${props.index}.experiences` as const,
+ });
 
    return (
      <div className='grid gap-3 border border-zinc-700 shadow-inner shadow-zinc-300/20 p-6 rounded-lg'>
