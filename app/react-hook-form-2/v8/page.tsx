@@ -19,7 +19,11 @@ import { cn } from "@/lib/utils"
  });
  const StepSchema2 = z.object({
    skills: z
-     .array(z.string("Skill name is Required").min(1, "Skill name is Required"))
+     .array(
+       z
+         .string("Skill name is Required")
+         .min(1, "Skill name is Required")
+     )
      .min(1, "At least 1 skill is Required")
      .default(["HTML"]),
  });
@@ -32,7 +36,15 @@ import { cn } from "@/lib/utils"
  const ReactHookFormV8 = () => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [inputType, setInputType] = useState<"password" | "text">("password");
-  const methods = useForm<any>({ resolver: zodResolver(schemaByStep[step]) });
+  const methods = useForm<any>({
+    resolver: zodResolver(schemaByStep[step]),
+    defaultValues:
+      step == 1
+        ? { email: "", password: "" }
+        : step == 2
+          ? { skills: ["HTML"] }
+          : { acceptTerms: false },
+  });
 
   const { isValid, isSubmitting } = methods.formState;
 
@@ -45,6 +57,7 @@ import { cn } from "@/lib/utils"
     name: "skills",
   });
 
+  console.info('FIELDS =>' , fields)
   return (
     <div className="bg-slate-950 screen center">
       <FormProvider {...methods}>
@@ -112,21 +125,25 @@ import { cn } from "@/lib/utils"
             </>
           )}
           {step == 2 && (
-            <>
-              {fields.map((item, index) => (
+            <div>
+              {fields?.map((item, index) => (
                 <Controller
                   key={item.id}
                   name={`skills.${index}`}
                   control={methods.control}
                   render={({ field }) => (
                     <div>
-                      <Input />
+                      <Input
+                        value={field.value}
+                        onChange={field.onChange}
+                        placeholder="Skill Name"
+                      />
                       <ErrorFieldV8 name={"skills[index]" as any} />
                     </div>
                   )}
                 />
               ))}
-            </>
+            </div>
           )}
           {step == 3 && (
             <>
