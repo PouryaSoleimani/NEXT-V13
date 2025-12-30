@@ -55,10 +55,13 @@ const ReactHookFormV8 = () => {
   function sumbitHandler() {
     const DTO = methods.getValues();
     console.log("DATA => ", DTO);
-    toast.success("FORM SUBMITTED", { position: "top-center" });
+    toast.success("FORM SUBMITTED", {
+      position: "top-center",
+      style: { borderBottom: "8px solid orange" },
+    });
     methods.reset();
     setStep(1);
-  }
+  }               
 
   const { fields, append, remove } = useFieldArray<any>({
     control: methods.control,
