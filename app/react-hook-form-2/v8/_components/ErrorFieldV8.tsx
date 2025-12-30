@@ -8,8 +8,10 @@ const ErrorFieldV8 = ({name} : {name : Path<FormTypesV8>}) => {
   if (!error) return null;
 
   return (
-    <div className='text-rose-900 text-xxs font-bold pl-0.5'>{error.message}</div>
-  )
+    <div className='text-rose-900 mt-0.5 text-xxs font-bold pl-1 trakcing-tight'>
+      {error.message}
+    </div>
+  );
 }
 
 export default ErrorFieldV8;
