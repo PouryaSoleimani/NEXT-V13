@@ -27,23 +27,24 @@ import toast from "react-hot-toast"
  });
  const StepSchema3 = z.object({ acceptTerms: z.boolean() });
 
- const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
+const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
  
- export type FormTypesV8 = z.infer<typeof StepSchema1>;
+ 
+const ReactHookFormV8 = () => {
+  const [step, setStep] = useState<1 | 2 | 3>(1);
+  // Type cannot be dynamically inferred from state, so use a union:
+  type FormTypesV8 = z.infer<typeof StepSchema1> | z.infer<typeof StepSchema2> | z.infer<typeof StepSchema3>;
+  const [inputType, setInputType] = useState<"password" | "text">("password");
 
- const ReactHookFormV8 = () => {
-   const [step, setStep] = useState<1 | 2 | 3>(1);
-   const [inputType, setInputType] = useState<"password" | "text">("password");
-
-   const methods = useForm<any>({
-     mode: "onChange",
-     resolver: zodResolver(schemaByStep[step]),
+  const methods = useForm<any>({
+    mode: "onChange",
+    resolver: zodResolver(schemaByStep[step]),
      defaultValues: { email: "", password: "", skills: [], acceptTerms: false },
-   });
+  });
 
    const { isValid, isSubmitting } = methods.formState;
 
-   function sumbitHandler() {
+  function sumbitHandler() {
      const DTO = methods.getValues();
      console.log("DATA => ", DTO);
      toast.success("FORM SUBMITTED", { position: "top-center" });
@@ -51,12 +52,12 @@ import toast from "react-hot-toast"
      setStep(1);
    }
                                     
-   const { fields, append, remove } = useFieldArray({
+   const { fields, append, remove } = useFieldArray<any>({
      control: methods.control,
-     name: "skills",
+     name: "skills" as "skills",
    });
 
-   console.info("FIELDS =>", fields);
+  console.info("FIELDS =>", fields);
 
    async function onNextHandler() {
      const isValid = await methods.trigger();
