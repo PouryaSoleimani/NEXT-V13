@@ -1,13 +1,13 @@
 'use client'
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Controller, FormProvider, Resolver, useFieldArray, useForm } from "react-hook-form"
+import { Controller, FormProvider, useFieldArray, useForm, useWatch } from "react-hook-form";
 import z from "zod"
 import ErrorFieldV8 from "./_components/ErrorFieldV8"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { AlertTriangle, Eye, PackageSearch, Trash2 } from "lucide-react"
+import { AlertTriangle, Eye, Info, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -63,6 +63,9 @@ import toast from "react-hot-toast"
       setStep((s) => (s + 1) as any);
     }
   }
+
+  const hasAccepted = useWatch({ control: methods.control, name: "acceptTerms" });
+
 
   console.info("ERRROS =>", methods.formState.errors);
   console.info("ACCEPT TERMS => ", methods.getValues("acceptTerms"));
@@ -219,15 +222,21 @@ import toast from "react-hot-toast"
                         value={field.value}
                       />
                     </div>
+                    {!hasAccepted && (
+                      <p className='text-xxs flex gap-1 mt-3 bg-stone-900 p-1 rounded-sm place-items-center-safe text-orange-500 font-semibold'>
+                        <Info className='size-4' />
+                        Please Accept the Terms to continue
+                      </p>
+                    )}
                     <ErrorFieldV8 name={field.name as any} />
                   </div>
                 )}
               />
               <Button
-                disabled={!isValid || isSubmitting}
-                aria-disabled={!isValid || isSubmitting}
+                disabled={!isValid || isSubmitting || hasAccepted == false}
+                aria-disabled={!isValid || isSubmitting || hasAccepted == false}
                 type='submit'
-                className='mx-auto my-3 w-full bg-emerald-950 hover:bg-emerald-800'>
+                className='mx-auto w-full bg-emerald-950 hover:bg-emerald-800'>
                 SUBMIT
               </Button>
             </>
