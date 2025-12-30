@@ -7,10 +7,11 @@ import ErrorFieldV8 from "./_components/ErrorFieldV8"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { Eye, Trash2 } from "lucide-react"
+import { AlertTriangle, Eye, PackageSearch, Trash2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Checkbox } from "@/components/ui/checkbox"
+import toast from "react-hot-toast"
  
  const StepSchema1 = z.object({
    email: z.email("Email is Not Valid"),
@@ -36,7 +37,7 @@ import { Checkbox } from "@/components/ui/checkbox"
   const methods = useForm<any>({
     mode: "onChange",
     resolver: zodResolver(schemaByStep[step]),
-    defaultValues: { title: "", password: "", skills: [], acceptTerms: false },
+    defaultValues: { email: "", password: "", skills: [], acceptTerms: false },
   });
 
   const { isValid, isSubmitting } = methods.formState;
@@ -44,6 +45,9 @@ import { Checkbox } from "@/components/ui/checkbox"
   function sumbitHandler() {
     const DTO = methods.getValues()
     console.log("DATA => ", DTO);
+    toast.success("FORM SUBMITTED", { position: "top-center" });
+    methods.reset();
+    setStep(1)
   }
 
   const { fields, append, remove } = useFieldArray({
@@ -55,7 +59,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 
   async function onNextHandler(){
     const isValid = await methods.trigger()
-    if(isValid){
+    if (isValid) {
       setStep((s) => (s + 1) as any);
     }
   }
@@ -81,7 +85,7 @@ import { Checkbox } from "@/components/ui/checkbox"
                       value={field.value}
                       onChange={field.onChange}
                       aria-invalid={!!methods.formState.errors.email}
-                      placeholder={"Skill name"}
+                      placeholder={field.name.toUpperCase()}
                     />
                     <ErrorFieldV8 name={field.name} />
                   </div>
@@ -126,7 +130,12 @@ import { Checkbox } from "@/components/ui/checkbox"
           {step == 2 && (
             <div>
               <h2 className='border-b-2 border-stone-700'>STEP 2</h2>
-              {fields.length == 0 && <p>No Skills , Try Add Skills Now ↓</p>}
+              {fields.length == 0 && (
+                <p className='text-stone-500 flex flex-col border-b-2 pb-4 border-stone-700 items-center-safe gap-3 my-3 text-sm'>
+                  <AlertTriangle className='size-5' />
+                  No Skills , Try Add Skills Now ↓
+                </p>
+              )}
               {fields?.map((item, index) => (
                 <Controller
                   key={item.id}
