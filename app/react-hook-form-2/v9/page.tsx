@@ -1,39 +1,112 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Controller, FormProvider, useForm } from "react-hook-form";
+import { Controller, FormProvider, useForm, useWatch } from "react-hook-form";
 import z from "zod";
 import useCapitilize from "./_hooks/useCapitilize";
 import ErrorFieldV9 from "./_components/page";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import { ArrowRight, Eye } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Checkbox } from "@/components/ui/checkbox";
+import toast from "react-hot-toast";
 
 const FormSchema1 = z.object({
   username: z
     .string("Username is Required")
     .min(1, "Username can't be Empty")
-    .max(5, "Username must be Maximum 5 letters"),
+    .max(10, "Username must be Maximum 10 letters"),
   email: z.email("Email is Invalid"),
 });
 
-const schemaByStep = { 1: FormSchema1 };
+const FormSchema2 = z
+  .object({
+    password: z
+      .string("password is Required")
+      .min(4, "Password must be at least 4 letters"),
 
-export type FormTypesV9 = z.infer<typeof FormSchema1>;
+    confirmPassword: z
+      .string("ConfirmPassword is Required")
+      .min(4, "Confirm password must be at least 4 letters "),
+  })
+  .refine(
+    (data) => {
+      if (data.password !== data.confirmPassword) {
+        return false;
+      }
+      return true;
+    },
+    { error: "Passwords Dont Match", path: ["confirmPassword"] }
+  );
+
+const FormSchema3 = z.object({
+  acceptTerms: z.literal(
+    true,
+    "Please Accept the Privacy and Policy Terms To Continue"
+  ),
+});
+
+const schemaByStep = { 1: FormSchema1, 2: FormSchema2, 3: FormSchema3 };
+
+export type FormTypesV9 =
+  | z.infer<typeof FormSchema1>
+  | z.infer<typeof FormSchema2>
+  | z.infer<typeof FormSchema3>;
 
 // COMPONENT __________________________________________________________________________________________________
 const ReactHookFormV9 = () => {
-  const [step] = useState<1>(1);
-
+  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [inputType, setInputType] = useState<"password" | "text">("password");
+  const [inputType2, setInputType2] = useState<"password" | "text">("password");
   const methods = useForm<FormTypesV9>({
     mode: "onChange",
-    resolver: zodResolver(schemaByStep[step]),
-    defaultValues: { username: "", email: "" },
+    resolver: zodResolver(schemaByStep[step] as any),
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
   });
 
-  function submitHandler(dto: FormTypesV9) {
-    console.info("DTO =>", dto);
+  function submitHandler() {
+    const _dto = methods.getValues();
+    toast.success("FORM SUBMITTED", {
+      position: "top-center",
+      style: { borderBottom: "6px solid limegreen" },
+    });
+    console.clear();
+    console.info("DTO ==>", _dto);
   }
+
+  async function onNextHandler() {
+    const isValid = await methods.trigger();
+    if (isValid) {
+      setStep((s) => (s + 1) as any);
+    }
+  }
+
+  function toggleInputType() {
+    if (inputType === "password") {
+      setInputType("text");
+    } else {
+      setInputType("password");
+    }
+  }
+  function toggleInputType2() {
+    if (inputType2 === "password") {
+      setInputType2("text");
+    } else {
+      setInputType2("password");
+    }
+  }
+
+  const hasAccepted = useWatch({
+    control: methods.control,
+    name: "acceptTerms",
+  });
 
   return (
     <div className='section center'>
@@ -56,6 +129,11 @@ const ReactHookFormV9 = () => {
                       placeholder={field.name.toUpperCase()}
                       value={field.value}
                       onChange={field.onChange}
+                      aria-invalid={
+                        !!methods.formState.errors[
+                          field.name as keyof typeof methods.formState.errors
+                        ]
+                      }
                     />
                     <ErrorFieldV9 name={field.name} />
                   </div>
@@ -74,22 +152,138 @@ const ReactHookFormV9 = () => {
                       placeholder={field.name.toUpperCase()}
                       value={field.value}
                       onChange={field.onChange}
+                      aria-invalid={
+                        !!methods.formState.errors[
+                          field.name as keyof typeof methods.formState.errors
+                        ]
+                      }
                     />
                     <ErrorFieldV9 name={field.name} />
                   </div>
                 )}
               />
+              <Button
+                variant={"blue"}
+                onClick={onNextHandler}
+                type='button'
+                disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                aria-disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                className='flex items-start'>
+                NEXT STEP <ArrowRight />
+              </Button>
             </div>
           )}
-          <Button
-            disabled={
-              !methods.formState.isValid || methods.formState.isSubmitting
-            }
-            type='submit'
-            variant={"success"}
-            className='w-full mt-3'>
-            SUBMIT
-          </Button>
+          {step === 2 && (
+            <div className='flex  flex-col gap-3'>
+              <div>
+                <Controller
+                  control={methods.control}
+                  name='password'
+                  render={({ field }) => (
+                    <div className='flex flex-col gap-1.5 relative inset-0'>
+                      <Label>{field.name.toUpperCase()}</Label>
+                      <Input
+                        value={field.value}
+                        onChange={field.onChange}
+                        type={inputType}
+                        aria-invalid={
+                          !!methods.formState.errors[
+                            field.name as keyof typeof methods.formState.errors
+                          ]
+                        }
+                      />
+                      <button
+                        type='button'
+                        onClick={toggleInputType}>
+                        <Eye className={cn("absolute right-2 top-7 size-5")} />
+                      </button>
+                      <ErrorFieldV9 name={field.name} />
+                    </div>
+                  )}
+                />
+              </div>
+              <div>
+                <Controller
+                  control={methods.control}
+                  name='confirmPassword'
+                  render={({ field }) => (
+                    <div className='flex flex-col gap-1.5 relative inset-0'>
+                      <Label>{field.name.toUpperCase()}</Label>
+                      <Input
+                        value={field.value}
+                        onChange={field.onChange}
+                        type={inputType2}
+                        aria-invalid={
+                          !!methods.formState.errors[
+                            field.name as keyof typeof methods.formState.errors
+                          ]
+                        }
+                      />
+                      <button
+                        type='button'
+                        onClick={toggleInputType2}>
+                        <Eye className={cn("absolute right-2 top-7 size-5")} />
+                      </button>
+                      <ErrorFieldV9 name={field.name} />
+                    </div>
+                  )}
+                />
+              </div>
+              <Button
+                variant={"blue"}
+                onClick={onNextHandler}
+                type='button'
+                disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                aria-disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                className='flex items-start'>
+                NEXT STEP <ArrowRight />
+              </Button>
+            </div>
+          )}
+          {step == 3 && (
+            <div>
+              <Controller
+                control={methods.control}
+                name='acceptTerms'
+                render={({ field }) => (
+                  <div className='flex flex-col gap-3 items-center-safe tracking-tight border-b-2 pb-3 border-b-stone-800'>
+                    <div className='flex flex-row-reverse gap-3 items-center'>
+                      <Label>Accept Privacy and Policy Terms</Label>
+                      <Checkbox
+                        checked={!!field.value}
+                        onCheckedChange={field.onChange}
+                        className={cn(
+                          "size-5",
+                          hasAccepted && "bg-emerald-800 border-emerald-900"
+                        )}
+                      />
+                    </div>
+                    <ErrorFieldV9 name={field.name} />
+                  </div>
+                )}
+              />
+              <Button
+                disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                aria-disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                type='submit'
+                variant={"success"}
+                className='w-full mt-3'>
+                SUBMIT
+              </Button>
+            </div>
+          )}
         </form>
       </FormProvider>
     </div>
