@@ -26,7 +26,6 @@ const FormSchema2 = z
     password: z
       .string("password is Required")
       .min(4, "Password must be at least 4 letters"),
-
     confirmPassword: z
       .string("ConfirmPassword is Required")
       .min(4, "Confirm password must be at least 4 letters "),
@@ -60,6 +59,7 @@ const ReactHookFormV9 = () => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [inputType, setInputType] = useState<"password" | "text">("password");
   const [inputType2, setInputType2] = useState<"password" | "text">("password");
+  
   const methods = useForm<FormTypesV9>({
     mode: "onChange",
     resolver: zodResolver(schemaByStep[step] as any),
@@ -97,6 +97,7 @@ const ReactHookFormV9 = () => {
       setInputType("password");
     }
   }
+  
   function toggleInputType2() {
     if (inputType2 === "password") {
       setInputType2("text");
