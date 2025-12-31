@@ -62,12 +62,13 @@ const ReactHookFormV9 = () => {
   
   const methods = useForm<FormTypesV9>({
     mode: "onChange",
-    resolver: zodResolver(schemaByStep[step] as any),
+    resolver: zodResolver(schemaByStep[step] as keyof FormTypesV9),
     defaultValues: {
       username: "",
       email: "",
       password: "",
       confirmPassword: "",
+      acceptTerms: undefined,
     },
   });
 
@@ -84,11 +85,12 @@ const ReactHookFormV9 = () => {
   }
 
   async function onNextHandler() {
-    const isValid = await methods.trigger();
+    const isValid = await methods.trigger(undefined, { shouldFocus: true });
     if (isValid) {
       setStep((s) => (s + 1) as any);
     }
   }
+
 
   function toggleInputType() {
     if (inputType === "password") {
