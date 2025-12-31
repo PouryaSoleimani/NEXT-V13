@@ -86,11 +86,12 @@ const ReactHookFormV9 = () => {
           id: "SUBMIT__TOAST",
           style: { fontSize: "10px", borderBottom: "6px solid darkred" },
         });
-        methods.setError("acceptTerms", { message: `NETWORK ERROR : ${err.message}`, type: "validate" });
+        methods.setError("acceptTerms", { message: `${err.message}`, type: "validate" });
         console.info("%c Error :", "color: darkred , font-weight: bold", err.message);
         methods.reset({ acceptTerms: undefined }, { keepErrors: true });
       });
   }
+
   async function onNextHandler() {
     const isValid = await methods.trigger(undefined, { shouldFocus: true });
     if (isValid) {
