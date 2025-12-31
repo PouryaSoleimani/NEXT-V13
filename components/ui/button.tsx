@@ -20,7 +20,7 @@ const buttonVariants = cva(
         blue: "bg-blue-900 hover:bg-blue-800  font-bold",
         black: "bg-black hover:bg-stone-900 font-bold",
         success:
-          "bg-emerald-900 text-black shadow-xs hover:bg-emerald-700 focus-visible:ring-white/20 dark:focus-visible:ring-white/40 dark:bg-emerald-900  font-bold",
+          "bg-emerald-900 text-white shadow-xs hover:bg-emerald-700 focus-visible:ring-white/20 dark:focus-visible:ring-white/40 dark:bg-emerald-900  font-bold",
         red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300 ",
         lime: "bg-lime-600 hover:bg-lime-400 transition-colors ease-out duration-300 text-black font-sans font-black",
       },
