@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Controller, FormProvider, useForm, useWatch } from "react-hook-form";
 import z from "zod";
 import useCapitilize from "./_hooks/useCapitilize";
-import ErrorFieldV9 from "./_components/page";
+import ErrorFieldV9 from "./_components/ErrorFieldV9";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";

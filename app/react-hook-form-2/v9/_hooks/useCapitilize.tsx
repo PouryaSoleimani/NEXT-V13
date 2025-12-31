@@ -1,5 +1,3 @@
-
-
 const useCapitilize = (props : string) => {
   const firstLetter = props.slice(0, 1).toUpperCase();
   const rest = props.slice(1).toLocaleLowerCase()
