@@ -79,6 +79,8 @@ const ReactHookFormV9 = () => {
     });
     console.clear();
     console.info("DTO ==>", _dto);
+    methods.reset()
+    setStep(1)
   }
 
   async function onNextHandler() {
@@ -113,7 +115,7 @@ const ReactHookFormV9 = () => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(submitHandler)}
-          className='border p-5 rounded-xl border-stone-700'>
+          className='border p-5 rounded-xl border-stone-700 bg-neutral-800'>
           {step === 1 && (
             <div className='flex flex-col gap-3'>
               <Controller
