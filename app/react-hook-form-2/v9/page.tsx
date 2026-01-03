@@ -57,7 +57,8 @@ const ReactHookFormV9 = () => {
   const [inputType2, setInputType2] = useState<"password" | "text">("password");
 
   const methods = useForm<FormTypesV9>({
-    mode: "onChange",
+    mode: "onSubmit",
+    reValidateMode: "onChange",
     resolver: zodResolver(schemaByStep[step] as keyof FormTypesV9),
     defaultValues: { username: "", email: "", password: "", confirmPassword: "", acceptTerms: undefined },
   });
