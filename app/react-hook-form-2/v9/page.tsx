@@ -65,7 +65,7 @@ const ReactHookFormV9 = () => {
   function submitHandler() {
     toast.loading("SUBMITTING FORM", { position: "top-center", id: "SUBMIT__TOAST" });
     axios
-      .get("https://jsonplaceholder.typicode.com/todos/1")
+      .get("https://jsonplaceholder.typicode.com/todos/2", { timeout: 5000 })
       .then((res) => {
         console.info("RES => ", res);
         const _dto = methods.getValues();
