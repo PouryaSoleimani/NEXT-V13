@@ -45,10 +45,7 @@ const FormSchema3 = z.object({
 
 const schemaByStep = { 1: FormSchema1, 2: FormSchema2, 3: FormSchema3 };
 
-export type FormTypesV9 =
-  | z.infer<typeof FormSchema1>
-  | z.infer<typeof FormSchema2>
-  | z.infer<typeof FormSchema3>;
+export type FormTypesV9 = z.infer<typeof FormSchema1> | z.infer<typeof FormSchema2> | z.infer<typeof FormSchema3>;
 
 // COMPONENT __________________________________________________________________________________________________
 const ReactHookFormV9 = () => {
