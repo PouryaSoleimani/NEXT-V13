@@ -1,3 +1,4 @@
+'use server'
 //^ SERVER COMPONENT
 import Loading from "../loading";
 import ListWrapper from "./_components/ListWrapper";
@@ -9,7 +10,7 @@ const SsrPage = async () => {
   if (!users) {
     return <Loading />;
   }
-  
+
   return <div>{users ? <ListWrapper list={users} /> : null}</div>;
 };
 

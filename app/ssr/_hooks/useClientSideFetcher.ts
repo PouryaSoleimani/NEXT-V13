@@ -1,3 +1,4 @@
+"use client";
 //^ CLIENT SIDE FETCHER HOOK
 import axios from "axios";
 import useSWR from "swr";
