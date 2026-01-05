@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import useClientSideFetcher from "../_hooks/useClientSideFetcher";
 
 const ListItem = ({ data }: { data: { id: string | number; name: string | number } }) => {
@@ -7,9 +8,11 @@ const ListItem = ({ data }: { data: { id: string | number; name: string | number
 
   if (!data) return null;
 
-  if (clientData) {
-    console.info("CLIENT DATA => ", clientData.name);
-  }
+  useEffect(() => {
+    if (clientData) {
+      console.info("CLIENT DATA => ", clientData.name);
+    }
+  }, []);
 
   return (
     <div className='border-b border-stone-800 py-1'>
