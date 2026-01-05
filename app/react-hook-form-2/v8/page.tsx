@@ -20,11 +20,13 @@ const StepSchema1 = z.object({
     .min(4, "Password Must be at Least 4 letters")
     .max(10, "Password Must be Maximum 10 letters"),
 });
+
 const StepSchema2 = z.object({
   skills: z
     .array(z.string("Skill title is Required").min(1, "Skill title is Required"))
     .min(1, "At least 1 skill is Required"),
 });
+
 const StepSchema3 = z.object({ acceptTerms: z.literal(true) });
 
 const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
