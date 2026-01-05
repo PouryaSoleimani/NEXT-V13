@@ -14,6 +14,7 @@ export default function useClientSideFetcher(url: string) {
   const { data, isLoading, error, mutate } = useSWR(url, fetcher, {
     refreshInterval: 5000,
     errorRetryCount: 5,
+    loadingTimeout: 3000,
   });
 
   return { data, isLoading, error, mutate };
