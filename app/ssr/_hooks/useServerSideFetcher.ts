@@ -11,3 +11,4 @@ export default async function useServerSideFetcher(url: string, cache: cache) {
   }
   return data;
 }
+ 
