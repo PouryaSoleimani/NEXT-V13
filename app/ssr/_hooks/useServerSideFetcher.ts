@@ -1,4 +1,4 @@
-'use server'
+"use server";
 //^ SSR FETCHER HOOK
 
 export type cache = "no-store" | "default" | "no-cache";
@@ -11,4 +11,3 @@ export default async function useServerSideFetcher(url: string, cache: cache, re
   }
   return data;
 }
- 
