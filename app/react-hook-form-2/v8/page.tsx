@@ -33,7 +33,7 @@ export type FormTypesV8 = z.infer<typeof StepSchema1> | z.infer<typeof StepSchem
 
 const ReactHookFormV8 = () => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [inputType, setInputType] = useState< "password" | "text" >("password");
+  const [inputType, setInputType] = useState<"password" | "text">("password");
 
   const methods = useForm<any>({
     mode: "onChange",
@@ -46,10 +46,7 @@ const ReactHookFormV8 = () => {
   function sumbitHandler() {
     const DTO = methods.getValues();
     console.log("DATA => ", DTO);
-    toast.success("FORM SUBMITTED", {
-      position: "top-center",
-      style: { borderBottom: "8px solid orange" },
-    });
+    toast.success("FORM SUBMITTED", { position: "top-center", style: { borderBottom: "8px solid orange" } });
     methods.reset();
     setStep(1);
   }
@@ -66,10 +63,7 @@ const ReactHookFormV8 = () => {
     }
   }
 
-  const hasAccepted = useWatch({
-    control: methods.control,
-    name: "acceptTerms",
-  });
+  const hasAccepted = useWatch({ control: methods.control, name: "acceptTerms" });
 
   return (
     <div className='bg-slate-950 screen center'>
