@@ -94,7 +94,7 @@ const ReactHookFormV9 = () => {
     const isValid = await methods.trigger(undefined, { shouldFocus: true });
     if (isValid) {
       setStep((s) => (s + 1) as any);
-    }
+    } 
   }
 
   function toggleInputType() {
