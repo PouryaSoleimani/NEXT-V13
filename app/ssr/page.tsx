@@ -1,9 +1,9 @@
 //^ SERVER COMPONENT
 import ListWrapper from "./_components/ListWrapper";
+import SsrFetcher from "./_hooks/SsrFetcher";
 
 const SsrPage = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users", { cache: "no-store" }); //^ SSR
-  const data = await res.json();
+  const data = await SsrFetcher("https://jsonplaceholder.typicode.com/users");
 
   return <div>{data ? <ListWrapper list={data} /> : null}</div>;
 };
