@@ -3,11 +3,9 @@
 import useClientSideFetcher from "../_hooks/useClientSideFetcher";
 
 const ListItem = ({ data }: { data: { id: string | number; name: string | number } }) => {
-  if (!data) {
-    return null;
-  }
-
   const { data: clientData } = useClientSideFetcher("https://jsonplaceholder.typicode.com/users/2");
+
+  if (!data) return null;
 
   if (clientData) {
     console.info("CLIENT DATA => ", clientData.name);
