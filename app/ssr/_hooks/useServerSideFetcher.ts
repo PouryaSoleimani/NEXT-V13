@@ -10,6 +10,6 @@ export default async function useServerSideFetcher(url: string, cache: cache, re
   if (!data) {
     throw new Error("Fetch Failed");
   }
-  
+
   return data;
 }
