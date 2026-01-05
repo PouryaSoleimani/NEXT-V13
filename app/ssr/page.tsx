@@ -1,3 +1,4 @@
+//^ SERVER COMPONENT
 import ListWrapper from "./_components/ListWrapper";
 
 const SsrPage = async () => {
