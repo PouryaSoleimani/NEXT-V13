@@ -8,7 +8,7 @@ export default async function useServerSideFetcher(url: string, cache: cache, re
   const data = await res.json();
 
   if (!data) {
-    throw new Error("Fetch Failed");
+    throw new Error(" FETCH FAILED ... ");
   }
 
   return data;

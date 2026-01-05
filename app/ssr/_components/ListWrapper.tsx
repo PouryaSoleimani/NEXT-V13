@@ -10,8 +10,8 @@ const ListWrapper = (props: Props) => {
   if (!props.list.length) {
     return (
       <div className='screen center'>
-        <div className='text-stone-400 flex flex-col items-center justify-center gap-3 bg-black p-5 rounded-lg border border-stone-700'>
-          <AlertTriangleIcon />
+        <div className='text-stone-300 flex flex-col items-center justify-center gap-3 bg-black p-5 rounded-lg border border-stone-700'>
+          <AlertTriangleIcon className='text-rose-900' />
           NO LIST IS AVAILABLE RIGHT NOW
         </div>
       </div>
@@ -19,8 +19,8 @@ const ListWrapper = (props: Props) => {
   }
 
   return (
-    <div className='bg-black w-fit mx-auto p-5 rounded-xl my-32 border border-stone-800'>
-      {props.list.map((item) => (
+    <div className='bg-black shadow-inner shadow-white/30 w-fit mx-auto p-5 rounded-xl my-32 border border-stone-800'>
+      {props?.list?.map((item) => (
         <ListItem
           data={item}
           key={item.id}
