@@ -9,7 +9,7 @@ export default function useClientSideFetcher(url: string) {
       .get(url)
       .then((res) => res.data)
       .catch((err) => err.message);
-
+      
   const { data, isLoading, error, mutate } = useSWR(url, fetcher);
 
   return { data, isLoading, error, mutate };
