@@ -1,16 +1,17 @@
 "use client";
 
-import CsrFetcher from "../_hooks/CsrFetcher";
+import useClientSideFetcher from "../_hooks/useClientSideFetcher";
 
 const ListItem = ({ data }: { data: { id: string | number; name: string | number } }) => {
   if (!data) {
     return null;
   }
-const { data: clientData } = CsrFetcher("https://jsonplaceholder.typicode.com/users/2");
+  
+  const { data: clientData } = useClientSideFetcher("https://jsonplaceholder.typicode.com/users/2");
 
- if (clientData) {
-   console.info("CLIENT DATA => ", clientData.name);
- }
+  if (clientData) {
+    console.info("CLIENT DATA => ", clientData.name);
+  }
 
   return (
     <div className='border-b border-stone-800 py-1'>
