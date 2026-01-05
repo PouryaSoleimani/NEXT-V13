@@ -12,3 +12,4 @@ const SsrPage = async () => {
 };
 
 export default SsrPage;
+

@@ -22,27 +22,14 @@ const StepSchema1 = z.object({
 });
 const StepSchema2 = z.object({
   skills: z
-    .array(
-      z
-        .string("Skill title is Required")
-        .min(1, "Skill title is Required")
-    )
+    .array(z.string("Skill title is Required").min(1, "Skill title is Required"))
     .min(1, "At least 1 skill is Required"),
 });
-const StepSchema3 = z.object({
-  acceptTerms: z.literal(true),
-});
+const StepSchema3 = z.object({ acceptTerms: z.literal(true) });
 
-const schemaByStep = {
-  1: StepSchema1,
-  2: StepSchema2,
-  3: StepSchema3,
-};
+const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
 
-export type FormTypesV8 =
-  | z.infer<typeof StepSchema1>
-  | z.infer<typeof StepSchema2>
-  | z.infer<typeof StepSchema3>;
+export type FormTypesV8 = z.infer<typeof StepSchema1> | z.infer<typeof StepSchema2> | z.infer<typeof StepSchema3>;
 
 const ReactHookFormV8 = () => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -130,9 +117,7 @@ const ReactHookFormV8 = () => {
                         methods.formState.errors.password && "top-7"
                       )}
                       onClick={() =>
-                        inputType == "password"
-                          ? setInputType("text")
-                          : setInputType("password")
+                        inputType == "password" ? setInputType("text") : setInputType("password")
                       }>
                       <Eye className='text-zinc-600 group-hover:text-zinc-400 transition duration-200 size-5' />
                     </button>
@@ -154,8 +139,7 @@ const ReactHookFormV8 = () => {
               {fields.length == 0 && (
                 <p className='text-stone-500 flex flex-col border-b-2 pb-4 border-stone-700 items-center-safe gap-3 my-3 text-sm'>
                   <PlusCircle className='size-5' />
-                  No Skills , Try Add Skills Now{" "}
-                  <span className='animate-bounce text-xl'>↓</span>
+                  No Skills , Try Add Skills Now <span className='animate-bounce text-xl'>↓</span>
                 </p>
               )}
               {fields?.map((item, index) => (
