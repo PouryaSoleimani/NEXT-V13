@@ -1,3 +1,4 @@
+import { AlertTriangleIcon } from "lucide-react";
 import ListItem from "./ListItem";
 
 type SingleItem = { id: string | number; name: string; [key: string]: string | number };
@@ -7,7 +8,14 @@ interface Props {
 // COMPONENT _____________________________________________________________________________
 const ListWrapper = (props: Props) => {
   if (!props.list.length) {
-    return <div>NO LIST</div>;
+    return (
+      <div className='screen center'>
+        <div className='text-stone-400 flex flex-col items-center justify-center gap-3 bg-black p-5 rounded-lg border border-stone-700'>
+          <AlertTriangleIcon />
+          NO LIST IS AVAILABLE RIGHT NOW
+        </div>
+      </div>
+    );
   }
 
   return (
