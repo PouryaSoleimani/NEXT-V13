@@ -1,6 +1,6 @@
 // LOADING COMPONENT
 import { Loader2Icon } from "lucide-react";
-import React from "react";
+
 
 const Loading = () => {
   return (

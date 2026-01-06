@@ -20,4 +20,4 @@ export default SsrPage;
 // DEFAULT => SSG 
 // NO-STORE => SSR
 // REVALIDATE => ISR
-// USESWR() => CSR
+// USESWR() => CSR  
