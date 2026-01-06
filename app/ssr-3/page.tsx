@@ -17,3 +17,9 @@ const SsrPage3 = async () => {
 };
 
 export default SsrPage3;
+
+export async function generateStaticParams() {
+  const posts = await fetch("https://jsonplaceholder.typicode.com/todos").then((res) => res.json());
+
+  return posts.slice(0, 50).map((post: any) => ({ slug: post.slug }));
+}
