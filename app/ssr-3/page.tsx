@@ -6,7 +6,7 @@ import useServerSideFetcher from "./_hooks/useServerSideFetcher";
 const SsrPage3 = async () => {
   const todos = await useServerSideFetcher({
     url: "https://jsonplaceholder.typicode.com/todos",
-    cache: "default",
+    cache: "no-store",
   });
 
   return (
