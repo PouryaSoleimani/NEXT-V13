@@ -1,6 +1,19 @@
 "use server";
+
+import TodosWrapper2 from "./_components/TodosWrapper2";
+import useServerSideFetcher from "./_hooks/useServerSideFetcher";
+
 const SsrPage3 = async () => {
-  return <div>SsrPage3</div>;
+  const todos = await useServerSideFetcher({
+    url: "https://jsonplaceholder.typicode.com/todos",
+    cache: "default",
+  });
+  
+  return (
+    <div className='center'>
+      <TodosWrapper2 data={todos} />
+    </div>
+  );
 };
 
 export default SsrPage3;

@@ -4,8 +4,13 @@ interface Props {
   revalidate?: number;
 }
 
-const useServerSideFetcher = (props: Props) => {
-  return null;
+const useServerSideFetcher = async ({ url, cache, revalidate }: Props) => {
+  const res = await fetch(url, {
+    cache: cache,
+    next: { revalidate: revalidate ? revalidate : undefined },
+  });
+  const data = await res.json();
+  return data;
 };
 
-export default useServerSideFetcher
+export default useServerSideFetcher;
