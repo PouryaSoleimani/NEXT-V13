@@ -5,7 +5,7 @@ import ListWrapper from "./_components/ListWrapper";
 import useServerSideFetcher from "./_hooks/useServerSideFetcher";
 
 const SsrPage = async () => {
-  const users = await useServerSideFetcher("https://jsonplaceholder.typicode.com/users", "default", 50);
+  const users = await useServerSideFetcher("https://jsonplaceholder.typicode.com/users", "no-store");
 
   if (!users) {
     return <Loading />;
