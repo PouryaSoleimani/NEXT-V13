@@ -8,7 +8,7 @@ const SsrPage3 = async () => {
     url: "https://jsonplaceholder.typicode.com/todos",
     cache: "default",
   });
-  
+
   return (
     <div className='center'>
       <TodosWrapper2 data={todos} />
