@@ -1,15 +1,15 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, FormProvider, useFieldArray, useForm, useWatch, } from "react-hook-form";
+import { Controller, FormProvider, useFieldArray, useForm, useWatch } from "react-hook-form";
 import z from "zod";
 import ErrorFieldV8 from "./_components/ErrorFieldV8";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Eye, Info, PlusCircle, Trash2, } from "lucide-react";
+import { Eye, Info, PlusCircle, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Tooltip, TooltipContent, TooltipTrigger, } from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Checkbox } from "@/components/ui/checkbox";
 import toast from "react-hot-toast";
 
@@ -31,7 +31,10 @@ const StepSchema3 = z.object({ acceptTerms: z.literal(true) });
 
 const schemaByStep = { 1: StepSchema1, 2: StepSchema2, 3: StepSchema3 };
 
-export type FormTypesV8 = z.infer<typeof StepSchema1> | z.infer<typeof StepSchema2> | z.infer<typeof StepSchema3>;
+export type FormTypesV8 =
+  | z.infer<typeof StepSchema1>
+  | z.infer<typeof StepSchema2>
+  | z.infer<typeof StepSchema3>;
 
 const ReactHookFormV8 = () => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
