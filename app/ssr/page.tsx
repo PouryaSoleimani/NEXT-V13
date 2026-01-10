@@ -1,4 +1,4 @@
-'use server'
+"use server";
 //^ SERVER SIDE PAGE _________________________________________________________________________________________________________
 import Loading from "../loading";
 import ListWrapper from "./_components/ListWrapper";
@@ -17,7 +17,7 @@ const SsrPage = async () => {
 export default SsrPage;
 
 //^ PRE-RENDERING IN NEXT.JS
-// DEFAULT => SSG 
+// DEFAULT => SSG
 // NO-STORE => SSR
 // REVALIDATE => ISR
-// USESWR() => CSR  
+// USESWR() => CSR
