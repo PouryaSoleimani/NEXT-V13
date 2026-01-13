@@ -17,8 +17,7 @@ const NestForm = () => {
 
   const router = useRouter();
 
-  const _fetcher = () =>
-    axios.get(`http://localhost:5000/jojos/${params.id}`).then((res) => res.data);
+  const _fetcher = () => axios.get(`http://localhost:5000/jojos/${params.id}`).then((res) => res.data);
 
   const { data, mutate } = useSWR(`http://localhost:5000/jojos/${params.id}`, _fetcher);
   const form = useForm({
@@ -55,22 +54,39 @@ const NestForm = () => {
   }
 
   return (
-    <div className="w-screen h-screen grid place-items-center-safe">
-      <Card className="bg-black">
+    <div className='w-screen h-screen grid place-items-center-safe'>
+      <Card className='bg-black'>
         <CardHeader>LOGIN</CardHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(submitHandler)} className="p-5">
+          <form
+            onSubmit={form.handleSubmit(submitHandler)}
+            className='p-5'>
             <FormField
-              name="firstName"
+              name='firstName'
               control={form.control}
-              render={({ field }) => <Input {...field} placeholder="first name" className="my-3" />}
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  placeholder='first name'
+                  className='my-3'
+                />
+              )}
             />
             <FormField
-              name="age"
+              name='age'
               control={form.control}
-              render={({ field }) => <Input type="number" {...field} placeholder="age" />}
+              render={({ field }) => (
+                <Input
+                  type='number'
+                  {...field}
+                  placeholder='age'
+                />
+              )}
             />
-            <Button type="submit" variant={"blue"} className="mt-3 w-full">
+            <Button
+              type='submit'
+              variant={"blue"}
+              className='mt-3 w-full'>
               Submit
             </Button>
           </form>

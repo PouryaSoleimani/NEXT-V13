@@ -22,19 +22,46 @@ export default async function RootLayout({ children }: { children: ReactElement 
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
   return (
-    <html suppressHydrationWarning className="overflow-x-hidden">
+    <html
+      suppressHydrationWarning
+      className='overflow-x-hidden'>
       <head>
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#2c2c2c" />
-        <link rel="apple-touch-icon" href="/favicon-32x32.png" />
-        <link rel="preload" href="/api/data" as="fetch" crossOrigin="anonymous" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel='manifest'
+          href='/manifest.json'
+        />
+        <meta
+          name='theme-color'
+          content='#2c2c2c'
+        />
+        <link
+          rel='apple-touch-icon'
+          href='/favicon-32x32.png'
+        />
+        <link
+          rel='preload'
+          href='/api/data'
+          as='fetch'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='icon'
+          href='/favicon.ico'
+          sizes='any'
+        />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange >
-          <Toaster position="top-right" reverseOrder={false} />
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange>
+          <Toaster
+            position='top-right'
+            reverseOrder={false}
+          />
           <SidebarProvider defaultOpen={defaultOpen}>
-            <main className="w-full min-h-screen font-bold">
+            <main className='w-full min-h-screen font-bold'>
               <Header />
               {children}
             </main>

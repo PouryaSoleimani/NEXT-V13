@@ -154,18 +154,26 @@ function LodashPage() {
 
   // RETURN ====================================================================================================+======================
   return (
-    <div className="w-screen h-screen flex flex-col gap-5 items-center justify-center">
-      <p className="p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300">
+    <div className='w-screen h-screen flex flex-col gap-5 items-center justify-center'>
+      <p className='p-4 bg-stone-800 text-xl rounded-lg text-white flex gap-1 border-4 border-stone-300'>
         {filledArray.map((item, index) => (
-          <StarIcon key={index} className="fill-yellow-500 text-yellow-500" />
+          <StarIcon
+            key={index}
+            className='fill-yellow-500 text-yellow-500'
+          />
         ))}
         {Array.from({ length: 5 - filledArray.length }, (_, index) => (
-          <StarIcon key={index} className="fill-gray-500 text-gray-500" />
+          <StarIcon
+            key={index}
+            className='fill-gray-500 text-gray-500'
+          />
         ))}
       </p>
-      <div className="flex items-center gap-5 bg-black p-3 rounded-lg">
+      <div className='flex items-center gap-5 bg-black p-3 rounded-lg'>
         {filteredArray.map((item) => (
-          <p key={item.id} className="text-2xl font-mono font-black ">
+          <p
+            key={item.id}
+            className='text-2xl font-mono font-black '>
             {item.title}
           </p>
         ))}

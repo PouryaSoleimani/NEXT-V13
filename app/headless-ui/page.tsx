@@ -41,7 +41,7 @@ function HeadlessUi() {
         </MenuButton>
         <MenuItems
           anchor='bottom'
-          className='border p-10 grid grid-cols-2 gap-4 mt-2 rounded-xl bg-zinc-900'>
+          className='border border-stone-500 bg-black p-4 grid  grid-cols-4 gap-2.5 mt-2 rounded-xl'>
           <MenuItem>
             <Button
               variant={"success"}
@@ -50,6 +50,7 @@ function HeadlessUi() {
               Settings
             </Button>
           </MenuItem>
+
           <MenuItem>
             <Button
               variant={"success"}
@@ -57,6 +58,7 @@ function HeadlessUi() {
               Support
             </Button>
           </MenuItem>
+
           <MenuItem>
             <Button
               className='block'
@@ -64,6 +66,7 @@ function HeadlessUi() {
               License
             </Button>
           </MenuItem>
+
           <form
             action='/logout'
             method='post'>
@@ -91,6 +94,7 @@ function HeadlessUi() {
               )}
             />
           </Field>
+
           <Field>
             <Label className='text-sm/6 font-medium text-white'>Country</Label>
             <Description className='text-sm/6 text-white/50'>
@@ -114,6 +118,7 @@ function HeadlessUi() {
               />
             </div>
           </Field>
+
           <Field>
             <Label className='text-sm/6 font-medium text-white'>Delivery notes</Label>
             <Description className='text-sm/6 text-white/50'>
