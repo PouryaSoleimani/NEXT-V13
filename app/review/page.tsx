@@ -390,7 +390,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       </ContextMenu>
 
       {/* DRAWER */}
-      <Drawer>
+      <Drawer direction='bottom'>
         <DrawerTrigger asChild>
           <Button
             variant='outline'
