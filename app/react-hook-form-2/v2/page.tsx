@@ -93,7 +93,7 @@ const ReactHookFormV2 = () => {
     <div className='w-screen h-screen center bg-black'>
       <form
         onSubmit={handleSubmit(submitHandler)}
-        className='bg-neutral-800 border p-4 rounded-lg w-100  flex flex-col gap-5 border-neutral-500'>
+        className='bg-neutral-800 border p-4 rounded-lg w-100 flex flex-col gap-5 border-neutral-500'>
         <div
           id='USER__NAME'
           className='flex flex-col gap-2'>
