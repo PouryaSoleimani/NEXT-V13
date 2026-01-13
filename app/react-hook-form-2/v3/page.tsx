@@ -55,6 +55,7 @@ const FormSchema = z
 const ReactHookForm3 = () => {
   const [type, setType] = useState<"password" | "text">("password");
   const [type2, setType2] = useState<"password" | "text">("password");
+
   type FormSchemaType = z.infer<typeof FormSchema>;
 
   const { control, handleSubmit, formState, reset, watch } = useForm<FormSchemaType>({
