@@ -38,7 +38,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "hooks/useToggle.js",
+    "hooks/useToggle.ts",
     "eslint.config.js",
     ".next/dev/types/**/*.ts"
   ],

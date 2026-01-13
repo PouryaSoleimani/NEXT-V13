@@ -6,21 +6,22 @@ function Logger(
   console.info(
     `%c ${text} `,
     `
-background-color : ${type === "log"
-      ? "white"
-      : type === "info"
-        ? "cornflowerblue"
-        : type === "warning"
-          ? "orange"
-          : type === "error"
-            ? "#c10007"
-            : type === "pink"
-              ? "hotpink"
-              : type === "cyan"
-                ? "cyan"
-                : type === "yellow"
-                  ? "yellow"
-                  : "#497d00"
+background-color : ${
+      type === "log"
+        ? "white"
+        : type === "info"
+          ? "cornflowerblue"
+          : type === "warning"
+            ? "orange"
+            : type === "error"
+              ? "#c10007"
+              : type === "pink"
+                ? "hotpink"
+                : type === "cyan"
+                  ? "cyan"
+                  : type === "yellow"
+                    ? "yellow"
+                    : "#497d00"
     };
 font-weight : 900;
 font-size : 12px;
