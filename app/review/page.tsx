@@ -13,7 +13,22 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { CheckCircle2Icon, Eye, FileIcon, Pencil, User } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2Icon,
+  Code2Icon,
+  EditIcon,
+  Eye,
+  FileIcon,
+  Pencil,
+  PlusCircle,
+  RefreshCcw,
+  Save,
+  Trash2Icon,
+  User,
+  Users2Icon,
+} from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
@@ -318,38 +333,56 @@ const ReviewPage: NextPage<PropsType> = () => {
           Right click here
         </ContextMenuTrigger>
         <ContextMenuContent className='w-52 bg-black mb-10'>
-          <ContextMenuItem inset>
-            Back
+          <ContextMenuItem>
+            <ArrowLeft /> Back
             <ContextMenuShortcut>⌘[</ContextMenuShortcut>
           </ContextMenuItem>
-          <ContextMenuItem
-            inset
-            disabled>
+          <ContextMenuItem disabled>
+            <ArrowRight />
             Forward
             <ContextMenuShortcut>⌘]</ContextMenuShortcut>
           </ContextMenuItem>
-          <ContextMenuItem inset>
+          <ContextMenuItem>
+            <RefreshCcw />
             Reload
             <ContextMenuShortcut>⌘R</ContextMenuShortcut>
           </ContextMenuItem>
           <ContextMenuSub>
             <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
             <ContextMenuSubContent className='w-44 bg-black translate-x-4'>
-              <ContextMenuItem>Save Page...</ContextMenuItem>
-              <ContextMenuItem>Create Shortcut...</ContextMenuItem>
-              <ContextMenuItem>Name Window...</ContextMenuItem>
-              <ContextMenuSeparator />
-              <ContextMenuItem>Developer Tools</ContextMenuItem>
-              <ContextMenuSeparator />
-              <ContextMenuItem variant='destructive'>Delete</ContextMenuItem>
+              <ContextMenuItem>
+                <Save />
+                Save Page...
+              </ContextMenuItem>
+              <ContextMenuItem>
+                <PlusCircle />
+                Create Shortcut...
+              </ContextMenuItem>
+              <ContextMenuItem>
+                <EditIcon />
+                Name Window...
+              </ContextMenuItem>
+              <ContextMenuSeparator className='bg-stone-800' />
+              <ContextMenuItem>
+                <Code2Icon />
+                Developer Tools
+              </ContextMenuItem>
+              <ContextMenuSeparator className='bg-stone-800' />
+              <ContextMenuItem variant='destructive'>
+                <Trash2Icon />
+                Delete
+              </ContextMenuItem>
             </ContextMenuSubContent>
           </ContextMenuSub>
-          <ContextMenuSeparator />
+          <ContextMenuSeparator className='bg-stone-800' />
           <ContextMenuCheckboxItem checked>Show Bookmarks</ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
-          <ContextMenuSeparator />
+          <ContextMenuCheckboxItem checked>Show Full URLs</ContextMenuCheckboxItem>
+          <ContextMenuSeparator className='bg-stone-800' />
           <ContextMenuRadioGroup value='pedro'>
-            <ContextMenuLabel inset>People</ContextMenuLabel>
+            <ContextMenuLabel className='flex items-center gap-2 font-bold'>
+              <Users2Icon className='size-4' />
+              People
+            </ContextMenuLabel>
             <ContextMenuRadioItem value='pedro'>Pedro Duarte</ContextMenuRadioItem>
             <ContextMenuRadioItem value='colm'>Colm Tuite</ContextMenuRadioItem>
           </ContextMenuRadioGroup>
