@@ -218,10 +218,12 @@ const ReviewPage: NextPage<PropsType> = () => {
                 <BreadcrumbEllipsis className='size-4' />
                 <span className='sr-only'>Toggle menu</span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align='start'>
-                <DropdownMenuItem>Documentation</DropdownMenuItem>
-                <DropdownMenuItem>Themes</DropdownMenuItem>
-                <DropdownMenuItem>GitHub</DropdownMenuItem>
+              <DropdownMenuContent
+                align='start'
+                className='bg-black'>
+                <DropdownMenuItem className='hover:bg-stone-800'>Documentation</DropdownMenuItem>
+                <DropdownMenuItem className='hover:bg-stone-800'>Themes</DropdownMenuItem>
+                <DropdownMenuItem className='hover:bg-stone-800'>GitHub</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </BreadcrumbItem>
