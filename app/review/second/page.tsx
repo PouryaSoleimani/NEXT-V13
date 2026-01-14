@@ -1,4 +1,5 @@
 'use client'
+import useCapitilize from "@/app/react-hook-form-2/v9/_hooks/useCapitilize";
 import { Button } from "@/components/ui/button";
 import {
   ContextMenu,
@@ -11,6 +12,21 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import {
+  Menubar,
+  MenubarSubContent,
+  MenubarSub,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarSubTrigger,
+  MenubarCheckboxItem,
+  MenubarRadioItem,
+  MenubarRadioGroup,
+} from "@/components/ui/menubar";
 import { Separator } from "@/components/ui/separator";
 import {
   ArrowLeft,
@@ -27,11 +43,17 @@ import {
   EditIcon,
   Trash2Icon,
   MoreHorizontal,
+  FileIcon,
+  Eye,
+  User,
+  PlusCircleIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 const SecondPageReview = () => {
+  const [username, setUsername] = useState<"benoit" | "andy" | "Luis">("benoit");
   return (
     <section className='section relative insert-0'>
       {/* HEADER + DRAWER */}
@@ -154,6 +176,107 @@ const SecondPageReview = () => {
           </ContextMenuSub>
         </ContextMenuContent>
       </ContextMenu>
+
+      <Menubar className="my-2 bg-stone-900">
+        <MenubarMenu>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
+            <FileIcon className='size-4' />
+            File
+          </MenubarTrigger>
+          <MenubarContent className='bg-black'>
+            <MenubarItem>
+              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem>
+              New Window <MenubarShortcut>⌘N</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem disabled>New Incognito Window</MenubarItem>
+            <MenubarSeparator />
+            <MenubarSub>
+              <MenubarSubTrigger>Share</MenubarSubTrigger>
+              <MenubarSubContent className='bg-black'>
+                <MenubarItem>Email link</MenubarItem>
+                <MenubarItem>Messages</MenubarItem>
+                <MenubarItem>Notes</MenubarItem>
+              </MenubarSubContent>
+            </MenubarSub>
+            <MenubarSeparator />
+            <MenubarItem>
+              Print... <MenubarShortcut>⌘P</MenubarShortcut>
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+        <Separator
+          orientation='vertical'
+          className='bg-stone-600 my-1 h-3/4'
+        />
+        <MenubarMenu>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
+            <Eye className='size-4' />
+            View
+          </MenubarTrigger>
+
+          <MenubarContent className='bg-black'>
+            <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
+            <MenubarCheckboxItem checked>Always Show Full URLs</MenubarCheckboxItem>
+            <MenubarSeparator />
+            <MenubarItem inset>
+              Reload <MenubarShortcut>⌘R</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem
+              disabled
+              inset>
+              Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
+            </MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem inset>Toggle Fullscreen</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem inset>Hide Sidebar</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+        <Separator
+          orientation='vertical'
+          className='bg-stone-600 my-1 h-3/4'
+        />
+        <MenubarMenu>
+          <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
+            <User className='size-4' />
+            Profiles : <span className='text-sky-600'> {useCapitilize(username)}</span>
+          </MenubarTrigger>
+          <MenubarContent className='bg-black'>
+            <MenubarRadioGroup value={username}>
+              <MenubarRadioItem
+                className='hover:bg-stone-900 my-1'
+                onSelect={() => setUsername("andy")}
+                value='andy'>
+                Andy
+              </MenubarRadioItem>
+              <MenubarRadioItem
+                className='hover:bg-stone-900 my-1'
+                onSelect={() => setUsername("benoit")}
+                value='benoit'>
+                Benoit
+              </MenubarRadioItem>
+              <MenubarRadioItem
+                className='hover:bg-stone-900 my-1'
+                onSelect={() => setUsername("Luis")}
+                value='Luis'>
+                Luis
+              </MenubarRadioItem>
+            </MenubarRadioGroup>
+            <MenubarSeparator />
+            <MenubarItem className='hover:bg-stone-900 my-1'>
+              <EditIcon />
+              Edit...
+            </MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem className='hover:bg-stone-900 my-1'>
+              <PlusCircleIcon />
+              Add Profile...
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
     </section>
   );
 }
