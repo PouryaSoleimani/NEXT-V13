@@ -199,7 +199,7 @@ const ReviewPage: NextPage<PropsType> = () => {
       {/* ALERT */}
       {isShowAlert && (
         <Alert className='absolute z-999 right-10 bottom-30  w-fit bg-emerald-900/30 border-emerald-900 text-stone-200 leading-8'>
-          <CheckCircle2Icon className='!size-7 -translate-x-2 !translate-y-3.5' />
+          <CheckCircle2Icon className='size-7! -translate-x-2 translate-y-3.5!' />
           <AlertTitle>Success! Your changes have been saved</AlertTitle>
           <AlertDescription>This is an alert with icon, title and description.</AlertDescription>
         </Alert>
@@ -331,7 +331,7 @@ const ReviewPage: NextPage<PropsType> = () => {
 
       {/* CONTEXT MENU */}
       <ContextMenu>
-        <ContextMenuTrigger className='flex h-[150px] w-[300px] mb-10 items-center justify-center rounded-md border border-dashed text-sm'>
+        <ContextMenuTrigger className='flex h-37.5 w-75 items-center justify-center rounded-md border border-dashed text-sm'>
           Right click here
         </ContextMenuTrigger>
         <ContextMenuContent className='w-52 bg-black mb-10'>
@@ -404,7 +404,7 @@ const ReviewPage: NextPage<PropsType> = () => {
           </Button>
         </DrawerTrigger>
         <DrawerContent className='bg-black'>
-          <div className='mx-auto w-full max-w-sm '>
+          <div className='mx-auto font-bold w-full max-w-sm '>
             <DrawerHeader>
               <DrawerTitle>Move Goal</DrawerTitle>
               <DrawerDescription>Set your daily activity goal.</DrawerDescription>
@@ -414,7 +414,7 @@ const ReviewPage: NextPage<PropsType> = () => {
                 <Button
                   variant='outline'
                   size='icon'
-                  className='h-8 w-8 shrink-0 rounded-full'
+                  className='h-8 w-8 shrink-0 rounded-full hover:bg-red-900/50'
                   onClick={() => onClick(-10)}
                   disabled={goal <= 200}>
                   <Minus />
@@ -427,21 +427,22 @@ const ReviewPage: NextPage<PropsType> = () => {
                 <Button
                   variant='outline'
                   size='icon'
-                  className='h-8 w-8 shrink-0 rounded-full'
+                  className='h-8 w-8 shrink-0 rounded-full hover:bg-emerald-900/50'
                   onClick={() => onClick(10)}
                   disabled={goal >= 400}>
                   <Plus />
                   <span className='sr-only'>Increase</span>
                 </Button>
               </div>
-              <div className='mt-3 h-[120px]'>
+              <div className='mt-3 h-30'>
                 <ResponsiveContainer
+                  className={"border bg-zinc-900 border-zinc-900 rounded-xl"}
                   width='100%'
                   height='100%'>
                   <BarChart data={data}>
                     <Bar
                       dataKey='goal'
-                      style={{ fill: "hsl(var(--foreground))", opacity: 0.9 } as React.CSSProperties}
+                      style={{ fill: "#fabb14", opacity: 0.9 } as React.CSSProperties}
                     />
                   </BarChart>
                 </ResponsiveContainer>
