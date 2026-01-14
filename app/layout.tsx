@@ -12,7 +12,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 export const metadata: Metadata = {
   title: { default: "⬛NEXT____TRAINING⬛", template: "NEXT_JS | %s" },
   description: "THIS IS A NEXT TRAINING PAGE",
-  icons: { icon: "@/favicon.ico", apple: "@/favicon.ico" },
+  icons: { icon: "/favicon.ico", apple: "/favicon.ico" },
   manifest: "/manifest.json",
   openGraph: {
     title: "NEXT__TRAINING__PAGE",
