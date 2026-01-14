@@ -177,7 +177,7 @@ const SecondPageReview = () => {
         </ContextMenuContent>
       </ContextMenu>
 
-      <Menubar className="my-2 bg-stone-900">
+      <Menubar className='my-2 bg-stone-900'>
         <MenubarMenu>
           <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
             <FileIcon className='size-4' />
