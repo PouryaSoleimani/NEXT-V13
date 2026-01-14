@@ -9,12 +9,9 @@ function PaginationSwr() {
   const [page, setPage] = useState(1);
   const [isValid, setIsValid] = useState<boolean>(false);
 
-  const SingleProductFetcher = () =>
-    axios.get(`https://fakestoreapi.com/products/${page}`).then((res) => res.data);
-  const { data, isLoading, error } = useSWR(
-    `https://fakestoreapi.com/products/${page}`,
-    SingleProductFetcher
-  );
+  const SingleProductFetcher = () => axios.get(`https://fakestoreapi.com/products/${page}`).then((res) => res.data);
+
+  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${page}`, SingleProductFetcher);
 
   useEffect(() => {
     if (page == 1) {

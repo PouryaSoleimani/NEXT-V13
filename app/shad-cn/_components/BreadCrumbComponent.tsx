@@ -21,7 +21,7 @@ import {
 const BreadCrumbComponent = () => {
   return (
     <Breadcrumb className="px-3.5">
-      <BreadcrumbList className="!flex !items-center *:hover:text-white">
+      <BreadcrumbList className="flex! items-center! *:hover:text-white">
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link href="/" className="flex items-center gap-1 justify-center">
