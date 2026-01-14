@@ -10,7 +10,6 @@ const useRefComponent = () => {
   const pRef = useRef<HTMLParagraphElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-
   const router = useRouter();
 
   useEffect(() => {
