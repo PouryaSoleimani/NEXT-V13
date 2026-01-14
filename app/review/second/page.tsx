@@ -48,9 +48,21 @@ import {
   User,
   PlusCircleIcon,
 } from "lucide-react";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 const SecondPageReview = () => {
   const [username, setUsername] = useState<"benoit" | "andy" | "Luis">("benoit");
@@ -177,6 +189,7 @@ const SecondPageReview = () => {
         </ContextMenuContent>
       </ContextMenu>
 
+      {/* MENUBAR */}
       <Menubar className='my-2 bg-stone-900'>
         <MenubarMenu>
           <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
@@ -277,6 +290,65 @@ const SecondPageReview = () => {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
+
+      {/* SHEET */}
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button
+            variant='lime'
+            className='my-6'>
+            Open Sheet
+          </Button>
+        </SheetTrigger>
+        <SheetContent side={"right"}>
+          <SheetHeader>
+            <SheetTitle>Edit profile</SheetTitle>
+            <SheetDescription>
+              Make changes to your profile here. Click save when you&apos;re done.
+            </SheetDescription>
+          </SheetHeader>
+          <div className='grid flex-1 auto-rows-min gap-3 *:font-black mt-6'>
+            <div className='grid gap-3'>
+              <Label
+                htmlFor='sheet-demo-name'
+                className='font-bold underline decoration-lime-600'>
+                Name
+              </Label>
+              <Input
+                id='sheet-demo-name'
+                defaultValue=''
+                placeholder='Enter Your Name Here ...'
+              />
+            </div>
+            <div className='grid gap-3'>
+              <Label
+                htmlFor='sheet-demo-username'
+                className='font-bold underline decoration-lime-600'>
+                Username
+              </Label>
+              <Input
+                id='sheet-demo-username'
+                defaultValue=''
+                placeholder='Enter Your Username Here ... '
+              />
+            </div>
+          </div>
+          <SheetFooter className='mt-6'>
+            <Button
+              type='submit'
+              variant={"lime"}>
+              Save changes
+            </Button>
+            <SheetClose asChild>
+              <Button
+                variant='destructive'
+                className='tracking-tight'>
+                Close
+              </Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
     </section>
   );
 }
