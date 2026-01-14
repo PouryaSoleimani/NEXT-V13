@@ -1,8 +1,10 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { Separator } from "@/components/ui/separator";
 import { Code, Home, Info, Menu, X } from "lucide-react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const SecondPageReview = () => {
   return (
@@ -58,7 +60,10 @@ const SecondPageReview = () => {
             <DrawerFooter>
               <Button
                 variant={"lime"}
-                className='w-full h-16'>
+                className='w-full h-16'
+                onClick={() => {
+                  toast.success("Form Submitted", { position: "top-center", style: { fontSize: "19px" } });
+                }}>
                 SUBMIT
               </Button>
             </DrawerFooter>
