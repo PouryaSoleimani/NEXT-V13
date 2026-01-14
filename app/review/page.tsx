@@ -527,7 +527,7 @@ const ReviewPage: NextPage<PropsType> = () => {
                 </div>
               </FieldGroup>
             </FieldSet>
-            <FieldSeparator />
+            <FieldSeparator className='bg-stone-800 h-1' />
             <FieldSet>
               <FieldLegend>Billing Address</FieldLegend>
               <FieldDescription>The billing address associated with your payment method</FieldDescription>
@@ -545,6 +545,7 @@ const ReviewPage: NextPage<PropsType> = () => {
                 </Field>
               </FieldGroup>
             </FieldSet>
+
             <FieldSet>
               <FieldGroup>
                 <Field>
@@ -557,6 +558,7 @@ const ReviewPage: NextPage<PropsType> = () => {
                 </Field>
               </FieldGroup>
             </FieldSet>
+
             <Field orientation='horizontal'>
               <Button
                 type='submit'
