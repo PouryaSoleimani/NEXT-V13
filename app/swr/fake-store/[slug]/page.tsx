@@ -8,12 +8,14 @@ import useSWR, { preload } from "swr";
 function page() {
   const params: Params = useParams();
 
-  const _fetcher = () =>
-    axios.get(`https://fakestoreapi.com/products/${params?.slug}`).then((res) => res.data);
+const _fetcher = () =>
+  axios
+    .get(`https://fakestoreapi.com/products/${params?.slug}`)
+    .then((res) => res.data);
 
-  preload(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher);
+   preload(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher);
 
-  const { data, isLoading } = useSWR(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher, {
+    const { data, isLoading } = useSWR(`https://fakestoreapi.com/products/${params?.slug}`, _fetcher, {
     suspense: true,
   });
   const router = useRouter();

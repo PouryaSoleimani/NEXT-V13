@@ -1,5 +1,5 @@
 //^ LAYOUT.TSX
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { cookies } from "next/headers";
@@ -8,13 +8,43 @@ import { Header } from "@/components/Header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 
-// FONTS
 
 export const metadata: Metadata = {
-  title: "⬛NEXT____TRAINING⬛",
+  title: { default: "⬛NEXT____TRAINING⬛", template: "NEXT_JS | %s" },
   description: "THIS IS A NEXT TRAINING PAGE",
-  icons: { icon: "@/favicon.ico" },
+  icons: { icon: "@/favicon.ico", apple: "@/favicon.ico" },
+  manifest: "/manifest.json",
+  openGraph: {
+    title: "NEXT__TRAINING__PAGE",
+    description: "NEXT__TRAINING__DESCRIPTION",
+    url: "https://localhost:4200",
+    siteName: "NextTraining.com",
+    images: [
+      {
+        url: "https://example.com/img",
+        width: 1000,
+        height: 900,
+        alt: "IMAGE",
+      },
+    ],
+    locale: "fa_IR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NEXT__TRAINING",
+    description: "NEXT__TRAINING__DESCRIPTION",
+    images: ["https://example.com/image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, noimageindex: false },
+  },
+  alternates: { canonical: "https://example.com/products/1" },
 };
+
+export const viewport: Viewport = { themeColor: "#121212" };
 
 // COMPONENT
 export default async function RootLayout({ children }: { children: ReactElement }) {
@@ -25,31 +55,6 @@ export default async function RootLayout({ children }: { children: ReactElement 
     <html
       suppressHydrationWarning
       className='overflow-x-hidden'>
-      <head>
-        <link
-          rel='manifest'
-          href='/manifest.json'
-        />
-        <meta
-          name='theme-color'
-          content='#2c2c2c'
-        />
-        <link
-          rel='apple-touch-icon'
-          href='/favicon-32x32.png'
-        />
-        <link
-          rel='preload'
-          href='/api/data'
-          as='fetch'
-          crossOrigin='anonymous'
-        />
-        <link
-          rel='icon'
-          href='/favicon.ico'
-          sizes='any'
-        />
-      </head>
       <body>
         <ThemeProvider
           attribute='class'
