@@ -141,6 +141,7 @@ const ReviewPage: NextPage<PropsType> = () => {
   const [isShowCard, setIsShowCard] = useState(false);
   const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));
   const [goal, setGoal] = React.useState(350);
+
   // FUNCTIONS
   function alertShowHandler() {
     setIsShowAlert(true);
@@ -197,12 +198,13 @@ const ReviewPage: NextPage<PropsType> = () => {
 
       {/* ALERT */}
       {isShowAlert && (
-        <Alert className='absolute right-10 bottom-30  w-fit bg-emerald-900/30 border-emerald-900 text-stone-200 leading-8'>
+        <Alert className='absolute z-999 right-10 bottom-30  w-fit bg-emerald-900/30 border-emerald-900 text-stone-200 leading-8'>
           <CheckCircle2Icon className='!size-7 -translate-x-2 !translate-y-3.5' />
           <AlertTitle>Success! Your changes have been saved</AlertTitle>
           <AlertDescription>This is an alert with icon, title and description.</AlertDescription>
         </Alert>
       )}
+
       {/* ASPECT RATIO */}
       <div className='w-48 h-32'>
         <AspectRatio
@@ -337,6 +339,7 @@ const ReviewPage: NextPage<PropsType> = () => {
             <ArrowLeft /> Back
             <ContextMenuShortcut>⌘[</ContextMenuShortcut>
           </ContextMenuItem>
+
           <ContextMenuItem disabled>
             <ArrowRight />
             Forward
@@ -347,6 +350,7 @@ const ReviewPage: NextPage<PropsType> = () => {
             Reload
             <ContextMenuShortcut>⌘R</ContextMenuShortcut>
           </ContextMenuItem>
+
           <ContextMenuSub>
             <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
             <ContextMenuSubContent className='w-44 bg-black translate-x-4'>
@@ -374,11 +378,12 @@ const ReviewPage: NextPage<PropsType> = () => {
               </ContextMenuItem>
             </ContextMenuSubContent>
           </ContextMenuSub>
+
           <ContextMenuSeparator className='bg-stone-800' />
           <ContextMenuCheckboxItem checked>Show Bookmarks</ContextMenuCheckboxItem>
           <ContextMenuCheckboxItem checked>Show Full URLs</ContextMenuCheckboxItem>
           <ContextMenuSeparator className='bg-stone-800' />
-          <ContextMenuRadioGroup value='pedro'>
+          <ContextMenuRadioGroup value='colm'>
             <ContextMenuLabel className='flex items-center gap-2 font-bold'>
               <Users2Icon className='size-4' />
               People
