@@ -47,6 +47,9 @@ import {
   Eye,
   User,
   PlusCircleIcon,
+  StarIcon,
+  HeartIcon,
+  BookmarkIcon,
 } from "lucide-react";
 import {
   Sheet,
@@ -63,6 +66,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const SecondPageReview = () => {
   const [username, setUsername] = useState<"benoit" | "andy" | "Luis">("benoit");
@@ -355,6 +359,36 @@ const SecondPageReview = () => {
           </SheetFooter>
         </SheetContent>
       </Sheet>
+
+      {/* TOGGLE GROUP */}
+      <ToggleGroup
+        type='multiple'
+        variant='outline'
+        spacing={2}
+        size='sm'
+        className='my-6 bg-stone-900 p-6 rounded-xl border-2'>
+        <ToggleGroupItem
+          value='star'
+          aria-label='Toggle star'
+          className='data-[state=on]:bg-bg-black bg-black data-[state=on]:*:[svg]:fill-yellow-500 data-[state=on]:*:[svg]:stroke-yellow-500'>
+          <StarIcon />
+          Star
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value='heart'
+          aria-label='Toggle heart'
+          className='data-[state=on]:bg-black bg-black  data-[state=on]:*:[svg]:fill-red-500 data-[state=on]:*:[svg]:stroke-red-500'>
+          <HeartIcon />
+          Heart
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value='bookmark'
+          aria-label='Toggle bookmark'
+          className='data-[state=on]:bg-black bg-black  data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500'>
+          <BookmarkIcon />
+          Bookmark
+        </ToggleGroupItem>
+      </ToggleGroup>
     </section>
   );
 }
