@@ -336,7 +336,13 @@ const SecondPageReview = () => {
           <SheetFooter className='mt-6'>
             <Button
               type='submit'
-              variant={"lime"}>
+              variant={"lime"}
+              onClick={() => {
+                toast.success("Changes Saved Successfully ... ", {
+                  position: "top-center",
+                  style: { borderBottom: "5px solid oklch(64.8% 0.2 131.684)" },
+                });
+              }}>
               Save changes
             </Button>
             <SheetClose asChild>
