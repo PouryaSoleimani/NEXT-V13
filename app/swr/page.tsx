@@ -10,7 +10,12 @@ const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 function SwrPage() {
   // const { data: users, error, isLoading } = useFetchUsers();
   const h1Ref = useRef<HTMLHeadingElement | null>(null);
-  const { data: users, isLoading, error } = useSWR("https://jsonplaceholder.typicode.com/users", fetcher);
+
+  const {
+    data: users,
+    isLoading,
+    error,
+  } = useSWR("https://jsonplaceholder.typicode.com/users", fetcher, { loadingTimeout: 3000 , errorRetryCount:1 });
 
   const [usersLocal, setUsersLocal] = useState([]);
 
