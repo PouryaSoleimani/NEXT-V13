@@ -42,7 +42,11 @@ function SwrPage() {
         await axios.post("https://jsonplaceholder.typicode.com/users", newUser);
         return optimistic;
       },
-      { optimisticData: [...usersLocal, newUser], rollbackOnError: true, revalidate: true }
+      {
+        optimisticData: [...usersLocal, newUser],
+        rollbackOnError: true,
+        revalidate: true,
+      }
     );
   };
 

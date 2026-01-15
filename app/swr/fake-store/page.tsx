@@ -20,7 +20,7 @@ function page() {
 
   return (
     <div className='section'>
-      <div className=''>
+      <div>
         {data?.map((item: any) => (
           <Link
             href={`/swr/fake-store/${item.id}`}
