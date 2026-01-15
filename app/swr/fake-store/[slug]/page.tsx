@@ -21,14 +21,14 @@ const _fetcher = () =>
 
   if (isLoading)
     return (
-      <div className='w-screen h-screen flex flex-col gap-4 items-center justify-center'>
+      <div className='w-screen h-dvh flex flex-col gap-4 items-center justify-center'>
         <p>LOADING ... </p>
         <LoaderCircle className='size-12 animate-spin text-yellow-500' />
       </div>
     );
 
   return (
-    <div className='w-screen h-screen flex flex-col gap-5 items-center justify-center overflow-hidden'>
+    <div className='w-screen h-dvh flex flex-col gap-5 items-center justify-center overflow-hidden'>
       {data.id}.{data.title}
       <button
         className='btn'

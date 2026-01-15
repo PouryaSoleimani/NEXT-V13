@@ -12,7 +12,7 @@ function page() {
 
   if (isLoading)
     return (
-      <div className='w-screen h-screen flex flex-col gap-4 items-center justify-center'>
+      <div className='w-screen h-dvh flex flex-col gap-4 items-center justify-center'>
         <p>LOADING ... </p>
         <LoaderCircle className='size-12 animate-spin text-yellow-500' />
       </div>
