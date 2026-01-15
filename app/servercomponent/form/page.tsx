@@ -1,5 +1,4 @@
 //* FORM PAGE IN SERVER COMPONENT
-import React from "react";
 
 const Form = (response: any) => {
   return (

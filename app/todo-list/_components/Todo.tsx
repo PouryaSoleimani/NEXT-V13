@@ -15,18 +15,16 @@ const Todo = ({ id, text, completed }: TodoType) => {
     <Button
       variant={"ghost"}
       onClick={() => toggleCompleted(id)}
-      className={`flex items-center justify-between p-2 border-b border-b-zinc-600 bg-black rounded-lg pl-3 my-3 text-xl font-black ${completed == true ? "line-through opacity-50" : "text-white"}`}
-    >
-      <span className="text-white">{text}</span>
-      <button
-        className="bg-red-900 text-white p-3 rounded hover:bg-red-800"
+      className={`bg-black flex items-center justify-between p-0 pl-3 my-3 ${completed == true ? "line-through opacity-50" : "text-white"}`}>
+      <span className='text-white'>{text}</span>
+      <Button
+        className='bg-red-900 text-white p-2.5 rounded hover:bg-red-800 rounded-l-none '
         onClick={() => {
           removeTodo(id);
           toast.error("Todo removed!");
-        }}
-      >
-        <BiTrash className="w-6 h-6" />
-      </button>
+        }}>
+        <BiTrash className='size-5' />
+      </Button>
     </Button>
   );
 };

@@ -24,8 +24,7 @@ const Button: any = styled.button`
   font-weight: 700;
   padding: 0 10px;
   font-size: 16px;
-  color: ${(props: any) =>
-    props.variant === "outline" ? "#aaa" : props.variant === "black" ? "white" : "black"};
+  color: ${(props: any) => (props.variant === "outline" ? "#aaa" : props.variant === "black" ? "white" : "black")};
   border: ${(props: any) => (props.variant === "outline" ? "2px solid #aaa" : "none")};
 `;
 

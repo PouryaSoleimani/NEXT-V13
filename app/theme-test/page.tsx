@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 function IndexPage() {
   return (
     <div>
-      <p className="bg-gradient-to-br from-orange-600 via-purple-800 to-indigo-800 w-fit p-10 rounded text-3xl mx-auto font-bold my-10 border-8 border-zinc-900">
+      <p className='bg-linear-to-br  from-orange-600 via-purple-800 to-indigo-800 w-fit p-10 rounded-lg text-3xl mx-auto font-bold my-10 border-8 border-zinc-900'>
         Hello world!
       </p>
     </div>

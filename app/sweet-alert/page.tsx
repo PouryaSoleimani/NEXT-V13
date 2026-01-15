@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect } from "react";
 import Swal from "sweetalert2";
 
 function SweetAlertPage() {
@@ -29,25 +28,19 @@ function SweetAlertPage() {
     }).then((value) => {
       if (value.value) {
         console.info("VALUE ===>", value.value);
-        Swal.fire({
-          icon: "success",
-          text: `SUCCESS ==> ${value.value}`,
-          theme: "dark",
-        });
+        Swal.fire({ icon: "success", text: `SUCCESS ==> ${value.value}`, theme: "dark" });
       } else {
         console.info("REJECTED ===> ");
-        Swal.fire({
-          icon: "error",
-          text: "REJECTED",
-          theme: "dark",
-        });
+        Swal.fire({ icon: "error", text: "REJECTED", theme: "dark" });
       }
     });
   }
 
   return (
-    <div className="section">
-      <button onClick={() => swalHandler()} className="btn mx-auto my-10">
+    <div className='section'>
+      <button
+        onClick={() => swalHandler()}
+        className='btn mx-auto my-10'>
         FIRE
       </button>
     </div>
