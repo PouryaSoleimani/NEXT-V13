@@ -1,6 +1,6 @@
 "use client";
 import axios, { AxiosError } from "axios";
-import { AlertTriangle, Loader, Loader2Icon, LoaderCircle, LoaderIcon, ShieldAlert } from "lucide-react";
+import { AlertTriangle, LoaderCircle, LoaderIcon } from "lucide-react";
 import  { useState } from "react";
 import toast from "react-hot-toast";
 import { BiErrorCircle, BiSolidErrorCircle } from "react-icons/bi";
@@ -15,6 +15,10 @@ function Mutate2() {
     validated ? "https://fakestoreapi.com/products" : null,
     fetcher,
     {
+      shouldRetryOnError: false,
+      errorRetryCount: 2,
+      loadingTimeout: 1000,
+
       onLoadingSlow: () => {
         toast.loading("در حال بارگزاری | لطفا کمی صبر کنید", {
           position: "top-center",
@@ -22,14 +26,13 @@ function Mutate2() {
           icon: <LoaderCircle className='animate-spin text-orange-500' />,
         });
       },
+
       onErrorRetry: () => {
         toast.loading("در حال بارگزاری - لطفا کمی صبر کنید", {
           position: "top-center",
         });
       },
-      shouldRetryOnError: false,
-      errorRetryCount: 2,
-      loadingTimeout: 1000,
+
       onError: (error: Error) => {
         console.info("%c SWR ERROR ===>", "color:pink", error.message);
         toast.dismissAll();
@@ -42,6 +45,10 @@ function Mutate2() {
             fontFamily: "monospace",
           },
         });
+      },
+
+      onSuccess: () => {
+        toast.success("دیتا دریافت شد");
       },
     }
   );
@@ -100,6 +107,7 @@ function Mutate2() {
         className='bg-emerald-900 mx-24 mt-4 h-16 w-44 rounded-xl border-4 border-white'>
         ADD
       </button>
+    
       <div className='w-[90%] mx-auto my-4 gap-3 grid grid-cols-6 '>
         {data?.map((product: any) => (
           <div

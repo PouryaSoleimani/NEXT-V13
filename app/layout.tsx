@@ -7,6 +7,7 @@ import { ReactElement } from "react";
 import { Header } from "@/components/Header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { SWRConfig } from "swr";
 
 
 export const metadata: Metadata = {
@@ -56,22 +57,29 @@ export default async function RootLayout({ children }: { children: ReactElement 
       suppressHydrationWarning
       className='overflow-x-hidden'>
       <body>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
-          disableTransitionOnChange>
-          <Toaster
-            position='top-right'
-            reverseOrder={false}
-          />
-          <SidebarProvider defaultOpen={defaultOpen}>
-            <main className='w-full min-h-screen font-bold'>
-              <Header />
-              {children}
-            </main>
-          </SidebarProvider>
-        </ThemeProvider>
+        <SWRConfig
+          value={
+            {
+              // GLOBAL SWR CONFIGS HERE
+            }
+          }>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            disableTransitionOnChange>
+            <Toaster
+              position='top-right'
+              reverseOrder={false}
+            />
+            <SidebarProvider defaultOpen={defaultOpen}>
+              <main className='w-full min-h-screen font-bold'>
+                <Header />
+                {children}
+              </main>
+            </SidebarProvider>
+          </ThemeProvider>
+        </SWRConfig>
       </body>
     </html>
   );

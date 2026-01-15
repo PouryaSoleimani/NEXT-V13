@@ -7,8 +7,8 @@ function AdvancedSwrPage() {
   return (
     <div>
       {/* <Mutate /> */}
-      <Mutate2 />
-      {/* <PaginationSwr /> */}
+      {/* <Mutate2 /> */}
+      <PaginationSwr />
     </div>
   );
 }

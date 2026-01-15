@@ -8,9 +8,11 @@ import PageComponent from "./Page.";
 const InfiniteLoading = () => {
   const [index, setIndex] = useState(1);
   const pages = [];
+
   for (let i = 1; i < index; i++) {
     pages.push(<PageComponent index={i} />);
   }
+ 
   const router = useRouter();
   
   useEffect(() => {
