@@ -12,8 +12,7 @@ const Todo = ({ id, text, completed }: TodoType) => {
   const { removeTodo, toggleCompleted } = useTodoStore();
 
   return (
-    <Button
-      variant={"ghost"}
+    <div
       onClick={() => toggleCompleted(id)}
       className={`bg-black flex items-center justify-between p-0 pl-3 my-3 ${completed == true ? "line-through opacity-50" : "text-white"}`}>
       <span className='text-white'>{text}</span>
@@ -25,7 +24,7 @@ const Todo = ({ id, text, completed }: TodoType) => {
         }}>
         <BiTrash className='size-5' />
       </Button>
-    </Button>
+    </div>
   );
 };
 
