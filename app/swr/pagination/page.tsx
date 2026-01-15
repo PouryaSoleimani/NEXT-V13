@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import PageComponent from "../swr-advanced.tsx/_components/Page.";
 import InfiniteLoading from "../swr-advanced.tsx/_components/InfiniteLoading";
@@ -20,7 +20,7 @@ function Page() {
     //     </button>
     //   </div>
     // </div>
-    <div className="section p-10">
+    <div className='section p-10'>
       <InfiniteLoading />
     </div>
   );

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 html {
   scroll-behavior: smooth !important;
   --motion-safe: all;
@@ -129,6 +130,7 @@ html {
 body {
   background-color: #111111;
   color: white;
+  font-family:  "Estedad";
   /* font-family: "JetBrains Mono"; */
 }
 

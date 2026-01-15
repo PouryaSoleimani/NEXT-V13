@@ -1,14 +1,17 @@
 "use client";
 import axios from "axios";
 import { FileQuestionMark, LoaderCircle, RotateCcw } from "lucide-react";
-import { useRouter } from "next/navigation";
-import React from "react";
 import useSWR, { Fetcher } from "swr";
+
 type Product = { id: number; title: string };
+
 function PageComponent({ index }: { index: number }) {
   console.info("index ===>", index);
+  
   const _fetcher: Fetcher<Product, string> = () =>
-    axios.get(`https://fakestoreapi.com/products/${index}`).then((res) => res.data);
+    axios
+      .get(`https://fakestoreapi.com/products/${index}`)
+      .then((res) => res.data);
 
   const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${index}`, _fetcher);
 
