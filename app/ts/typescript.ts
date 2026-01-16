@@ -377,8 +377,8 @@ export default async function fetchUsersV2<T>(url: string) {
 }
 
 const resultUsers = await fetchUsersV2<SingleUserInterface[]>("https://jsonplaceholder.typicode.com/users/1");
+
 console.info("USERS RESULT ===> ", resultUsers ?? resultUsers);
-console.info(" ⚠️ FETCH FAILED IS CLIENT SIDE ");
 
 //^ GENERICS vs UNION TYPES ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________=
 class List<T extends number | string> {

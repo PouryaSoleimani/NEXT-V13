@@ -20,14 +20,7 @@ export const metadata: Metadata = {
     description: "NEXT__TRAINING__DESCRIPTION",
     url: "https://localhost:4200",
     siteName: "NextTraining.com",
-    images: [
-      {
-        url: "https://example.com/img",
-        width: 1000,
-        height: 900,
-        alt: "IMAGE",
-      },
-    ],
+    images: [{ url: "https://example.com/img", width: 1000, height: 900, alt: "IMAGE" }],
     locale: "fa_IR",
     type: "website",
   },
@@ -37,11 +30,7 @@ export const metadata: Metadata = {
     description: "NEXT__TRAINING__DESCRIPTION",
     images: ["https://example.com/image"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, noimageindex: false },
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, noimageindex: false } },
   alternates: { canonical: "https://example.com/products/1" },
 };
 
