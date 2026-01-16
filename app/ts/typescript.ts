@@ -1,13 +1,13 @@
 import { Type } from "lucide-react";
 
-// TUPLE TYPE
+//^ TUPLE TYPE =============================================================================================================================================================================================================================================
 type TupleType = [string, number, boolean];
 const TupleArray: TupleType = ["STRING", 123, true];
 console.log(TupleArray);
 const Tuple2: TupleType = ["ALI", 234, false]; 
 console.log(Tuple2)
 
-// FUNCTION PARAMATER TYPE ===============================================================================
+//^ FUNCTION PARAMATER TYPE =============================================================================================================================================================================================================================================
 type FuncType = (a: number, b: number) => number;
 const func: FuncType = (a, b) => {
   return a + b;
@@ -23,7 +23,7 @@ const LoginHandler = (prop: number): boolean => {
 
 console.log("LOGIN RESULT =>", LoginHandler(2));
 
-// UNION TYPES ===============================================================================
+//^ UNION TYPES =============================================================================================================================================================================================================================================
 type CombineType = string | number;
 const name: CombineType = "HELLO";
 console.log(name);
@@ -32,7 +32,7 @@ type CombineArrayType = (string | number | boolean)[];
 const combinedArray: CombineArrayType = [2, "ali", false];
 console.log(combinedArray);
 
-// LITERAL TYPES ===============================================================================
+//^ LITERAL TYPES =============================================================================================================================================================================================================================================
 type ProductDeliverValue = "PENDING" | "SENT" | "CANCELED" | "DELIVERED";
 // use this instead of enums ⬆
 export function ReturnProductStatus(status: ProductDeliverValue) {
@@ -55,7 +55,7 @@ export function ReturnProductStatus(status: ProductDeliverValue) {
   }
 }
 
-// CONST ASSERTION ===============================================================================
+//^ CONST ASSERTION | AS CONST =============================================================================================================================================================================================================================================
 const numbers = [10, 20] as const;
 // numbers.push(30); //! will throw error because of 'as const'
 
@@ -68,20 +68,22 @@ function sum(num1: number, num2: number): number {
 }
 sum(...numbersArray); //* only possible with 'as const'
 
-// ? 2nd Day of Review ===============================================================================
-// const linkElem = document.getElementById('LINK') as HTMLLinkElement;
-// console.log(linkElem.href);
+//^ TYPE ASSERTION | AS ... =============================================================================================================================================================================================================================================
 
+const linkElem = document.getElementById("LINK") as HTMLLinkElement;
+console.log("HREF", linkElem.href);
+
+//^ INTERFACES =============================================================================================================================================================================================================================================
 interface User {
   name: string;
 }
 
-// ? 3nd Day of review ===============================================================================
+//^ CLASSES =============================================================================================================================================================================================================================================
 class Person {
   constructor(
     public name: string,
     public age: number
-  ) { }
+  ) {}
 
   setAge(age: number) {
     this.age = age;
@@ -94,7 +96,7 @@ class PersonExtended {
   constructor(
     private password: string,
     readonly username: string
-  ) { }
+  ) {}
   get getPassword() {
     return this.password;
   }
@@ -134,7 +136,7 @@ export const _ApiResponse: ApiResponseInterface = {
 };
 
 class CarClass {
-  constructor(public name: string) { }
+  constructor(public name: string) {}
   drive() {
     console.info("RUN");
   }
@@ -190,12 +192,7 @@ interface SimpleCarInterface {
   passengers: number;
 }
 interface CarInterface {
-  basicInfo: {
-    model: string;
-    color: string;
-    brand: string;
-    vehicleType: "SUV" | "SEDAN" | "SPORT";
-  };
+  basicInfo: { model: string; color: string; brand: string; vehicleType: "SUV" | "SEDAN" | "SPORT" };
   powerInfos: { hp: number; type: "RWD" | "FWD" | "AWD"; cylinderCount: 4 | 6 | 8 };
   optionsInfos: { isCoupe: boolean; isConvertible: boolean; doorsCount: 2 | 4 };
 }
@@ -208,24 +205,20 @@ export const newCar2: CarInterface = {
 
 interface KeyboardInterface {
   basicInfos: { name: string; size: "MINI" | "MEDIUM" | "FULL-SIZE"; color: "BLACK" | "WHITE" };
-  additionalOptions: {
-    hasRGB: boolean;
-    isMechanical: boolean;
-    switchColor: "RED" | "BLUE" | "BROWN";
-  };
+  additionalOptions: { hasRGB: boolean; isMechanical: boolean; switchColor: "RED" | "BLUE" | "BROWN" };
 }
 export const newKeyboard: KeyboardInterface = {
   basicInfos: { name: "RAZER", color: "BLACK", size: "MINI" },
   additionalOptions: { hasRGB: true, isMechanical: true, switchColor: "RED" },
 };
 
-// INTERFACE vs TYPE ===============================================================================
+//^ INTERFACE vs TYPE =============================================================================================================================================================================================================================================
 //? MODIFY
 //? EXTENDS
 //? MERGE
 //* INTERFACES ARE BEST FOR PROPS IN REACT
 
-// INTERFACES --> IMPLEMENTS ===============================================================================
+// INTERFACES --> IMPLEMENTS =============================================================================================================================================================================================================================================
 class CarClass2 implements SimpleCarInterface {
   constructor(
     public company: string,
@@ -233,23 +226,23 @@ class CarClass2 implements SimpleCarInterface {
     public type: string,
     public color: string,
     public passengers: number
-  ) { }
+  ) {}
 }
 
 export const newSimpleCar = new CarClass2("BENZ", "C350", "SEDAN", "BLACK", 4);
 
-// INTERSECTION TYPE ( & ) ===============================================================================
+//^ INTERSECTION TYPE ( & ) =============================================================================================================================================================================================================================================
 type Admin = { name: string; course: string };
 type Teacher = { startDate: string; age: number };
 
-const firstTeacher: Admin & Teacher = {
-  name: "ali",
-  course: "math",
-  startDate: "today",
-  age: 32,
-};
+const firstTeacher: Admin & Teacher = { name: "ali", course: "math", startDate: "today", age: 32 };
 
-// INDEX TYPES ===============================================================================
+type firstResponseType = { id: number; title: string };
+type secondResponseType = { price: number; isAvailable: boolean };
+const response: firstResponseType & secondResponseType = { id: 1, title: "TITLE", price: 20, isAvailable: true };
+console.log(response);
+
+// INDEX TYPES =============================================================================================================================================================================================================================================
 type FormValidationType = {
   [input: string]: string;
 };
@@ -261,7 +254,7 @@ const FormInfos: FormValidationType = {
   job: "developer",
 };
 
-// NAMESPACES  =======================================================================================
+// NAMESPACES  =====================================================================================================================================================================================================================================================
 export namespace Saipa {
   car: "PRIDE";
   address: "TEHRAN";
@@ -271,10 +264,10 @@ export namespace IranKhodro {
   address: "KARAJ";
 }
 
-/// TRIPLE SLASH DIRECTIVES ===============================================================================
+/// TRIPLE SLASH DIRECTIVES =============================================================================================================================================================================================================================================
 /// <refrence path="app.js"   />
 
-// GENERICS =============================================================================================================
+// GENERICS ===========================================================================================================================================================================================================================================================================
 function echo<T>(param: T): T {
   return param;
 }
@@ -318,7 +311,7 @@ function describe<T extends Type>(param: T): [string, T] {
 
 export const describeResult = describe("HELLO");
 
-// GENERICS IN INTERFACES
+// GENERICS IN INTERFACES =============================================================================================================================================================================================================================================
 interface ResultInterface<T> {
   data: T | null;
   error: string | null;
@@ -344,7 +337,7 @@ async function fetchData<T>(url: string) {
 
 export const fetchResult: UserData = await fetchData<UserData>("https://jsonplaceholder.typicode.com/users/1");
 
-// GENERICS vs UNION TYPES
+// GENERICS vs UNION TYPES =============================================================================================================================================================================================================================================
 class List<T extends number | string> {
   public Items: T[] = [];
   constructor(
@@ -366,7 +359,7 @@ export const listResult = ListExample.showItems();
 ListExample.setItems("32");
 ListExample.setItems("HELLO");
 
-// TYPE MAPPING
+// TYPE MAPPING =============================================================================================================================================================================================================================================
 interface UserMapInterface {
   username: string;
   email: string;
@@ -375,7 +368,7 @@ type OptionaUserInterface<T> = {
   [key in keyof T]?: T[key];
 };
 
-// UTILITY TYPES ==============================================================
+// UTILITY TYPES ===========================================================================================================================================================================================================================================================================================================
 type UserType = { name: string; age: number };
 
 type UserRequired = Required<UserType>;
@@ -389,4 +382,4 @@ type NotNullableType = NonNullable<NullableType>;
 type FullType = number | string | boolean | object;
 type ExcludeType = Exclude<FullType, number>;
 
-// DECORATORS ==================================================================
+// DECORATORS ===============================================================================================================================================================================================================================================================================================================
