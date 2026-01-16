@@ -4,6 +4,9 @@ import { Type } from "lucide-react";
 type TupleType = [string, number, boolean];
 const TupleArray: TupleType = ["STRING", 123, true];
 console.log(TupleArray);
+const Tuple2: TupleType = ["ALI", 234, false]; 
+console.log(Tuple2)
+
 // FUNCTION PARAMATER TYPE ===============================================================================
 type FuncType = (a: number, b: number) => number;
 const func: FuncType = (a, b) => {
@@ -14,13 +17,19 @@ export const result = func(10, 20);
 export function LoginFunction(password: string): boolean {
   return password == "123456" ? true : false;
 }
+const LoginHandler = (prop: number): boolean => {
+  return prop % 2 == 0 ? true : false;
+};
+console.log('LOGIN RESULT =>',LoginHandler(2));
 
 // UNION TYPES ===============================================================================
 type CombineType = string | number;
 const name: CombineType = "HELLO";
+console.log(name);
 
 type CombineArrayType = (string | number | boolean)[];
 const combinedArray: CombineArrayType = [2, "ali", false];
+console.log(combinedArray);
 
 // LITERAL TYPES ===============================================================================
 type ProductDeliverValue = "PENDING" | "SENT" | "CANCELED" | "DELIVERED";
@@ -332,9 +341,7 @@ async function fetchData<T>(url: string) {
   return res;
 }
 
-export const fetchResult: UserData = await fetchData<UserData>(
-  "https://jsonplaceholder.typicode.com/users/1"
-);
+export const fetchResult: UserData = await fetchData<UserData>("https://jsonplaceholder.typicode.com/users/1");
 
 // GENERICS vs UNION TYPES
 class List<T extends number | string> {

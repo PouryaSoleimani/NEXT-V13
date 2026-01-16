@@ -1,19 +1,17 @@
 "use client";
-import React from "react";
 import Link from "next/link";
 
 import { LoginFunction, _ApiResponse } from "./typescript";
 
 const TsTrainingPage = () => {
-  // console.info('RESULT =>', listResult)
   class PersonExtended {
-    static Log() {
-      console.info("log from class");
-    }
     constructor(
       private password: string,
       readonly username: string
     ) {}
+    static Log() {
+      console.info("log from class");
+    }
     get getPassword() {
       return this.password;
     }
@@ -26,12 +24,14 @@ const TsTrainingPage = () => {
 
   // console.info('%c PASSWORD ---->', 'color:cyan', newPerson.getPassword);
   // console.info('%c READ ONLY -->', 'color:cyan', newPerson.username);
+
   newPerson.setPassword = "NEW PASSWORD";
+
   // Logger(newPerson)
 
   // PersonExtended.Log()
 
-  const _Result = LoginFunction("Ali", "123456");
+  const _Result = LoginFunction("Ali");
   // console.info('RESULT ==> ', _Result)
 
   // ReturnProductStatus('PENDING')
@@ -84,6 +84,7 @@ const TsTrainingPage = () => {
       }
     };
   }
+
   function LowerCase(target: any, methodName: string, descriptor: PropertyDescriptor) {
     console.info("LOG FROM LOWERCASE", target, methodName, descriptor);
     methodName = "SPEAKING";
@@ -100,11 +101,11 @@ const TsTrainingPage = () => {
 
   //* RETURN
   return (
-    <div id="LINK">
-      <h1 className="text-4xl font-bold bg-blue-700 py-5 text-center w-fit px-4 rounded-lg mx-auto my-5 border-b-4 border-white">
+    <div id='LINK'>
+      <h1 className='text-4xl font-bold bg-blue-700 py-5 text-center w-fit px-4 rounded-lg mx-auto my-5 border-b-4 border-white'>
         TypeScript Training
       </h1>
-      <Link href="/about"></Link>
+      <Link href='/about'></Link>
     </div>
   );
 };

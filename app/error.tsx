@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 
 export default function ErrorBoundary({ error, reset, }: { error: Error & { digest?: string }; reset: () => void; }) {
-  console.log("🟥🟥🟥 ERROR", error);
+  // console.log("🟥🟥🟥 ERROR", error);
 
   return (
     <div className='w-screen h-screen flex font-bold items-center justify-center'>
