@@ -20,7 +20,8 @@ export function LoginFunction(password: string): boolean {
 const LoginHandler = (prop: number): boolean => {
   return prop % 2 == 0 ? true : false;
 };
-console.log('LOGIN RESULT =>',LoginHandler(2));
+
+console.log("LOGIN RESULT =>", LoginHandler(2));
 
 // UNION TYPES ===============================================================================
 type CombineType = string | number;
