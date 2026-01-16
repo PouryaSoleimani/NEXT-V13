@@ -307,9 +307,7 @@ const SecondPageReview = () => {
         <SheetContent side={"right"}>
           <SheetHeader>
             <SheetTitle>Edit profile</SheetTitle>
-            <SheetDescription>
-              Make changes to your profile here. Click save when you&apos;re done.
-            </SheetDescription>
+            <SheetDescription>Make changes to your profile here. Click save when you&apos;re done.</SheetDescription>
           </SheetHeader>
           <div className='grid flex-1 auto-rows-min gap-3 *:font-black mt-6'>
             <div className='grid gap-3'>
