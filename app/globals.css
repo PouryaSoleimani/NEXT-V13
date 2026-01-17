@@ -204,6 +204,10 @@ body {
   background-color: #111111;
   color: white;
   font-family: "JetBrains Mono";
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
   /* > * {
     padding-inline : var(--full-width-padding-inline)
   } */
@@ -322,3 +326,4 @@ tfoot th {
   margin: 5px 1px;
   width: fit-content;
 }
+

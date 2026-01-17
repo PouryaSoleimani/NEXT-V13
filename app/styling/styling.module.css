@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-block: 1rem;
+  padding-inline: var(--full-width-padding-inline);
+  nav {
+    > ul {
+      display: flex;
+      gap: 2rem;
+      > li {
+        a {
+          &.active {
+            background-color: var(--color-red-800);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cta {
+  background-color: transparent;
+  color: var(--color-red-600);
+  margin-inline-start: auto;
+  padding: 0.5rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Vazir";
+  &:hover {
+    background-color: var(--color-red-600);
+    color: var(--brand-background);
+  }
+}
