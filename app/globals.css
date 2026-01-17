@@ -334,7 +334,14 @@ tfoot th {
   min-block-size: 100vh;
   display: grid;
   grid-area: test-area; /* CUSTOM NAMING USEFUL FOR GRID-TEMPLATE-ARIAS */
+  grid-template-areas: "test-area test-area";
   grid-template-rows: auto 1fr auto;
+  font-size: clamp(1rem, 3vw, 3rem); /* MIN - AVERAGE - MAX */
+  min-block-size: 100%;
+  block-size: 0;
+  p {
+    max-inline-size: 50ch;
+  }
   &:focus-within {
     border: 3px solid green;
   }

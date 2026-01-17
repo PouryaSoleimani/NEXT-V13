@@ -1,4 +1,4 @@
-// app/error.tsx
+//! app/error.tsx
 "use client";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, RefreshCw } from "lucide-react";
@@ -19,9 +19,13 @@ export default function ErrorBoundary({
           <AlertTriangle className='text-red-500/70 text-xl' />
           {error.name}
         </p>
-        <p className='text-stone-200 text-2xl tracking-tighter'>
+        <p className='text-stone-200 text-xl tracking-tighter'>
           {error.message}
         </p>
+        <details className='min-sm:text-white w-full  mx-auto text-ellipsis overflow-hidden'>
+          <summary>LOGS : </summary>
+          <pre dir="ltr">{error.stack}</pre>
+        </details>
         <Button
           onClick={() => reset()}
           className='w-fit my-6'>
