@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "format:fix": "prettier . --write ."
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
