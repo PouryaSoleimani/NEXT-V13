@@ -9,7 +9,6 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { SWRConfig } from "swr";
 
-
 export const metadata: Metadata = {
   title: { default: "⬛NEXT____TRAINING⬛", template: "NEXT_JS | %s" },
   description: "THIS IS A NEXT TRAINING PAGE",
@@ -48,9 +47,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#121212" };
 
 // COMPONENT
-export default async function RootLayout({ children }: { children: ReactElement }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactElement;
+}) {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+  console.info("COOKIES =>", cookieStore.getAll());
 
   return (
     <html
