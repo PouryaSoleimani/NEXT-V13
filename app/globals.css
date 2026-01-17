@@ -327,3 +327,15 @@ tfoot th {
   width: fit-content;
 }
 
+/*//^ CSS NEW ______________________________________________________________________________//*/
+.test_css {
+  min-block-size: 100%;
+  min-block-size: 100dvh;
+  min-block-size: 100vh;
+  display: grid;
+  grid-area: test-area; /* CUSTOM NAMING USEFUL FOR GRID-TEMPLATE-ARIAS */
+  grid-template-rows: auto 1fr auto;
+  &:focus-within {
+    border: 3px solid green;
+  }
+}
