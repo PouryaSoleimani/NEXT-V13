@@ -1,6 +1,10 @@
 import { Metadata } from "next";
 
-export default async function generateMetaData({params} : {params : {id : string }}) :Promise<Metadata>{
+export default async function generateMetaData({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
   const product = (await fetch(`https://example.api.com/${params.id}`)) as any;
 
   return {
