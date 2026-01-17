@@ -1,7 +1,13 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, FormProvider, useFieldArray, useForm, useWatch } from "react-hook-form";
+import {
+  Controller,
+  FormProvider,
+  useFieldArray,
+  useForm,
+  useWatch,
+} from "react-hook-form";
 import z from "zod";
 import ErrorFieldV8 from "./_components/ErrorFieldV8";
 import { Label } from "@/components/ui/label";
@@ -9,7 +15,11 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Eye, Info, PlusCircle, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Checkbox } from "@/components/ui/checkbox";
 import toast from "react-hot-toast";
 
@@ -23,7 +33,9 @@ const StepSchema1 = z.object({
 
 const StepSchema2 = z.object({
   skills: z
-    .array(z.string("Skill title is Required").min(1, "Skill title is Required"))
+    .array(
+      z.string("Skill title is Required").min(1, "Skill title is Required")
+    )
     .min(1, "At least 1 skill is Required"),
 });
 
@@ -51,7 +63,10 @@ const ReactHookFormV8 = () => {
   function sumbitHandler() {
     const DTO = methods.getValues();
     console.log("DATA => ", DTO);
-    toast.success("FORM SUBMITTED", { position: "top-center", style: { borderBottom: "8px solid orange" } });
+    toast.success("FORM SUBMITTED", {
+      position: "top-center",
+      style: { borderBottom: "8px solid orange" },
+    });
     methods.reset();
     setStep(1);
   }
@@ -68,7 +83,10 @@ const ReactHookFormV8 = () => {
     }
   }
 
-  const hasAccepted = useWatch({ control: methods.control, name: "acceptTerms" });
+  const hasAccepted = useWatch({
+    control: methods.control,
+    name: "acceptTerms",
+  });
 
   return (
     <div className='bg-slate-950 screen center'>
@@ -116,7 +134,9 @@ const ReactHookFormV8 = () => {
                         methods.formState.errors.password && "top-7"
                       )}
                       onClick={() =>
-                        inputType == "password" ? setInputType("text") : setInputType("password")
+                        inputType == "password"
+                          ? setInputType("text")
+                          : setInputType("password")
                       }>
                       <Eye className='text-zinc-600 group-hover:text-zinc-400 transition duration-200 size-5' />
                     </button>
@@ -138,7 +158,8 @@ const ReactHookFormV8 = () => {
               {fields.length == 0 && (
                 <p className='text-stone-500 flex flex-col border-b-2 pb-4 border-stone-700 items-center-safe gap-3 my-3 text-sm'>
                   <PlusCircle className='size-5' />
-                  No Skills , Try Add Skills Now <span className='animate-bounce text-xl'>↓</span>
+                  No Skills , Try Add Skills Now{" "}
+                  <span className='animate-bounce text-xl'>↓</span>
                 </p>
               )}
               {fields?.map((item, index) => (

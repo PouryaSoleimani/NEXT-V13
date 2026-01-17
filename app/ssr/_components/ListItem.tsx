@@ -3,8 +3,14 @@
 import { useEffect } from "react";
 import useClientSideFetcher from "../_hooks/useClientSideFetcher";
 
-const ListItem = ({ data }: { data: { id: string | number; name: string | number } }) => {
-  const { data: clientData } = useClientSideFetcher("https://jsonplaceholder.typicode.com/users/2");
+const ListItem = ({
+  data,
+}: {
+  data: { id: string | number; name: string | number };
+}) => {
+  const { data: clientData } = useClientSideFetcher(
+    "https://jsonplaceholder.typicode.com/users/2"
+  );
 
   if (!data) return null;
 

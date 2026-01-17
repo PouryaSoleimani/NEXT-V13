@@ -15,7 +15,9 @@ const CustomHooksPage = () => {
         onClick={toggleIsOn as any}>
         {isOn ? "ON" : "OFF"}
       </Button>
-      <h2 className='text-2xl m-10 font-black'>THIS IS {isOn ? "ON" : "OFF"}</h2>
+      <h2 className='text-2xl m-10 font-black'>
+        THIS IS {isOn ? "ON" : "OFF"}
+      </h2>
     </div>
   );
 };

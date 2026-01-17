@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import useCapitilize from "@/app/react-hook-form-2/v9/_hooks/useCapitilize";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +11,16 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import {
   Menubar,
   MenubarSubContent,
@@ -69,7 +78,9 @@ import { Input } from "@/components/ui/input";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const SecondPageReview = () => {
-  const [username, setUsername] = useState<"benoit" | "andy" | "Luis">("benoit");
+  const [username, setUsername] = useState<"benoit" | "andy" | "Luis">(
+    "benoit"
+  );
   return (
     <section className='section relative insert-0'>
       {/* HEADER + DRAWER */}
@@ -93,7 +104,9 @@ const SecondPageReview = () => {
               orientation='horizontal'
               className='bg-stone-300'
             />
-            <DrawerDescription className='p-3 font-bold'>Drawer Description</DrawerDescription>
+            <DrawerDescription className='p-3 font-bold'>
+              Drawer Description
+            </DrawerDescription>
             <div className='w-11/12 mx-auto border text-stone-500 border-dashed border-stone-700 rounded-lg p-3 h-44 my-4'>
               <DrawerTitle> CONTENT HERE ...</DrawerTitle>
             </div>
@@ -126,7 +139,10 @@ const SecondPageReview = () => {
                 variant={"lime"}
                 className='w-full h-16'
                 onClick={() => {
-                  toast.success("Form Submitted", { position: "top-center", style: { fontSize: "19px" } });
+                  toast.success("Form Submitted", {
+                    position: "top-center",
+                    style: { fontSize: "19px" },
+                  });
                 }}>
                 SUBMIT
               </Button>
@@ -235,7 +251,9 @@ const SecondPageReview = () => {
 
           <MenubarContent className='bg-black'>
             <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-            <MenubarCheckboxItem checked>Always Show Full URLs</MenubarCheckboxItem>
+            <MenubarCheckboxItem checked>
+              Always Show Full URLs
+            </MenubarCheckboxItem>
             <MenubarSeparator />
             <MenubarItem inset>
               Reload <MenubarShortcut>⌘R</MenubarShortcut>
@@ -258,7 +276,8 @@ const SecondPageReview = () => {
         <MenubarMenu>
           <MenubarTrigger className='flex items-center gap-1 hover:bg-stone-800 transition-all duration-300'>
             <User className='size-4' />
-            Profiles : <span className='text-sky-600'> {useCapitilize(username)}</span>
+            Profiles :{" "}
+            <span className='text-sky-600'> {useCapitilize(username)}</span>
           </MenubarTrigger>
           <MenubarContent className='bg-black'>
             <MenubarRadioGroup value={username}>
@@ -307,7 +326,10 @@ const SecondPageReview = () => {
         <SheetContent side={"right"}>
           <SheetHeader>
             <SheetTitle>Edit profile</SheetTitle>
-            <SheetDescription>Make changes to your profile here. Click save when you&apos;re done.</SheetDescription>
+            <SheetDescription>
+              Make changes to your profile here. Click save when you&apos;re
+              done.
+            </SheetDescription>
           </SheetHeader>
           <div className='grid flex-1 auto-rows-min gap-3 *:font-black mt-6'>
             <div className='grid gap-3'>
@@ -389,6 +411,6 @@ const SecondPageReview = () => {
       </ToggleGroup>
     </section>
   );
-}
+};
 
 export default SecondPageReview;

@@ -1,6 +1,12 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, Resolver, useFieldArray, useForm, useWatch } from "react-hook-form";
+import {
+  FormProvider,
+  Resolver,
+  useFieldArray,
+  useForm,
+  useWatch,
+} from "react-hook-form";
 import z from "zod";
 import SkillItemV6 from "./_components/SkillItem";
 import toast from "react-hot-toast";
@@ -25,7 +31,10 @@ export const FORMSCHEMAV6 = z
             .array(
               z.object({
                 company: z.string().min(1, "Company is Required"),
-                years: z.coerce.number("Years must be a Number").min(0).nullable(),
+                years: z.coerce
+                  .number("Years must be a Number")
+                  .min(0)
+                  .nullable(),
               })
             )
             .min(1, "At least 1 experience is Required"),
@@ -37,14 +46,24 @@ export const FORMSCHEMAV6 = z
     (data) => {
       return data.skills.some((s) => s.level && s.level >= 3);
     },
-    { error: "At least one Skill must have level 3 or higher", path: ["skills"] }
+    {
+      error: "At least one Skill must have level 3 or higher",
+      path: ["skills"],
+    }
   )
   .superRefine((data, ctx) => {
     data.skills.forEach((skill) => {
       if (skill.level != null && skill.level >= 4) {
-        const total = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0);
+        const total = skill.experiences.reduce(
+          (sum, exp) => sum + (exp.years ?? 0),
+          0
+        );
         if (total <= 2) {
-          ctx.addIssue({ code: "custom", message: "MORE EXPERIENCE IS NEEDED", path: ["skills"] });
+          ctx.addIssue({
+            code: "custom",
+            message: "MORE EXPERIENCE IS NEEDED",
+            path: ["skills"],
+          });
         }
       }
     });
@@ -62,7 +81,10 @@ export const FORMSCHEMAV6 = z
   })
   .superRefine((data, ctx) => {
     data.skills.forEach((skill, index) => {
-      const totalYears = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0);
+      const totalYears = skill.experiences.reduce(
+        (sum, exp) => sum + (exp.years ?? 0),
+        0
+      );
       if (totalYears < 6) {
         ctx.addIssue({
           code: "custom",
@@ -74,7 +96,10 @@ export const FORMSCHEMAV6 = z
   })
   .superRefine((data, ctx) => {
     data.skills.forEach((skill) => {
-      const totalYears = skill.experiences.reduce((sum, exp) => sum + (exp.years ?? 0), 0);
+      const totalYears = skill.experiences.reduce(
+        (sum, exp) => sum + (exp.years ?? 0),
+        0
+      );
       if (totalYears >= 30) {
         ctx.addIssue({
           code: "custom",
@@ -90,7 +115,11 @@ export type FormTypesV6 = z.infer<typeof FORMSCHEMAV6>;
 const ReactHookFormV6 = () => {
   const methods = useForm<FormTypesV6>({
     resolver: zodResolver(FORMSCHEMAV6) as Resolver<FormTypesV6>,
-    defaultValues: { skills: [{ title: "", level: null, experiences: [{ company: "", years: 0 }] }] },
+    defaultValues: {
+      skills: [
+        { title: "", level: null, experiences: [{ company: "", years: 0 }] },
+      ],
+    },
   });
 
   const {
@@ -149,7 +178,9 @@ const ReactHookFormV6 = () => {
       {/* FORM PROVIDER */}
       <FormProvider {...methods}>
         {errors?.skills?.root && (
-          <p className='form-error text-lg font-semibold'>{errors.skills?.root?.message}</p>
+          <p className='form-error text-lg font-semibold'>
+            {errors.skills?.root?.message}
+          </p>
         )}
         {errors?.skills?.[0]?.experiences?.root && (
           <FieldError name='skills.0.experiences' />
@@ -190,7 +221,11 @@ const ReactHookFormV6 = () => {
           <div className='flex items-center gap-3 justify-center w-full  py-5'>
             <button
               onClick={() =>
-                skillAppend({ title: "", level: null, experiences: [{ company: "", years: null }] })
+                skillAppend({
+                  title: "",
+                  level: null,
+                  experiences: [{ company: "", years: null }],
+                })
               }
               disabled={_skills.length >= 4}
               type='button'

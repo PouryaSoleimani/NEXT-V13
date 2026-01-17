@@ -3,6 +3,4 @@ type LanguageType = "en" | "fa" | "es" | "tr";
 
 type Message = `${MessageType}_${LanguageType}`;
 
-export type AllTypes = {
-  toTranslate: Message;
-};
+export type AllTypes = { toTranslate: Message };

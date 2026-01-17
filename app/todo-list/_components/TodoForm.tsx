@@ -5,10 +5,21 @@ import { toast } from "react-hot-toast";
 import useTodoStore from "@/app/zustand-training/useTodoStore";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { CircleCheck, CircleCheckBig, PlusCircleIcon, Trash2Icon } from "lucide-react";
+import {
+  CircleCheck,
+  CircleCheckBig,
+  PlusCircleIcon,
+  Trash2Icon,
+} from "lucide-react";
 
 const TodoForm = () => {
-  const { todos, addTodo, removeAllTodos, makeRandomTodo, toggleAllTodosComplete } = useTodoStore();
+  const {
+    todos,
+    addTodo,
+    removeAllTodos,
+    makeRandomTodo,
+    toggleAllTodosComplete,
+  } = useTodoStore();
   const [inputValue, setInputValue] = React.useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

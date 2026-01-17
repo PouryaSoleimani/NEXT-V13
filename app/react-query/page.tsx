@@ -29,8 +29,8 @@ const ReactQuery = () => {
 
   if (isLoading) {
     return (
-      <div className="w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center i ems-center">
-        <LoaderCircle className="size-12 animate-spin stroke-orange-500" />
+      <div className='w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center i ems-center'>
+        <LoaderCircle className='size-12 animate-spin stroke-orange-500' />
         Loading ...
       </div>
     );
@@ -38,8 +38,8 @@ const ReactQuery = () => {
 
   if (error) {
     return (
-      <div className="w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center items-center">
-        <BiError className="size-12 text-red-500" />
+      <div className='w-screen h-screen bg-black flex flex-col text-xl font-mono gap-2 justify-center items-center'>
+        <BiError className='size-12 text-red-500' />
         Error : {error.message}
       </div>
     );
@@ -47,19 +47,23 @@ const ReactQuery = () => {
 
   return (
     <>
-      <section className="h-screen  bg-black">
-        <h2 className="text-orange-500 text-4xl text-center font-black relative top-10 left-0 right-0 bg-neutral-900 w-fit mx-auto p-2.5 rounded-xl">
+      <section className='h-screen  bg-black'>
+        <h2 className='text-orange-500 text-4xl text-center font-black relative top-10 left-0 right-0 bg-neutral-900 w-fit mx-auto p-2.5 rounded-xl'>
           REACT___QUERY
         </h2>
-        <div className="flex flex-col justify-center-safe  mt-16 px-10 gap-6">
-          <div className="flex items-center-safe justify-center-safe gap-3">
+        <div className='flex flex-col justify-center-safe  mt-16 px-10 gap-6'>
+          <div className='flex items-center-safe justify-center-safe gap-3'>
             {data?.map((item: any) => (
-              <Card key={item.id} className="p-3 text-xl gap-y-3 font-mono *:rounded-lg w-36">
-                <Badge variant={"outline"} className="rounded-[2px] text-md font-black">
+              <Card
+                key={item.id}
+                className='p-3 text-xl gap-y-3 font-mono *:rounded-lg w-36'>
+                <Badge
+                  variant={"outline"}
+                  className='rounded-[2px] text-md font-black'>
                   #{item.id}
                 </Badge>
                 <h1>{item.name}</h1>
-                <p className="bg-neutral-950/50 px-1 py-1.5">{item.age}</p>
+                <p className='bg-neutral-950/50 px-1 py-1.5'>{item.age}</p>
               </Card>
             ))}
           </div>
@@ -69,9 +73,8 @@ const ReactQuery = () => {
                 <Button
                   disabled={page <= 1}
                   variant={"default"}
-                  className="disabled:bg-neutral-900/50"
-                  onClick={() => setPage((prev) => prev - 1)}
-                >
+                  className='disabled:bg-neutral-900/50'
+                  onClick={() => setPage((prev) => prev - 1)}>
                   <ChevronLeft /> Previous
                 </Button>
               </PaginationItem>
@@ -94,20 +97,24 @@ const ReactQuery = () => {
                 <Button
                   disabled={page > +data?.length + 1}
                   variant={"default"}
-                  className="disabled:bg-neutral-900/50"
-                  onClick={() => setPage((prev) => prev + 1)}
-                >
+                  className='disabled:bg-neutral-900/50'
+                  onClick={() => setPage((prev) => prev + 1)}>
                   Next <ChevronRight />
                 </Button>
               </PaginationItem>
             </PaginationContent>
           </Pagination>
         </div>
-        <div className="flex items-center justify-center-safe">
-          <Button variant={"outline"} onClick={() => refetch()} className="m-5">
+        <div className='flex items-center justify-center-safe'>
+          <Button
+            variant={"outline"}
+            onClick={() => refetch()}
+            className='m-5'>
             REFETCH
           </Button>
-          <Badge variant={"outline"} className="text-lg px-4 font-black">
+          <Badge
+            variant={"outline"}
+            className='text-lg px-4 font-black'>
             {page}
           </Badge>
         </div>

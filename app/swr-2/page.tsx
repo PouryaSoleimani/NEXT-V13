@@ -15,7 +15,10 @@ type SingleUserType = {
   company?: { name: string; catchPhrase: string; bs: string };
 };
 
-const fetcher = () => axios.get("https://jsonplaceholder.typicode.com/users").then((res) => res.data);
+const fetcher = () =>
+  axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then((res) => res.data);
 
 function Swr2Page() {
   const {
@@ -51,7 +54,11 @@ function Swr2Page() {
         await axios.post("https://jsonplaceholder.typicode.com/users", newUser);
         return optimistic;
       },
-      { optimisticData: [...users, newUser], rollbackOnError: true, revalidate: true }
+      {
+        optimisticData: [...users, newUser],
+        rollbackOnError: true,
+        revalidate: true,
+      }
     );
   }
 
@@ -59,7 +66,9 @@ function Swr2Page() {
     <>
       <div className='grid grid-cols-4 gap-6 p-10'>
         {users.length > 0 &&
-          users?.map((user: SingleUserType) => <p className='bg-zinc-300 p-6 rounded-lg text-black'>{user.name}</p>)}
+          users?.map((user: SingleUserType) => (
+            <p className='bg-zinc-300 p-6 rounded-lg text-black'>{user.name}</p>
+          ))}
       </div>
       <div className='grid place-items-center border-t-4 border-zinc-600 pt-9'>
         <Button

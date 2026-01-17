@@ -1,7 +1,15 @@
-
 "use client";
 import React, { useState } from "react";
-import { closestCenter, closestCorners, DndContext, KeyboardSensor, PointerSensor, TouchSensor, useSensor, useSensors, } from "@dnd-kit/core";
+import {
+  closestCenter,
+  closestCorners,
+  DndContext,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import Column from "./_components/Column";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import CustomInput from "./_components/Input";
@@ -14,7 +22,8 @@ function DndKit2Page() {
     { id: 3, title: "Study" },
   ]);
 
-  const getTaskPosition = (id: any) => tasks.findIndex((task) => task.id === id);
+  const getTaskPosition = (id: any) =>
+    tasks.findIndex((task) => task.id === id);
 
   function addTask(title: string) {
     setTasks((tasks) => [...tasks, { id: tasks.length + 1, title }]);
@@ -39,14 +48,15 @@ function DndKit2Page() {
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(TouchSensor),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
-    })
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
 
   return (
-    <div className="screen flex-col gap-3 center p-3 bg-stone-400">
-      <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+    <div className='screen flex-col gap-3 center p-3 bg-stone-400'>
+      <DndContext
+        sensors={sensors}
+        onDragEnd={handleDragEnd}
+        collisionDetection={closestCorners}>
         <CustomInput onSubmit={addTask} />
         <Column tasks={tasks} />
       </DndContext>

@@ -85,7 +85,11 @@ const TsTrainingPage = () => {
     };
   }
 
-  function LowerCase(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  function LowerCase(
+    target: any,
+    methodName: string,
+    descriptor: PropertyDescriptor
+  ) {
     console.info("LOG FROM LOWERCASE", target, methodName, descriptor);
     methodName = "SPEAKING";
     console.info(descriptor.value);

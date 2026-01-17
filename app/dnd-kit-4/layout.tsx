@@ -10,6 +10,10 @@ export const metadata: Metadata = {
 };
 
 // COMPONENT
-export default async function DnDLayout({ children }: { children: ReactElement }) {
+export default async function DnDLayout({
+  children,
+}: {
+  children: ReactElement;
+}) {
   return <>{children}</>;
 }

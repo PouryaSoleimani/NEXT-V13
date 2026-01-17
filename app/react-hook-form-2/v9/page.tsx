@@ -24,7 +24,9 @@ const FormSchema1 = z.object({
 
 const FormSchema2 = z
   .object({
-    password: z.string("password is Required").min(4, "Password must be at least 4 letters"),
+    password: z
+      .string("password is Required")
+      .min(4, "Password must be at least 4 letters"),
     confirmPassword: z
       .string("ConfirmPassword is Required")
       .min(4, "Confirm password must be at least 4 letters "),
@@ -40,7 +42,10 @@ const FormSchema2 = z
   );
 
 const FormSchema3 = z.object({
-  acceptTerms: z.literal(true, "Please Accept the Privacy and Policy Terms To Continue"),
+  acceptTerms: z.literal(
+    true,
+    "Please Accept the Privacy and Policy Terms To Continue"
+  ),
 });
 
 const schemaByStep = { 1: FormSchema1, 2: FormSchema2, 3: FormSchema3 };
@@ -60,11 +65,20 @@ const ReactHookFormV9 = () => {
     mode: "onSubmit",
     reValidateMode: "onChange",
     resolver: zodResolver(schemaByStep[step] as keyof FormTypesV9),
-    defaultValues: { username: "", email: "", password: "", confirmPassword: "", acceptTerms: undefined },
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      acceptTerms: undefined,
+    },
   });
 
   function submitHandler() {
-    toast.loading("SUBMITTING FORM", { position: "top-center", id: "SUBMIT__TOAST" });
+    toast.loading("SUBMITTING FORM", {
+      position: "top-center",
+      id: "SUBMIT__TOAST",
+    });
     axios
       .get("https://jsonplaceholder.typicode.com/todos/2", { timeout: 5000 })
       .then((res) => {
@@ -87,8 +101,15 @@ const ReactHookFormV9 = () => {
           id: "SUBMIT__TOAST",
           style: { fontSize: "10px", borderBottom: "6px solid darkred" },
         });
-        methods.setError("acceptTerms", { message: `${err.message}`, type: "validate" });
-        console.info("%c Error :", "color: darkred , font-weight: bold", err.message);
+        methods.setError("acceptTerms", {
+          message: `${err.message}`,
+          type: "validate",
+        });
+        console.info(
+          "%c Error :",
+          "color: darkred , font-weight: bold",
+          err.message
+        );
         methods.reset({ acceptTerms: undefined }, { keepErrors: true });
       });
   }
@@ -116,7 +137,10 @@ const ReactHookFormV9 = () => {
     }
   }
 
-  const hasAccepted = useWatch({ control: methods.control, name: "acceptTerms" });
+  const hasAccepted = useWatch({
+    control: methods.control,
+    name: "acceptTerms",
+  });
 
   return (
     <div className='section center'>
@@ -131,14 +155,18 @@ const ReactHookFormV9 = () => {
                 name='username'
                 render={({ field }) => (
                   <div className='flex flex-col gap-2'>
-                    <Label className='capitalize'>{useCapitilize(field.name.toString())}</Label>
+                    <Label className='capitalize'>
+                      {useCapitilize(field.name.toString())}
+                    </Label>
                     <Input
                       type='text'
                       placeholder={field.name.toUpperCase()}
                       value={field.value}
                       onChange={field.onChange}
                       aria-invalid={
-                        !!methods.formState.errors[field.name as keyof typeof methods.formState.errors]
+                        !!methods.formState.errors[
+                          field.name as keyof typeof methods.formState.errors
+                        ]
                       }
                     />
                     <ErrorFieldV9 name={field.name} />
@@ -150,14 +178,18 @@ const ReactHookFormV9 = () => {
                 name='email'
                 render={({ field }) => (
                   <div className='flex flex-col gap-1.5'>
-                    <Label className='capitalize'>{useCapitilize(field.name.toString())}</Label>
+                    <Label className='capitalize'>
+                      {useCapitilize(field.name.toString())}
+                    </Label>
                     <Input
                       type='text'
                       placeholder={field.name.toUpperCase()}
                       value={field.value}
                       onChange={field.onChange}
                       aria-invalid={
-                        !!methods.formState.errors[field.name as keyof typeof methods.formState.errors]
+                        !!methods.formState.errors[
+                          field.name as keyof typeof methods.formState.errors
+                        ]
                       }
                     />
                     <ErrorFieldV9 name={field.name} />
@@ -168,8 +200,12 @@ const ReactHookFormV9 = () => {
                 variant={"blue"}
                 onClick={onNextHandler}
                 type='button'
-                disabled={!methods.formState.isValid || methods.formState.isSubmitting}
-                aria-disabled={!methods.formState.isValid || methods.formState.isSubmitting}
+                disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                aria-disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
                 className='flex items-start'>
                 NEXT STEP <ArrowRight />
               </Button>
@@ -189,7 +225,9 @@ const ReactHookFormV9 = () => {
                         onChange={field.onChange}
                         type={inputType}
                         aria-invalid={
-                          !!methods.formState.errors[field.name as keyof typeof methods.formState.errors]
+                          !!methods.formState.errors[
+                            field.name as keyof typeof methods.formState.errors
+                          ]
                         }
                       />
                       <button
@@ -214,7 +252,9 @@ const ReactHookFormV9 = () => {
                         onChange={field.onChange}
                         type={inputType2}
                         aria-invalid={
-                          !!methods.formState.errors[field.name as keyof typeof methods.formState.errors]
+                          !!methods.formState.errors[
+                            field.name as keyof typeof methods.formState.errors
+                          ]
                         }
                       />
                       <button
@@ -231,8 +271,12 @@ const ReactHookFormV9 = () => {
                 variant={"blue"}
                 onClick={onNextHandler}
                 type='button'
-                disabled={!methods.formState.isValid || methods.formState.isSubmitting}
-                aria-disabled={!methods.formState.isValid || methods.formState.isSubmitting}
+                disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                aria-disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
                 className='flex items-start'>
                 NEXT STEP <ArrowRight />
               </Button>
@@ -250,7 +294,10 @@ const ReactHookFormV9 = () => {
                       <Checkbox
                         checked={!!field.value}
                         onCheckedChange={field.onChange}
-                        className={cn("size-5", hasAccepted && "bg-emerald-800 border-emerald-900")}
+                        className={cn(
+                          "size-5",
+                          hasAccepted && "bg-emerald-800 border-emerald-900"
+                        )}
                       />
                     </div>
                     <ErrorFieldV9 name={field.name} />
@@ -258,8 +305,12 @@ const ReactHookFormV9 = () => {
                 )}
               />
               <Button
-                disabled={!methods.formState.isValid || methods.formState.isSubmitting}
-                aria-disabled={!methods.formState.isValid || methods.formState.isSubmitting}
+                disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
+                aria-disabled={
+                  !methods.formState.isValid || methods.formState.isSubmitting
+                }
                 type='submit'
                 variant={"success"}
                 className='w-full mt-0'>

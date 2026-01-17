@@ -16,9 +16,12 @@ const useTodoStore = create<TodoState>()(
   persist(
     (set) => ({
       todos: [],
-      addTodo: (todo: TodoType) => set((state) => ({ todos: [...state.todos, todo] })),
+      addTodo: (todo: TodoType) =>
+        set((state) => ({ todos: [...state.todos, todo] })),
       removeTodo: (id: number) =>
-        set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) })),
+        set((state) => ({
+          todos: state.todos.filter((todo) => todo.id !== id),
+        })),
       toggleCompleted: (id: number) =>
         set((state) => ({
           todos: state.todos.map((todo) =>
@@ -30,12 +33,19 @@ const useTodoStore = create<TodoState>()(
         set((state) => ({
           todos: [
             ...state.todos,
-            { id: crypto.randomUUID(), text: Math.random().toLocaleString(), completed: false },
+            {
+              id: crypto.randomUUID(),
+              text: Math.random().toLocaleString(),
+              completed: false,
+            },
           ] as any,
         })),
       toggleAllTodosComplete: () =>
         set((state) => ({
-          todos: state.todos.map((todo) => ({ ...todo, completed: !todo.completed })),
+          todos: state.todos.map((todo) => ({
+            ...todo,
+            completed: !todo.completed,
+          })),
         })),
     }),
     { name: "todo-storage", storage: createJSONStorage(() => localStorage) }

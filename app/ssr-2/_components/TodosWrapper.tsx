@@ -1,6 +1,11 @@
 import TodoItem from "./TodoItem";
 
-export type SingleTodoItem = { userId: number; id: number; title: string; completed: boolean };
+export type SingleTodoItem = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
 
 const TodosWrapper = ({ list }: { list: SingleTodoItem[] }) => {
   return (

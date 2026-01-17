@@ -1,6 +1,11 @@
 "use client";
 import { useState } from "react";
-import { DndContext, DragEndEvent, closestCenter, useDroppable } from "@dnd-kit/core";
+import {
+  DndContext,
+  DragEndEvent,
+  closestCenter,
+  useDroppable,
+} from "@dnd-kit/core";
 import { SortableContext, useSortable, arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
@@ -55,7 +60,8 @@ const droppableBase: React.CSSProperties = {
 
 //^ SORTABLES
 const SortableItem = ({ id }: { id: string }) => {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id });
 
   const style = {
     ...itemStyle,
@@ -64,14 +70,24 @@ const SortableItem = ({ id }: { id: string }) => {
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}>
       {id}
     </div>
   );
 };
 
 //^ DROPPABLE
-const DroppableArea = ({ id, children }: { id: string; children: React.ReactNode }) => {
+const DroppableArea = ({
+  id,
+  children,
+}: {
+  id: string;
+  children: React.ReactNode;
+}) => {
   const { setNodeRef, isOver } = useDroppable({ id });
 
   return (
@@ -80,8 +96,7 @@ const DroppableArea = ({ id, children }: { id: string; children: React.ReactNode
       style={{
         ...droppableBase,
         background: isOver ? "#1a3d1a" : droppableBase.background,
-      }}
-    >
+      }}>
       {children}
     </div>
   );
@@ -110,23 +125,30 @@ export default function DndKitPage() {
 
   return (
     <div style={{ padding: "24px", color: "white" }}>
-      <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+      <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}>
         <div style={{ display: "flex", gap: "32px" }}>
           {/* لیست اصلی */}
           <div>
             <SortableContext items={items}>
               {items.map((id) => (
-                <SortableItem key={id} id={id} />
+                <SortableItem
+                  key={id}
+                  id={id}
+                />
               ))}
             </SortableContext>
           </div>
 
           {/* ناحیه انجام شده */}
           <div>
-            <DroppableArea id="done-area">
+            <DroppableArea id='done-area'>
               <SortableContext items={doneItems}>
                 {doneItems.map((id) => (
-                  <div key={id} style={doneItemStyle}>
+                  <div
+                    key={id}
+                    style={doneItemStyle}>
                     {id}
                   </div>
                 ))}

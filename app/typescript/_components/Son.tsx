@@ -22,10 +22,10 @@ const Son: React.FC<SonPropsType> = ({ title, availables, isBlack, theme }) => {
     <div>
       <h2 style={styles}>STYLED FROM REACT</h2>
       <input
-        type="text"
+        type='text'
         ref={elem}
-        placeholder="TEXT"
-        className="text-black"
+        placeholder='TEXT'
+        className='text-black'
         value={value}
         onChange={(e) => setvalue(e.target.value)}
       />

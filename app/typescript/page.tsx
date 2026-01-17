@@ -15,13 +15,13 @@ const TypeScriptPage: React.FC = (): JSX.Element => {
   TypeScriptPage.displayName = "TS";
   return (
     <>
-      <div className="text-3xl font-bold p-6 text-center bg-blue-700 text-white my-6">
+      <div className='text-3xl font-bold p-6 text-center bg-blue-700 text-white my-6'>
         TypeScriptPage
       </div>
       <TodoComponent props={TodosList} />
       <UserComponent props={UsersList} />
       <Reducer />
-      <Translate toTranslate="error_tr" />
+      <Translate toTranslate='error_tr' />
       <Father />
       <Theme />
     </>

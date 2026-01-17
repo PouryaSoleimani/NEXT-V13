@@ -1,6 +1,14 @@
 function Logger(
   text: string,
-  type: "log" | "info" | "error" | "success" | "warning" | "pink" | "yellow" | "cyan",
+  type:
+    | "log"
+    | "info"
+    | "error"
+    | "success"
+    | "warning"
+    | "pink"
+    | "yellow"
+    | "cyan",
   param: any
 ) {
   console.info(

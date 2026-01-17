@@ -11,7 +11,11 @@ const TodoList = () => {
 
   return (
     <div className='my-5'>
-      <div className={cn("w-full h-full grid gap-2.5", todos.length && "grid grid-cols-4")}>
+      <div
+        className={cn(
+          "w-full h-full grid gap-2.5",
+          todos.length && "grid grid-cols-4"
+        )}>
         {todos.length ? (
           todos.map((todo) => (
             <Todo

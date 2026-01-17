@@ -5,7 +5,10 @@ import TodosWrapper from "./_components/TodosWrapper";
 import Loading from "../loading";
 
 const SsrPage2 = async () => {
-  const todos = await useServerSideFetcher("https://jsonplaceholder.typicode.com/todos", "default");
+  const todos = await useServerSideFetcher(
+    "https://jsonplaceholder.typicode.com/todos",
+    "default"
+  );
 
   return (
     <div className='py-10 center bg-black'>

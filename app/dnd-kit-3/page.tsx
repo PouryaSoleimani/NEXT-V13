@@ -30,7 +30,10 @@ const DndKit3Page = () => {
   }
 
   function addTask(title: string) {
-    setTasks((tasks) => [...tasks, { id: tasks.length + 1, title, icon: "⬜" }]);
+    setTasks((tasks) => [
+      ...tasks,
+      { id: tasks.length + 1, title, icon: "⬜" },
+    ]);
   }
 
   function handleDragEnd(event: any) {
@@ -53,15 +56,16 @@ const DndKit3Page = () => {
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(TouchSensor),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
-    })
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
 
   return (
-    <DndContext sensors={sensors} collisionDetection={closestCorners} onDragEnd={handleDragEnd}>
-      <div className="flex flex-col gap-3 items-center justify-start pt-[10%] screen">
-        <h2 className="text-2xl font-black bg-white text-black w-[320px] p-4 rounded-md text-center">
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCorners}
+      onDragEnd={handleDragEnd}>
+      <div className='flex flex-col gap-3 items-center justify-start pt-[10%] screen'>
+        <h2 className='text-2xl font-black bg-white text-black w-[320px] p-4 rounded-md text-center'>
           TODOS
         </h2>
         <CustomInput onSubmit={addTask} />

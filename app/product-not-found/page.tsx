@@ -18,7 +18,8 @@ export default function Page() {
         Product Not Found
       </h2>
       <p className='mt-4 tracking-tighter text-[14px] '>
-        Could not find requested Product , Try checking your spell checking and Try again ...
+        Could not find requested Product , Try checking your spell checking and
+        Try again ...
       </p>
       <button
         className='bg-blue-400/20 rounded-lg px-8 py-2 cursor-pointer transition-all duration-500 hover:bg-blue-500'

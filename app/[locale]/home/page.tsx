@@ -12,7 +12,9 @@ function NextInternationalPage() {
         {t("text")}
       </span>
       <div className='flex items-center gap-3'>
-        <button className='p-2 rounded-lg border-2 border-zinc-300 w-16 text-center bg-green-600'>EN</button>
+        <button className='p-2 rounded-lg border-2 border-zinc-300 w-16 text-center bg-green-600'>
+          EN
+        </button>
       </div>
     </div>
   );

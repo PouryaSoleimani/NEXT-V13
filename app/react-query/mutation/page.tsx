@@ -33,33 +33,31 @@ const Mutation = () => {
       {mutation.isPending ? (
         "Adding todo..."
       ) : (
-        <div className="center py-5">
+        <div className='center py-5'>
           <Button
             variant={"blue"}
             onClick={() => {
               mutation.mutate();
-            }}
-          >
+            }}>
             {" "}
             Create Todo{" "}
           </Button>
         </div>
       )}
-      <div className="center">
+      <div className='center'>
         {data?.length == 0 ? (
-          <div className="screen center">
-            <div className="flex gap-2 text-green-500 bg-black p-3 text-4xl rounded-lg">
+          <div className='screen center'>
+            <div className='flex gap-2 text-green-500 bg-black p-3 text-4xl rounded-lg'>
               <SquareCheckBig size={34} />
               All Tasks Done
             </div>
           </div>
         ) : (
-          <Card className="w-[90%] grid grid-cols-6 m-3 px-2">
+          <Card className='w-[90%] grid grid-cols-6 m-3 px-2'>
             {data?.map((item: any) => (
               <h2
                 key={item.id}
-                className="center mx-auto bg-black place-items-stretch gap-5 px-4 py-2 rounded-lg "
-              >
+                className='center mx-auto bg-black place-items-stretch gap-5 px-4 py-2 rounded-lg '>
                 {item.title} {item.isDone == true ? "✅" : "❌"}
               </h2>
             ))}

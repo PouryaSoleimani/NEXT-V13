@@ -84,9 +84,13 @@ function HeadlessUi() {
       {/* FORM */}
       <div className='w-full max-w-lg px-4'>
         <Fieldset className='space-y-6 rounded-xl bg-white/5 p-6 sm:p-10'>
-          <Legend className='text-base/7 font-semibold text-white'>Shipping details</Legend>
+          <Legend className='text-base/7 font-semibold text-white'>
+            Shipping details
+          </Legend>
           <Field>
-            <Label className='text-sm/6 font-medium text-white'>Street address</Label>
+            <Label className='text-sm/6 font-medium text-white'>
+              Street address
+            </Label>
             <Input
               className={clsx(
                 "mt-3 block w-full rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white",
@@ -120,7 +124,9 @@ function HeadlessUi() {
           </Field>
 
           <Field>
-            <Label className='text-sm/6 font-medium text-white'>Delivery notes</Label>
+            <Label className='text-sm/6 font-medium text-white'>
+              Delivery notes
+            </Label>
             <Description className='text-sm/6 text-white/50'>
               If you have a tiger, we'd like to know about it.
             </Description>

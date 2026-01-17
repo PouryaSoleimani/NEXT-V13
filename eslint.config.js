@@ -8,9 +8,7 @@ import nextPlugin from "@next/eslint-plugin-next";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
-  {
-    ignores: ["node_modules", ".next", "out", "dist"],
-  },
+  { ignores: ["node_modules", ".next", "out", "dist"] },
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
@@ -37,7 +35,10 @@ export default [
       ...nextPlugin.configs["core-web-vitals"].rules,
 
       // قوانین شخصی
-      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_" },
+      ],
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
       "no-unused-vars": "off",
@@ -47,19 +48,13 @@ export default [
       "prettier/prettier": "warn",
     },
 
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
+    settings: { react: { version: "detect" } },
   },
   {
     files: ["next.config.js", "*.config.js", "*.config.ts"], // فایل‌های config
     languageOptions: {
       parser: require("@typescript-eslint/parser"), // بدون project
     },
-    rules: {
-      "import/no-unresolved": "off",
-    },
+    rules: { "import/no-unresolved": "off" },
   },
 ];

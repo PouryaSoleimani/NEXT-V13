@@ -3,7 +3,14 @@ import * as _ from "lodash";
 import { StarIcon } from "lucide-react";
 import { take } from "lodash";
 
-import { array, users, products, falsyIncludedArray, array2, unpulledArray } from "./db";
+import {
+  array,
+  users,
+  products,
+  falsyIncludedArray,
+  array2,
+  unpulledArray,
+} from "./db";
 
 // COMPONENT ===============================================================================================================================================================================================================
 function LodashPage() {
@@ -67,7 +74,12 @@ function LodashPage() {
   const headItem = _.head(products);
   // console.info('headItem', headItem);
 
-  const getIndex = _.indexOf(users, { id: 3, name: "pourya", age: 32, active: false });
+  const getIndex = _.indexOf(users, {
+    id: 3,
+    name: "pourya",
+    age: 32,
+    active: false,
+  });
   // console.info('getIndex', getIndex);
 
   const intersectionArray = _.intersection(array, array2);

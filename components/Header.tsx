@@ -27,7 +27,8 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Hover Card",
     href: "/docs/primitives/hover-card",
-    description: "For sighted users to preview content available behind a link.",
+    description:
+      "For sighted users to preview content available behind a link.",
   },
   {
     title: "Progress",
@@ -56,54 +57,52 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Header() {
   return (
-    <section className="bg-black flex items-center justify-between px-6 py-1">
-      <div className="flex items-center gap-4 pl-16">
+    <section className='bg-black flex items-center justify-between px-6 py-1'>
+      <div className='flex items-center gap-4 pl-16'>
         <Image
-          src="/favicon-32x32.png"
-          alt="logo"
+          src='/favicon-32x32.png'
+          alt='logo'
           width={200}
           height={100}
-          className="bg-zinc-900 p-3 rounded-2xl basis-1/12"
+          className='bg-zinc-900 p-3 rounded-2xl basis-1/12'
         />
       </div>
-      <NavigationMenu className="basis-10/12">
-        <NavigationMenuList className="bg-black p-2 m-2">
+      <NavigationMenu className='basis-10/12'>
+        <NavigationMenuList className='bg-black p-2 m-2'>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Home</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
+              <ul className='grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
+                <li className='row-span-3'>
                   <NavigationMenuLink asChild>
                     <Link
-                      className="from-muted/50 hover:bg-zinc-900 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                      href="/"
-                    >
-                      <div className="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
-                      <p className="text-muted-foreground text-sm leading-tight">
+                      className='from-muted/50 hover:bg-zinc-900 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md'
+                      href='/'>
+                      <div className='mt-4 mb-2 text-lg font-medium'>
+                        shadcn/ui
+                      </div>
+                      <p className='text-muted-foreground text-sm leading-tight'>
                         Beautifully designed components built with Tailwind CSS.
                       </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>
                 <ListItem
-                  href="/docs"
-                  title="Introduction"
-                  className="hover:bg-zinc-900 p-2 rounded-xl"
-                >
+                  href='/docs'
+                  title='Introduction'
+                  className='hover:bg-zinc-900 p-2 rounded-xl'>
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
                 <ListItem
-                  href="/docs/installation"
-                  title="Installation"
-                  className="hover:bg-zinc-900 p-2 rounded-xl"
-                >
+                  href='/docs/installation'
+                  title='Installation'
+                  className='hover:bg-zinc-900 p-2 rounded-xl'>
                   How to install dependencies and structure your app.
                 </ListItem>
                 <ListItem
-                  href="/docs/primitives/typography"
-                  title="Typography"
-                  className="hover:bg-zinc-900 p-2 rounded-xl"
-                >
+                  href='/docs/primitives/typography'
+                  title='Typography'
+                  className='hover:bg-zinc-900 p-2 rounded-xl'>
                   Styles for headings, paragraphs, lists...etc
                 </ListItem>
               </ul>
@@ -113,14 +112,13 @@ export function Header() {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Components</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <ul className='grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
                 {components.map((component) => (
                   <ListItem
                     key={component.title}
                     title={component.title}
                     href={component.href}
-                    className="hover:bg-zinc-900 p-2 rounded-xl"
-                  >
+                    className='hover:bg-zinc-900 p-2 rounded-xl'>
                     {component.description}
                   </ListItem>
                 ))}
@@ -129,39 +127,45 @@ export function Header() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href="/docs">Docs</Link>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}>
+              <Link href='/docs'>Docs</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>List</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[300px] gap-4">
+              <ul className='grid w-[300px] gap-4'>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="#">
-                      <div className="hover:bg-zinc-900 p-2 rounded-xl">
-                        <div className="font-medium">Components</div>
-                        <div className="text-muted-foreground">
+                    <Link href='#'>
+                      <div className='hover:bg-zinc-900 p-2 rounded-xl'>
+                        <div className='font-medium'>Components</div>
+                        <div className='text-muted-foreground'>
                           Browse all components in the library.
                         </div>
                       </div>
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#">
-                      <div className="hover:bg-zinc-900 p-2 rounded-xl">
-                        <div className="font-medium">Documentation</div>
-                        <div className="text-muted-foreground">Learn how to use the library.</div>
+                    <Link href='#'>
+                      <div className='hover:bg-zinc-900 p-2 rounded-xl'>
+                        <div className='font-medium'>Documentation</div>
+                        <div className='text-muted-foreground'>
+                          Learn how to use the library.
+                        </div>
                       </div>
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#">
-                      <div className="hover:bg-zinc-900 p-2 rounded-xl">
-                        <div className="font-medium">Blog</div>
-                        <div className="text-muted-foreground">Read our latest blog posts.</div>
+                    <Link href='#'>
+                      <div className='hover:bg-zinc-900 p-2 rounded-xl'>
+                        <div className='font-medium'>Blog</div>
+                        <div className='text-muted-foreground'>
+                          Read our latest blog posts.
+                        </div>
                       </div>
                     </Link>
                   </NavigationMenuLink>
@@ -173,20 +177,26 @@ export function Header() {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="flex flex-col gap-4 w-[300px]">
-                <li className="flex flex-col gap-3">
+              <ul className='flex flex-col gap-4 w-[300px]'>
+                <li className='flex flex-col gap-3'>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded-xl">
+                    <Link
+                      href='#'
+                      className='hover:bg-zinc-900 p-2 rounded-xl'>
                       Components
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded-xl">
+                    <Link
+                      href='#'
+                      className='hover:bg-zinc-900 p-2 rounded-xl'>
                       Documentation
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="#" className="hover:bg-zinc-900 p-2 rounded-xl">
+                    <Link
+                      href='#'
+                      className='hover:bg-zinc-900 p-2 rounded-xl'>
                       Blocks
                     </Link>
                   </NavigationMenuLink>
@@ -198,31 +208,28 @@ export function Header() {
           <NavigationMenuItem>
             <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[200px] gap-4">
+              <ul className='grid w-[200px] gap-4'>
                 <li>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="#"
-                      className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl"
-                    >
-                      <HiBackspace className="w-6 h-6" />
+                      href='#'
+                      className='flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl'>
+                      <HiBackspace className='w-6 h-6' />
                       Backlog
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="#"
-                      className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl"
-                    >
+                      href='#'
+                      className='flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl'>
                       <CheckCheck />
                       To Do
                     </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="#"
-                      className="flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl"
-                    >
+                      href='#'
+                      className='flex-row items-center gap-2 flex my-3 hover:bg-zinc-900 p-2 rounded-xl'>
                       <CheckCircle2Icon />
                       Done
                     </Link>
@@ -233,9 +240,9 @@ export function Header() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <div className="flex items-center justify-center gap-6 basis-1/12">
-        <User2 className="size-9 bg-zinc-900 p-2 rounded-lg hover:bg-zinc-700 cursor-pointer" />
-        <LogInIcon className="size-9 bg-zinc-900 p-2 rounded-lg hover:bg-zinc-700 cursor-pointer" />
+      <div className='flex items-center justify-center gap-6 basis-1/12'>
+        <User2 className='size-9 bg-zinc-900 p-2 rounded-lg hover:bg-zinc-700 cursor-pointer' />
+        <LogInIcon className='size-9 bg-zinc-900 p-2 rounded-lg hover:bg-zinc-700 cursor-pointer' />
       </div>
     </section>
   );
@@ -251,8 +258,10 @@ function ListItem({
     <li {...props}>
       <NavigationMenuLink asChild>
         <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
+          <div className='text-sm leading-none font-medium'>{title}</div>
+          <p className='text-muted-foreground line-clamp-2 text-sm leading-snug'>
+            {children}
+          </p>
         </Link>
       </NavigationMenuLink>
     </li>

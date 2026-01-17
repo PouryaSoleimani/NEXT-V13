@@ -27,10 +27,16 @@ enum GENDER {
 
 const FormSchema = z
   .object({
-    username: z.string("Username cant be empty").min(1, "Username Can't be Empty"),
+    username: z
+      .string("Username cant be empty")
+      .min(1, "Username Can't be Empty"),
     email: z.email("Email Invalid").min(1, "Email can't be Empty"),
-    password: z.string("Please Set a Password").min(3, "Password must be at least 3 letters"),
-    confirmPassword: z.string("Please Confirm Your Password").min(3, "Password must be at least 3 letters"),
+    password: z
+      .string("Please Set a Password")
+      .min(3, "Password must be at least 3 letters"),
+    confirmPassword: z
+      .string("Please Confirm Your Password")
+      .min(3, "Password must be at least 3 letters"),
     hasAccept: z.boolean(),
     phonenumber: z
       .string("phonenumber cant be empty")
@@ -41,7 +47,9 @@ const FormSchema = z
   })
   .refine((data) => {
     if (!data.hasAccept) {
-      toast.error("Please Accept the terms to Continue", { position: "top-center" });
+      toast.error("Please Accept the terms to Continue", {
+        position: "top-center",
+      });
       return false;
     } else {
       return true;
@@ -58,18 +66,19 @@ const ReactHookForm3 = () => {
 
   type FormSchemaType = z.infer<typeof FormSchema>;
 
-  const { control, handleSubmit, formState, reset, watch } = useForm<FormSchemaType>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      email: "",
-      phonenumber: "",
-      username: "",
-      hasAccept: false,
-      gender: GENDER.male,
-      password: "",
-      confirmPassword: "",
-    },
-  });
+  const { control, handleSubmit, formState, reset, watch } =
+    useForm<FormSchemaType>({
+      resolver: zodResolver(FormSchema),
+      defaultValues: {
+        email: "",
+        phonenumber: "",
+        username: "",
+        hasAccept: false,
+        gender: GENDER.male,
+        password: "",
+        confirmPassword: "",
+      },
+    });
 
   // FUNCTIONS =========================================================================================================================================================================================================
   function submitHandler(data: FormSchemaType) {
@@ -77,7 +86,9 @@ const ReactHookForm3 = () => {
     toast.loading("SUBMITTING FORM ...", { position: "top-center" });
     setTimeout(() => {
       toast.dismiss();
-      toast.success("FORM SUBMITTED SUCCESFULLY ... ", { position: "top-center" });
+      toast.success("FORM SUBMITTED SUCCESFULLY ... ", {
+        position: "top-center",
+      });
     }, 1000);
     reset();
   }
@@ -313,7 +324,10 @@ const ReactHookForm3 = () => {
           id='SUBMIT___BUTTON'
           className='w-full border-t-2 border-neutral-700 pt-4'>
           <Button
-            disabled={Object.keys(formState.errors).length !== 0 || watch("hasAccept") == false}
+            disabled={
+              Object.keys(formState.errors).length !== 0 ||
+              watch("hasAccept") == false
+            }
             className='w-full bg-blue-950 hover:bg-blue-900 transition-all duration-300'>
             Submit
           </Button>

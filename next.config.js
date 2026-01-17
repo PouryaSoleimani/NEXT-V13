@@ -51,7 +51,5 @@ module.exports = withPWA({
     return config;
   },
 
-  images: {
-    remotePatterns: [],
-  },
+  images: { remotePatterns: [] },
 });

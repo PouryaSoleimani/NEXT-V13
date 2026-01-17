@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -17,20 +13,9 @@
     "jsx": "react-jsx",
     "incremental": true,
     "experimentalDecorators": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "baseUrl": "./",
-    "paths": {
-      "@/*": [
-        "*"
-      ],
-      "@/modules/*": [
-        "components/modules/*"
-      ]
-    },
+    "paths": { "@/*": ["*"], "@/modules/*": ["components/modules/*"] },
     "target": "ES2017"
   },
   "include": [
@@ -42,7 +27,5 @@
     "eslint.config.js",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

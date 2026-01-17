@@ -8,9 +8,15 @@ function PaginationSwr() {
   const [page, setPage] = useState(1);
   const [isValid, setIsValid] = useState<boolean>(false);
 
-  const SingleProductFetcher = () => axios.get(`https://fakestoreapi.com/products/${page}`).then((res) => res.data);
+  const SingleProductFetcher = () =>
+    axios
+      .get(`https://fakestoreapi.com/products/${page}`)
+      .then((res) => res.data);
 
-  const { data, isLoading, error } = useSWR(`https://fakestoreapi.com/products/${page}`, SingleProductFetcher);
+  const { data, isLoading, error } = useSWR(
+    `https://fakestoreapi.com/products/${page}`,
+    SingleProductFetcher
+  );
 
   useEffect(() => {
     if (page == 1) {
@@ -21,14 +27,14 @@ function PaginationSwr() {
 
   if (isLoading) {
     return (
-      <div className="section flex-col gap-8">
-        <h2 className="flex items-center gap-2 text-blue-900 bg-black p-3 rounded-xl">
-          <LoaderCircle className="animate-spin" /> LOADING
+      <div className='section flex-col gap-8'>
+        <h2 className='flex items-center gap-2 text-blue-900 bg-black p-3 rounded-xl'>
+          <LoaderCircle className='animate-spin' /> LOADING
         </h2>
       </div>
     );
   }
-  
+
   if (error || !data) {
     return (
       <div className='section flex-col gap-8'>
@@ -43,7 +49,7 @@ function PaginationSwr() {
       </div>
     );
   }
- 
+
   return (
     <div className='section flex-col gap-10'>
       <div className='bg-black p-6 rounded-xl border-b-8 border-zinc-500'>

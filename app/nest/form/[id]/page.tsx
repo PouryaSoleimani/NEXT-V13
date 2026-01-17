@@ -17,11 +17,20 @@ const NestForm = () => {
 
   const router = useRouter();
 
-  const _fetcher = () => axios.get(`http://localhost:5000/jojos/${params.id}`).then((res) => res.data);
+  const _fetcher = () =>
+    axios
+      .get(`http://localhost:5000/jojos/${params.id}`)
+      .then((res) => res.data);
 
-  const { data, mutate } = useSWR(`http://localhost:5000/jojos/${params.id}`, _fetcher);
+  const { data, mutate } = useSWR(
+    `http://localhost:5000/jojos/${params.id}`,
+    _fetcher
+  );
   const form = useForm({
-    defaultValues: { firstName: isEdit ? data?.firstName : "", age: isEdit ? data?.age : "" },
+    defaultValues: {
+      firstName: isEdit ? data?.firstName : "",
+      age: isEdit ? data?.age : "",
+    },
   });
 
   useEffect(() => {

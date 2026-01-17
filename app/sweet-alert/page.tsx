@@ -15,8 +15,10 @@ function SweetAlertPage() {
       color: "#fff",
       denyButtonColor: "#d83030",
       customClass: {
-        confirmButton: "!bg-black !w-32 inline-block hover:bg-white transition-all duration-300",
-        cancelButton: "!bg-red-900 !w-32 inline-block hover:bg-red-800 transition-all duration-300",
+        confirmButton:
+          "!bg-black !w-32 inline-block hover:bg-white transition-all duration-300",
+        cancelButton:
+          "!bg-red-900 !w-32 inline-block hover:bg-red-800 transition-all duration-300",
         title: "!font-black",
         container: "text-xl font-bold",
       },
@@ -28,7 +30,11 @@ function SweetAlertPage() {
     }).then((value) => {
       if (value.value) {
         console.info("VALUE ===>", value.value);
-        Swal.fire({ icon: "success", text: `SUCCESS ==> ${value.value}`, theme: "dark" });
+        Swal.fire({
+          icon: "success",
+          text: `SUCCESS ==> ${value.value}`,
+          theme: "dark",
+        });
       } else {
         console.info("REJECTED ===> ");
         Swal.fire({ icon: "error", text: "REJECTED", theme: "dark" });

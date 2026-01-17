@@ -4,8 +4,8 @@ import { Type } from "lucide-react";
 type TupleType = [string, number, boolean];
 const TupleArray: TupleType = ["STRING", 123, true];
 console.info(TupleArray);
-const Tuple2: TupleType = ["ALI", 234, false]; 
-console.info(Tuple2)
+const Tuple2: TupleType = ["ALI", 234, false];
+console.info(Tuple2);
 
 //^ FUNCTION PARAMATER TYPE ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________=
 type FuncType = (a: number, b: number) => number;
@@ -192,20 +192,42 @@ interface SimpleCarInterface {
   passengers: number;
 }
 interface CarInterface {
-  basicInfo: { model: string; color: string; brand: string; vehicleType: "SUV" | "SEDAN" | "SPORT" };
-  powerInfos: { hp: number; type: "RWD" | "FWD" | "AWD"; cylinderCount: 4 | 6 | 8 };
+  basicInfo: {
+    model: string;
+    color: string;
+    brand: string;
+    vehicleType: "SUV" | "SEDAN" | "SPORT";
+  };
+  powerInfos: {
+    hp: number;
+    type: "RWD" | "FWD" | "AWD";
+    cylinderCount: 4 | 6 | 8;
+  };
   optionsInfos: { isCoupe: boolean; isConvertible: boolean; doorsCount: 2 | 4 };
 }
 
 export const newCar2: CarInterface = {
-  basicInfo: { model: "M3", brand: "BMW", color: "BLACK", vehicleType: "SEDAN" },
+  basicInfo: {
+    model: "M3",
+    brand: "BMW",
+    color: "BLACK",
+    vehicleType: "SEDAN",
+  },
   optionsInfos: { isCoupe: false, isConvertible: false, doorsCount: 4 },
   powerInfos: { hp: 675, type: "AWD", cylinderCount: 6 },
 };
 
 interface KeyboardInterface {
-  basicInfos: { name: string; size: "MINI" | "MEDIUM" | "FULL-SIZE"; color: "BLACK" | "WHITE" };
-  additionalOptions: { hasRGB: boolean; isMechanical: boolean; switchColor: "RED" | "BLUE" | "BROWN" };
+  basicInfos: {
+    name: string;
+    size: "MINI" | "MEDIUM" | "FULL-SIZE";
+    color: "BLACK" | "WHITE";
+  };
+  additionalOptions: {
+    hasRGB: boolean;
+    isMechanical: boolean;
+    switchColor: "RED" | "BLUE" | "BROWN";
+  };
 }
 export const newKeyboard: KeyboardInterface = {
   basicInfos: { name: "RAZER", color: "BLACK", size: "MINI" },
@@ -235,24 +257,41 @@ export const newSimpleCar = new CarClass2("BENZ", "C350", "SEDAN", "BLACK", 4);
 type Admin = { name: string; course: string };
 type Teacher = { startDate: string; age: number };
 
-const firstTeacher: Admin & Teacher = { name: "ali", course: "math", startDate: "today", age: 32 };
+const firstTeacher: Admin & Teacher = {
+  name: "ali",
+  course: "math",
+  startDate: "today",
+  age: 32,
+};
 
 type firstResponseType = { id: number; title: string };
 type secondResponseType = { price: number; isAvailable: boolean };
-const response: firstResponseType & secondResponseType = { id: 1, title: "TITLE", price: 20, isAvailable: true };
+const response: firstResponseType & secondResponseType = {
+  id: 1,
+  title: "TITLE",
+  price: 20,
+  isAvailable: true,
+};
 console.info(response);
 
 //^ INDEX TYPES ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________=
-type FormValidationType = {
-  [input: string]: string;
-};
+type FormValidationType = { [input: string]: string };
 type IndexType2 = { [key: string]: string | number };
-const _result : IndexType2  = {title : 'title' , price : 21 , name : 'NAME' , count : 24}
-console.info(_result)
+const _result: IndexType2 = {
+  title: "title",
+  price: 21,
+  name: "NAME",
+  count: 24,
+};
+console.info(_result);
 
-const FormInfos: FormValidationType = { name: "ALI", age: "32", email: "ali@gmail.com", job: "developer" };
+const FormInfos: FormValidationType = {
+  name: "ALI",
+  age: "32",
+  email: "ali@gmail.com",
+  job: "developer",
+};
 console.info(FormInfos);
-
 
 //^ NAMESPACES  ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________=
 export namespace Saipa {
@@ -278,9 +317,12 @@ function LoggerFunction<T>(params: T): T {
   return params;
 }
 const logResult = LoggerFunction([1, 2, 3, 4]);
-console.info('LOG RESULT =>',logResult)
+console.info("LOG RESULT =>", logResult);
 
-function objectMerge<T extends object, U extends object>(obj1: T, obj2: U): T & U {
+function objectMerge<T extends object, U extends object>(
+  obj1: T,
+  obj2: U
+): T & U {
   return { ...obj1, ...obj2 };
 }
 
@@ -288,13 +330,15 @@ const object1 = { name: "pourya" };
 const object2 = { job: "developer" };
 const mergedOBJ = objectMerge(object1, object2);
 
-
-function objectMerger2<T extends Object, U extends Object>(object1: T, object2: U): T & U {
+function objectMerger2<T extends Object, U extends Object>(
+  object1: T,
+  object2: U
+): T & U {
   return { ...object1, ...object2 };
 }
 
 const _resultObject = objectMerger2({ id: 1 }, { name: " PORI" });
-console.info(_resultObject );
+console.info(_resultObject);
 
 function ArrayMaker<T, U>(param1: T, param2: U) {
   return [param1, param2];
@@ -302,14 +346,15 @@ function ArrayMaker<T, U>(param1: T, param2: U) {
 export const myArray = ArrayMaker("param1", "PArAM2");
 
 //^ EXTENDS ____________________________________________________________________________________________________________________=
-function StringConcater<T extends string, U extends string>(str1: T, str2: U): string {
+function StringConcater<T extends string, U extends string>(
+  str1: T,
+  str2: U
+): string {
   return str1.concat(str2);
 }
 
 const _resultStringConcat = StringConcater("PO", "RI");
 console.info(_resultStringConcat);
-
-
 
 export const concated = StringConcater("I LOVE", " DEMON");
 
@@ -351,12 +396,13 @@ interface UserData {
 
 async function fetchData<T>(url: string) {
   const req = await fetch(url);
-  const res: T = await req.json(); 
+  const res: T = await req.json();
   return res;
 }
 
-export const fetchResult: UserData = await fetchData<UserData>("https://jsonplaceholder.typicode.com/users/1");
-
+export const fetchResult: UserData = await fetchData<UserData>(
+  "https://jsonplaceholder.typicode.com/users/1"
+);
 
 //^ USEFUL EXAMPLES OF GENERICS ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 interface SingleUserInterface {
@@ -376,7 +422,9 @@ export default async function fetchUsersV2<T>(url: string) {
   }
 }
 
-const resultUsers = await fetchUsersV2<SingleUserInterface[]>("https://jsonplaceholder.typicode.com/users/1");
+const resultUsers = await fetchUsersV2<SingleUserInterface[]>(
+  "https://jsonplaceholder.typicode.com/users/1"
+);
 
 console.info("USERS RESULT ===> ", resultUsers ?? resultUsers);
 
@@ -408,12 +456,13 @@ interface UserMapInterface {
   email: string;
 }
 
-const UserExample: UserMapInterface = { username: "MAMAD", email: "mamad@gmail.com" };
+const UserExample: UserMapInterface = {
+  username: "MAMAD",
+  email: "mamad@gmail.com",
+};
 console.info(UserExample);
 
-type OptionaUserInterface<T> = {
-  [key in keyof T]?: T[key];
-};
+type OptionaUserInterface<T> = { [key in keyof T]?: T[key] };
 
 // UTILITY TYPES ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________===
 type UserType = { name: string; age: number };

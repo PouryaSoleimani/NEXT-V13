@@ -14,7 +14,9 @@ import React from "react";
 import useSWR, { mutate } from "swr";
 import { BiBasket, BiCategory } from "react-icons/bi";
 
-import useProductsFetch, { SingleProductType } from "../_hooks/useProductsFetch";
+import useProductsFetch, {
+  SingleProductType,
+} from "../_hooks/useProductsFetch";
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
@@ -23,8 +25,8 @@ function ProductsPage() {
 
   if (isLoading)
     return (
-      <div className="w-screen h-screen flex items-center justify-center">
-        <LoaderCircle className="size-12 animate-spin" />
+      <div className='w-screen h-screen flex items-center justify-center'>
+        <LoaderCircle className='size-12 animate-spin' />
       </div>
     );
   if (error) return <div>Error loading data</div>;

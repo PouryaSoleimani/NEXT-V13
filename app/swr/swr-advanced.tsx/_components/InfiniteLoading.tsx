@@ -12,9 +12,9 @@ const InfiniteLoading = () => {
   for (let i = 1; i < index; i++) {
     pages.push(<PageComponent index={i} />);
   }
- 
+
   const router = useRouter();
-  
+
   useEffect(() => {
     router.prefetch("https://fakestoreapi.com/products/1");
   }, []);

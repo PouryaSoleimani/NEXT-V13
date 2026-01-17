@@ -5,7 +5,12 @@ const AXIOS = axios.create({
   baseURL: "https://fakestoreapi.com",
   headers: { "Content-Type": "application/json" },
   timeout: 10000,
-  fetchOptions: { cache: "no-store", mode: "no-cors", credentials: "include", priority: "high" },
+  fetchOptions: {
+    cache: "no-store",
+    mode: "no-cors",
+    credentials: "include",
+    priority: "high",
+  },
   httpVersion: 2,
   env: "/.env",
 });
@@ -29,7 +34,11 @@ AXIOS.interceptors.request.use(
 // RESPONSE
 AXIOS.interceptors.response.use(
   (response) => {
-    console.log("✅ INTERCEPTOR RESPONSE CONFIG ===> WHEN OK ===>", response.status, response.statusText);
+    console.log(
+      "✅ INTERCEPTOR RESPONSE CONFIG ===> WHEN OK ===>",
+      response.status,
+      response.statusText
+    );
     return response;
   },
   (error) => {

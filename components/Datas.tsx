@@ -11,7 +11,7 @@ const Datas = async () => {
   //RETURN ___________________________________________________________________________________________________________________________________
   return (
     <div>
-      <ul className="w-full h-fit p-8 flex flex-col items-start justify-center space-y-6 text-2xl rounded-lg bg-zinc-900/50">
+      <ul className='w-full h-fit p-8 flex flex-col items-start justify-center space-y-6 text-2xl rounded-lg bg-zinc-900/50'>
         {response.map((user: userType) => (
           <li key={user.id}>
             {user.id} - {user.name} || {user.username}

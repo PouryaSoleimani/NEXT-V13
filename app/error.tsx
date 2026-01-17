@@ -3,7 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 
-export default function ErrorBoundary({ error, reset, }: { error: Error & { digest?: string }; reset: () => void; }) {
+export default function ErrorBoundary({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   // console.log("🟥🟥🟥 ERROR", error);
 
   return (
@@ -13,7 +19,9 @@ export default function ErrorBoundary({ error, reset, }: { error: Error & { dige
           <AlertTriangle className='text-red-500/70 text-xl' />
           {error.name}
         </p>
-        <p className='text-stone-200 text-2xl tracking-tighter'>{error.message}</p>
+        <p className='text-stone-200 text-2xl tracking-tighter'>
+          {error.message}
+        </p>
         <Button
           onClick={() => reset()}
           className='w-fit my-6'>

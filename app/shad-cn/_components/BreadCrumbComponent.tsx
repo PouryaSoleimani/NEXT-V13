@@ -20,12 +20,14 @@ import {
 
 const BreadCrumbComponent = () => {
   return (
-    <Breadcrumb className="px-3.5">
-      <BreadcrumbList className="flex! items-center! *:hover:text-white">
+    <Breadcrumb className='px-3.5'>
+      <BreadcrumbList className='flex! items-center! *:hover:text-white'>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/" className="flex items-center gap-1 justify-center">
-              <Home className="size-4" />
+            <Link
+              href='/'
+              className='flex items-center gap-1 justify-center'>
+              <Home className='size-4' />
               Home
             </Link>
           </BreadcrumbLink>
@@ -33,14 +35,14 @@ const BreadCrumbComponent = () => {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1">
-              <BreadcrumbEllipsis className="size-4" />
-              <span className="sr-only">
+            <DropdownMenuTrigger className='flex items-center gap-1'>
+              <BreadcrumbEllipsis className='size-4' />
+              <span className='sr-only'>
                 {" "}
                 <Menu /> Toggle menu{" "}
               </span>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
+            <DropdownMenuContent align='start'>
               <DropdownMenuItem>Documentation</DropdownMenuItem>
               <DropdownMenuItem>Themes</DropdownMenuItem>
               <DropdownMenuItem>GitHub</DropdownMenuItem>
@@ -50,7 +52,7 @@ const BreadCrumbComponent = () => {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/docs/components">Components</Link>
+            <Link href='/docs/components'>Components</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

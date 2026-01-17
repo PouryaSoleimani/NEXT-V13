@@ -15,7 +15,10 @@ function SwrPage() {
     data: users,
     isLoading,
     error,
-  } = useSWR("https://jsonplaceholder.typicode.com/users", fetcher, { loadingTimeout: 3000 , errorRetryCount:1 });
+  } = useSWR("https://jsonplaceholder.typicode.com/users", fetcher, {
+    loadingTimeout: 3000,
+    errorRetryCount: 1,
+  });
 
   const [usersLocal, setUsersLocal] = useState([]);
 

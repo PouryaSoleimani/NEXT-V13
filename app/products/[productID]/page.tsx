@@ -4,7 +4,9 @@ import BackButton from "@/components/BackButton";
 import CustomPageButton from "@/components/CustomPageButton";
 
 const DynamicProductPage = async ({ params }: any) => {
-  const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, { cache: "force-cache" });
+  const req = fetch(`https://fakestoreapi.com/products/${params.productID}`, {
+    cache: "force-cache",
+  });
   const product = await req.then((res) => res.json());
 
   return (

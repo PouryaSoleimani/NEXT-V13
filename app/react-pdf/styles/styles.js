@@ -36,9 +36,7 @@ export const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderBottomWidth: 0,
   },
-  row: {
-    flexDirection: "row",
-  },
+  row: { flexDirection: "row" },
   cell: {
     width: "33.33%",
     borderStyle: "solid",
@@ -47,10 +45,7 @@ export const styles = StyleSheet.create({
     padding: 8,
     fontSize: 12,
   },
-  header: {
-    backgroundColor: "#eeeeee",
-    fontWeight: "bold",
-  },
+  header: { backgroundColor: "#eeeeee", fontWeight: "bold" },
   infos: {
     flexDirection: "row",
     justifyContent: "space-around",

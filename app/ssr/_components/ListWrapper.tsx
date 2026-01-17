@@ -4,7 +4,11 @@ import ListItem from "./ListItem";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
-type SingleItem = { id: string | number; name: string; [key: string]: string | number };
+type SingleItem = {
+  id: string | number;
+  name: string;
+  [key: string]: string | number;
+};
 interface Props {
   list: SingleItem[];
 }

@@ -4,11 +4,16 @@ import { LoaderCircle } from "lucide-react";
 import Link from "next/link";
 import useSWR, { preload } from "swr";
 
-const _productsFetcher = () => axios.get("https://fakestoreapi.com/products").then((res) => res.data);
-const _singleFetcher = (id: number | string) => axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => res.data);
+const _productsFetcher = () =>
+  axios.get("https://fakestoreapi.com/products").then((res) => res.data);
+const _singleFetcher = (id: number | string) =>
+  axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => res.data);
 
 function page() {
-  const { data, isLoading } = useSWR("https://fakestoreapi.com/products", _productsFetcher);
+  const { data, isLoading } = useSWR(
+    "https://fakestoreapi.com/products",
+    _productsFetcher
+  );
 
   if (isLoading)
     return (

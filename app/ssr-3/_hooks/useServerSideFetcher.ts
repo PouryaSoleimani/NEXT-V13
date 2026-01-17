@@ -5,7 +5,10 @@ interface Props {
 }
 
 const useServerSideFetcher = async ({ url, cache, revalidate }: Props) => {
-  const res = await fetch(url, { cache: cache, next: { revalidate: revalidate ? revalidate : undefined } });
+  const res = await fetch(url, {
+    cache: cache,
+    next: { revalidate: revalidate ? revalidate : undefined },
+  });
   const data = await res.json();
   return data;
 };

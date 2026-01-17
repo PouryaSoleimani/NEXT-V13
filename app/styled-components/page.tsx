@@ -1,7 +1,11 @@
 "use client";
 import { Moon, Sun } from "lucide-react";
 import React, { useState } from "react";
-import styled, { createGlobalStyle, ThemeProvider, useTheme } from "styled-components";
+import styled, {
+  createGlobalStyle,
+  ThemeProvider,
+  useTheme,
+} from "styled-components";
 
 const Button: any = styled.button`
   background-color: ${(props: any) =>
@@ -24,8 +28,14 @@ const Button: any = styled.button`
   font-weight: 700;
   padding: 0 10px;
   font-size: 16px;
-  color: ${(props: any) => (props.variant === "outline" ? "#aaa" : props.variant === "black" ? "white" : "black")};
-  border: ${(props: any) => (props.variant === "outline" ? "2px solid #aaa" : "none")};
+  color: ${(props: any) =>
+    props.variant === "outline"
+      ? "#aaa"
+      : props.variant === "black"
+        ? "white"
+        : "black"};
+  border: ${(props: any) =>
+    props.variant === "outline" ? "2px solid #aaa" : "none"};
 `;
 
 const SecondButton = styled(Button).attrs({ type: "submit", as: "a" })`
@@ -53,17 +63,9 @@ button {
 }
 `;
 
-const Dark = {
-  title: "DARK",
-  background: "black",
-  color: "white",
-};
+const Dark = { title: "DARK", background: "black", color: "white" };
 
-const Light = {
-  title: "LIGHT",
-  background: "white",
-  color: "black",
-};
+const Light = { title: "LIGHT", background: "white", color: "black" };
 
 const Section = styled.section`
   width: 90vw;
@@ -87,27 +89,28 @@ function StyledComponentsPage() {
     <>
       <GlobalStyles />
       <ThemeProvider theme={theme}>
-        <div className="flex flex-col items-center gap-4 p-10">
-          <div className="flex items-center gap-3">
-            <Button variant="success">SUCCESS</Button>
-            <Button variant="outline">OUTLINE</Button>
-            <Button variant="danger">DANGER</Button>
-            <Button variant="warning">WARNING</Button>
-            <Button variant="info">INFO</Button>
-            <Button variant="black">BLACK</Button>
-            <Button variant="white">WHITE</Button>
-            <SecondButton href="/" variant="black">
+        <div className='flex flex-col items-center gap-4 p-10'>
+          <div className='flex items-center gap-3'>
+            <Button variant='success'>SUCCESS</Button>
+            <Button variant='outline'>OUTLINE</Button>
+            <Button variant='danger'>DANGER</Button>
+            <Button variant='warning'>WARNING</Button>
+            <Button variant='info'>INFO</Button>
+            <Button variant='black'>BLACK</Button>
+            <Button variant='white'>WHITE</Button>
+            <SecondButton
+              href='/'
+              variant='black'>
               {" "}
               WHITE{" "}
             </SecondButton>
             <button>CLICK ME</button>
           </div>
-          <div className="flex m-0 text-2xl font-black pl-8 items-center justify-between w-full px-5">
+          <div className='flex m-0 text-2xl font-black pl-8 items-center justify-between w-full px-5'>
             <h2>{theme.title}</h2>
             <Button
               variant={theme.title == "DARK" ? "black" : "white"}
-              onClick={() => setTheme(theme === Dark ? Light : Dark)}
-            >
+              onClick={() => setTheme(theme === Dark ? Light : Dark)}>
               {theme.title == "DARK" ? <Sun /> : <Moon />}
             </Button>
           </div>

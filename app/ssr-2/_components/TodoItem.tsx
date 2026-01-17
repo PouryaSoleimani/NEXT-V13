@@ -6,7 +6,9 @@ const TodoItem = ({ todoItem }: { todoItem: SingleTodoItem }) => {
       <p>
         {todoItem.id} - {todoItem.title.slice(0, 30)}
       </p>
-      <span className='border-l-2  pl-4 border-stone-700'>{todoItem.completed ? "✔" : "𐄂"} </span>
+      <span className='border-l-2  pl-4 border-stone-700'>
+        {todoItem.completed ? "✔" : "𐄂"}{" "}
+      </span>
     </div>
   );
 };

@@ -2,7 +2,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-type SingleProductType = { id: number; title: string; price: number; isAvailable: boolean };
+type SingleProductType = {
+  id: number;
+  title: string;
+  price: number;
+  isAvailable: boolean;
+};
 
 const AllProductsPage = () => {
   const [AllProducts, setAllProducts] = useState<SingleProductType[]>([]);
@@ -39,5 +44,3 @@ const AllProductsPage = () => {
 };
 
 export default AllProductsPage;
-
-

@@ -7,8 +7,10 @@ function ReactSpinners() {
   const [color, setColor] = useState("#ffffff");
 
   return (
-    <div className="sweet-loading flex flex-col items-center">
-      <button onClick={() => setLoading(!loading)} className="btn mx-auto my-10">
+    <div className='sweet-loading flex flex-col items-center'>
+      <button
+        onClick={() => setLoading(!loading)}
+        className='btn mx-auto my-10'>
         Toggle Loader
       </button>
       <ClipLoader
@@ -16,9 +18,9 @@ function ReactSpinners() {
         loading={loading}
         speedMultiplier={0.8}
         size={35}
-        className="stroke-3"
-        aria-label="Loading Spinner"
-        data-testid="loader"
+        className='stroke-3'
+        aria-label='Loading Spinner'
+        data-testid='loader'
       />
     </div>
   );

@@ -25,7 +25,10 @@ enum GENDER {
 
 const FormSchema = z
   .object({
-    username: z.string().min(1, "username can't be empty").max(20, "username must have maximum 20 letters"),
+    username: z
+      .string()
+      .min(1, "username can't be empty")
+      .max(20, "username must have maximum 20 letters"),
     email: z.email("Email is Invalid"),
     password: z.string().min(8, "Password must be atleast 8 letters"),
     confirmPassword: z.string().min(8, "Password must be atleast 8 letters"),
@@ -35,7 +38,10 @@ const FormSchema = z
       .regex(/^\d+$/, "Phonenumber must be only Digits")
       .min(7, "phonenumber must be at least 7 letters")
       .optional(),
-    gender: z.enum([GENDER.female, GENDER.male, GENDER.other], "Please Select a Gender "),
+    gender: z.enum(
+      [GENDER.female, GENDER.male, GENDER.other],
+      "Please Select a Gender "
+    ),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't Match ...",
@@ -75,9 +81,8 @@ const ReactHookFormV2 = () => {
 
   type FormTypes = z.infer<typeof FormSchema>;
 
-  const { register, formState, handleSubmit, watch, control, reset } = useForm<FormTypes>({
-    resolver: zodResolver(FormSchema),
-  });
+  const { register, formState, handleSubmit, watch, control, reset } =
+    useForm<FormTypes>({ resolver: zodResolver(FormSchema) });
 
   function submitHandler(data: FormTypes) {
     console.info(data);

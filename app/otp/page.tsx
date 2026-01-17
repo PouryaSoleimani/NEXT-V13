@@ -13,12 +13,18 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import Logger from "@/hooks/Logger";
 import { InfoIcon } from "lucide-react";
 
 const FormSchema = z.object({
-  pin: z.string().min(6, { message: "Your one-time password must be 6 characters." }),
+  pin: z
+    .string()
+    .min(6, { message: "Your one-time password must be 6 characters." }),
 });
 
 export default function InputOTPForm() {
@@ -31,7 +37,9 @@ export default function InputOTPForm() {
   function onSubmit(data: z.infer<typeof FormSchema>) {
     Logger("OTP", "log", data);
     form.reset();
-    toast(`CODE : ${data.pin}`, { style: { fontWeight: 900, fontSize: "15px" } });
+    toast(`CODE : ${data.pin}`, {
+      style: { fontWeight: 900, fontSize: "15px" },
+    });
   }
 
   return (

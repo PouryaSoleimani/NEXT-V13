@@ -1,6 +1,14 @@
 "use client";
 import React from "react";
-import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
+import {
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar,
+} from "recharts";
 
 import { Card } from "@/components/ui/card";
 const RechartsPage = () => {
@@ -14,17 +22,29 @@ const RechartsPage = () => {
     { year: "2022", angular: "41", vue: "52", react: "71" },
   ];
   return (
-    <div className="w-screen h-screen grid place-items-center-safe">
-      <Card className="bg-black/30 p-3 ">
-        <BarChart width={730} height={250} data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="year" />
+    <div className='w-screen h-screen grid place-items-center-safe'>
+      <Card className='bg-black/30 p-3 '>
+        <BarChart
+          width={730}
+          height={250}
+          data={data}>
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='year' />
           <YAxis />
           <Tooltip contentStyle={{ backgroundColor: "black" }} />
           <Legend />
-          <Bar dataKey="vue" fill="#17f16b" />
-          <Bar dataKey="react" fill="#4036f9" />
-          <Bar dataKey="angular" fill="#fb0f0f" />
+          <Bar
+            dataKey='vue'
+            fill='#17f16b'
+          />
+          <Bar
+            dataKey='react'
+            fill='#4036f9'
+          />
+          <Bar
+            dataKey='angular'
+            fill='#fb0f0f'
+          />
         </BarChart>
       </Card>
     </div>

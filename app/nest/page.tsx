@@ -7,13 +7,18 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 function Users() {
-  const _fetcher = () => axios.get("http://localhost:5000/jojos/all").then((res) => res.data);
+  const _fetcher = () =>
+    axios.get("http://localhost:5000/jojos/all").then((res) => res.data);
 
   const router = useRouter();
 
-  const { data, isLoading, error } = useSWR("http://localhost:5000/jojos/all/", _fetcher);
+  const { data, isLoading, error } = useSWR(
+    "http://localhost:5000/jojos/all/",
+    _fetcher
+  );
 
-  const deleter = (id: number) => axios.delete(`http://localhost:5000/jojos/${id}`).then((res) => res.data);
+  const deleter = (id: number) =>
+    axios.delete(`http://localhost:5000/jojos/${id}`).then((res) => res.data);
 
   const { mutate } = useSWR("http://localhost:5000/jojos/all/", deleter);
 
@@ -35,7 +40,9 @@ function Users() {
             <div
               key={item.id}
               className='bg-black p-3 rounded-xl size-44  text-center hover:scale-105 duration-500'>
-              <CardHeader className='border-b-2 pb-2'>{item.firstName.toUpperCase()}</CardHeader>
+              <CardHeader className='border-b-2 pb-2'>
+                {item.firstName.toUpperCase()}
+              </CardHeader>
               <CardContent className='flex flex-col justify-center items-center gap-y-5 mt-6'>
                 <p
                   className={cn(

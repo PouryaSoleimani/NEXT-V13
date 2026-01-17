@@ -1,7 +1,12 @@
 "use client";
 import { NextPage } from "next";
 import React, { useState } from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -97,7 +102,13 @@ import {
   FieldSet,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -139,7 +150,9 @@ const ReviewPage: NextPage<PropsType> = () => {
   // STATES
   const [isShowAlert, setIsShowAlert] = useState(false);
   const [isShowCard, setIsShowCard] = useState(false);
-  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));
+  const [date, setDate] = React.useState<Date | undefined>(
+    new Date(2025, 5, 12)
+  );
   const [goal, setGoal] = React.useState(350);
 
   // FUNCTIONS
@@ -164,7 +177,9 @@ const ReviewPage: NextPage<PropsType> = () => {
         className='border-2 border-stone-800 rounded-xl px-4 min-w-86 gap-y-2 transition-all duration-300'>
         <AccordionItem value='item-1'>
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+          <AccordionContent>
+            Yes. It adheres to the WAI-ARIA design pattern.
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value='item-2'>
           <AccordionTrigger>Can I use Shad_Cn ? </AccordionTrigger>
@@ -181,12 +196,14 @@ const ReviewPage: NextPage<PropsType> = () => {
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your account and remove your data
-              from our servers.
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className='bg-red-900 border-red-950 cursor-pointer'>Cancel</AlertDialogCancel>
+            <AlertDialogCancel className='bg-red-900 border-red-950 cursor-pointer'>
+              Cancel
+            </AlertDialogCancel>
             <AlertDialogAction
               onClick={alertShowHandler}
               className='bg-stone-200 border-stone-400 text-stone-900 hover:text-white hover:bg-emerald-900 cursor-pointer'>
@@ -201,7 +218,9 @@ const ReviewPage: NextPage<PropsType> = () => {
         <Alert className='absolute z-999 right-10 bottom-30  w-fit bg-emerald-900/30 border-emerald-900 text-stone-200 leading-8'>
           <CheckCircle2Icon className='size-7! -translate-x-2 translate-y-3.5!' />
           <AlertTitle>Success! Your changes have been saved</AlertTitle>
-          <AlertDescription>This is an alert with icon, title and description.</AlertDescription>
+          <AlertDescription>
+            This is an alert with icon, title and description.
+          </AlertDescription>
         </Alert>
       )}
 
@@ -238,9 +257,15 @@ const ReviewPage: NextPage<PropsType> = () => {
               <DropdownMenuContent
                 align='start'
                 className='bg-black'>
-                <DropdownMenuItem className='hover:bg-stone-800'>Documentation</DropdownMenuItem>
-                <DropdownMenuItem className='hover:bg-stone-800'>Themes</DropdownMenuItem>
-                <DropdownMenuItem className='hover:bg-stone-800'>GitHub</DropdownMenuItem>
+                <DropdownMenuItem className='hover:bg-stone-800'>
+                  Documentation
+                </DropdownMenuItem>
+                <DropdownMenuItem className='hover:bg-stone-800'>
+                  Themes
+                </DropdownMenuItem>
+                <DropdownMenuItem className='hover:bg-stone-800'>
+                  GitHub
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </BreadcrumbItem>
@@ -278,7 +303,9 @@ const ReviewPage: NextPage<PropsType> = () => {
         <Card className='w-full max-w-sm my-10 bg-black'>
           <CardHeader>
             <CardTitle>Login to your account</CardTitle>
-            <CardDescription>Enter your email below to login to your account</CardDescription>
+            <CardDescription>
+              Enter your email below to login to your account
+            </CardDescription>
             <CardAction>
               <Button variant='blue'>Sign Up</Button>
             </CardAction>
@@ -380,15 +407,21 @@ const ReviewPage: NextPage<PropsType> = () => {
           </ContextMenuSub>
 
           <ContextMenuSeparator className='bg-stone-800' />
-          <ContextMenuCheckboxItem checked>Show Bookmarks</ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem checked>Show Full URLs</ContextMenuCheckboxItem>
+          <ContextMenuCheckboxItem checked>
+            Show Bookmarks
+          </ContextMenuCheckboxItem>
+          <ContextMenuCheckboxItem checked>
+            Show Full URLs
+          </ContextMenuCheckboxItem>
           <ContextMenuSeparator className='bg-stone-800' />
           <ContextMenuRadioGroup value='colm'>
             <ContextMenuLabel className='flex items-center gap-2 font-bold'>
               <Users2Icon className='size-4' />
               People
             </ContextMenuLabel>
-            <ContextMenuRadioItem value='pedro'>Pedro Duarte</ContextMenuRadioItem>
+            <ContextMenuRadioItem value='pedro'>
+              Pedro Duarte
+            </ContextMenuRadioItem>
             <ContextMenuRadioItem value='colm'>Colm Tuite</ContextMenuRadioItem>
           </ContextMenuRadioGroup>
         </ContextMenuContent>
@@ -407,7 +440,9 @@ const ReviewPage: NextPage<PropsType> = () => {
           <div className='mx-auto font-bold w-full max-w-sm '>
             <DrawerHeader>
               <DrawerTitle>Move Goal</DrawerTitle>
-              <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+              <DrawerDescription>
+                Set your daily activity goal.
+              </DrawerDescription>
             </DrawerHeader>
             <div className='p-4 pb-0'>
               <div className='flex items-center justify-center space-x-2'>
@@ -421,8 +456,12 @@ const ReviewPage: NextPage<PropsType> = () => {
                   <span className='sr-only'>Decrease</span>
                 </Button>
                 <div className='flex-1 text-center'>
-                  <div className='text-7xl font-bold tracking-tighter'>{goal}</div>
-                  <div className='text-muted-foreground text-[0.70rem] uppercase'>Calories/day</div>
+                  <div className='text-7xl font-bold tracking-tighter'>
+                    {goal}
+                  </div>
+                  <div className='text-muted-foreground text-[0.70rem] uppercase'>
+                    Calories/day
+                  </div>
                 </div>
                 <Button
                   variant='outline'
@@ -442,7 +481,9 @@ const ReviewPage: NextPage<PropsType> = () => {
                   <BarChart data={data}>
                     <Bar
                       dataKey='goal'
-                      style={{ fill: "#fabb14", opacity: 0.9 } as React.CSSProperties}
+                      style={
+                        { fill: "#fabb14", opacity: 0.9 } as React.CSSProperties
+                      }
                     />
                   </BarChart>
                 </ResponsiveContainer>
@@ -464,10 +505,14 @@ const ReviewPage: NextPage<PropsType> = () => {
           <FieldGroup>
             <FieldSet>
               <FieldLegend>Payment Method</FieldLegend>
-              <FieldDescription>All transactions are secure and encrypted</FieldDescription>
+              <FieldDescription>
+                All transactions are secure and encrypted
+              </FieldDescription>
               <FieldGroup>
                 <Field>
-                  <FieldLabel htmlFor='checkout-7j9-card-name-43j'>Name on Card</FieldLabel>
+                  <FieldLabel htmlFor='checkout-7j9-card-name-43j'>
+                    Name on Card
+                  </FieldLabel>
                   <Input
                     id='checkout-7j9-card-name-43j'
                     placeholder='Evil Rabbit'
@@ -475,17 +520,23 @@ const ReviewPage: NextPage<PropsType> = () => {
                   />
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor='checkout-7j9-card-number-uw1'>Card Number</FieldLabel>
+                  <FieldLabel htmlFor='checkout-7j9-card-number-uw1'>
+                    Card Number
+                  </FieldLabel>
                   <Input
                     id='checkout-7j9-card-number-uw1'
                     placeholder='1234 5678 9012 3456'
                     required
                   />
-                  <FieldDescription>Enter your 16-digit card number</FieldDescription>
+                  <FieldDescription>
+                    Enter your 16-digit card number
+                  </FieldDescription>
                 </Field>
                 <div className='grid grid-cols-3 gap-4'>
                   <Field>
-                    <FieldLabel htmlFor='checkout-exp-month-ts6'>Month</FieldLabel>
+                    <FieldLabel htmlFor='checkout-exp-month-ts6'>
+                      Month
+                    </FieldLabel>
                     <Select defaultValue=''>
                       <SelectTrigger id='checkout-exp-month-ts6'>
                         <SelectValue placeholder='MM' />
@@ -507,7 +558,9 @@ const ReviewPage: NextPage<PropsType> = () => {
                     </Select>
                   </Field>
                   <Field>
-                    <FieldLabel htmlFor='checkout-7j9-exp-year-f59'>Year</FieldLabel>
+                    <FieldLabel htmlFor='checkout-7j9-exp-year-f59'>
+                      Year
+                    </FieldLabel>
                     <Select defaultValue=''>
                       <SelectTrigger id='checkout-7j9-exp-year-f59'>
                         <SelectValue placeholder='YYYY' />
@@ -536,7 +589,9 @@ const ReviewPage: NextPage<PropsType> = () => {
             <FieldSeparator className='bg-stone-800 h-1' />
             <FieldSet>
               <FieldLegend>Billing Address</FieldLegend>
-              <FieldDescription>The billing address associated with your payment method</FieldDescription>
+              <FieldDescription>
+                The billing address associated with your payment method
+              </FieldDescription>
               <FieldGroup>
                 <Field orientation='horizontal'>
                   <Checkbox
@@ -555,7 +610,9 @@ const ReviewPage: NextPage<PropsType> = () => {
             <FieldSet>
               <FieldGroup>
                 <Field>
-                  <FieldLabel htmlFor='checkout-7j9-optional-comments'>Comments</FieldLabel>
+                  <FieldLabel htmlFor='checkout-7j9-optional-comments'>
+                    Comments
+                  </FieldLabel>
                   <Textarea
                     id='checkout-7j9-optional-comments'
                     placeholder='Add any additional comments'
@@ -660,7 +717,9 @@ const ReviewPage: NextPage<PropsType> = () => {
           />
           <MenubarContent className='bg-black'>
             <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-            <MenubarCheckboxItem checked>Always Show Full URLs</MenubarCheckboxItem>
+            <MenubarCheckboxItem checked>
+              Always Show Full URLs
+            </MenubarCheckboxItem>
             <MenubarSeparator />
             <MenubarItem inset>
               Reload <MenubarShortcut>⌘R</MenubarShortcut>
@@ -708,7 +767,8 @@ const ReviewPage: NextPage<PropsType> = () => {
           <SheetHeader>
             <SheetTitle>Edit profile</SheetTitle>
             <SheetDescription>
-              Make changes to your profile here. Click save when you&apos;re done.
+              Make changes to your profile here. Click save when you&apos;re
+              done.
             </SheetDescription>
           </SheetHeader>
           <div className='grid flex-1 auto-rows-min gap-6 px-4'>

@@ -7,9 +7,15 @@ import { cn } from "@/lib/utils";
 
 function SingleUser() {
   const params = useParams();
-  const _fetcher = () => axios.get(`http://localhost:5000/jojos/${params.ID}`).then((res) => res.data);
+  const _fetcher = () =>
+    axios
+      .get(`http://localhost:5000/jojos/${params.ID}`)
+      .then((res) => res.data);
 
-  const { data, isLoading, error } = useSWR(`http://localhost:5000/jojos/${params.ID}`, _fetcher);
+  const { data, isLoading, error } = useSWR(
+    `http://localhost:5000/jojos/${params.ID}`,
+    _fetcher
+  );
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -18,7 +24,9 @@ function SingleUser() {
     <div className='w-fit mx-auto h-auto grid place-items-center-safe'>
       <Card className='p-7 my-1 grid place-items-center-safe mt-10'>
         <div className='bg-black p-3 rounded-xl size-44  text-center hover:scale-105 duration-500'>
-          <CardHeader className='border-b-2 pb-2'>{data.name?.toUpperCase()}</CardHeader>
+          <CardHeader className='border-b-2 pb-2'>
+            {data.name?.toUpperCase()}
+          </CardHeader>
           <CardContent className='flex flex-col justify-center items-center gap-y-5 mt-6'>
             <p
               className={cn(

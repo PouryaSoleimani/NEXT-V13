@@ -1,12 +1,13 @@
 "use client";
 import axios, { AxiosError } from "axios";
 import { AlertTriangle, LoaderCircle, LoaderIcon } from "lucide-react";
-import  { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { BiErrorCircle, BiSolidErrorCircle } from "react-icons/bi";
 import useSWR, { mutate } from "swr";
 
-const fetcher = () => axios.get("https://fakestoreapi.com/products").then((res) => res.data);
+const fetcher = () =>
+  axios.get("https://fakestoreapi.com/products").then((res) => res.data);
 
 function Mutate2() {
   const [validated] = useState(true);
@@ -107,7 +108,7 @@ function Mutate2() {
         className='bg-emerald-900 mx-24 mt-4 h-16 w-44 rounded-xl border-4 border-white'>
         ADD
       </button>
-    
+
       <div className='w-[90%] mx-auto my-4 gap-3 grid grid-cols-6 '>
         {data?.map((product: any) => (
           <div

@@ -18,9 +18,13 @@ const ServerComponent = async () => {
   return (
     <>
       <div>
-        <h1 className='bg-lime-700 text-4xl font-bold p-4 text-center'>ServerComponent</h1>
+        <h1 className='bg-lime-700 text-4xl font-bold p-4 text-center'>
+          ServerComponent
+        </h1>
       </div>
-      <h2 className='w-fit bg-yellow-400 text-black p-2 text-2xl font-bold my-2 ml-2'>USERS :</h2>
+      <h2 className='w-fit bg-yellow-400 text-black p-2 text-2xl font-bold my-2 ml-2'>
+        USERS :
+      </h2>
 
       <div>
         {response.map((user: FormProps) => (
