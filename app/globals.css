@@ -41,6 +41,17 @@ html {
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+  --border-radius: 0.875rem;
+  --full-width: 75rem;
+  --full-width-padding-inline: calc(max(100% - var(--full-width), 2rem) / 2);
+  --animation-duration-fast: 0.1s;
+  --animation-duration-normal: 0.5s;
+  --animation-duration-slow: 1s;
+  --brand-color: #fabb14;
+}
+
+html {
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -224,6 +235,22 @@ tfoot th {
   }
   .sheet-close {
     animation: sheet-out 0.24s ease forwards;
+  }
+
+  .w-full-width {
+    width: var(--full-width);
+  }
+
+  .w-full-width-with-padding {
+    width: var(--full-width-padding-inline);
+  }
+
+  .rounded-default {
+    border-radius: var(--border-radius);
+  }
+
+  .border-brand {
+    border-color: var(--brand-color);
   }
 
   @keyframes sheet-in {
