@@ -158,6 +158,7 @@ html {
   display: flex;
   padding: 2rem;
   margin: 0 auto;
+  padding-inline: var(--full-width-padding-inline);
 }
 
 .text {
@@ -203,6 +204,9 @@ body {
   background-color: #111111;
   color: white;
   font-family: "JetBrains Mono";
+  /* > * {
+    padding-inline : var(--full-width-padding-inline)
+  } */
 }
 
 .rmdp-week-day {

@@ -1,7 +1,7 @@
-//^ HOMEPAGE
+//^ HOMEPAGE __________________________________________________________________________________________
+import { ReactElement } from "react"; 
 import Datas from "../components/Datas";
 import Products from "../components/Products";
-import { ReactElement } from "react";
 
 export default function Home(): ReactElement {
   console.info("HELLo");
