@@ -1,7 +1,12 @@
 "use client";
 import toast from "react-hot-toast";
 import { items } from "./../data/items";
+import { useNumbersFilterStore, useNumbersFilterStoreType } from "@/zustand/useNumberFiltersStore";
+
 const ResultsWrapper = () => {
+  const store = useNumbersFilterStore() as useNumbersFilterStoreType;
+  const numbers = store.numbers;
+  console.info("numbers =>", numbers);
   return (
     <div
       dir='ltr'
@@ -25,3 +30,9 @@ const ResultsWrapper = () => {
 };
 
 export default ResultsWrapper;
+
+type FiltersType = { even?: boolean; odd?: boolean; three?: boolean; five?: boolean; seven?: boolean };
+
+const changeFilter = <T extends keyof FiltersType>(key: T, value: FiltersType[T]) => {
+  // setFilters((old) => ({ ...old, [key]: value }));
+};
