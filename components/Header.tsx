@@ -57,7 +57,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Header() {
   return (
-    <section className='bg-black flex items-center justify-between px-6 py-1'>
+    <section className='bg-black w-full flex items-center justify-between px-6 py-1'>
       <div className='flex items-center gap-4 pl-16'>
         <Image
           src='/favicon-32x32.png'

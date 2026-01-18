@@ -137,9 +137,14 @@ html {
       transform: translateX(var(--sheet-offset));
     }
   }
+  
   .grid-3 {
     display: grid;
     grid-template-rows: auto 1fr auto;
+  }
+  
+  .font-vazir {
+    font-family: "Vazir";
   }
 }
 
@@ -356,4 +361,9 @@ tfoot th {
   padding-inline: var(--full-width-padding-inline);
   min-block-size: 100%;
   margin: 0 auto;
+}
+
+.grid-3-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
 }

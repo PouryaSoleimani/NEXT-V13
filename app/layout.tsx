@@ -62,8 +62,11 @@ export default async function RootLayout({ children }: { children: ReactElement 
               reverseOrder={false}
             />
             <SidebarProvider defaultOpen={defaultOpen}>
-              <main className='w-full min-h-screen font-bold grid-rows-3 grid-3 '>
-                <Header />
+              <main className='grid-3 w-full'>
+                {/* <div className='hidden lg:flex lg:w-full'>
+                  <Header />
+                </div> */}
+                <div className='bg-black w-full py-4 text-center'>HEADER</div>
                 {children}
                 <footer className='flex items-center-safe bg-black text-center py-10 justify-center'>FOOTER</footer>
               </main>
