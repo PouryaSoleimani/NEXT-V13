@@ -9,6 +9,7 @@ type SingleFilterButtonType = {
   type: FilterType;
 };
 const FiltersWrapper = () => {
+  const type = useNumbersFilterStore((s) => s.filterType);
   const filterButtonsArray: SingleFilterButtonType[] = [
     { id: 1, handler: allNumbersHandler, label: "همه", type: "ALL" },
     { id: 2, handler: evenNumbersHandler, label: "روزهای زوج", type: "EVEN" },
@@ -38,6 +39,11 @@ const FiltersWrapper = () => {
           {btn.label}
         </CardComponent>
       ))}
+      <div className='center '>
+        <h2 className='font-vazir rounded-md  pb-1 text-center  bg-stone-900 px-3 border-b-4 border-b-pink-500'>
+          {type === "ALL" ? "همه" : type === "EVEN" ? "روزهای زوج" : "روزهای فرد"}
+        </h2>
+      </div>
     </div>
   );
 };
