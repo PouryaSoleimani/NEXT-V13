@@ -4,7 +4,9 @@
 
 .card {
   background-color: rgba(100, 148, 237, 0.089);
-  width: fit-content;
+  width: 200px;
+  text-align: center;
+  font-family: "Vazir";
   white-space: nowrap;
   padding-inline: 2rem;
   padding-block: 1rem;

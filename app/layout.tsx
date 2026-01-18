@@ -19,14 +19,7 @@ export const metadata: Metadata = {
     description: "NEXT__TRAINING__DESCRIPTION",
     url: "https://localhost:4200",
     siteName: "NextTraining.com",
-    images: [
-      {
-        url: "https://example.com/img",
-        width: 1000,
-        height: 900,
-        alt: "IMAGE",
-      },
-    ],
+    images: [{ url: "https://example.com/img", width: 1000, height: 900, alt: "IMAGE" }],
     locale: "fa_IR",
     type: "website",
   },
@@ -36,22 +29,14 @@ export const metadata: Metadata = {
     description: "NEXT__TRAINING__DESCRIPTION",
     images: ["https://example.com/image"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, noimageindex: false },
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, noimageindex: false } },
   alternates: { canonical: "https://example.com/products/1" },
 };
 
 export const viewport: Viewport = { themeColor: "#121212" };
 
 // COMPONENT
-export default async function RootLayout({
-  children,
-}: {
-  children: ReactElement;
-}) {
+export default async function RootLayout({ children }: { children: ReactElement }) {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
   console.info("COOKIES =>", cookieStore.getAll());
@@ -77,9 +62,10 @@ export default async function RootLayout({
               reverseOrder={false}
             />
             <SidebarProvider defaultOpen={defaultOpen}>
-              <main className='w-full min-h-screen font-bold'>
+              <main className='w-full min-h-screen font-bold grid-rows-3 grid-3 '>
                 <Header />
                 {children}
+                <footer className='flex items-center-safe bg-black text-center py-10 justify-center'>FOOTER</footer>
               </main>
             </SidebarProvider>
           </ThemeProvider>
