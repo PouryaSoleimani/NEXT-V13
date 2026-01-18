@@ -1,0 +1,22 @@
+.container_custom {
+  background-color: #fff;
+}
+
+.card {
+  background-color: rgba(100, 148, 237, 0.089);
+  width: fit-content;
+  white-space: nowrap;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  user-select: none;
+  &:hover {
+    background-color: rgba(100, 148, 237, 0.693);
+    color: rgb(255, 255, 255);
+  }
+  &:active {
+    scale: 0.95;
+  }
+}
