@@ -1,6 +1,5 @@
 import FiltersWrapper from "./_components/FiltersWrapper";
 import ResultsWrapper from "./_components/ResultsWrapper";
-import SearchInputComponent from "./_components/SearchInputComponent";
 
 const Page = async (props: PageProps<"/css-training">) => {
   const params = await props.searchParams;
