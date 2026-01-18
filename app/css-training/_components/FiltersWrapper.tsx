@@ -1,27 +1,43 @@
 "use client";
 import CardComponent from "@/components/modules/CardComponent";
-import { useNumbersFilterStore } from "@/zustand/useNumberFiltersStore";
+import { FilterType, useNumbersFilterStore } from "@/zustand/useNumberFiltersStore";
 import { items } from "../data/items";
-
+type SingleFilterButtonType = {
+  id: number;
+  handler: () => void;
+  label: string;
+  type: FilterType;
+};
 const FiltersWrapper = () => {
+  const filterButtonsArray: SingleFilterButtonType[] = [
+    { id: 1, handler: allNumbersHandler, label: "همه", type: "ALL" },
+    { id: 2, handler: evenNumbersHandler, label: "روزهای زوج", type: "EVEN" },
+    { id: 3, handler: oddNumbersHandler, label: "روزهای فرد", type: "ODD" },
+  ];
+
   const setter = useNumbersFilterStore.setState;
   function allNumbersHandler() {
-    setter({ numbers: items });
+    setter({ numbers: items, filterType: "ALL" });
   }
   function evenNumbersHandler() {
     const oddNumbers = items.filter((item) => item % 2 === 0);
-    setter({ numbers: oddNumbers });
+    setter({ numbers: oddNumbers, filterType: "EVEN" });
   }
   function oddNumbersHandler() {
     const oddNumbers = items.filter((item) => item % 2 !== 0);
-    setter({ numbers: oddNumbers });
+    setter({ numbers: oddNumbers, filterType: "ODD" });
   }
   1;
   return (
     <div className='filters border-l border-l-pink-500  col-span-1 flex flex-col justify-start items-end gap-3 p-3'>
-      <CardComponent handler={allNumbersHandler}>همه</CardComponent>
-      <CardComponent handler={evenNumbersHandler}>روزهای زوج</CardComponent>
-      <CardComponent handler={oddNumbersHandler}>روز های فرد</CardComponent>
+      {filterButtonsArray.map((btn) => (
+        <CardComponent
+          key={btn.id}
+          handler={btn.handler}
+          type={btn.type}>
+          {btn.label}
+        </CardComponent>
+      ))}
     </div>
   );
 };
