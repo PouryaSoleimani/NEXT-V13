@@ -1,5 +1,3 @@
-import CardComponent from "@/components/modules/CardComponent";
-import React from "react";
 import FiltersWrapper from "./_components/FiltersWrapper";
 import ResultsWrapper from "./_components/ResultsWrapper";
 

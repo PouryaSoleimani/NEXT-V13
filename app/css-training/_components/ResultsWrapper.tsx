@@ -3,13 +3,15 @@ import toast from "react-hot-toast";
 import { items } from "./../data/items";
 const ResultsWrapper = () => {
   return (
-    <div className='results col-span-5 grid grid-cols-4 place-content-stretch p-3 gap-3 text-center'>
+    <div
+      dir='ltr'
+      className='results col-span-5 grid grid-cols-4 place-content-stretch p-3 gap-3 text-center'>
       {items.map((_, i) => (
         <button
           type='button'
           translate='no'
           onClick={() =>
-            toast.success(i.toString(), {
+            toast.success(Number(i + 1).toString(), {
               style: { backgroundColor: "black", border: "3px solid hotpink", color: "whitesmoke", width: "90px" },
             })
           }
