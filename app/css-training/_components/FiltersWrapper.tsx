@@ -5,10 +5,11 @@ import { items } from "../data/items";
 import { useDoctorsStore } from "@/zustand/useDoctorsStore";
 import { SingleFilterButtonType, SingleGenderType } from "@/types/types";
 import { mockDoctors } from "@/mock/mockDoctors";
+import { cn } from "@/lib/utils";
 
 const FiltersWrapper = () => {
   const type = useNumbersFilterStore((s) => s.filterType);
-
+  const typeGender = useDoctorsStore(s => s.filterType)
   const filterButtonsArray: SingleFilterButtonType[] = [
     { id: 1, handler: allNumbersHandler, label: "همه", type: "ALL" },
     { id: 2, handler: evenNumbersHandler, label: "روزهای زوج", type: "EVEN" },
@@ -60,8 +61,8 @@ const FiltersWrapper = () => {
           {btn.label}
         </CardComponent>
       ))}
-      <div className='center '>
-        <h2 className='font-vazir rounded-md  pb-1 text-center  bg-stone-900 px-3 border-b-4 border-b-pink-500'>
+      <div className='center w-1/2 mx-1.5 '>
+        <h2 className='font-vazir rounded-sm w-full pb-1 text-center  bg-stone-900 px-3 border-b-4 border-b-pink-500'>
           {type === "ALL" ? "همه" : type === "EVEN" ? "روزهای زوج" : "روزهای فرد"}
         </h2>
       </div>
@@ -76,6 +77,11 @@ const FiltersWrapper = () => {
             {item.label}
           </CardComponent>
         ))}
+        <div className='center  mx-1 mt-2 '>
+          <h2 className={cn('font-vazir rounded-sm w-full p-1 text-center  bg-stone-900 px-3 border-b-4', typeGender === 'FEMALE' ? 'border-b-pink-500' : typeGender === 'MALE' ? "border-b-blue-500" : 'border-b-stone-300')}>
+            {typeGender === "ALL" ? "همه" : typeGender === "MALE" ? <span>آقایان</span> : <span>بانوان</span>}
+          </h2>
+        </div>
       </div>
     </div>
   );
