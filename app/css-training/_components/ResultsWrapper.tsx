@@ -28,12 +28,13 @@ const ResultsWrapper = (params: ParamsType) => {
             type='button'
             translate='no'
             onClick={() =>
-              toast.success(Number(i + 1).toString(), {
+              toast.success(`${doctor.genderFa} ${doctor.name}`, {
                 style: {
-                  backgroundColor: "black",
-                  border: "3px solid hotpink",
-                  color: "whitesmoke",
-                  width: "90px",
+                  fontFamily: "Vazir",
+                  backgroundColor: `${doctor.gender === 'MALE' ? 'lightblue' : 'lightpurple'}`,
+                  border: `3px solid ${doctor.gender === 'MALE' ? 'cornflowerblue' : 'hotpink'}`,
+                  color: `${doctor.gender === 'MALE' ? 'darkblue' : 'indigo'}`,
+                  width: "250px",
                 },
               })
             }
