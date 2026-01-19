@@ -20,6 +20,7 @@ const SearchInputComponent = (): ReactElement => {
   const numbersConverted = numbers.map((item) => item.toString())
   const doctors = useDoctorsStore(s => s.doctors)
   const doctorsSetter = useDoctorsStore.setState
+
   // FUNCTIONS _____________________________________________________________________________________________________________________
   // function searchParamsHandler() {
   //   const val = inputRef.current?.value.trim()
@@ -33,12 +34,14 @@ const SearchInputComponent = (): ReactElement => {
   //     return
   //   }
   // }
+
   function searchParamsHandler2() {
     const val = inputRef.current?.value.trim()
     if (!val) {
       doctorsSetter({ doctors: mockDoctors })
       return
     }
+
     const doctorsResult = doctors.filter((item) => item.name.includes(val))
     if (!doctorsResult.length) {
       toast.error("نتیجه ای یافت نشد", { className: "font-vazir" })
@@ -49,6 +52,7 @@ const SearchInputComponent = (): ReactElement => {
       router.push(`/css-training?name=${val.trim()}`)
     }
   }
+
   // RETURN _____________________________________________________________________________________________________________________
   return (
     <div className='grid place-items-center col-span-full  min-w-5xl m-auto place-self-center'>
