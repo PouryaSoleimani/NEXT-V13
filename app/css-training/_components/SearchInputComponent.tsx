@@ -1,5 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { mockDoctors } from '@/mock/mockDoctors'
 import { useNumbersFilterStoreType } from '@/types/types'
 import { useDoctorsStore } from '@/zustand/useDoctorsStore'
 import { useNumbersFilterStore } from '@/zustand/useNumberFiltersStore'
@@ -34,14 +35,17 @@ const SearchInputComponent = (): ReactElement => {
   // }
   function searchParamsHandler2() {
     const val = inputRef.current?.value.trim()
-    if (!val) return
+    if (!val) {
+      doctorsSetter({ doctors: mockDoctors })
+      return
+    }
     const doctorsResult = doctors.filter((item) => item.name.includes(val))
     if (!doctorsResult.length) {
       toast.error("نتیجه ای یافت نشد", { className: "font-vazir" })
-      doctorsSetter({ searchResult: [] })
+      doctorsSetter({ doctors: [] })
     } else {
       toast.success('پزشک مد نظر شما با موفقیت یافت شد', { className: "font-vazir" });
-      doctorsSetter({ searchResult: doctorsResult })
+      doctorsSetter({ doctors: doctorsResult })
     }
   }
   // RETURN _____________________________________________________________________________________________________________________

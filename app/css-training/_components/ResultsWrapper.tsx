@@ -28,7 +28,7 @@ const ResultsWrapper = (params: ParamsType) => {
             موردی یافت نشد
           </div>
         )}
-        {doctorsResults?.map((doctor) => (
+        {doctors?.map((doctor) => (
           <button
             type='button'
             translate='no'
@@ -53,7 +53,7 @@ const ResultsWrapper = (params: ParamsType) => {
             <span> | </span>
             {doctor.gender === 'MALE' ? <p className="bg-blue-800 px-2 rounded-md py-0.5">آقای </p> : <p className="bg-pink-800 px-2 rounded-md py-0.5">خانم</p>}
           </button>
-        ))}   
+        ))}
         <SearchInputComponent />
       </div>
     </>
