@@ -1,5 +1,5 @@
 export type GenderFilterType = "ALL" | "MALE"  | "FEMALE"
-export type useDoctorsStoreType = { doctors: SingleDoctorType[] , filterType : GenderFilterType };
+export type useDoctorsStoreType = { doctors: SingleDoctorType[] , filterType : GenderFilterType , searchResult : SingleDoctorType[] };
 export type SingleDoctorType = { id: number, name: string, gender: 'MALE' | 'FEMALE'  , genderFa : 'خانم' |  'آقای'}
 export type FilterType = "ODD" | "EVEN" | "ALL";
 export type useNumbersFilterStoreType = { numbers: number[]; filterType: FilterType };
