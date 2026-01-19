@@ -1,6 +1,7 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { useNumbersFilterStore, useNumbersFilterStoreType } from '@/zustand/useNumberFiltersStore'
+import { useNumbersFilterStoreType } from '@/types/types'
+import { useNumbersFilterStore } from '@/zustand/useNumberFiltersStore'
 import { ArrowLeft, SearchIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { ReactElement, useRef } from 'react'

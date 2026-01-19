@@ -1,22 +1,28 @@
 "use client";
 import CardComponent from "@/components/modules/CardComponent";
-import { FilterType, useNumbersFilterStore } from "@/zustand/useNumberFiltersStore";
+import { useNumbersFilterStore } from "@/zustand/useNumberFiltersStore";
 import { items } from "../data/items";
-type SingleFilterButtonType = {
-  id: number;
-  handler: () => void;
-  label: string;
-  type: FilterType;
-};
+import { mockDoctors, useDoctorsStore } from "@/zustand/useDoctorsStore";
+import { SingleFilterButtonType, SingleGenderType } from "@/types/types";
+
 const FiltersWrapper = () => {
   const type = useNumbersFilterStore((s) => s.filterType);
+
   const filterButtonsArray: SingleFilterButtonType[] = [
     { id: 1, handler: allNumbersHandler, label: "همه", type: "ALL" },
     { id: 2, handler: evenNumbersHandler, label: "روزهای زوج", type: "EVEN" },
     { id: 3, handler: oddNumbersHandler, label: "روزهای فرد", type: "ODD" },
   ];
 
+  const mockGenders: SingleGenderType[] = [
+    { id: 1, label: 'همه', type: "ALL", handler: allHandler },
+    { id: 2, label: 'آقایان', type: "MALE", handler: maleHandler },
+    { id: 3, label: 'بانوان', type: "FEMALE", handler: femaleHandler }
+  ]
+
   const setter = useNumbersFilterStore.setState;
+  const doctorsSetter = useDoctorsStore.setState
+  // FUNCTIONS
   function allNumbersHandler() {
     setter({ numbers: items, filterType: "ALL" });
   }
@@ -28,7 +34,21 @@ const FiltersWrapper = () => {
     const oddNumbers = items.filter((item) => item % 2 !== 0);
     setter({ numbers: oddNumbers, filterType: "ODD" });
   }
-  1;
+
+  function maleHandler() {
+    const maleDoctors = mockDoctors?.filter((item) => item.gender === 'MALE')
+    doctorsSetter({ doctors: maleDoctors, filterType: 'MALE' })
+  }
+  function femaleHandler() {
+    const femaleDoctors = mockDoctors?.filter((item) => item.gender === 'FEMALE')
+    doctorsSetter({ doctors: femaleDoctors, filterType: "FEMALE" })
+  }
+  function allHandler() {
+    doctorsSetter({ doctors: mockDoctors, filterType: 'ALL' })
+  }
+
+
+
   return (
     <div className='filters border-l border-l-pink-500  col-span-1 flex flex-col justify-start items-end gap-3 p-3'>
       {filterButtonsArray.map((btn) => (
@@ -44,8 +64,21 @@ const FiltersWrapper = () => {
           {type === "ALL" ? "همه" : type === "EVEN" ? "روزهای زوج" : "روزهای فرد"}
         </h2>
       </div>
+      <div className="border-t-2 pt-3 border-stone-600 flex flex-col gap-2">
+        {mockGenders.map((item) => (
+          <CardComponent
+            key={item.id}
+            handler={item.handler}
+            typeGender={item.type}
+            isDoctor
+          >
+            {item.label}
+          </CardComponent>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default FiltersWrapper;
+
