@@ -2,8 +2,9 @@
 import CardComponent from "@/components/modules/CardComponent";
 import { useNumbersFilterStore } from "@/zustand/useNumberFiltersStore";
 import { items } from "../data/items";
-import { mockDoctors, useDoctorsStore } from "@/zustand/useDoctorsStore";
+import { useDoctorsStore } from "@/zustand/useDoctorsStore";
 import { SingleFilterButtonType, SingleGenderType } from "@/types/types";
+import { mockDoctors } from "@/mock/mockDoctors";
 
 const FiltersWrapper = () => {
   const type = useNumbersFilterStore((s) => s.filterType);
