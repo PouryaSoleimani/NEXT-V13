@@ -3,7 +3,9 @@ import toast from "react-hot-toast";
 import { cn } from "@/lib/utils";
 import SearchInputComponent from "./SearchInputComponent";
 import { useDoctorsStore } from "@/zustand/useDoctorsStore";
-import { PackageSearch } from "lucide-react";
+import { PackageSearch, Users2Icon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { mockDoctors } from "@/mock/mockDoctors";
 
 type ParamsType = { params: { q: string } };
 
@@ -13,8 +15,11 @@ const ResultsWrapper = (params: ParamsType) => {
   // const store = useNumbersFilterStore() as useNumbersFilterStoreType;
   // const numbers = store.numbers;
   const doctors = useDoctorsStore(s => s.doctors)
+  const doctorsSetter = useDoctorsStore.setState
   const doctorsResults = useDoctorsStore(s => s.searchResult)
+  const doctorsSearchedValue = useDoctorsStore(s => s.searchedValue)
   console.info("params =>", params.params.q);
+  console.info("SEARCHED : ", doctorsSearchedValue)
 
   // RETURN ______________________________________________________________________________________________________________________
   return (
@@ -22,10 +27,21 @@ const ResultsWrapper = (params: ParamsType) => {
       <div
         dir='ltr'
         className={cn('results col-span-5 grid grid-cols-4 place-content-stretch p-3 gap-3 text-center w-full')}>
-        {!doctorsResults.length && (
-          <div className="flex flex-col min-w-full gap-3 col-span-4 font-vazir text-stone-500 center mx-auto">
-            <PackageSearch />
-            موردی یافت نشد
+        {!doctors.length && (
+          <div className="flex flex-col min-w-full  items-center justify-center gap-5 col-span-4 font-vazir text-stone-500 center mx-auto">
+            <div className="flex flex-col items-center justify-center gap-3 bg-black p-5 rounded-lg border border-stone-600">
+              <PackageSearch />
+              <p className="mt-2">
+                موردی یافت نشد
+              </p>
+              <p className="bg-stone-800 p-3 rounded-lg text-stone-300 mt-2">
+                متن جستجو :
+                <span> {doctorsSearchedValue?.toString()} </span>
+              </p>
+              <Button variant={'pink'} className="mt-2" onClick={() => doctorsSetter({ doctors: mockDoctors })}>
+                نمایش همه پزشکان<Users2Icon />
+              </Button>
+            </div>
           </div>
         )}
         {doctors?.map((doctor) => (

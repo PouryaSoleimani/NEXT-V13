@@ -5,5 +5,6 @@ import { create } from "zustand";
 export const useDoctorsStore = create<useDoctorsStoreType>(() => ({
   doctors: mockDoctors || [],
   filterType: 'ALL',
-  searchResult : mockDoctors
+  searchResult : mockDoctors,
+  searchedValue : ''
 }));

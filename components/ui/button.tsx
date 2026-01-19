@@ -26,6 +26,7 @@ const buttonVariants = cva(
           "bg-emerald-900 text-white shadow-xs hover:bg-emerald-700 focus-visible:ring-white/20 dark:focus-visible:ring-white/40 dark:bg-emerald-900  font-bold",
         red: "bg-red-900 hover:bg-red-700 transition-all ease-in-out duration-300 ",
         lime: "bg-lime-800 text-white hover:bg-lime-600 transition-colors ease-out duration-300  font-sans font-black",
+        pink : 'bg-pink-500 text-white hover:bg-pink-600'
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3 font-bold",

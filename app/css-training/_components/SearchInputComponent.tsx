@@ -42,10 +42,11 @@ const SearchInputComponent = (): ReactElement => {
     const doctorsResult = doctors.filter((item) => item.name.includes(val))
     if (!doctorsResult.length) {
       toast.error("نتیجه ای یافت نشد", { className: "font-vazir" })
-      doctorsSetter({ doctors: [] })
+      doctorsSetter({ doctors: [], searchedValue: val })
     } else {
       toast.success('پزشک مد نظر شما با موفقیت یافت شد', { className: "font-vazir" });
-      doctorsSetter({ doctors: doctorsResult })
+      doctorsSetter({ doctors: doctorsResult, searchedValue: val })
+      router.push(`/css-training?name=${val.trim()}`)
     }
   }
   // RETURN _____________________________________________________________________________________________________________________

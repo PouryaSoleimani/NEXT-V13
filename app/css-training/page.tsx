@@ -6,7 +6,7 @@ const Page = async (props: PageProps<"/css-training">) => {
   console.info("props", params);
   return (
     <section dir="rtl" className='container mx-auto '>
-      <div className='h-0 grid grid-cols-6 min-h-full'>
+      <div className='h-0 grid grid-cols-6 min-h-full py-10'>
         <FiltersWrapper />
         <ResultsWrapper params={params as any} />
       </div>
