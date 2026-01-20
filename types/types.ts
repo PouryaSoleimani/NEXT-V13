@@ -9,4 +9,12 @@ export type SingleFilterButtonType = {
   label: string;
   type: FilterType;
 };
-export   type SingleGenderType = { id: number, label: string, type: "ALL" |"MALE" | "FEMALE", handler: () => void }
+export type SingleGenderType = { id: number, label: string| undefined, type: "ALL" |"MALE" | "FEMALE", handler: () => void }
+
+type StringType = string | undefined
+
+type contacted = number | string | boolean
+
+type ExcludedGenderType = Exclude<contacted , string>
+
+const a: ExcludedGenderType  | undefined = undefined
