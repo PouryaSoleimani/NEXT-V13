@@ -59,7 +59,7 @@ const FiltersWrapper = () => {
 
   // RETURN __________________________________________________________________________________________________________
   return (
-    <div className='filters border-l border-l-pink-500  col-span-1 flex flex-col justify-start items-end gap-3 p-3'>
+    <div className='filters border-l border-l-pink-500 col-span-1 flex flex-row lg:flex-col justify-start items-end gap-3 p-3'>
       {/* NUMBER FILTER BUTTONS */}
       {filterButtonsArray.map((btn) => (
         <CardComponent
@@ -71,14 +71,14 @@ const FiltersWrapper = () => {
       ))}
 
       {/* TYPE STATUS BADGE */}
-      <div className='center w-1/2 mx-1.5 '>
+      <div className='center lg:w-1/2 mx-1.5 '>
         <h2 className='font-vazir rounded-sm w-full pb-1 text-center  bg-stone-900 px-3 border-b-4 border-b-pink-500'>
           {type === "ALL" ? "همه" : type === "EVEN" ? "روزهای زوج" : "روزهای فرد"}
         </h2>
       </div>
 
       {/* GENDER FILTER BUTTONS  */}
-      <div className="border-t-2 pt-3 border-stone-600 flex flex-col gap-2">
+      <div className="border-t-2 pt-3 border-stone-600 flex flex-row lg:flex-col gap-2">
         {mockGenders.map((item) => (
           <CardComponent
             key={item.id}

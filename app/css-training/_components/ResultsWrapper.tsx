@@ -26,7 +26,7 @@ const ResultsWrapper = (params: ParamsType) => {
     <>
       <div
         dir='ltr'
-        className={cn('results col-span-5 grid grid-cols-4 place-content-stretch p-3 gap-3 text-center w-full')}>
+        className={cn('results col-span-5 grid grid-cols-2 lg:grid-cols-4 place-content-stretch p-3 gap-3 text-center w-full')}>
         {!doctors.length && (
           <div className="flex flex-col min-w-full  items-center justify-center gap-5 col-span-4 font-vazir text-stone-500 center mx-auto">
             <div className="flex flex-col items-center justify-center gap-3 bg-black p-5 rounded-lg border border-stone-600">
