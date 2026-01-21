@@ -95,6 +95,9 @@ const FiltersWrapper = () => {
           <h2 className={cn('font-vazir rounded-sm w-full p-1 text-center  bg-stone-900 px-3 border-b-4', typeGender === 'FEMALE' ? 'border-b-pink-500' : typeGender === 'MALE' ? "border-b-blue-500" : 'border-b-stone-300')}>
             {typeGender === "ALL" ? "همه" : typeGender === "MALE" ? <span>آقایان</span> : <span>بانوان</span>}
           </h2>
+          <p className="">
+            چکاپ&zwnj;فایند
+          </p>
         </div>
       </div>
     </div>

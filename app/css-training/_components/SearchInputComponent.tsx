@@ -56,7 +56,7 @@ const SearchInputComponent = (): ReactElement => {
   // RETURN _____________________________________________________________________________________________________________________
   return (
     <div className='grid place-items-center col-span-full  min-w-5xl m-auto place-self-center'>
-      <div onFocus={() => inputRef.current?.select()} className='border w-full border-stone-700 my-3 focus-within:border-stone-500 grid grid-cols-12 caret-pink-500 bg-stone-900 shadow shadow-stone-500/50 caret group rounded-full pr-3 place-items-center  min-h-16 h-0' dir='rtl'>
+      <div onFocus={() => inputRef.current?.select()} className='border w-full border-stone-700 my-3 focus-within:border-pink-500 grid grid-cols-12 caret-pink-500 bg-stone-900 shadow shadow-stone-500/50 caret group rounded-full pr-3 place-items-center  min-h-16 h-0' dir='rtl'>
         <SearchIcon className='col-span-1' />
         <input
           ref={inputRef}

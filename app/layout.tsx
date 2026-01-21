@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { cookies } from "next/headers";
-import { ReactElement } from "react";
+import { PropsWithChildren, ReactElement } from "react";
 import { Header } from "@/components/Header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#121212" };
 
 // COMPONENT
-export default async function RootLayout({ children }: { children: ReactElement }) {
+export default async function RootLayout({ children }: PropsWithChildren) {
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
   console.info("COOKIES =>", cookieStore.getAll());
