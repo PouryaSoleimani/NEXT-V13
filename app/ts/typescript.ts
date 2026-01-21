@@ -478,11 +478,12 @@ type UserRequired = Required<UserType>;
 //* READONLY 
 type UserReadonly = Readonly<UserType>;
 
-// NON NULLABLE
+//* NON NULLABLE
 type NotNullableType = NonNullable<NullableType>;
 
-// PICK
-type UserPick = Pick<UserType, "name">;
+//* PICK
+type UserPick = Pick<UserType, "name"> & Pick<UserType ,"age" >;
+const Picked : UserPick = {age : 23 , name : "navid"}
 
 // EXCLUDE 
 type UserExcluded = Exclude<combined2 , null>
