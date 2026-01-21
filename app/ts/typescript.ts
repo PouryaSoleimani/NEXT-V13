@@ -475,7 +475,7 @@ type UserPartial = Partial<UserType>;
 //* REQUIRED
 type UserRequired = Required<UserType>;
 
-//* READONLY
+//* READONLY 
 type UserReadonly = Readonly<UserType>;
 
 // NON NULLABLE
