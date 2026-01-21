@@ -7,4 +7,4 @@ export const useDoctorsStore = create<useDoctorsStoreType>(() => ({
   filterType: 'ALL',
   searchResult : mockDoctors,
   searchedValue : ''
-})); 
+}));
