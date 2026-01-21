@@ -24,7 +24,6 @@ async function getDoctor(id: string): Promise<any> {
   })
 }
 
-
 export function LoadingDoctorSmall() {
   return (
     <div className='center bg-transparent rounded-lg w-16 mx-auto p-3'>

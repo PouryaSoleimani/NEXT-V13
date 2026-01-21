@@ -166,7 +166,8 @@ html {
 
 .section {
   width: 90vw;
-  height: auto;
+  min-height: 100dvh;
+  height: 0;
   display: flex;
   padding: 2rem;
   margin: 0 auto;
