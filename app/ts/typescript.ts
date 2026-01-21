@@ -465,33 +465,35 @@ console.info(UserExample);
 type OptionaUserInterface<T> = { [key in keyof T]?: T[key] };
 
 //^ UTILITY TYPES ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________===
-type UserType = { name: string; age: number , job  : string  } ;
+type UserType = { name: string; age: number , job  : string  }  ;
 type combined2 = string | number | boolean | undefined | null
-//* PARTIAL
+type NullableType = string | null;
+
+// PARTIAL
 type UserPartial = Partial<UserType>;
 
-//* REQUIRED
+// REQUIRED
 type UserRequired = Required<UserType>;
 
-//* READONLY
+// READONLY
 type UserReadonly = Readonly<UserType>;
 
-//* PICK
+// NON NULLABLE
+type NotNullableType = NonNullable<NullableType>;
+
+// PICK
 type UserPick = Pick<UserType, "name">;
 
-//* EXCLUDE 
+// EXCLUDE 
 type UserExcluded = Exclude<combined2 , null>
 
-//* EXTRACT 
+// EXTRACT 
 type UserExtracted = Extract<combined2 , string>
 
-//* OMIT
+// OMIT
 type UserOmitted = Omit<UserType , "job">
 
 
-// * NON NULLABLE
-type NullableType = string | null;
-type NotNullableType = NonNullable<NullableType>;
 
 
 
