@@ -10,6 +10,7 @@ const SuspenseComponent = async () => {
 
 export default SuspenseComponent
 
+//^ ASYNC FUNCTION WITH A PROMISE ______________________________________________________________________________________________________________________
 async function getDoctor(id: string): Promise<any> {
   return new Promise((resolve, reject) => {
     if (2 == 2) { // FAKE CONDITION
@@ -22,6 +23,7 @@ async function getDoctor(id: string): Promise<any> {
     }
   })
 }
+
 
 export function LoadingDoctorSmall() {
   return (
