@@ -5,7 +5,7 @@ import SuspenseComponent, { LoadingDoctorSmall } from "./_components/SuspenseCom
 
 const Page = async (props: PageProps<"/css-training">) => {
   const params = await props.searchParams;
-  console.info("props", (await props.searchParams).name);
+  console.info("props", params.name);
 
 
   return (

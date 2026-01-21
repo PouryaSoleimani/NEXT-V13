@@ -18,7 +18,7 @@ const ResultsWrapper = (params: ParamsType) => {
   const doctorsSetter = useDoctorsStore.setState
   const doctorsResults = useDoctorsStore(s => s.searchResult)
   const doctorsSearchedValue = useDoctorsStore(s => s.searchedValue)
-  console.info("params =>", params.params.q);
+  console.info("params Q =>", params.params.q);
   console.info("SEARCHED : ", doctorsSearchedValue)
 
   // RETURN ______________________________________________________________________________________________________________________
