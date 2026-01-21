@@ -3,18 +3,16 @@ export type useDoctorsStoreType = { doctors: SingleDoctorType[] , filterType : G
 export type SingleDoctorType = { id: number, name: string, gender: 'MALE' | 'FEMALE'  , genderFa : 'خانم' |  'آقای' }
 export type FilterType = "ODD" | "EVEN" | "ALL";
 export type useNumbersFilterStoreType = { numbers: number[]; filterType: FilterType };
+
 export type SingleFilterButtonType = {
   id: number;
   handler: () => void;
   label: string;
   type: FilterType;
 };
+
 export type SingleGenderType = { id: number, label: string| undefined, type: "ALL" |"MALE" | "FEMALE", handler: () => void }
 
-type StringType = string | undefined
+type concated  = string | number | boolean |  null;
+type concatedSafe = Exclude<concated , null>
 
-type contacted = number | string | boolean
-
-type ExcludedGenderType = Exclude<contacted , string>
-
-const a: ExcludedGenderType  | undefined = undefined

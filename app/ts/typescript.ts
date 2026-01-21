@@ -466,10 +466,10 @@ type OptionaUserInterface<T> = { [key in keyof T]?: T[key] };
 
 // UTILITY TYPES ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________===
 type UserType = { name: string; age: number };
+type UserPartial = Partial<UserType>;
 
 type UserRequired = Required<UserType>;
 type UserReadonly = Readonly<UserType>;
-type UserPartial = Partial<UserType>;
 type UserPick = Pick<UserType, "name">;
 
 type NullableType = string | null;
@@ -477,5 +477,10 @@ type NotNullableType = NonNullable<NullableType>;
 
 type FullType = number | string | boolean | object;
 type ExcludeType = Exclude<FullType, number>;
+
+type combined = string | boolean | number
+type excluded = Exclude<combined , boolean>
+
+
 
 // DECORATORS ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________===
