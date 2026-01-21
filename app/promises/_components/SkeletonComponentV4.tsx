@@ -1,3 +1,4 @@
+//^ SKELETON COMPONENT ______________________________________________________________________
 import { Skeleton } from '@/components/ui/skeleton'
 
 function SkeletonComponentV4() {
