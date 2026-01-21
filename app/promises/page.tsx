@@ -41,3 +41,15 @@ async function promiseHandler2(val: string) {
     }
   })
 }
+
+async function promiseHandler3(bool: boolean) {
+  return new Promise((resolve, reject) => {
+    if (bool === true) {
+      setTimeout(() => {
+        resolve(bool)
+      }, 3000);
+    } else {
+      reject('BOOL IS NOT CORRECT')
+    }
+  })
+}
