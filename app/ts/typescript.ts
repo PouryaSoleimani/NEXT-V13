@@ -469,30 +469,45 @@ type UserType = { name: string; age: number , job  : string  }  ;
 type combined2 = string | number | boolean | undefined | null
 type NullableType = string | number | boolean | null;
 
-//* PARTIAL
+// PARTIAL
 type UserPartial = Partial<UserType>;
+const Partialed : UserPartial ={name:" mamad" , age:32}
+console.info(Partialed)
 
-//* REQUIRED
+// REQUIRED
 type UserRequired = Required<UserType>;
+const RequiredObject : UserRequired = {name :'POURYA SOLEIMANI' , age : 32 , job : 'SENIOR FRONT-END DEVELOPER'}
+console.info(RequiredObject)
 
-//* READONLY 
+// READONLY 
 type UserReadonly = Readonly<UserType>;
+const ReadOnlyObject : UserReadonly = {name :"POURYA" , age  :32 , job : "SENIOR FRONT-END DEVELOPER"}
+console.info(ReadOnlyObject)
 
-//* NON NULLABLE
+// NON NULLABLE
 type NotNullableType = NonNullable<NullableType>;
+const notNull : NotNullableType = 'HELLO'
+console.info(notNull)
 
-//* PICK
+// PICK
 type UserPick = Pick<UserType, "name"> & Pick<UserType ,"age" >;
 const Picked : UserPick = {age : 23 , name : "navid"}
+console.info('PICKED' , Picked)
 
 // EXCLUDE 
 type UserExcluded = Exclude<combined2 , null>
+const ExcludedVariable : UserExcluded = 'hello'
+console.info(ExcludedVariable)
 
 // EXTRACT 
 type UserExtracted = Extract<combined2 , string>
+const ExtractedVariable : UserExtracted = 'mamad'
+console.info(ExtractedVariable)
 
 // OMIT
 type UserOmitted = Omit<UserType , "job">
+const OmittedVariable: UserOmitted = {age : 24 , name : "MAMAD"}
+console.info(OmittedVariable)
 
 
 
