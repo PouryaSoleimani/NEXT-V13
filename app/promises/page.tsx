@@ -7,6 +7,7 @@ async function Page(props: PageProps<'/promises'>) {
   if (!_result) {
     return <div className="section bg-rose-800/30 p-3 center">NOT CORRECT</div>
   }
+
   return (
     <div className="section center">
       <span className="flex bg-emerald-600 gap-3 p-3 rounded-lg border-4 border-emerald-600">
