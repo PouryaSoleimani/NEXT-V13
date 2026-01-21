@@ -1,7 +1,4 @@
-import { Skeleton } from "@/components/ui/skeleton"
-import { CheckSquare2Icon } from "lucide-react"
 import { Suspense } from "react"
-import { isIfStatement } from "typescript"
 import TestComponent from "./_components/TestComponent"
 import SkeletonComponentV4 from "./_components/SkeletonComponentV4"
 
