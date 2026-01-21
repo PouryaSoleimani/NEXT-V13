@@ -11,6 +11,7 @@ export default function ErrorBoundary({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+
   // console.log("🟥🟥🟥 ERROR", error);
 
   return (
