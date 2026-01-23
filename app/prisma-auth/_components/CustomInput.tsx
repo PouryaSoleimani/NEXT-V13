@@ -13,12 +13,12 @@ const CustomInput = (props: React.ComponentProps<'input'> & CustomInputPropsType
   const PrefixIcon = props.prefixIcon ? Icons[props.prefixIcon] : null as any
 
   return (
-    <div className='relative inset-0 '>
+    <div className='relative inset-0 *:font-vazir '>
       {props.prefixIcon && <PrefixIcon className="size-4 text-stone-500 absolute top-2.5 right-1.5" />}
       <Input
         autoComplete={props.autoComplete}
         type={props.type}
-        className={cn('px-7', props.className)}
+        className={cn('px-7 placeholder:font-vazir', props.className)}
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}
