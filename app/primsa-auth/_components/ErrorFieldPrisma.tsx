@@ -1,5 +1,6 @@
 import { FieldError, get, Path, useFormState } from 'react-hook-form'
 import { FormType } from '../register/page'
+import { InfoIcon } from 'lucide-react'
 
 const ErrorFieldPrisma = ({ name, control }: { name: Path<FormType>, control: any }) => {
   const { errors } = useFormState({ control: control })
@@ -8,7 +9,7 @@ const ErrorFieldPrisma = ({ name, control }: { name: Path<FormType>, control: an
   if (!error) return null;
 
   return (
-    <div className='text-rose-900 mt-0.5 text-xxs font-bold pl-1 trakcing-tight'>
+    <div className='absolute top-1.5 flex items-center gap-1 text-red-900 underline left-6 font-vazir mt-1  text-xxs font-bold pr-1 trakcing-tight'>
       {error.message}
     </div>
   )

@@ -5,6 +5,10 @@ import { Controller, useForm } from "react-hook-form"
 import z from "zod"
 import ErrorFieldPrisma from "../_components/ErrorFieldPrisma"
 import { Button } from "@/components/ui/button"
+import toast from "react-hot-toast"
+import React from "react"
+import CustomInput from "../_components/CustomInput"
+import { Info, Users } from "lucide-react"
 
 export const FormSchemaPrisma = z.object({
   username: z.string().min(1, 'وارد کردن نام کاربری الزامی است').max(20, "نام کاربری حداکثر 20 حرف میتواند باشد"),
@@ -33,23 +37,33 @@ const Page = () => {
 
   function submitHandler(data: FormType) {
     console.info('FORM VALUES => ', data)
+    toast.success('فرم با موفقیت ثبت شد', { style: { fontFamily: 'Vazir' } })
+    methods.reset()
   }
 
 
   return (
-    <div className="center" dir="rtl">
+    <div className="center font-vazir" dir="rtl">
       <form onSubmit={methods.handleSubmit(submitHandler)} className="w-1/5 flex flex-col gap-3 bg-black p-5 rounded-lg ">
+        <h2 className="text-3xl text-center py-3">ثبت نام</h2>
         <Controller
           control={methods?.control}
           name="username"
           render={({ field }) => (
-            <div>
-              <Input
+            <div className="relative inset-0">
+              {/* <Input
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="نام : مثلا محمدرضا"
-                disabled={methods.formState.isSubmitting || !!methods.formState.errors.username}
-                aria-disabled={methods.formState.isSubmitting || !!methods.formState.errors.username}
+                aria-invalid={!!methods.formState.errors.username}
+              /> */}
+              <CustomInput
+                prefixIcon={'Info'}
+                suffixIcon={'Users'}
+                value={field.value}
+                onChange={field.onChange}
+                placeholder="نام : مثلا محمدرضا"
+                aria-invalid={!!methods.formState.errors.username}
               />
               <ErrorFieldPrisma name={field.name} control={methods.control} />
             </div>
@@ -59,13 +73,12 @@ const Page = () => {
           control={methods?.control}
           name="password"
           render={({ field }) => (
-            <div>
+            <div className="relative inset-0">
               <Input
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="رمز عبور"
-                disabled={methods.formState.isSubmitting || !!methods.formState.errors.password}
-                aria-disabled={methods.formState.isSubmitting || !!methods.formState.errors.password}
+                aria-invalid={!!methods.formState.errors.password}
               />
               <ErrorFieldPrisma name={field.name} control={methods.control} />
             </div>
@@ -73,21 +86,23 @@ const Page = () => {
         />
         <Controller
           control={methods?.control}
-          name="username"
+          name="confirmPassword"
           render={({ field }) => (
-            <div>
+            <div className="relative inset-0">
               <Input
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="تکرار رمز عبور"
-                disabled={methods.formState.isSubmitting || !!methods.formState.errors.confirmPassword}
-                aria-disabled={methods.formState.isSubmitting || !!methods.formState.errors.confirmPassword}
+                aria-invalid={!!methods.formState.errors.confirmPassword}
               />
               <ErrorFieldPrisma name={field.name} control={methods.control} />
             </div>
           )}
         />
-        <Button className="w-full font-vazir" variant={'success'}>
+        <Button
+          disabled={methods.formState.isSubmitting || !methods.formState.isValid}
+          aria-disabled={methods.formState.isSubmitting || !methods.formState.isValid}
+          className="w-full font-vazir" variant={'success'}>
           ثبت و ادامه
         </Button>
       </form>
