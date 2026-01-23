@@ -31,4 +31,5 @@ const CustomInput = (props: React.ComponentProps<'input'> & CustomInputPropsType
   )
 }
 
+
 export default CustomInput
