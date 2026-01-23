@@ -9,6 +9,7 @@ import toast from "react-hot-toast"
 import React, { useState } from "react"
 import CustomInput from "../_components/CustomInput"
 import { Info, Users } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 export const FormSchemaPrisma = z.object({
   username: z.string().min(1, 'وارد کردن نام کاربری الزامی است').max(20, "نام کاربری حداکثر 20 حرف میتواند باشد"),
@@ -60,6 +61,7 @@ const Page = () => {
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="نام : مثلا محمدرضا"
+                className={cn(!methods.getFieldState(field.name).invalid ? 'border-emerald-900' : 'border-red-900')}
                 aria-invalid={!!methods.formState.errors.username}
               />
               <ErrorFieldPrisma name={field.name} control={methods.control} />
@@ -79,6 +81,7 @@ const Page = () => {
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="رمز عبور"
+                className={cn(!methods.getFieldState(field.name).invalid ? 'border-emerald-900' : 'border-red-900')}
                 suffixHandler={() => { setisVisible(!isVisible) }}
                 aria-invalid={!!methods.formState.errors.username}
               />
@@ -99,6 +102,7 @@ const Page = () => {
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="تکرار رمز عبور"
+                className={cn(!methods.getFieldState(field.name).invalid ? 'border-emerald-900' : 'border-red-900')}
                 suffixHandler={() => { setisVisible2(!isVisible2); console.info('HGELL') }}
                 aria-invalid={!!methods.formState.errors.username}
               />

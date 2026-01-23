@@ -1,6 +1,7 @@
 import { Input } from '@/components/ui/input'
 import React from 'react'
 import * as Icons from "lucide-react";
+import { cn } from '@/lib/utils';
 
 type CustomInputPropsType = {
   suffixIcon: keyof typeof Icons
@@ -17,7 +18,7 @@ const CustomInput = (props: React.ComponentProps<'input'> & CustomInputPropsType
       <Input
         autoComplete={props.autoComplete}
         type={props.type}
-        className='px-7'
+        className={cn('px-7', props.className)}
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}
