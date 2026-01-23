@@ -6,7 +6,7 @@ import z from "zod"
 import ErrorFieldPrisma from "../_components/ErrorFieldPrisma"
 import { Button } from "@/components/ui/button"
 import toast from "react-hot-toast"
-import React from "react"
+import React, { useState } from "react"
 import CustomInput from "../_components/CustomInput"
 import { Info, Users } from "lucide-react"
 
@@ -24,6 +24,9 @@ export const FormSchemaPrisma = z.object({
 export type FormType = z.infer<typeof FormSchemaPrisma>
 
 const Page = () => {
+
+  const [isVisible, setisVisible] = useState(false)
+  const [isVisible2, setisVisible2] = useState(false)
 
   const methods = useForm<FormType>({
     mode: "onChange",
@@ -45,20 +48,14 @@ const Page = () => {
   return (
     <div className="center font-vazir" dir="rtl">
       <form onSubmit={methods.handleSubmit(submitHandler)} className="w-1/5 flex flex-col gap-3 bg-black p-5 rounded-lg ">
-        <h2 className="text-3xl text-center py-3">ثبت نام</h2>
+        <h2 className="text-3xl text-center py-3 underline decoration-4 underline-offset-4 decoration-yellow-500">ثبت نام</h2>
         <Controller
           control={methods?.control}
           name="username"
           render={({ field }) => (
             <div className="relative inset-0">
-              {/* <Input
-                value={field.value}
-                onChange={field.onChange}
-                placeholder="نام : مثلا محمدرضا"
-                aria-invalid={!!methods.formState.errors.username}
-              /> */}
               <CustomInput
-                prefixIcon={'Info'}
+                prefixIcon={'Edit2Icon'}
                 suffixIcon={'Users'}
                 value={field.value}
                 onChange={field.onChange}
@@ -74,11 +71,16 @@ const Page = () => {
           name="password"
           render={({ field }) => (
             <div className="relative inset-0">
-              <Input
+              <CustomInput
+                autoComplete="new-password"
+                type={isVisible ? 'text' : 'password'}
+                prefixIcon={'KeyIcon'}
+                suffixIcon={'Eye'}
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="رمز عبور"
-                aria-invalid={!!methods.formState.errors.password}
+                suffixHandler={() => { setisVisible(!isVisible) }}
+                aria-invalid={!!methods.formState.errors.username}
               />
               <ErrorFieldPrisma name={field.name} control={methods.control} />
             </div>
@@ -89,11 +91,16 @@ const Page = () => {
           name="confirmPassword"
           render={({ field }) => (
             <div className="relative inset-0">
-              <Input
+              <CustomInput
+                autoComplete="new-password"
+                type={isVisible2 ? 'text' : 'password'}
+                prefixIcon={'KeyIcon'}
+                suffixIcon={'Eye'}
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="تکرار رمز عبور"
-                aria-invalid={!!methods.formState.errors.confirmPassword}
+                suffixHandler={() => { setisVisible2(!isVisible2); console.info('HGELL') }}
+                aria-invalid={!!methods.formState.errors.username}
               />
               <ErrorFieldPrisma name={field.name} control={methods.control} />
             </div>
@@ -102,7 +109,7 @@ const Page = () => {
         <Button
           disabled={methods.formState.isSubmitting || !methods.formState.isValid}
           aria-disabled={methods.formState.isSubmitting || !methods.formState.isValid}
-          className="w-full font-vazir" variant={'success'}>
+          className="w-full font-vazir disabled:cursor-not-allowed" variant={'success'}>
           ثبت و ادامه
         </Button>
       </form>

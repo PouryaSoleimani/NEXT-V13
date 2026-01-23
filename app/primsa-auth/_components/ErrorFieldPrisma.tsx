@@ -9,7 +9,7 @@ const ErrorFieldPrisma = ({ name, control }: { name: Path<FormType>, control: an
   if (!error) return null;
 
   return (
-    <div className='absolute top-1.5 flex items-center gap-1 text-red-900 underline left-6 font-vazir mt-1  text-xxs font-bold pr-1 trakcing-tight'>
+    <div className='absolute top-1.5 flex items-center gap-1 text-red-900 left-7 font-vazir mt-1  text-xxs font-bold pr-1 trakcing-tight'>
       {error.message}
     </div>
   )
