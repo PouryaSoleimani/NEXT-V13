@@ -370,3 +370,7 @@ tfoot th {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
 }
+
+.smooth {
+  transition: all 300ms ease-in-out;
+}

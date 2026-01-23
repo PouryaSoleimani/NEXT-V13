@@ -1,7 +1,7 @@
 //^ LOGIN PAGE
 
 
-const Page = (props: PageProps<"/primsa-auth/login">) => {
+const Page = (props: PageProps<"/prisma-auth/login">) => {
   return (
     <div className="screen center"></div>
   )
