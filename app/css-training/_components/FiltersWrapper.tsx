@@ -95,8 +95,10 @@ const FiltersWrapper = () => {
           <h2 className={cn('font-vazir rounded-sm w-full p-1 text-center  bg-stone-900 px-3 border-b-4', typeGender === 'FEMALE' ? 'border-b-pink-500' : typeGender === 'MALE' ? "border-b-blue-500" : 'border-b-stone-300')}>
             {typeGender === "ALL" ? "همه" : typeGender === "MALE" ? <span>آقایان</span> : <span>بانوان</span>}
           </h2>
-          <p className="">
+          <p className="bg-black p-3 rounded-lg">
             چکاپ&zwnj;فایند
+            <hr className="my-1 stroke-stone-500" />
+            چکاپ&nbsp;فایند
           </p>
         </div>
       </div>
@@ -106,3 +108,4 @@ const FiltersWrapper = () => {
 
 export default FiltersWrapper;
 
+1

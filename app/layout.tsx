@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { cookies } from "next/headers";
-import { PropsWithChildren, ReactElement } from "react";
+import { PropsWithChildren } from "react";
 import { Header } from "@/components/Header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
