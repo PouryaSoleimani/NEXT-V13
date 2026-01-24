@@ -83,6 +83,14 @@ html {
   --brand-color: #fabb14;
   --brand-background: #202020;
   --color-scheme: dark;
+  --color-secondary : #E41515
+}
+
+
+@theme {
+--color-primary :var(--brand-color); 
+--color-secondary : var(--color-secondary);
+--color-foreground : #101010
 }
 
 html {
