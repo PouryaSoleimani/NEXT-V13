@@ -7,8 +7,7 @@ export async function GET(){
 })
 }
 
-export async function POST (req : Request){
-  // const {username} = req.body
+export async function POST (){
   return NextResponse.json({
     message :'HELLO FORM POST REQUEST'
   })
