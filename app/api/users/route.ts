@@ -1,14 +1,16 @@
+//^ USERS ROUTE ============================================================================================================
+
 import { NextResponse } from "next/server";
 
-export async function GET(){
+export async function GET() {
 
   return NextResponse.json({
-  message : 'HELLO FROM API'
-})
+    message: 'HELLO FROM API'
+  })
 }
 
-export async function POST (){
+export async function POST() {
   return NextResponse.json({
-    message :'HELLO FORM POST REQUEST'
+    message: 'HELLO FORM POST REQUEST'
   })
 }

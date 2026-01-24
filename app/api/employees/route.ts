@@ -1,3 +1,5 @@
+//^ EMPLOYEES ROUTE ===================================================================================================
+
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -12,8 +14,10 @@ export async function GET() {
     { id: 8, name: "MAJID", job: 'DEVELOPER' }
 
   ]
+  
   return NextResponse.json({
     message: 'EMPLOYEES GET FUNCTION ',
     data: data
   })
+
 }
