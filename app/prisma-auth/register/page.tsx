@@ -20,7 +20,7 @@ export const FormSchemaPrisma = z.object({
 }, {
   path: ['confirmPassword'],
   error: 'تکرار رمز عبور با رمز عبور یکسان نیست',
-}) 
+})
 
 export type FormType = z.infer<typeof FormSchemaPrisma>
 
