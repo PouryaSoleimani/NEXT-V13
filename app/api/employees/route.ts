@@ -14,9 +14,11 @@ export async function GET() {
     { id: 8, name: "MAJID", job: 'DEVELOPER' }
 
   ]
-  
+
   return NextResponse.json({
+    ok: true,
     message: 'EMPLOYEES GET FUNCTION ',
+    length: data.length.toString() + ' ITEMS',
     data: data
   })
 

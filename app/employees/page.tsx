@@ -12,6 +12,7 @@ const Page = () => {
     return <div>IS LOADING</div>
   }
 
+  console.info('RESPONSE FROM API ROUTE => ', data)
 
   return (
     <div className='grid grid-cols-4 p-32 gap-3'>{data?.data.map((employee: { id: number, name: string, job: string }) => (
