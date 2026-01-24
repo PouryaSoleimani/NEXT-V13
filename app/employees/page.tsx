@@ -20,7 +20,7 @@ const Page = () => {
         key={employee.id}
         className='grid cursor-pointer hover:bg-primary hover:border-secondary hover:text-foreground text-stone-300 transition-all duration-300  place-items-center border-8 bg-stone-800 px-4 py-2 rounded-md border-stone-900'
       >
-        <span className='text-3xl font-black'>{employee.name} : {employee.job}</span>
+        <span className='text-md font-black'>{employee.name} : {employee.job}</span>
       </button>
     ))}</div>
   )

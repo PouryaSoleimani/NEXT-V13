@@ -90,7 +90,8 @@ html {
 @theme {
 --color-primary :var(--brand-color); 
 --color-secondary : var(--color-secondary);
---color-foreground : #101010
+--color-foreground : #101010;
+--text-md : 1rem
 }
 
 html {
