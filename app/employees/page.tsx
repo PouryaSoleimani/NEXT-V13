@@ -23,7 +23,8 @@ const Page = () => {
       >
         <span className='text-md font-black'>{employee.name} : {employee.job}</span>
       </button>
-    ))}</div>
+    ))}
+    </div>
   )
 }
 
