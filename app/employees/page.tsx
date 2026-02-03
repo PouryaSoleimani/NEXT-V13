@@ -24,7 +24,6 @@ const Page = () => {
     })
   }
 
-
   console.info('RESPONSE FROM API ROUTE => ', data)
 
   return (

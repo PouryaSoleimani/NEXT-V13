@@ -3,6 +3,7 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  
   const data = [
     { id: 1, name: "POURYA", job: 'DEVELOPER' },
     { id: 2, name: "MAMAD", job: 'DEVELOPER' },
