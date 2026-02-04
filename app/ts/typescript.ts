@@ -83,7 +83,7 @@ class Person {
   constructor(
     public name: string,
     public age: number
-  ) {}
+  ) { }
 
   setAge(age: number) {
     this.age = age;
@@ -96,7 +96,7 @@ class PersonExtended {
   constructor(
     private password: string,
     readonly username: string
-  ) {}
+  ) { }
   get getPassword() {
     return this.password;
   }
@@ -136,7 +136,7 @@ export const _ApiResponse: ApiResponseInterface = {
 };
 
 class CarClass {
-  constructor(public name: string) {}
+  constructor(public name: string) { }
   drive() {
     console.info("RUN");
   }
@@ -248,7 +248,7 @@ class CarClass2 implements SimpleCarInterface {
     public type: string,
     public color: string,
     public passengers: number
-  ) {}
+  ) { }
 }
 
 export const newSimpleCar = new CarClass2("BENZ", "C350", "SEDAN", "BLACK", 4);
@@ -434,7 +434,7 @@ class List<T extends number | string> {
   constructor(
     public name: string,
     public age: number
-  ) {}
+  ) { }
   setItems(newItem: T) {
     this.Items.push(newItem);
   }
@@ -465,48 +465,48 @@ console.info(UserExample);
 type OptionaUserInterface<T> = { [key in keyof T]?: T[key] };
 
 //? UTILITY TYPES ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________===
-type UserType = { name: string; age: number , job  : string  }  ;
+type UserType = { name: string; age: number, job: string };
 type combined2 = string | number | boolean | undefined | null
 type NullableType = string | number | boolean | null;
 
 // PARTIAL
 type UserPartial = Partial<UserType>;
-const Partialed : UserPartial ={name:" mamad" , age:32}
+const Partialed: UserPartial = { name: " mamad", age: 32 }
 console.info(Partialed)
 
 // REQUIRED
 type UserRequired = Required<UserType>;
-const RequiredObject : UserRequired = {name :'POURYA SOLEIMANI' , age : 32 , job : 'SENIOR FRONT-END DEVELOPER'}
+const RequiredObject: UserRequired = { name: 'POURYA SOLEIMANI', age: 32, job: 'SENIOR FRONT-END DEVELOPER' }
 console.info(RequiredObject)
 
 // READONLY 
 type UserReadonly = Readonly<UserType>;
-const ReadOnlyObject : UserReadonly = {name :"POURYA" , age  :32 , job : "SENIOR FRONT-END DEVELOPER"}
+const ReadOnlyObject: UserReadonly = { name: "POURYA", age: 32, job: "SENIOR FRONT-END DEVELOPER" }
 console.info(ReadOnlyObject)
 
 // NON NULLABLE
 type NotNullableType = NonNullable<NullableType>;
-const notNull : NotNullableType = 'HELLO'
+const notNull: NotNullableType = 'HELLO'
 console.info(notNull)
 
 // PICK
-type UserPick = Pick<UserType, "name"> & Pick<UserType ,"age" >;
-const Picked : UserPick = {age : 23 , name : "navid"}
-console.info('PICKED' , Picked)
+type UserPick = Pick<UserType, "name"> & Pick<UserType, "age">;
+const Picked: UserPick = { age: 23, name: "navid" }
+console.info('PICKED', Picked)
 
 // EXCLUDE 
-type UserExcluded = Exclude<combined2 , null>
-const ExcludedVariable : UserExcluded = 'hello'
+type UserExcluded = Exclude<combined2, null>
+const ExcludedVariable: UserExcluded = 'hello'
 console.info(ExcludedVariable)
 
 // EXTRACT 
-type UserExtracted = Extract<combined2 , string>
-const ExtractedVariable : UserExtracted = 'mamad'
+type UserExtracted = Extract<combined2, string>
+const ExtractedVariable: UserExtracted = 'mamad'
 console.info(ExtractedVariable)
 
 // OMIT
-type UserOmitted = Omit<UserType , "job">
-const OmittedVariable: UserOmitted = {age : 24 , name : "MAMAD"}
+type UserOmitted = Omit<UserType, "job">
+const OmittedVariable: UserOmitted = { age: 24, name: "MAMAD" }
 console.info(OmittedVariable)
 
 
