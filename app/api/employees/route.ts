@@ -1,20 +1,20 @@
 //^ EMPLOYEES ROUTE ===================================================================================================
 import { NextResponse } from "next/server";
 
+//* MOCK DATAS
+const data = [
+  { id: 1, name: "POURYA", job: 'FRONTEND DEVELOPER' },
+  { id: 2, name: "MAMAD", job: 'BACKEND DEVELOPER' },
+  { id: 3, name: "ALI", job: 'FULLSTACK DEVELOPER' },
+  { id: 4, name: "REZA", job: 'UI/UX DESIGNER' },
+  { id: 5, name: "MEHDI", job: 'DEVOPS' },
+  { id: 6, name: "MOJTABA", job: 'PROJECT MANAGER' },
+  { id: 7, name: "MORTEZA", job: 'FULLSTACK DEVELOPER' },
+  { id: 8, name: "MAJID", job: 'MOBILE DEVELOPER' }
+]
+
+// GET ALL EMPLOYEES
 export async function GET() {
-
-  const data = [
-    { id: 1, name: "POURYA", job: 'DEVELOPER' },
-    { id: 2, name: "MAMAD", job: 'DEVELOPER' },
-    { id: 3, name: "ALI", job: 'DEVELOPER' },
-    { id: 4, name: "REZA", job: 'DEVELOPER' },
-    { id: 5, name: "MEHDI", job: 'DEVELOPER' },
-    { id: 6, name: "MOJTABA", job: 'DEVELOPER' },
-    { id: 7, name: "MORTEZA", job: 'DEVELOPER' },
-    { id: 8, name: "MAJID", job: 'DEVELOPER' }
-
-  ]
-
   try {
     return NextResponse.json({
       ok: true,
@@ -26,6 +26,4 @@ export async function GET() {
       return { message: error.message }
     }
   }
-
-
 }
