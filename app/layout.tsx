@@ -1,13 +1,16 @@
 //^ LAYOUT.TSX
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { cookies } from "next/headers";
 import { PropsWithChildren } from "react";
-import { Header } from "@/components/Header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { SWRConfig } from "swr";
+
+import "./advanced-css/styles.css"
+import "./globals.css";
+
+
 
 export const metadata: Metadata = {
   title: { default: "⬛NEXT____TRAINING⬛", template: "NEXT_JS | %s" },
