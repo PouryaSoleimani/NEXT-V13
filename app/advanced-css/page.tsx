@@ -2,7 +2,7 @@
 function Page() {
   return (
     <div>
-      <h1></h1>
+      <h1>advanced css</h1>
     </div>
   )
 }
