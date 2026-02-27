@@ -9,7 +9,7 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-import React, { useState } from "react";
+import { useState } from "react";
 import Column from "./_components/Column";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 
