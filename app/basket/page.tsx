@@ -55,7 +55,9 @@ const BasketPage = () => {
 
       {/* BASKET AND CART COUNT */}
       <div className='absolute left-8 top-20 flex items-center-safe gap-2'>
-        <Button onClick={() => setShowModal(true)} variant={'blue'} className=' outline-4 outline-[#ffffff30]'><BiBasket className='size-6' /></Button>
+        <Button onClick={() => setShowModal(true)} variant={'blue'} className=' outline-4 outline-[#ffffff30]'>
+          <BiBasket className='size-6' />
+        </Button>
         <Badge variant={'secondary'} className='rounded-full w-8 h-8 font-bold'>{shopped.length}</Badge>
       </div>
 
