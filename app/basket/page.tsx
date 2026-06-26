@@ -40,7 +40,7 @@ const BasketPage = () => {
       <div className='grid grid-cols-4 justify-items-center items-center w-fit m-auto gap-8 outline-2 outline-[#dfdfdf30] p-16 rounded-xl'>
         {basket.map((b) => (
           <div key={b.id} className={cn('outline-4 flex flex-col gap-4 justify-center text-center outline-[#ffffff30] p-16 rounded-xl bg-neutral-900', !b.isAvailable && 'opacity-30 pointer-events-none cursor-not-allowed', b.title == 'AEROX' && "bg-yellow-400 outline-8 font-2xl outline-blue-500 text-blue-500")}>
-            <p>
+            <p className='text-3xl'>
               {b.title.toUpperCase()}
             </p>
             <p className={cn('bg-zinc-800 p-4 rounded-lg border-2 border-emerald-800 text-white',b.title == 'AEROX' && 'bg-blue-500 border-4 border-black')}>
