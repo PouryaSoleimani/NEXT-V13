@@ -35,6 +35,7 @@ const BasketPage = () => {
 
   return (
     <>
+
       {/* BASKET */}
       <div className='grid grid-cols-4 justify-items-center items-center w-fit m-auto gap-8 outline-2 outline-[#dfdfdf30] p-16 rounded-xl'>
         {basket.map((b) => (
@@ -86,6 +87,7 @@ const BasketPage = () => {
           <Button onClick={() => setShowModal(false)} variant={'red'} className='w-64 m-auto'>CLOSE</Button>
         </div>
       </div>
+
     </>
   )
 }
