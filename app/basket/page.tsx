@@ -80,7 +80,9 @@ const BasketPage = () => {
                 </p>
                 <p>{item.price.toLocaleString()}</p>
                 <p className='text-white'>{item.count.toLocaleString() ?? 1}</p>
-                <Button onClick={() => removeProduct(item)} variant={'red'} size={'default'} className='w-full'><Trash2 /></Button>
+                <Button onClick={() => removeProduct(item)} variant={'red'} size={'default'} className='w-full'>
+                  <Trash2 />
+                </Button>
               </Card>
             ))}
           </div>
