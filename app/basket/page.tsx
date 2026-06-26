@@ -6,7 +6,8 @@ import { cn } from '@/lib/utils'
 import { PackageSearch, Trash2 } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
-type SingleBasketItemType = { id: number, title: string, isAvailable: boolean, price: number }
+import { BiBasket } from 'react-icons/bi'
+type SingleBasketItemType = { id: number, title: string, isAvailable: boolean, price: number , count : number }
 
 const BasketPage = () => {
   const [basket, setBasket] = useState<SingleBasketItemType[]>(basketInit)
@@ -15,8 +16,11 @@ const BasketPage = () => {
 
   function addToCart(product: SingleBasketItemType) {
     let isInShop = shopped.find(p => p.id == product.id)
-    if (isInShop) return;
-    setShopped(prev => [...prev, product])
+    if (isInShop) {
+      isInShop.count  = isInShop.count + 1
+    } else {
+      setShopped(prev => [...prev, product])
+    }
     toast.success('Item added', { style: { backgroundColor: 'black', color: 'white', outline: '4px solid #ffffff20' } })
   }
 
@@ -26,7 +30,6 @@ const BasketPage = () => {
     setShopped(filtered)
     toast.success('Item Removed', { style: { backgroundColor: 'black', color: 'white', outline: '4px solid #ffffff20' } })
   }
-
 
 
   return (
@@ -49,7 +52,7 @@ const BasketPage = () => {
       </div>
 
       <div className='absolute left-8 top-20 flex items-center-safe gap-2'>
-        <Button onClick={() => setShowModal(true)} variant={'blue'} className=' outline-4 outline-[#ffffff30]'>Show Modal</Button>
+        <Button onClick={() => setShowModal(true)} variant={'blue'} className=' outline-4 outline-[#ffffff30]'><BiBasket className='size-6' /></Button>
         <Badge variant={'secondary'} className='rounded-full w-8 h-8 font-bold'>{shopped.length}</Badge>
       </div>
 
@@ -65,12 +68,13 @@ const BasketPage = () => {
                 </p>
               </div>
             ) : shopped.map(item => (
-              <Card key={item.id} className='flex p-3 bg-zinc-800 drop-shadow-2xl shadow-white/50 border-none h-fit outline-4 outline-white/30 hover:scale-105 transition-all duration-500 flex-col justify-center items-center'>
+              <Card key={item.id} className='flex p-3 bg-zinc-800 gap-3 drop-shadow-2xl shadow-white/50 border-none h-fit outline-4 outline-white/30 hover:scale-105 transition-all duration-500 flex-col justify-center items-center'>
                 <p>
                   {item.title.toUpperCase()}
                 </p>
                 <p>{item.price.toLocaleString()}</p>
-                <Button onClick={() => removeProduct(item)} variant={'red'} size={'default'}><Trash2 /></Button>
+                <p className='text-white'>{item.count.toLocaleString() ?? 1}</p>
+                <Button onClick={() => removeProduct(item)} variant={'red'} size={'default'} className='w-full'><Trash2 /></Button>
               </Card>
             ))}
           </div>
@@ -86,9 +90,9 @@ export default BasketPage
 
 
 const basketInit = [
-  { id: 1, title: 'macbook', isAvailable: true, price: 200_000_000 },
-  { id: 2, title: 'iphone', isAvailable: true, price: 200_000_000 },
-  { id: 3, title: 'airpod', isAvailable: true, price: 50_000_000 },
-  { id: 4, title: 'iwatch', isAvailable: true, price: 50_000_000 },
-  { id: 5, title: 'macmini', isAvailable: true, price: 100_000_000 },
+  { id: 1, title: 'macbook', isAvailable: true, price: 200_000_000  , count : 1},
+  { id: 2, title: 'iphone', isAvailable: true, price: 200_000_000  , count : 1},
+  { id: 3, title: 'airpod', isAvailable: true, price: 50_000_000  , count : 1},
+  { id: 4, title: 'iwatch', isAvailable: true, price: 50_000_000  , count : 1},
+  { id: 5, title: 'macmini', isAvailable: true, price: 100_000_000  , count : 1},
 ]
