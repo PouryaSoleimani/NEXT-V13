@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { PackageSearch, Trash2 } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { BiBasket } from 'react-icons/bi'
-type SingleBasketItemType = { id: number, title: string, isAvailable: boolean, price: number , count : number }
+
+type SingleBasketItemType = { id: number, title: string, isAvailable: boolean, price: number, count: number }
 
 const BasketPage = () => {
 
@@ -18,7 +19,7 @@ const BasketPage = () => {
   function addToCart(product: SingleBasketItemType) {
     let isInShop = shopped.find(p => p.id == product.id)
     if (isInShop) {
-      isInShop.count  = isInShop.count + 1
+      isInShop.count = isInShop.count + 1
     } else {
       setShopped(prev => [...prev, product])
     }
@@ -51,7 +52,7 @@ const BasketPage = () => {
           </div>
         ))}
       </div>
-        
+
       {/* BASKET AND CART COUNT */}
       <div className='absolute left-8 top-20 flex items-center-safe gap-2'>
         <Button onClick={() => setShowModal(true)} variant={'blue'} className=' outline-4 outline-[#ffffff30]'><BiBasket className='size-6' /></Button>
@@ -92,9 +93,9 @@ export default BasketPage
 
 
 const basketInit = [
-  { id: 1, title: 'macbook', isAvailable: true, price: 200_000_000  , count : 1},
-  { id: 2, title: 'iphone', isAvailable: true, price: 200_000_000  , count : 1},
-  { id: 3, title: 'airpod', isAvailable: true, price: 50_000_000  , count : 1},
-  { id: 4, title: 'iwatch', isAvailable: true, price: 50_000_000  , count : 1},
-  { id: 5, title: 'macmini', isAvailable: true, price: 100_000_000  , count : 1},
+  { id: 1, title: 'macbook', isAvailable: true, price: 200_000_000, count: 1 },
+  { id: 2, title: 'iphone', isAvailable: true, price: 200_000_000, count: 1 },
+  { id: 3, title: 'airpod', isAvailable: true, price: 50_000_000, count: 1 },
+  { id: 4, title: 'iwatch', isAvailable: true, price: 50_000_000, count: 1 },
+  { id: 5, title: 'macmini', isAvailable: true, price: 100_000_000, count: 1 },
 ]

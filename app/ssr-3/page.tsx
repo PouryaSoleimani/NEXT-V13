@@ -1,5 +1,4 @@
 "use server";
-
 import TodosWrapper2 from "./_components/TodosWrapper2";
 import useServerSideFetcher from "./_hooks/useServerSideFetcher";
 

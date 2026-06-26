@@ -1,6 +1,4 @@
-import React from "react";
 import { Separator } from "@radix-ui/react-separator";
-
 import TodoForm from "./_components/TodoForm";
 import TodoList from "./_components/TodoList";
 

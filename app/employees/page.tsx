@@ -19,9 +19,9 @@ const Page = () => {
         backgroundColor: 'black',
         color: '#f5f5f5',
         width: '300px',
-        borderRadius : '8px',
-        outline : '4px solid #ffffff30',
-        marginBlock : '8px'
+        borderRadius: '8px',
+        outline: '4px solid #ffffff30',
+        marginBlock: '8px'
       }
     })
   }
