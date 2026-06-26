@@ -10,6 +10,7 @@ import { BiBasket } from 'react-icons/bi'
 type SingleBasketItemType = { id: number, title: string, isAvailable: boolean, price: number , count : number }
 
 const BasketPage = () => {
+
   const [basket, setBasket] = useState<SingleBasketItemType[]>(basketInit)
   const [shopped, setShopped] = useState<SingleBasketItemType[]>([])
   const [showModal, setShowModal] = useState(false)
@@ -31,9 +32,9 @@ const BasketPage = () => {
     toast.success('Item Removed', { style: { backgroundColor: 'black', color: 'white', outline: '4px solid #ffffff20' } })
   }
 
-
   return (
     <>
+      {/* BASKET */}
       <div className='grid grid-cols-4 justify-items-center items-center w-fit m-auto gap-8 outline-2 outline-[#dfdfdf30] p-16 rounded-xl'>
         {basket.map((b) => (
           <div key={b.id} className={cn('outline-4 flex flex-col gap-4 justify-center text-center outline-[#ffffff30] p-16 rounded-xl bg-neutral-900', !b.isAvailable && 'opacity-30 pointer-events-none cursor-not-allowed')}>
@@ -50,7 +51,8 @@ const BasketPage = () => {
           </div>
         ))}
       </div>
-
+        
+      {/* BASKET AND CART COUNT */}
       <div className='absolute left-8 top-20 flex items-center-safe gap-2'>
         <Button onClick={() => setShowModal(true)} variant={'blue'} className=' outline-4 outline-[#ffffff30]'><BiBasket className='size-6' /></Button>
         <Badge variant={'secondary'} className='rounded-full w-8 h-8 font-bold'>{shopped.length}</Badge>
