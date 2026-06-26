@@ -14,12 +14,14 @@ const Page = () => {
 
   function toastHandler(name: string) {
     toast.success(name.toUpperCase(), {
-      position: "top-center",
+      position: "top-right",
       style: {
         backgroundColor: 'black',
         color: '#f5f5f5',
         width: '300px',
-        borderBottom: '3px solid #f5f5f5'
+        borderRadius : '8px',
+        outline : '4px solid #ffffff30',
+        marginBlock : '8px'
       }
     })
   }
