@@ -12,10 +12,7 @@ const TodoListPage = () => {
           Todo List
         </h1>
         <TodoForm />
-        <Separator
-          orientation='horizontal'
-          className='h-1 rounded-xl w-full bg-zinc-800 my-4'
-        />
+        <Separator orientation='horizontal' className='h-1 rounded-xl w-full bg-zinc-800 my-4' />
         <TodoList />
       </div>
     </div>
