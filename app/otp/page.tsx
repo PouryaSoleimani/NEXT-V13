@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form";
-import {InputOTP, InputOTPGroup, InputOTPSlot, } from "@/components/ui/input-otp";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form";
+import { InputOTP, InputOTPGroup, InputOTPSlot, } from "@/components/ui/input-otp";
 import Logger from "@/hooks/Logger";
 import { InfoIcon } from "lucide-react";
 
@@ -16,6 +16,7 @@ const FormSchema = z.object({
 });
 
 export default function InputOTPForm() {
+
   const form = useForm<z.infer<typeof FormSchema>>({
     mode: "onSubmit",
     resolver: zodResolver(FormSchema),
