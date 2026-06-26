@@ -39,17 +39,17 @@ const BasketPage = () => {
       {/* BASKET */}
       <div className='grid grid-cols-4 justify-items-center items-center w-fit m-auto gap-8 outline-2 outline-[#dfdfdf30] p-16 rounded-xl'>
         {basket.map((b) => (
-          <div key={b.id} className={cn('outline-4 flex flex-col gap-4 justify-center text-center outline-[#ffffff30] p-16 rounded-xl bg-neutral-900', !b.isAvailable && 'opacity-30 pointer-events-none cursor-not-allowed')}>
+          <div key={b.id} className={cn('outline-4 flex flex-col gap-4 justify-center text-center outline-[#ffffff30] p-16 rounded-xl bg-neutral-900', !b.isAvailable && 'opacity-30 pointer-events-none cursor-not-allowed', b.title == 'AEROX' && "bg-yellow-400 outline-8 font-2xl outline-blue-500 text-blue-500")}>
             <p>
               {b.title.toUpperCase()}
             </p>
-            <p className='bg-zinc-800 p-4 rounded-lg border-2 border-emerald-800'>
+            <p className={cn('bg-zinc-800 p-4 rounded-lg border-2 border-emerald-800 text-white',b.title == 'AEROX' && 'bg-blue-500 border-4 border-black')}>
               $ {b.price.toLocaleString()}
             </p>
-            <p className={b.isAvailable ? 'text-emerald-800' : 'text-red-800'}>
+            <p className={cn(b.isAvailable ? 'text-emerald-800' : 'text-red-800', b.title == 'AEROX' && 'text-blue-500')}>
               {b.isAvailable ? 'AVAILABLE' : "NOT AVAILABLE"}
             </p>
-            <Button variant={'success'} size={'lg'} onClick={() => addToCart(b)}>ADD TO CART</Button>
+            <Button variant={'default'} size={'lg'} onClick={() => addToCart(b)} className={cn(b.title == 'AEROX' ? 'bg-blue-600' : "bg-white text-black")}>ADD TO CART</Button>
           </div>
         ))}
       </div>
@@ -74,7 +74,7 @@ const BasketPage = () => {
                 </p>
               </div>
             ) : shopped.map(item => (
-              <Card key={item.id} className='flex p-3 bg-zinc-800 gap-3 drop-shadow-2xl shadow-white/50 border-none h-fit outline-4 outline-white/30 hover:scale-105 transition-all duration-500 flex-col justify-center items-center'>
+              <Card key={item.id} className={cn('flex p-3 bg-zinc-800 gap-3 drop-shadow-2xl shadow-white/50 border-none h-fit outline-4 outline-white/30 hover:scale-105 transition-all duration-500 flex-col justify-center items-center', item.title == 'AEROX' && "bg-yellow-400 outline-8 outline-blue-600 ")}>
                 <p>
                   {item.title.toUpperCase()}
                 </p>
@@ -104,4 +104,6 @@ const basketInit = [
   { id: 3, title: 'airpod', isAvailable: true, price: 50_000_000, count: 1 },
   { id: 4, title: 'iwatch', isAvailable: true, price: 50_000_000, count: 1 },
   { id: 5, title: 'macmini', isAvailable: true, price: 100_000_000, count: 1 },
+  { id: 6, title: 'AEROX', isAvailable: true, price: 350_000_000, count: 1 },
+
 ]
