@@ -23,20 +23,20 @@ const BasketPage = () => {
     } else {
       setShopped(prev => [...prev, product])
     }
-    toast.success('Item added', { style: { backgroundColor: 'black', color: 'white', outline: '4px solid #ffffff20' } })
+    toast.success('Congratulations 🎉👌', { style: { backgroundColor: 'black', color: 'white', outline: '4px solid #ffffff20' } })
   }
 
   function removeProduct(product: SingleBasketItemType) {
     const copy = [...shopped]
     const filtered = copy.filter(i => i.id !== product.id)
     setShopped(filtered)
-    toast.success('Item Removed', { style: { backgroundColor: 'black', color: 'white', outline: '4px solid #ffffff20' } })
+    toast.error('Item Removed', { style: { backgroundColor: 'black', color: 'white', outline: '4px solid #ffffff20' } })
   }
 
   return (
     <>
 
-      {/* BASKET */}46
+      {/* BASKET */}
       <div className='grid grid-cols-4 justify-items-center items-center w-fit m-auto gap-8 outline-2 outline-[#dfdfdf30] p-16 rounded-xl'>
         {basket.map((b) => (
           <div key={b.id} className={cn('outline-4 flex flex-col gap-4 justify-center text-center outline-[#ffffff30] p-16 rounded-xl bg-neutral-900', !b.isAvailable && 'opacity-30 pointer-events-none cursor-not-allowed', b.title == 'AEROX' && "bg-yellow-400 outline-8 font-2xl outline-blue-500 text-blue-500")}>
