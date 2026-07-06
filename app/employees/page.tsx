@@ -4,8 +4,8 @@ import toast from 'react-hot-toast'
 import useSWR from 'swr'
 
 const employeesFetcher = () => axios.get('/api/employees').then(res => res.data)
-const Page = () => {
 
+const Page = () => {
   const { data, isLoading } = useSWR('/api/employees', employeesFetcher)
 
   if (isLoading) {
